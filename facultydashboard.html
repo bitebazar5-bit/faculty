@@ -7,790 +7,983 @@
 <title>Black Terminal — Faculty Dashboard</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
 
 <style>
 
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
 }
 
 :root{
-  --bg:#050711;
-  --card:rgba(14,18,37,.80);
-  --card2:rgba(255,255,255,.035);
-  --border:rgba(255,255,255,.09);
+ --bg:#050711;
+ --card:rgba(14,18,37,.82);
+ --card2:rgba(255,255,255,.035);
+ --border:rgba(255,255,255,.09);
 
-  --cyan:#00eaff;
-  --purple:#9b5cff;
-  --pink:#ff3cac;
-  --green:#00ff9d;
-  --yellow:#ffd166;
-  --red:#ff4d6d;
+ --cyan:#00eaff;
+ --purple:#9b5cff;
+ --pink:#ff3cac;
+ --green:#00ff9d;
+ --yellow:#ffd166;
+ --red:#ff4d6d;
 
-  --text:#f5f7ff;
-  --muted:#8991ad;
+ --text:#f5f7ff;
+ --muted:#8991ad;
 }
 
 html{
-  background:var(--bg);
+ background:var(--bg);
 }
 
 body{
 
-  min-height:100vh;
+ min-height:100vh;
 
-  color:var(--text);
+ color:var(--text);
 
-  font-family:"Plus Jakarta Sans",sans-serif;
+ font-family:"Plus Jakarta Sans",sans-serif;
 
-  background:
-    radial-gradient(
-      circle at 10% 8%,
-      rgba(0,234,255,.12),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 90% 15%,
-      rgba(155,92,255,.14),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 50% 100%,
-      rgba(255,60,172,.08),
-      transparent 35%
-    ),
-    var(--bg);
+ background:
+ radial-gradient(
+   circle at 10% 8%,
+   rgba(0,234,255,.12),
+   transparent 30%
+ ),
+ radial-gradient(
+   circle at 90% 15%,
+   rgba(155,92,255,.14),
+   transparent 30%
+ ),
+ radial-gradient(
+   circle at 50% 100%,
+   rgba(255,60,172,.08),
+   transparent 35%
+ ),
+ var(--bg);
 }
 
 body:before{
 
-  content:"";
+ content:"";
 
-  position:fixed;
+ position:fixed;
 
-  inset:0;
+ inset:0;
 
-  pointer-events:none;
+ pointer-events:none;
 
-  background-image:
-    linear-gradient(
-      rgba(255,255,255,.017) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,.017) 1px,
-      transparent 1px
-    );
+ background-image:
+ linear-gradient(
+   rgba(255,255,255,.017) 1px,
+   transparent 1px
+ ),
+ linear-gradient(
+   90deg,
+   rgba(255,255,255,.017) 1px,
+   transparent 1px
+ );
 
-  background-size:40px 40px;
+ background-size:40px 40px;
 }
 
 .app{
 
-  width:min(1100px,100%);
+ width:min(1100px,100%);
 
-  margin:auto;
+ margin:auto;
 
-  padding:18px 14px 100px;
+ padding:18px 14px 100px;
 
-  position:relative;
+ position:relative;
 
-  z-index:1;
+ z-index:1;
 }
 
 
-/* =========================
+/* =================================
    TOP BAR
-========================= */
+================================= */
 
 .topbar{
 
-  display:flex;
+ display:flex;
 
-  align-items:center;
+ align-items:center;
 
-  justify-content:space-between;
+ justify-content:space-between;
 
-  margin-bottom:18px;
+ margin-bottom:18px;
 }
 
 .logo{
 
-  font-family:Orbitron;
+ font-family:Orbitron;
 
-  font-size:19px;
+ font-size:19px;
 
-  font-weight:800;
+ font-weight:800;
 
-  letter-spacing:1px;
+ letter-spacing:1px;
 }
 
 .logo span{
-  color:var(--cyan);
+ color:var(--cyan);
 }
 
 .status{
 
-  display:flex;
+ display:flex;
 
-  align-items:center;
+ align-items:center;
 
-  gap:7px;
+ gap:7px;
 
-  color:var(--green);
+ color:var(--green);
 
-  font-size:10px;
+ font-size:10px;
 
-  font-weight:700;
+ font-weight:700;
 }
 
 .dot{
 
-  width:7px;
+ width:7px;
 
-  height:7px;
+ height:7px;
 
-  border-radius:50%;
+ border-radius:50%;
 
-  background:var(--green);
+ background:var(--green);
 
-  box-shadow:0 0 14px var(--green);
+ box-shadow:
+ 0 0 14px var(--green);
 }
 
 
-/* =========================
+/* =================================
    PROFILE
-========================= */
+================================= */
 
 .profile{
 
-  display:flex;
+ display:flex;
 
-  align-items:center;
+ align-items:center;
 
-  gap:16px;
+ gap:16px;
 
-  padding:20px;
+ padding:20px;
 
-  margin-bottom:15px;
+ margin-bottom:15px;
 
-  border:1px solid var(--border);
+ border:1px solid var(--border);
 
-  border-radius:24px;
+ border-radius:24px;
 
-  background:var(--card);
+ background:var(--card);
 
-  backdrop-filter:blur(18px);
+ backdrop-filter:blur(18px);
 }
 
 .avatar{
 
-  width:66px;
+ width:66px;
 
-  height:66px;
+ height:66px;
 
-  flex-shrink:0;
+ flex-shrink:0;
 
-  border-radius:20px;
+ border-radius:20px;
 
-  display:grid;
+ display:grid;
 
-  place-items:center;
+ place-items:center;
 
-  overflow:hidden;
+ overflow:hidden;
 
-  font-family:Orbitron;
+ font-family:Orbitron;
 
-  font-size:25px;
+ font-size:25px;
 
-  font-weight:800;
+ font-weight:800;
 
-  color:white;
+ color:white;
 
-  background:
-    linear-gradient(
-      135deg,
-      #3bbcff,
-      #8a5cff,
-      #e43cac
-    );
-
-  box-shadow:
-    0 0 30px rgba(0,234,255,.12);
+ background:
+ linear-gradient(
+   135deg,
+   #3bbcff,
+   #8a5cff,
+   #e43cac
+ );
 }
 
 .avatar img{
 
-  width:100%;
+ width:100%;
 
-  height:100%;
+ height:100%;
 
-  object-fit:cover;
+ object-fit:cover;
 }
 
 .profile h1{
 
-  font-size:21px;
+ font-size:21px;
 
-  margin-bottom:5px;
+ margin-bottom:5px;
 }
 
 .profile p{
 
-  color:var(--muted);
+ color:var(--muted);
 
-  font-size:11px;
+ font-size:11px;
 }
 
 .badge{
 
-  display:inline-block;
+ display:inline-block;
 
-  margin-top:8px;
+ margin-top:8px;
 
-  padding:5px 10px;
+ padding:5px 10px;
 
-  border-radius:20px;
+ border-radius:20px;
 
-  color:var(--cyan);
+ color:var(--cyan);
 
-  font-size:9px;
+ font-size:9px;
 
-  font-weight:800;
+ font-weight:800;
 
-  background:rgba(0,234,255,.07);
+ background:rgba(0,234,255,.07);
 
-  border:1px solid rgba(0,234,255,.20);
+ border:1px solid rgba(0,234,255,.20);
+}
+
+.badge.green{
+
+ color:var(--green);
+
+ background:rgba(0,255,157,.07);
+
+ border-color:rgba(0,255,157,.2);
+}
+
+.badge.red{
+
+ color:#ff8098;
+
+ background:rgba(255,77,109,.08);
+
+ border-color:rgba(255,77,109,.2);
 }
 
 
-/* =========================
+/* =================================
    STATS
-========================= */
+================================= */
 
 .stats-grid{
 
-  display:grid;
+ display:grid;
 
-  grid-template-columns:
-    repeat(5,1fr);
+ grid-template-columns:
+ repeat(5,1fr);
 
-  gap:12px;
+ gap:12px;
 }
 
 .card{
 
-  padding:17px;
+ padding:17px;
 
-  border:1px solid var(--border);
+ border:1px solid var(--border);
 
-  border-radius:20px;
+ border-radius:20px;
 
-  background:var(--card);
+ background:var(--card);
 
-  backdrop-filter:blur(18px);
+ backdrop-filter:blur(18px);
 }
 
 .stat{
 
-  min-height:125px;
+ min-height:125px;
 }
 
 .stat i{
 
-  font-size:23px;
+ font-size:23px;
 
-  color:var(--cyan);
+ color:var(--cyan);
 }
 
 .label{
 
-  margin-top:13px;
+ margin-top:13px;
 
-  color:var(--muted);
+ color:var(--muted);
 
-  font-size:10px;
+ font-size:10px;
 }
 
 .value{
 
-  margin-top:5px;
+ margin-top:5px;
 
-  font-family:Orbitron;
+ font-family:Orbitron;
 
-  font-size:20px;
+ font-size:20px;
 
-  font-weight:700;
+ font-weight:700;
 }
 
 .green{
-  color:var(--green);
+ color:var(--green);
 }
 
 .yellow{
-  color:var(--yellow);
+ color:var(--yellow);
 }
 
 .pink{
-  color:var(--pink);
+ color:var(--pink);
 }
 
 .purple{
-  color:var(--purple);
+ color:var(--purple);
 }
 
 .cyan{
-  color:var(--cyan);
+ color:var(--cyan);
 }
 
 .red{
-  color:var(--red);
+ color:var(--red);
 }
 
 
-/* =========================
+/* =================================
    SECTION
-========================= */
+================================= */
 
 .section{
-
-  margin-top:17px;
+ margin-top:17px;
 }
 
 .section-title{
 
-  margin-bottom:10px;
+ margin-bottom:10px;
 
-  font-family:Orbitron;
+ font-family:Orbitron;
 
-  font-size:13px;
+ font-size:13px;
 
-  letter-spacing:.5px;
+ letter-spacing:.5px;
 }
 
 
-/* =========================
+/* =================================
+   SCHEDULE CARD
+================================= */
+
+.schedule-card{
+
+ position:relative;
+
+ overflow:hidden;
+}
+
+.schedule-top{
+
+ display:flex;
+
+ align-items:center;
+
+ justify-content:space-between;
+
+ gap:10px;
+
+ margin-bottom:13px;
+}
+
+.date-label{
+
+ color:var(--muted);
+
+ font-size:10px;
+}
+
+.schedule-list{
+
+ display:flex;
+
+ flex-direction:column;
+
+ gap:9px;
+}
+
+.schedule-item{
+
+ display:grid;
+
+ grid-template-columns:
+ auto 1fr auto;
+
+ gap:12px;
+
+ align-items:center;
+
+ padding:13px;
+
+ border-radius:15px;
+
+ background:rgba(255,255,255,.035);
+
+ border:1px solid var(--border);
+}
+
+.schedule-icon{
+
+ width:38px;
+
+ height:38px;
+
+ border-radius:12px;
+
+ display:grid;
+
+ place-items:center;
+
+ background:rgba(0,234,255,.08);
+
+ color:var(--cyan);
+
+ font-size:18px;
+}
+
+.schedule-name{
+
+ font-size:11px;
+
+ font-weight:800;
+}
+
+.schedule-time{
+
+ margin-top:4px;
+
+ color:var(--muted);
+
+ font-size:9px;
+}
+
+.schedule-status{
+
+ text-align:right;
+
+ font-size:9px;
+
+ font-weight:800;
+}
+
+.status-ready{
+ color:var(--green);
+}
+
+.status-blocked{
+ color:var(--red);
+}
+
+.status-done{
+ color:var(--purple);
+}
+
+.status-wait{
+ color:var(--yellow);
+}
+
+.no-class{
+
+ padding:25px 15px;
+
+ text-align:center;
+}
+
+.no-class-icon{
+
+ width:55px;
+
+ height:55px;
+
+ margin:0 auto 10px;
+
+ display:grid;
+
+ place-items:center;
+
+ border-radius:18px;
+
+ color:var(--red);
+
+ background:rgba(255,77,109,.08);
+
+ border:1px solid rgba(255,77,109,.18);
+
+ font-size:25px;
+}
+
+.no-class h3{
+
+ font-size:13px;
+
+ margin-bottom:5px;
+}
+
+.no-class p{
+
+ color:var(--muted);
+
+ font-size:10px;
+
+ line-height:1.5;
+}
+
+
+/* =================================
    ATTENDANCE
-========================= */
+================================= */
 
 .attendance-grid{
 
-  display:grid;
+ display:grid;
 
-  grid-template-columns:
-    repeat(2,1fr);
+ grid-template-columns:
+ repeat(2,1fr);
 
-  gap:12px;
+ gap:12px;
 }
 
 .time-box{
 
-  padding:16px;
+ padding:16px;
 
-  border:1px solid var(--border);
+ border:1px solid var(--border);
 
-  border-radius:16px;
+ border-radius:16px;
 
-  background:var(--card2);
+ background:var(--card2);
 }
 
 .time-box small{
 
-  color:var(--muted);
+ color:var(--muted);
 
-  font-size:10px;
+ font-size:10px;
 }
 
 .time{
 
-  margin-top:8px;
+ margin-top:8px;
 
-  font-family:Orbitron;
+ font-family:Orbitron;
 
-  font-size:19px;
+ font-size:19px;
 
-  font-weight:700;
+ font-weight:700;
 }
 
 .running{
-  color:var(--green);
+ color:var(--green);
 }
 
 .actions{
 
-  display:flex;
+ display:flex;
 
-  gap:10px;
+ gap:10px;
 
-  margin-top:12px;
+ margin-top:12px;
 }
 
 button{
 
-  border:0;
+ border:0;
 
-  cursor:pointer;
+ cursor:pointer;
 
-  padding:13px 16px;
+ padding:13px 16px;
 
-  border-radius:13px;
+ border-radius:13px;
 
-  font-weight:800;
+ font-weight:800;
 
-  font-size:11px;
+ font-size:11px;
 
-  background:var(--cyan);
+ background:var(--cyan);
 
-  color:#041018;
+ color:#041018;
 
-  transition:.2s;
+ transition:.2s;
 }
 
 button:hover{
-  transform:translateY(-1px);
+ transform:translateY(-1px);
 }
 
 button:disabled{
 
-  opacity:.42;
+ opacity:.40;
 
-  cursor:not-allowed;
+ cursor:not-allowed;
 
-  transform:none;
+ transform:none;
 }
 
 button.danger{
 
-  color:white;
+ color:white;
 
-  background:var(--red);
+ background:var(--red);
 }
 
 button.secondary{
 
-  color:var(--text);
+ color:var(--text);
 
-  background:rgba(255,255,255,.06);
+ background:rgba(255,255,255,.06);
 
-  border:1px solid var(--border);
+ border:1px solid var(--border);
 }
 
 
-/* =========================
+/* =================================
    MESSAGE
-========================= */
+================================= */
 
 .message{
 
-  display:none;
+ display:none;
 
-  margin-top:10px;
+ margin-top:10px;
 
-  padding:11px;
+ padding:11px;
 
-  border-radius:12px;
+ border-radius:12px;
 
-  font-size:10px;
+ font-size:10px;
 
-  line-height:1.5;
+ line-height:1.5;
 }
 
 .message.show{
-  display:block;
+ display:block;
 }
 
 .message.success{
 
-  color:var(--green);
+ color:var(--green);
 
-  background:rgba(0,255,157,.07);
+ background:rgba(0,255,157,.07);
 
-  border:1px solid rgba(0,255,157,.20);
+ border:1px solid rgba(0,255,157,.20);
 }
 
 .message.error{
 
-  color:#ff8098;
+ color:#ff8098;
 
-  background:rgba(255,77,109,.08);
+ background:rgba(255,77,109,.08);
 
-  border:1px solid rgba(255,77,109,.20);
+ border:1px solid rgba(255,77,109,.20);
+}
+
+.message.info{
+
+ color:var(--cyan);
+
+ background:rgba(0,234,255,.07);
+
+ border:1px solid rgba(0,234,255,.18);
 }
 
 
-/* =========================
-   TODAY SESSION
-========================= */
+/* =================================
+   TABLE
+================================= */
 
 .session-table{
 
-  overflow-x:auto;
+ overflow-x:auto;
 }
 
 table{
 
-  width:100%;
+ width:100%;
 
-  min-width:650px;
+ min-width:650px;
 
-  border-collapse:collapse;
+ border-collapse:collapse;
 }
 
 th{
 
-  padding:12px;
+ padding:12px;
 
-  color:var(--muted);
+ color:var(--muted);
 
-  font-size:9px;
+ font-size:9px;
 
-  text-align:left;
+ text-align:left;
 
-  border-bottom:1px solid var(--border);
+ border-bottom:1px solid var(--border);
 }
 
 td{
 
-  padding:13px 12px;
+ padding:13px 12px;
 
-  font-size:10px;
+ font-size:10px;
 
-  border-bottom:1px solid rgba(255,255,255,.05);
+ border-bottom:
+ 1px solid rgba(255,255,255,.05);
 }
 
 .earning{
 
-  color:var(--green);
+ color:var(--green);
 
-  font-weight:800;
+ font-weight:800;
 }
 
 .rate{
 
-  color:var(--yellow);
+ color:var(--yellow);
 
-  font-weight:700;
+ font-weight:700;
 }
 
 .empty{
 
-  padding:25px;
+ padding:25px;
 
-  text-align:center;
+ text-align:center;
 
-  color:var(--muted);
+ color:var(--muted);
 
-  font-size:11px;
+ font-size:11px;
 }
 
 
-/* =========================
+/* =================================
    MONTHLY
-========================= */
+================================= */
 
 .month-grid{
 
-  display:grid;
+ display:grid;
 
-  grid-template-columns:
-    repeat(4,1fr);
+ grid-template-columns:
+ repeat(4,1fr);
 
-  gap:12px;
+ gap:12px;
 }
 
 .month-item{
-
-  padding:5px;
+ padding:5px;
 }
 
 .month-item .label{
-  margin-top:0;
+ margin-top:0;
 }
 
 
-/* =========================
+/* =================================
    FILTER
-========================= */
+================================= */
 
 .filters{
 
-  display:flex;
+ display:flex;
 
-  gap:8px;
+ gap:8px;
 
-  overflow-x:auto;
+ overflow-x:auto;
 
-  padding-bottom:4px;
+ padding-bottom:4px;
 }
 
 .filter{
 
-  flex:0 0 auto;
+ flex:0 0 auto;
 
-  padding:9px 13px;
+ padding:9px 13px;
 
-  border-radius:20px;
+ border-radius:20px;
 
-  border:1px solid var(--border);
+ border:1px solid var(--border);
 
-  background:rgba(255,255,255,.045);
+ background:rgba(255,255,255,.045);
 
-  color:var(--muted);
+ color:var(--muted);
 
-  font-size:9px;
+ font-size:9px;
 
-  font-weight:800;
+ font-weight:800;
 
-  cursor:pointer;
+ cursor:pointer;
 }
 
 .filter.active{
 
-  color:#041018;
+ color:#041018;
 
-  background:var(--cyan);
+ background:var(--cyan);
 
-  border-color:var(--cyan);
+ border-color:var(--cyan);
 }
 
 
-/* =========================
+/* =================================
    LOADING
-========================= */
+================================= */
 
 .loading{
 
-  padding:20px;
+ padding:20px;
 
-  text-align:center;
+ text-align:center;
 
-  color:var(--cyan);
+ color:var(--cyan);
 
-  font-size:11px;
+ font-size:11px;
 }
 
 
-/* =========================
+/* =================================
    LOGOUT
-========================= */
+================================= */
 
 .logout{
-
-  margin-top:15px;
+ margin-top:15px;
 }
 
 .logout button{
 
-  width:100%;
+ width:100%;
 
-  background:rgba(255,77,109,.08);
+ background:rgba(255,77,109,.08);
 
-  border:1px solid rgba(255,77,109,.22);
+ border:1px solid rgba(255,77,109,.22);
 
-  color:#ff8098;
+ color:#ff8098;
 }
 
 
-/* =========================
+/* =================================
    MOBILE
-========================= */
+================================= */
 
 @media(max-width:900px){
 
-  .stats-grid{
+ .stats-grid{
 
-    grid-template-columns:
-      repeat(2,1fr);
-  }
+   grid-template-columns:
+   repeat(2,1fr);
+ }
 
-  .stats-grid .stat:last-child{
+ .stats-grid .stat:last-child{
 
-    grid-column:
-      1 / -1;
-  }
+   grid-column:
+   1 / -1;
+ }
 
 }
 
 @media(max-width:600px){
 
-  .app{
+ .app{
 
-    padding:
-      15px
-      11px
-      90px;
-  }
+   padding:
+   15px
+   11px
+   90px;
+ }
 
-  .logo{
+ .logo{
+   font-size:16px;
+ }
 
-    font-size:16px;
-  }
+ .profile{
+   padding:16px;
+ }
 
-  .profile{
+ .profile h1{
+   font-size:18px;
+ }
 
-    padding:16px;
-  }
+ .schedule-item{
 
-  .profile h1{
+   grid-template-columns:
+   auto 1fr;
+ }
 
-    font-size:18px;
-  }
+ .schedule-status{
 
-  .attendance-grid{
+   grid-column:
+   2;
 
-    grid-template-columns:
-      repeat(2,1fr);
-  }
+   text-align:left;
+ }
 
-  .month-grid{
+ .attendance-grid{
 
-    grid-template-columns:
-      repeat(2,1fr);
-  }
+   grid-template-columns:
+   repeat(2,1fr);
+ }
+
+ .month-grid{
+
+   grid-template-columns:
+   repeat(2,1fr);
+ }
 
 }
 
 @media(max-width:400px){
 
-  .stats-grid{
+ .stats-grid{
+   gap:9px;
+ }
 
-    gap:9px;
-  }
+ .card{
+   padding:14px;
+ }
 
-  .card{
+ .value{
+   font-size:17px;
+ }
 
-    padding:14px;
-  }
+ .attendance-grid{
+   gap:8px;
+ }
 
-  .value{
+ .time{
+   font-size:16px;
+ }
 
-    font-size:17px;
-  }
+ .actions{
+   flex-direction:column;
+ }
 
-  .attendance-grid{
-
-    gap:8px;
-  }
-
-  .time{
-
-    font-size:16px;
-  }
-
-  .actions{
-
-    flex-direction:column;
-  }
-
-  button{
-
-    width:100%;
-  }
+ button{
+   width:100%;
+ }
 
 }
 
@@ -803,535 +996,638 @@ td{
 <div class="app">
 
 
-  <!-- =========================
-       TOP BAR
-  ========================== -->
+<!-- =========================================
+     TOP
+========================================= -->
 
-  <div class="topbar">
+<div class="topbar">
 
-    <div class="logo">
-      BLACK<span>TERMINAL</span>
-    </div>
+ <div class="logo">
+   BLACK<span>TERMINAL</span>
+ </div>
 
-    <div class="status">
-      <span class="dot"></span>
-      FACULTY PORTAL
-    </div>
+ <div class="status">
+   <span class="dot"></span>
+   FACULTY PORTAL
+ </div>
 
-  </div>
+</div>
 
 
-  <!-- =========================
-       PROFILE
-  ========================== -->
+<!-- =========================================
+     PROFILE
+========================================= -->
 
-  <div class="profile">
+<div class="profile">
 
-    <div class="avatar" id="avatar">
-      F
-    </div>
+ <div
+   class="avatar"
+   id="avatar"
+ >
+   F
+ </div>
 
-    <div>
+ <div>
 
-      <h1 id="facultyName">
-        Loading...
-      </h1>
+   <h1 id="facultyName">
+     Loading...
+   </h1>
 
-      <p id="facultyMobile">
-        Faculty ID: —
-      </p>
+   <p id="facultyMobile">
+     Faculty ID: —
+   </p>
 
-      <span class="badge" id="facultyStatus">
-        CHECKING...
-      </span>
+   <span
+     class="badge"
+     id="facultyStatus"
+   >
+     CHECKING...
+   </span>
 
-    </div>
+ </div>
 
-  </div>
+</div>
 
 
-  <!-- =========================
-       MAIN STATS
-  ========================== -->
+<!-- =========================================
+     STATS
+========================================= -->
 
-  <div class="stats-grid">
+<div class="stats-grid">
 
 
-    <div class="card stat">
+ <div class="card stat">
 
-      <i class="ri-time-line"></i>
+   <i class="ri-time-line"></i>
 
-      <div class="label">
-        TODAY'S TEACHING
-      </div>
+   <div class="label">
+     TODAY'S TEACHING
+   </div>
 
-      <div
-        class="value"
-        id="todayHours"
-      >
-        0h 0m
-      </div>
+   <div
+     class="value"
+     id="todayHours"
+   >
+     0h 0m
+   </div>
 
-    </div>
+ </div>
 
 
-    <div class="card stat">
+ <div class="card stat">
 
-      <i class="ri-calendar-check-line"></i>
+   <i class="ri-calendar-check-line"></i>
 
-      <div class="label">
-        WORK DAYS
-      </div>
+   <div class="label">
+     WORK DAYS
+   </div>
 
-      <div
-        class="value purple"
-        id="workDays"
-      >
-        0
-      </div>
+   <div
+     class="value purple"
+     id="workDays"
+   >
+     0
+   </div>
 
-    </div>
+ </div>
 
 
-    <div class="card stat">
+ <div class="card stat">
 
-      <i class="ri-wallet-3-line"></i>
+   <i class="ri-wallet-3-line"></i>
 
-      <div class="label">
-        TODAY'S EARNING
-      </div>
+   <div class="label">
+     TODAY'S EARNING
+   </div>
 
-      <div
-        class="value green"
-        id="todayEarning"
-      >
-        ₹0
-      </div>
+   <div
+     class="value green"
+     id="todayEarning"
+   >
+     ₹0
+   </div>
 
-    </div>
+ </div>
 
 
-    <div class="card stat">
+ <div class="card stat">
 
-      <i class="ri-price-tag-3-line"></i>
+   <i class="ri-price-tag-3-line"></i>
 
-      <div class="label">
-        HOURLY RATE
-      </div>
+   <div class="label">
+     HOURLY RATE
+   </div>
 
-      <div
-        class="value yellow"
-        id="hourlyRate"
-      >
-        ₹0/hr
-      </div>
+   <div
+     class="value yellow"
+     id="hourlyRate"
+   >
+     ₹0/hr
+   </div>
 
-    </div>
+ </div>
 
 
-    <div class="card stat">
+ <div class="card stat">
 
-      <i class="ri-money-rupee-circle-line"></i>
+   <i class="ri-money-rupee-circle-line"></i>
 
-      <div class="label">
-        MONTH EARNINGS
-      </div>
+   <div class="label">
+     MONTH EARNINGS
+   </div>
 
-      <div
-        class="value green"
-        id="monthEarning"
-      >
-        ₹0
-      </div>
+   <div
+     class="value green"
+     id="monthEarning"
+   >
+     ₹0
+   </div>
 
-    </div>
+ </div>
 
 
-  </div>
+</div>
 
 
-  <!-- =========================
-       CURRENT SESSION
-  ========================== -->
+<!-- =========================================
+     TODAY SCHEDULE
+========================================= -->
 
-  <div class="section">
+<div class="section">
 
-    <div class="section-title">
-      TODAY'S CLASS
-    </div>
+ <div class="section-title">
 
+   <i class="ri-calendar-schedule-line"></i>
 
-    <div class="card">
+   TODAY'S SCHEDULE
 
+ </div>
 
-      <div class="attendance-grid">
 
+ <div
+   class="card schedule-card"
+   id="scheduleCard"
+ >
 
-        <div class="time-box">
+   <div class="schedule-top">
 
-          <small>
-            CURRENT SESSION — START
-          </small>
+     <div>
 
-          <div
-            class="time"
-            id="checkInTime"
-          >
-            --:--
-          </div>
+       <strong>
+         CLASS SESSIONS
+       </strong>
 
-        </div>
+       <div
+         class="date-label"
+         id="scheduleDateLabel"
+       >
+         Loading date...
+       </div>
 
+     </div>
 
-        <div class="time-box">
+     <span
+       class="badge"
+       id="scheduleCount"
+     >
+       0 SESSIONS
+     </span>
 
-          <small>
-            CURRENT SESSION — END
-          </small>
+   </div>
 
-          <div
-            class="time"
-            id="checkOutTime"
-          >
-            --:--
-          </div>
 
-        </div>
+   <div
+     class="schedule-list"
+     id="scheduleList"
+   ></div>
 
 
-      </div>
+   <div
+     id="scheduleEmpty"
+     class="no-class"
+     style="display:none"
+   >
 
+     <div class="no-class-icon">
 
-      <div class="actions">
+       <i class="ri-calendar-close-line"></i>
 
+     </div>
 
-        <button
-          id="checkInBtn"
-        >
+     <h3>
+       NO CLASS TODAY
+     </h3>
 
-          <i class="ri-play-circle-line"></i>
+     <p>
+       Admin has not scheduled any class for you today.
+       Attendance is not available.
+     </p>
 
-          START CLASS
+   </div>
 
-        </button>
+ </div>
 
+</div>
 
-        <button
-          id="checkOutBtn"
-          class="danger"
-          disabled
-        >
 
-          <i class="ri-stop-circle-line"></i>
+<!-- =========================================
+     CURRENT CLASS
+========================================= -->
 
-          END CLASS
+<div class="section">
 
-        </button>
+ <div class="section-title">
 
+   <i class="ri-play-circle-line"></i>
 
-      </div>
+   CURRENT CLASS
 
+ </div>
 
-      <div
-        id="message"
-        class="message"
-      ></div>
 
+ <div class="card">
 
-    </div>
 
-  </div>
+   <div class="attendance-grid">
 
 
-  <!-- =========================
-       TODAY SESSIONS
-  ========================== -->
+     <div class="time-box">
 
-  <div class="section">
+       <small>
+         CLASS START
+       </small>
 
-    <div class="section-title">
-      TODAY'S CLASS SESSIONS
-    </div>
+       <div
+         class="time"
+         id="checkInTime"
+       >
+         --:--
+       </div>
 
+     </div>
 
-    <div class="card">
 
-      <div class="session-table">
+     <div class="time-box">
 
-        <table>
+       <small>
+         CLASS END
+       </small>
 
-          <thead>
+       <div
+         class="time"
+         id="checkOutTime"
+       >
+         --:--
+       </div>
 
-            <tr>
+     </div>
 
-              <th>
-                SESSION
-              </th>
 
-              <th>
-                START
-              </th>
+   </div>
 
-              <th>
-                END
-              </th>
 
-              <th>
-                DURATION
-              </th>
+   <div class="actions">
 
-              <th>
-                RATE
-              </th>
 
-              <th>
-                EARNING
-              </th>
+     <button
+       id="checkInBtn"
+       disabled
+     >
 
-            </tr>
+       <i class="ri-play-circle-line"></i>
 
-          </thead>
+       START CLASS
 
+     </button>
 
-          <tbody
-            id="todaySessionBody"
-          ></tbody>
 
-        </table>
+     <button
+       id="checkOutBtn"
+       class="danger"
+       disabled
+     >
 
+       <i class="ri-stop-circle-line"></i>
 
-        <div
-          id="todaySessionEmpty"
-          class="empty"
-          style="display:none"
-        >
-          No class session today.
-        </div>
+       END CLASS
 
+     </button>
 
-      </div>
 
-    </div>
+   </div>
 
-  </div>
 
+   <div
+     id="message"
+     class="message"
+   ></div>
 
-  <!-- =========================
-       MONTHLY OVERVIEW
-  ========================== -->
 
-  <div class="section">
+ </div>
 
-    <div class="section-title">
-      MONTHLY OVERVIEW
-    </div>
+</div>
 
 
-    <div class="card">
+<!-- =========================================
+     TODAY SESSIONS
+========================================= -->
 
-      <div class="month-grid">
+<div class="section">
 
+ <div class="section-title">
 
-        <div class="month-item">
+   <i class="ri-list-check-2"></i>
 
-          <div class="label">
-            TOTAL HOURS
-          </div>
+   TODAY'S CLASS SESSIONS
 
-          <div
-            class="value"
-            id="totalHours"
-          >
-            0h 0m
-          </div>
+ </div>
 
-        </div>
 
+ <div class="card">
 
-        <div class="month-item">
+   <div class="session-table">
 
-          <div class="label">
-            TOTAL MINUTES
-          </div>
+     <table>
 
-          <div
-            class="value"
-            id="totalMinutes"
-          >
-            0
-          </div>
+       <thead>
 
-        </div>
+         <tr>
 
+           <th>
+             SESSION
+           </th>
 
-        <div class="month-item">
+           <th>
+             START
+           </th>
 
-          <div class="label">
-            EARNINGS
-          </div>
+           <th>
+             END
+           </th>
 
-          <div
-            class="value green"
-            id="totalEarnings"
-          >
-            ₹0
-          </div>
+           <th>
+             DURATION
+           </th>
 
-        </div>
+           <th>
+             RATE
+           </th>
 
+           <th>
+             EARNING
+           </th>
 
-        <div class="month-item">
+         </tr>
 
-          <div class="label">
-            AVG / DAY
-          </div>
+       </thead>
 
-          <div
-            class="value pink"
-            id="avgHours"
-          >
-            0h 0m
-          </div>
 
-        </div>
+       <tbody
+         id="todaySessionBody"
+       ></tbody>
 
+     </table>
 
-      </div>
 
-    </div>
+     <div
+       id="todaySessionEmpty"
+       class="empty"
+       style="display:none"
+     >
+       No attendance recorded today.
+     </div>
 
-  </div>
+   </div>
 
+ </div>
 
-  <!-- =========================
-       HISTORY
-  ========================== -->
+</div>
 
-  <div class="section">
 
-    <div class="section-title">
-      ATTENDANCE HISTORY
-    </div>
+<!-- =========================================
+     MONTHLY
+========================================= -->
 
+<div class="section">
 
-    <div class="filters">
+ <div class="section-title">
 
-      <div
-        class="filter active"
-        data-filter="month"
-      >
-        THIS MONTH
-      </div>
+   <i class="ri-bar-chart-box-line"></i>
 
-      <div
-        class="filter"
-        data-filter="week"
-      >
-        THIS WEEK
-      </div>
+   MONTHLY OVERVIEW
 
-      <div
-        class="filter"
-        data-filter="lastMonth"
-      >
-        LAST MONTH
-      </div>
+ </div>
 
-    </div>
 
+ <div class="card">
 
-    <div
-      class="card"
-      style="margin-top:10px"
-    >
+   <div class="month-grid">
 
-      <div class="session-table">
 
+     <div class="month-item">
 
-        <div
-          id="historyLoading"
-          class="loading"
-        >
-          Loading attendance...
-        </div>
+       <div class="label">
+         TOTAL HOURS
+       </div>
 
+       <div
+         class="value"
+         id="totalHours"
+       >
+         0h 0m
+       </div>
 
-        <table
-          id="historyTable"
-          style="display:none"
-        >
+     </div>
 
-          <thead>
 
-            <tr>
+     <div class="month-item">
 
-              <th>
-                DATE
-              </th>
+       <div class="label">
+         TOTAL MINUTES
+       </div>
 
-              <th>
-                SESSION
-              </th>
+       <div
+         class="value"
+         id="totalMinutes"
+       >
+         0
+       </div>
 
-              <th>
-                START
-              </th>
+     </div>
 
-              <th>
-                END
-              </th>
 
-              <th>
-                DURATION
-              </th>
+     <div class="month-item">
 
-              <th>
-                EARNING
-              </th>
+       <div class="label">
+         TOTAL EARNINGS
+       </div>
 
-            </tr>
+       <div
+         class="value green"
+         id="totalEarnings"
+       >
+         ₹0
+       </div>
 
-          </thead>
+     </div>
 
 
-          <tbody
-            id="historyBody"
-          ></tbody>
+     <div class="month-item">
 
-        </table>
+       <div class="label">
+         AVG / DAY
+       </div>
 
+       <div
+         class="value pink"
+         id="avgHours"
+       >
+         0h 0m
+       </div>
 
-        <div
-          id="emptyHistory"
-          class="empty"
-          style="display:none"
-        >
-          No attendance records found.
-        </div>
+     </div>
 
 
-      </div>
+   </div>
 
-    </div>
+ </div>
 
-  </div>
+</div>
 
 
-  <!-- =========================
-       LOGOUT
-  ========================== -->
+<!-- =========================================
+     HISTORY
+========================================= -->
 
-  <div class="logout">
+<div class="section">
 
-    <button id="logoutBtn">
+ <div class="section-title">
 
-      <i class="ri-logout-box-r-line"></i>
+   <i class="ri-history-line"></i>
 
-      LOGOUT
+   ATTENDANCE HISTORY
 
-    </button>
+ </div>
 
-  </div>
+
+ <div class="filters">
+
+   <div
+     class="filter active"
+     data-filter="month"
+   >
+     THIS MONTH
+   </div>
+
+   <div
+     class="filter"
+     data-filter="week"
+   >
+     THIS WEEK
+   </div>
+
+   <div
+     class="filter"
+     data-filter="lastMonth"
+   >
+     LAST MONTH
+   </div>
+
+ </div>
+
+
+ <div
+   class="card"
+   style="margin-top:10px"
+ >
+
+   <div class="session-table">
+
+
+     <div
+       id="historyLoading"
+       class="loading"
+     >
+       Loading attendance...
+     </div>
+
+
+     <table
+       id="historyTable"
+       style="display:none"
+     >
+
+       <thead>
+
+         <tr>
+
+           <th>
+             DATE
+           </th>
+
+           <th>
+             SESSION
+           </th>
+
+           <th>
+             START
+           </th>
+
+           <th>
+             END
+           </th>
+
+           <th>
+             DURATION
+           </th>
+
+           <th>
+             EARNING
+           </th>
+
+         </tr>
+
+       </thead>
+
+
+       <tbody
+         id="historyBody"
+       ></tbody>
+
+     </table>
+
+
+     <div
+       id="emptyHistory"
+       class="empty"
+       style="display:none"
+     >
+       No attendance records found.
+     </div>
+
+
+   </div>
+
+ </div>
+
+</div>
+
+
+<!-- =========================================
+     LOGOUT
+========================================= -->
+
+<div class="logout">
+
+ <button id="logoutBtn">
+
+   <i class="ri-logout-box-r-line"></i>
+
+   LOGOUT
+
+ </button>
+
+</div>
 
 
 </div>
@@ -1345,207 +1641,225 @@ td{
 ===================================================== */
 
 import {
-  initializeApp
-} from
+ initializeApp
+}
+from
 "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
 
 import {
-  initializeFirestore,
-  collection,
-  doc,
-  getDoc,
-  getDocs,
-  query,
-  where,
-  setDoc,
-  updateDoc
-} from
+ initializeFirestore,
+ collection,
+ doc,
+ getDoc,
+ getDocs,
+ query,
+ where,
+ setDoc,
+ updateDoc
+}
+from
 "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 
 import {
-  firebaseConfig
-} from "./firebase-config.js";
+ firebaseConfig
+}
+from
+"./firebase-config.js";
 
-
-/* =====================================================
-   INITIALIZE
-===================================================== */
 
 const app =
-  initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 
 const db =
-  initializeFirestore(app,{
-    experimentalForceLongPolling:true
-  });
+initializeFirestore(
+ app,
+ {
+   experimentalForceLongPolling:true
+ }
+);
 
 
 /* =====================================================
-   LOGIN DATA
+   LOGIN
 ===================================================== */
 
 const facultyMobile =
-  localStorage.getItem(
-    "facultyMobile"
-  );
-
+localStorage.getItem(
+ "facultyMobile"
+);
 
 const loggedIn =
-  localStorage.getItem(
-    "facultyLoggedIn"
-  );
+localStorage.getItem(
+ "facultyLoggedIn"
+);
+
+
+if(
+ !facultyMobile ||
+ loggedIn !== "true"
+){
+
+ window.location.href =
+ "./faculty-login.html";
+
+}
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let faculty=null;
+
+let attendanceList=[];
+
+let todaySessions=[];
+
+let schedules=[];
+
+let currentSession=null;
+
+let currentSchedule=null;
+
+let selectedFilter="month";
 
 
 /* =====================================================
    ELEMENTS
 ===================================================== */
 
-const facultyNameEl =
-  document.getElementById(
-    "facultyName"
-  );
+const facultyNameEl=
+document.getElementById(
+ "facultyName"
+);
 
-const facultyMobileEl =
-  document.getElementById(
-    "facultyMobile"
-  );
+const facultyMobileEl=
+document.getElementById(
+ "facultyMobile"
+);
 
-const facultyStatusEl =
-  document.getElementById(
-    "facultyStatus"
-  );
+const facultyStatusEl=
+document.getElementById(
+ "facultyStatus"
+);
 
-const avatarEl =
-  document.getElementById(
-    "avatar"
-  );
+const avatarEl=
+document.getElementById(
+ "avatar"
+);
 
-const hourlyRateEl =
-  document.getElementById(
-    "hourlyRate"
-  );
+const hourlyRateEl=
+document.getElementById(
+ "hourlyRate"
+);
 
-const todayHoursEl =
-  document.getElementById(
-    "todayHours"
-  );
+const todayHoursEl=
+document.getElementById(
+ "todayHours"
+);
 
-const todayEarningEl =
-  document.getElementById(
-    "todayEarning"
-  );
+const todayEarningEl=
+document.getElementById(
+ "todayEarning"
+);
 
-const monthEarningEl =
-  document.getElementById(
-    "monthEarning"
-  );
+const monthEarningEl=
+document.getElementById(
+ "monthEarning"
+);
 
-const workDaysEl =
-  document.getElementById(
-    "workDays"
-  );
+const workDaysEl=
+document.getElementById(
+ "workDays"
+);
 
-const totalHoursEl =
-  document.getElementById(
-    "totalHours"
-  );
+const totalHoursEl=
+document.getElementById(
+ "totalHours"
+);
 
-const totalMinutesEl =
-  document.getElementById(
-    "totalMinutes"
-  );
+const totalMinutesEl=
+document.getElementById(
+ "totalMinutes"
+);
 
-const totalEarningsEl =
-  document.getElementById(
-    "totalEarnings"
-  );
+const totalEarningsEl=
+document.getElementById(
+ "totalEarnings"
+);
 
-const avgHoursEl =
-  document.getElementById(
-    "avgHours"
-  );
+const avgHoursEl=
+document.getElementById(
+ "avgHours"
+);
 
-const checkInTimeEl =
-  document.getElementById(
-    "checkInTime"
-  );
+const checkInTimeEl=
+document.getElementById(
+ "checkInTime"
+);
 
-const checkOutTimeEl =
-  document.getElementById(
-    "checkOutTime"
-  );
+const checkOutTimeEl=
+document.getElementById(
+ "checkOutTime"
+);
 
-const checkInBtn =
-  document.getElementById(
-    "checkInBtn"
-  );
+const checkInBtn=
+document.getElementById(
+ "checkInBtn"
+);
 
-const checkOutBtn =
-  document.getElementById(
-    "checkOutBtn"
-  );
+const checkOutBtn=
+document.getElementById(
+ "checkOutBtn"
+);
 
-const messageEl =
-  document.getElementById(
-    "message"
-  );
-
-
-/* =====================================================
-   DATA
-===================================================== */
-
-let faculty = null;
-
-let attendanceList = [];
-
-let todaySessions = [];
-
-let currentSession = null;
-
-let selectedFilter = "month";
+const messageEl=
+document.getElementById(
+ "message"
+);
 
 
 /* =====================================================
-   LOGIN CHECK
-===================================================== */
-
-if(
-  !facultyMobile ||
-  loggedIn !== "true"
-){
-
-  window.location.href =
-    "./faculty-login.html";
-
-}
-
-
-/* =====================================================
-   DATE
+   DATE HELPERS
 ===================================================== */
 
 function todayKey(){
 
-  const d = new Date();
+ const d=new Date();
 
-  const y =
-    d.getFullYear();
+ const y=
+ d.getFullYear();
 
-  const m =
-    String(
-      d.getMonth()+1
-    ).padStart(2,"0");
+ const m=
+ String(
+   d.getMonth()+1
+ ).padStart(2,"0");
 
-  const day =
-    String(
-      d.getDate()
-    ).padStart(2,"0");
+ const day=
+ String(
+   d.getDate()
+ ).padStart(2,"0");
 
-  return `${y}-${m}-${day}`;
+ return `${y}-${m}-${day}`;
+
+}
+
+
+function dateLabel(){
+
+ return new Date()
+ .toLocaleDateString(
+   "en-IN",
+   {
+     weekday:"long",
+     day:"numeric",
+     month:"long",
+     year:"numeric"
+   }
+ );
 
 }
 
@@ -1556,32 +1870,65 @@ function todayKey(){
 
 function money(value){
 
-  return "₹" +
-    Math.round(
-      Number(value || 0)
-    ).toLocaleString("en-IN");
+ return "₹"+
+ Math.round(
+   Number(value||0)
+ ).toLocaleString(
+   "en-IN"
+ );
 
 }
 
 
 /* =====================================================
-   MINUTES
+   DURATION
 ===================================================== */
 
 function minutesToHours(minutes){
 
-  minutes =
-    Number(minutes || 0);
+ minutes=
+ Number(minutes||0);
 
-  const h =
-    Math.floor(
-      minutes / 60
-    );
+ const h=
+ Math.floor(
+   minutes/60
+ );
 
-  const m =
-    minutes % 60;
+ const m=
+ minutes%60;
 
-  return `${h}h ${m}m`;
+ return `${h}h ${m}m`;
+
+}
+
+
+/* =====================================================
+   DATE VALUE
+===================================================== */
+
+function getDateValue(value){
+
+ if(!value){
+   return null;
+ }
+
+ if(
+   typeof value.toDate ===
+   "function"
+ ){
+
+   return value.toDate();
+
+ }
+
+ const d=
+ new Date(value);
+
+ return isNaN(
+   d.getTime()
+ )
+ ? null
+ : d;
 
 }
 
@@ -1592,76 +1939,20 @@ function minutesToHours(minutes){
 
 function formatTime(value){
 
-  if(!value){
-    return "--:--";
-  }
+ const d=
+ getDateValue(value);
 
-  let d;
+ if(!d){
+   return "--:--";
+ }
 
-  try{
-
-    if(
-      typeof value.toDate ===
-      "function"
-    ){
-
-      d =
-        value.toDate();
-
-    }else{
-
-      d =
-        new Date(value);
-
-    }
-
-  }catch(e){
-
-    return "--:--";
-
-  }
-
-  if(
-    isNaN(
-      d.getTime()
-    )
-  ){
-
-    return "--:--";
-
-  }
-
-  return d.toLocaleTimeString(
-    [],
-    {
-      hour:"2-digit",
-      minute:"2-digit"
-    }
-  );
-
-}
-
-
-/* =====================================================
-   TIMESTAMP DATE
-===================================================== */
-
-function getDateValue(value){
-
-  if(!value){
-    return null;
-  }
-
-  if(
-    typeof value.toDate ===
-    "function"
-  ){
-
-    return value.toDate();
-
-  }
-
-  return new Date(value);
+ return d.toLocaleTimeString(
+   [],
+   {
+     hour:"2-digit",
+     minute:"2-digit"
+   }
+ );
 
 }
 
@@ -1671,22 +1962,23 @@ function getDateValue(value){
 ===================================================== */
 
 function showMessage(
-  text,
-  type="success"
+ text,
+ type="success"
 ){
 
-  messageEl.textContent =
-    text;
+ messageEl.textContent=
+ text;
 
-  messageEl.className =
-    "message show " + type;
+ messageEl.className=
+ "message show "+type;
 
-  setTimeout(()=>{
-
-    messageEl.className =
-      "message";
-
-  },4000);
+ setTimeout(
+   ()=>{
+     messageEl.className=
+     "message";
+   },
+   5000
+ );
 
 }
 
@@ -1697,306 +1989,776 @@ function showMessage(
 
 async function loadFaculty(){
 
-  try{
+ try{
 
-    const ref =
-      doc(
-        db,
-        "faculty",
-        facultyMobile
-      );
-
-
-    const snap =
-      await getDoc(ref);
+   const ref=
+   doc(
+     db,
+     "faculty",
+     facultyMobile
+   );
 
 
-    if(!snap.exists()){
-
-      facultyNameEl.textContent =
-        "Faculty Not Found";
-
-      facultyMobileEl.textContent =
-        "Faculty ID: " +
-        facultyMobile;
-
-      facultyStatusEl.textContent =
-        "CONTACT ADMIN";
-
-      checkInBtn.disabled =
-        true;
-
-      return;
-
-    }
+   const snap=
+   await getDoc(ref);
 
 
-    faculty = {
-      id:snap.id,
-      ...snap.data()
-    };
+   if(!snap.exists()){
+
+     facultyNameEl.textContent=
+     "Faculty Not Found";
+
+     facultyMobileEl.textContent=
+     "Faculty ID: "+
+     facultyMobile;
+
+     facultyStatusEl.textContent=
+     "CONTACT ADMIN";
+
+     facultyStatusEl.className=
+     "badge red";
+
+     checkInBtn.disabled=true;
+
+     return;
+
+   }
 
 
-    facultyNameEl.textContent =
-      faculty.name ||
-      "Faculty";
+   faculty={
+     id:snap.id,
+     ...snap.data()
+   };
 
 
-    facultyMobileEl.textContent =
-      "Faculty ID: " +
-      facultyMobile;
+   facultyNameEl.textContent=
+   faculty.name||
+   "Faculty";
 
 
-    facultyStatusEl.textContent =
-      faculty.active === false
-      ? "INACTIVE"
-      : "ACTIVE";
+   facultyMobileEl.textContent=
+   "Faculty ID: "+
+   facultyMobile;
 
 
-    hourlyRateEl.textContent =
-      money(
-        faculty.hourlyRate
-      ) + "/hr";
+   if(
+     faculty.active===false
+   ){
+
+     facultyStatusEl.textContent=
+     "INACTIVE";
+
+     facultyStatusEl.className=
+     "badge red";
+
+   }else{
+
+     facultyStatusEl.textContent=
+     "ACTIVE";
+
+     facultyStatusEl.className=
+     "badge green";
+
+   }
 
 
-    if(faculty.photo){
-
-      avatarEl.innerHTML =
-        `<img
-          src="${faculty.photo}"
-          alt="Faculty"
-        >`;
-
-    }else{
-
-      avatarEl.textContent =
-        String(
-          faculty.name ||
-          "F"
-        )
-        .charAt(0)
-        .toUpperCase();
-
-    }
+   hourlyRateEl.textContent=
+   money(
+     faculty.hourlyRate
+   )+
+   "/hr";
 
 
-    if(
-      faculty.active === false
-    ){
+   if(faculty.photo){
 
-      checkInBtn.disabled =
-        true;
+     avatarEl.innerHTML=
+     `<img
+       src="${escapeHtml(faculty.photo)}"
+       alt="Faculty"
+     >`;
 
-    }
+   }else{
+
+     avatarEl.textContent=
+     String(
+       faculty.name||"F"
+     )
+     .charAt(0)
+     .toUpperCase();
+
+   }
 
 
-    await loadAttendance();
+ }catch(error){
 
+   console.error(error);
 
-  }catch(error){
+   showMessage(
+     "Faculty information could not be loaded.",
+     "error"
+   );
 
-    console.error(
-      "Faculty error:",
-      error
-    );
-
-    showMessage(
-      "Unable to connect to Firebase. Check internet connection.",
-      "error"
-    );
-
-  }
+ }
 
 }
 
 
 /* =====================================================
-   LOAD ALL ATTENDANCE FOR FACULTY
+   LOAD TODAY SCHEDULE
 ===================================================== */
 
-async function loadAttendance(){
+async function loadTodaySchedule(){
 
-  try{
+ const scheduleList=
+ document.getElementById(
+   "scheduleList"
+ );
 
-    const q =
-      query(
-        collection(
-          db,
-          "facultyAttendance"
-        ),
-        where(
-          "facultyId",
-          "==",
-          facultyMobile
-        )
-      );
+ const scheduleEmpty=
+ document.getElementById(
+   "scheduleEmpty"
+ );
 
-
-    const snap =
-      await getDocs(q);
+ const scheduleCount=
+ document.getElementById(
+   "scheduleCount"
+ );
 
 
-    attendanceList =
-      snap.docs.map(
-        item=>({
-
-          id:item.id,
-
-          ...item.data()
-
-        })
-      );
+ document.getElementById(
+   "scheduleDateLabel"
+ ).textContent=
+ dateLabel();
 
 
-    /*
-      Sort latest first.
-    */
-
-    attendanceList.sort(
-      (a,b)=>{
-
-        const da =
-          getDateValue(
-            a.checkIn
-          )?.getTime() || 0;
-
-        const dbb =
-          getDateValue(
-            b.checkIn
-          )?.getTime() || 0;
-
-        return dbb-da;
-
-      }
-    );
+ scheduleList.innerHTML=
+ `
+ <div class="loading">
+   Loading today's schedule...
+ </div>
+ `;
 
 
-    todaySessions =
-      attendanceList.filter(
-        item =>
-          item.date ===
-          todayKey()
-      );
+ try{
+
+   const q=
+   query(
+     collection(
+       db,
+       "facultySchedules"
+     ),
+     where(
+       "facultyId",
+       "==",
+       facultyMobile
+     ),
+     where(
+       "date",
+       "==",
+       todayKey()
+     )
+   );
 
 
-    findCurrentSession();
-
-    renderCurrentSession();
-
-    renderTodaySessions();
-
-    renderHistory();
-
-    updateTodayStats();
-
-    updateMonthlyStats();
+   const snap=
+   await getDocs(q);
 
 
-  }catch(error){
+   schedules=
+   snap.docs
+   .map(
+     d=>({
+       id:d.id,
+       ...d.data()
+     })
+   )
+   .sort(
+     (a,b)=>
+       String(
+         a.startTime||""
+       )
+       .localeCompare(
+         String(
+           b.startTime||""
+         )
+       )
+   );
 
-    console.error(
-      "Attendance error:",
-      error
-    );
 
-    showMessage(
-      "Attendance could not be loaded: " +
-      error.message,
-      "error"
-    );
+   renderSchedule();
 
-  }
+
+ }catch(error){
+
+   console.error(
+     "Schedule error:",
+     error
+   );
+
+
+   scheduleList.innerHTML="";
+
+
+   scheduleEmpty.style.display=
+   "block";
+
+
+   scheduleEmpty.querySelector("h3")
+   .textContent=
+   "SCHEDULE UNAVAILABLE";
+
+
+   scheduleEmpty.querySelector("p")
+   .textContent=
+   "Unable to load today's class schedule.";
+
+   scheduleCount.textContent=
+   "ERROR";
+
+ }
 
 }
 
 
 /* =====================================================
-   CURRENT SESSION
+   RENDER SCHEDULE
+===================================================== */
+
+function renderSchedule(){
+
+ const list=
+ document.getElementById(
+   "scheduleList"
+ );
+
+ const empty=
+ document.getElementById(
+   "scheduleEmpty"
+ );
+
+ const count=
+ document.getElementById(
+   "scheduleCount"
+ );
+
+
+ list.innerHTML="";
+
+
+ if(!schedules.length){
+
+   empty.style.display=
+   "block";
+
+   count.textContent=
+   "NO CLASS";
+
+   count.className=
+   "badge red";
+
+   return;
+
+ }
+
+
+ empty.style.display=
+ "none";
+
+
+ count.textContent=
+ schedules.length+
+ (
+   schedules.length===1
+   ? " SESSION"
+   : " SESSIONS"
+ );
+
+
+ count.className=
+ "badge green";
+
+
+ schedules.forEach(
+   (schedule,index)=>{
+
+     const attendance=
+     todaySessions.find(
+       item=>
+         item.scheduleId===
+         schedule.id
+     );
+
+
+     const running=
+     attendance &&
+     !attendance.checkOut;
+
+
+     const completed=
+     attendance &&
+     attendance.checkOut;
+
+
+     let statusText=
+     "WAITING";
+
+     let statusClass=
+     "status-wait";
+
+
+     if(schedule.allowed===false){
+
+       statusText=
+       "BLOCKED";
+
+       statusClass=
+       "status-blocked";
+
+     }else if(completed){
+
+       statusText=
+       "COMPLETED";
+
+       statusClass=
+       "status-done";
+
+     }else if(running){
+
+       statusText=
+       "RUNNING";
+
+       statusClass=
+       "status-ready";
+
+     }else{
+
+       statusText=
+       "AVAILABLE";
+
+       statusClass=
+       "status-ready";
+
+     }
+
+
+     const item=
+     document.createElement(
+       "div"
+     );
+
+
+     item.className=
+     "schedule-item";
+
+
+     item.innerHTML=`
+
+       <div class="schedule-icon">
+
+         <i class="ri-time-line"></i>
+
+       </div>
+
+
+       <div>
+
+         <div class="schedule-name">
+
+           ${escapeHtml(
+             schedule.sessionName||
+             "Class Session"
+           )}
+
+         </div>
+
+         <div class="schedule-time">
+
+           ${formatScheduleTime(
+             schedule.startTime
+           )}
+
+           →
+
+           ${formatScheduleTime(
+             schedule.endTime
+           )}
+
+         </div>
+
+       </div>
+
+
+       <div
+         class="schedule-status ${statusClass}"
+       >
+
+         ${statusText}
+
+       </div>
+
+     `;
+
+
+     list.appendChild(item);
+
+   }
+ );
+
+}
+
+
+/* =====================================================
+   SCHEDULE TIME FORMAT
+===================================================== */
+
+function formatScheduleTime(time){
+
+ if(!time){
+   return "--:--";
+ }
+
+ const parts=
+ time.split(":");
+
+ if(parts.length<2){
+   return time;
+ }
+
+ let hour=
+ Number(parts[0]);
+
+ const minute=
+ parts[1];
+
+ const ampm=
+ hour>=12
+ ? "PM"
+ : "AM";
+
+ hour=
+ hour%12;
+
+ if(hour===0){
+   hour=12;
+ }
+
+ return `${hour}:${minute} ${ampm}`;
+
+}
+
+
+/* =====================================================
+   FIND CURRENT SESSION
 ===================================================== */
 
 function findCurrentSession(){
 
-  currentSession =
-    todaySessions
-      .filter(
-        item =>
-          !item.checkOut
-      )
-      .sort(
-        (a,b)=>{
+ currentSession=
+ todaySessions
+ .filter(
+   item=>
+     !item.checkOut
+ )
+ .sort(
+   (a,b)=>{
 
-          const da =
-            getDateValue(
-              a.checkIn
-            )?.getTime() || 0;
+     const da=
+     getDateValue(
+       a.checkIn
+     )?.getTime()||0;
 
-          const dbb =
-            getDateValue(
-              b.checkIn
-            )?.getTime() || 0;
+     const db=
+     getDateValue(
+       b.checkIn
+     )?.getTime()||0;
 
-          return dbb-da;
+     return db-da;
 
-        }
-      )[0] || null;
+   }
+ )[0]||null;
+
+
+ if(currentSession){
+
+   currentSchedule=
+   schedules.find(
+     s=>
+       s.id===
+       currentSession.scheduleId
+   )||null;
+
+ }else{
+
+   currentSchedule=null;
+
+ }
 
 }
 
 
 /* =====================================================
-   RENDER CURRENT SESSION
+   CHECK WHETHER SESSION IS ALLOWED
+===================================================== */
+
+function getAvailableSession(){
+
+ const now=
+ new Date();
+
+
+ const currentMinutes=
+ now.getHours()*60+
+ now.getMinutes();
+
+
+ /*
+   First find an allowed schedule
+   which has not already been used.
+ */
+
+ const available=
+ schedules
+ .filter(
+   schedule=>
+     schedule.allowed!==false
+ )
+ .filter(
+   schedule=>{
+
+     const used=
+     todaySessions.some(
+       attendance=>
+         attendance.scheduleId===
+         schedule.id
+     );
+
+     if(used){
+       return false;
+     }
+
+
+     if(
+       !schedule.startTime||
+       !schedule.endTime
+     ){
+
+       return false;
+
+     }
+
+
+     const start=
+     timeToMinutes(
+       schedule.startTime
+     );
+
+     const end=
+     timeToMinutes(
+       schedule.endTime
+     );
+
+
+     /*
+       Allow check-in only inside
+       the admin scheduled window.
+     */
+
+     return(
+       currentMinutes>=start &&
+       currentMinutes<=end
+     );
+
+   }
+ )[0]||null;
+
+
+ return available;
+
+}
+
+
+/* =====================================================
+   TIME TO MINUTES
+===================================================== */
+
+function timeToMinutes(time){
+
+ const parts=
+ time.split(":");
+
+ return(
+   Number(parts[0])*60+
+   Number(parts[1])
+ );
+
+}
+
+
+/* =====================================================
+   RENDER ATTENDANCE BUTTON
 ===================================================== */
 
 function renderCurrentSession(){
 
-  if(currentSession){
+ if(currentSession){
 
-    checkInTimeEl.textContent =
-      formatTime(
-        currentSession.checkIn
-      );
-
-
-    checkOutTimeEl.textContent =
-      "RUNNING";
+   checkInTimeEl.textContent=
+   formatTime(
+     currentSession.checkIn
+   );
 
 
-    checkOutTimeEl.classList.add(
-      "running"
-    );
+   checkOutTimeEl.textContent=
+   "RUNNING";
 
 
-    checkInBtn.disabled =
-      true;
+   checkOutTimeEl.classList.add(
+     "running"
+   );
 
 
-    checkOutBtn.disabled =
-      false;
+   checkInBtn.disabled=
+   true;
 
 
-  }else{
-
-    checkInTimeEl.textContent =
-      "--:--";
+   checkOutBtn.disabled=
+   false;
 
 
-    checkOutTimeEl.textContent =
-      "--:--";
+   return;
+
+ }
 
 
-    checkOutTimeEl.classList.remove(
-      "running"
-    );
+ checkInTimeEl.textContent=
+ "--:--";
 
 
-    checkInBtn.disabled =
-      faculty?.active === false;
+ checkOutTimeEl.textContent=
+ "--:--";
 
 
-    checkOutBtn.disabled =
-      true;
+ checkOutTimeEl.classList.remove(
+   "running"
+ );
 
-  }
+
+ checkOutBtn.disabled=
+ true;
+
+
+ const available=
+ getAvailableSession();
+
+
+ if(available){
+
+   checkInBtn.disabled=
+   false;
+
+ }else{
+
+   checkInBtn.disabled=
+   true;
+
+ }
+
+}
+
+
+/* =====================================================
+   LOAD ATTENDANCE
+===================================================== */
+
+async function loadAttendance(){
+
+ try{
+
+   const q=
+   query(
+     collection(
+       db,
+       "facultyAttendance"
+     ),
+     where(
+       "facultyId",
+       "==",
+       facultyMobile
+     )
+   );
+
+
+   const snap=
+   await getDocs(q);
+
+
+   attendanceList=
+   snap.docs
+   .map(
+     d=>({
+       id:d.id,
+       ...d.data()
+     })
+   );
+
+
+   attendanceList.sort(
+     (a,b)=>{
+
+       const da=
+       getDateValue(
+         a.checkIn
+       )?.getTime()||0;
+
+       const dbb=
+       getDateValue(
+         b.checkIn
+       )?.getTime()||0;
+
+       return dbb-da;
+
+     }
+   );
+
+
+   todaySessions=
+   attendanceList.filter(
+     item=>
+       item.date===
+       todayKey()
+   );
+
+
+   findCurrentSession();
+
+
+   renderCurrentSession();
+
+   renderSchedule();
+
+   renderTodaySessions();
+
+   renderHistory();
+
+   updateTodayStats();
+
+   updateMonthlyStats();
+
+
+ }catch(error){
+
+   console.error(
+     "Attendance error:",
+     error
+   );
+
+
+   showMessage(
+     "Attendance could not be loaded.",
+     "error"
+   );
+
+ }
 
 }
 
@@ -2006,150 +2768,173 @@ function renderCurrentSession(){
 ===================================================== */
 
 checkInBtn.addEventListener(
-  "click",
-  async()=>{
+ "click",
+ async()=>{
 
-    if(!faculty){
-      return;
-    }
+   if(!faculty){
 
+     return;
 
-    if(
-      faculty.active === false
-    ){
-
-      showMessage(
-        "Your faculty account is inactive.",
-        "error"
-      );
-
-      return;
-
-    }
+   }
 
 
-    /*
-      Prevent two running sessions
-      at the same time.
-    */
+   if(
+     faculty.active===false
+   ){
 
-    const running =
-      todaySessions.find(
-        item =>
-          !item.checkOut
-      );
+     showMessage(
+       "Your faculty account is inactive.",
+       "error"
+     );
 
+     return;
 
-    if(running){
-
-      showMessage(
-        "Your previous class is still running. End it first.",
-        "error"
-      );
-
-      return;
-
-    }
+   }
 
 
-    checkInBtn.disabled =
-      true;
+   if(currentSession){
+
+     showMessage(
+       "A class is already running.",
+       "error"
+     );
+
+     return;
+
+   }
 
 
-    try{
-
-      const sessionRef =
-        doc(
-          collection(
-            db,
-            "facultyAttendance"
-          )
-        );
+   const schedule=
+   getAvailableSession();
 
 
-      const now =
-        new Date();
+   if(!schedule){
+
+     showMessage(
+       "No class is currently available. Attendance is controlled by Admin.",
+       "error"
+     );
+
+     renderCurrentSession();
+
+     return;
+
+   }
 
 
-      const rate =
-        Number(
-          faculty.hourlyRate || 0
-        );
+   checkInBtn.disabled=
+   true;
 
 
-      await setDoc(
-        sessionRef,
-        {
+   try{
 
-          facultyId:
-            facultyMobile,
-
-          facultyName:
-            faculty.name || "",
-
-          date:
-            todayKey(),
-
-          checkIn:
-            now,
-
-          checkOut:
-            null,
-
-          totalMinutes:
-            0,
-
-          /*
-            Rate is locked for
-            this session.
-          */
-
-          hourlyRate:
-            rate,
-
-          earning:
-            0,
-
-          sessionType:
-            "class",
-
-          createdAt:
-            now,
-
-          updatedAt:
-            now
-
-        }
-      );
+     const now=
+     new Date();
 
 
-      showMessage(
-        "Class started successfully.",
-        "success"
-      );
+     const rate=
+     Number(
+       faculty.hourlyRate||0
+     );
 
 
-      await loadAttendance();
+     const sessionRef=
+     doc(
+       collection(
+         db,
+         "facultyAttendance"
+       )
+     );
 
 
-    }catch(error){
+     await setDoc(
+       sessionRef,
+       {
 
-      console.error(error);
+         facultyId:
+           facultyMobile,
 
-      showMessage(
-        "Class start failed: " +
-        error.message,
-        "error"
-      );
+         facultyName:
+           faculty.name||"",
+
+         date:
+           todayKey(),
+
+         scheduleId:
+           schedule.id,
+
+         sessionName:
+           schedule.sessionName||"Class",
+
+         scheduledStart:
+           schedule.startTime||"",
+
+         scheduledEnd:
+           schedule.endTime||"",
+
+         checkIn:
+           now,
+
+         checkOut:
+           null,
+
+         totalMinutes:
+           0,
+
+         /*
+           Admin-controlled rate is
+           locked when session starts.
+         */
+
+         hourlyRate:
+           rate,
+
+         earning:
+           0,
+
+         sessionType:
+           "class",
+
+         createdAt:
+           now,
+
+         updatedAt:
+           now
+
+       }
+     );
 
 
-      checkInBtn.disabled =
-        false;
+     showMessage(
+       `${schedule.sessionName||"Class"} started successfully.`,
+       "success"
+     );
 
-    }
 
-  }
-);
+     await loadAttendance();
+
+
+ }catch(error){
+
+   console.error(
+     "Start class error:",
+     error
+   );
+
+
+   showMessage(
+     "Class start failed: "+
+     error.message,
+     "error"
+   );
+
+
+   checkInBtn.disabled=
+   false;
+
+ }
+
+});
 
 
 /* =====================================================
@@ -2157,300 +2942,322 @@ checkInBtn.addEventListener(
 ===================================================== */
 
 checkOutBtn.addEventListener(
-  "click",
-  async()=>{
+ "click",
+ async()=>{
 
-    if(!currentSession){
-      return;
-    }
+   if(!currentSession){
 
+     return;
 
-    checkOutBtn.disabled =
-      true;
+   }
 
 
-    try{
-
-      const checkIn =
-        getDateValue(
-          currentSession.checkIn
-        );
+   checkOutBtn.disabled=
+   true;
 
 
-      if(!checkIn){
+   try{
 
-        throw new Error(
-          "Invalid check-in time."
-        );
-
-      }
-
-
-      const now =
-        new Date();
+     const start=
+     getDateValue(
+       currentSession.checkIn
+     );
 
 
-      const totalMinutes =
-        Math.max(
-          0,
-          Math.floor(
-            (
-              now.getTime() -
-              checkIn.getTime()
-            ) / 60000
-          )
-        );
+     if(!start){
+
+       throw new Error(
+         "Invalid check-in time."
+       );
+
+     }
 
 
-      /*
-        IMPORTANT:
-        Session ka saved rate
-        hi use hoga.
-      */
-
-      const rate =
-        Number(
-          currentSession.hourlyRate ||
-          faculty.hourlyRate ||
-          0
-        );
+     const now=
+     new Date();
 
 
-      const earning =
-        (
-          totalMinutes / 60
-        ) * rate;
+     const totalMinutes=
+     Math.max(
+       0,
+       Math.floor(
+         (
+           now.getTime()-
+           start.getTime()
+         )/60000
+       )
+     );
 
 
-      const ref =
-        doc(
-          db,
-          "facultyAttendance",
-          currentSession.id
-        );
+     const rate=
+     Number(
+       currentSession.hourlyRate||
+       faculty?.hourlyRate||
+       0
+     );
 
 
-      await updateDoc(
-        ref,
-        {
-
-          checkOut:
-            now,
-
-          totalMinutes:
-            totalMinutes,
-
-          earning:
-            Number(
-              earning.toFixed(2)
-            ),
-
-          updatedAt:
-            now
-
-        }
-      );
+     const earning=
+     (
+       totalMinutes/60
+     )*rate;
 
 
-      showMessage(
-        "Class completed • " +
-        minutesToHours(totalMinutes) +
-        " • " +
-        money(earning),
-        "success"
-      );
+     await updateDoc(
+       doc(
+         db,
+         "facultyAttendance",
+         currentSession.id
+       ),
+       {
+
+         checkOut:
+           now,
+
+         totalMinutes:
+           totalMinutes,
+
+         earning:
+           Number(
+             earning.toFixed(2)
+           ),
+
+         updatedAt:
+           now
+
+       }
+     );
 
 
-      await loadAttendance();
+     showMessage(
+       `Class completed • ${minutesToHours(totalMinutes)} • ${money(earning)}`,
+       "success"
+     );
 
 
-    }catch(error){
-
-      console.error(error);
-
-      showMessage(
-        "Class end failed: " +
-        error.message,
-        "error"
-      );
+     await loadAttendance();
 
 
-      checkOutBtn.disabled =
-        false;
+ }catch(error){
 
-    }
+   console.error(
+     "End class error:",
+     error
+   );
 
-  }
-);
+
+   showMessage(
+     "Class end failed: "+
+     error.message,
+     "error"
+   );
+
+
+   checkOutBtn.disabled=
+   false;
+
+ }
+
+});
 
 
 /* =====================================================
-   TODAY SESSIONS
+   TODAY SESSION TABLE
 ===================================================== */
 
 function renderTodaySessions(){
 
-  const body =
-    document.getElementById(
-      "todaySessionBody"
-    );
+ const body=
+ document.getElementById(
+   "todaySessionBody"
+ );
+
+ const empty=
+ document.getElementById(
+   "todaySessionEmpty"
+ );
 
 
-  const empty =
-    document.getElementById(
-      "todaySessionEmpty"
-    );
+ body.innerHTML="";
 
 
-  body.innerHTML = "";
+ const data=
+ [...todaySessions]
+ .sort(
+   (a,b)=>{
+
+     const da=
+     getDateValue(
+       a.checkIn
+     )?.getTime()||0;
+
+     const dbb=
+     getDateValue(
+       b.checkIn
+     )?.getTime()||0;
+
+     return da-dbb;
+
+   }
+ );
 
 
-  const sessions =
-    [...todaySessions]
-      .sort(
-        (a,b)=>{
+ if(!data.length){
 
-          const da =
-            getDateValue(
-              a.checkIn
-            )?.getTime() || 0;
+   empty.style.display=
+   "block";
 
-          const dbb =
-            getDateValue(
-              b.checkIn
-            )?.getTime() || 0;
+   return;
 
-          return da-dbb;
-
-        }
-      );
+ }
 
 
-  if(!sessions.length){
-
-    empty.style.display =
-      "block";
-
-    return;
-
-  }
+ empty.style.display=
+ "none";
 
 
-  empty.style.display =
-    "none";
+ data.forEach(
+   (item,index)=>{
+
+     let minutes=
+     Number(
+       item.totalMinutes||0
+     );
 
 
-  sessions.forEach(
-    (item,index)=>{
+     if(
+       !item.checkOut &&
+       item.checkIn
+     ){
 
-      let minutes =
-        Number(
-          item.totalMinutes || 0
-        );
-
-
-      /*
-        Running session ke liye
-        live duration.
-      */
-
-      if(
-        !item.checkOut &&
-        item.checkIn
-      ){
-
-        const start =
-          getDateValue(
-            item.checkIn
-          );
+       const start=
+       getDateValue(
+         item.checkIn
+       );
 
 
-        if(start){
+       if(start){
 
-          minutes =
-            Math.max(
-              0,
-              Math.floor(
-                (
-                  new Date().getTime() -
-                  start.getTime()
-                ) / 60000
-              )
-            );
+         minutes=
+         Math.max(
+           0,
+           Math.floor(
+             (
+               new Date().getTime()-
+               start.getTime()
+             )/60000
+           )
+         );
 
-        }
+       }
 
-      }
-
-
-      let earning =
-        Number(
-          item.earning || 0
-        );
+     }
 
 
-      if(!item.checkOut){
-
-        earning =
-          (
-            minutes / 60
-          ) *
-          Number(
-            item.hourlyRate ||
-            faculty?.hourlyRate ||
-            0
-          );
-
-      }
+     let earning=
+     Number(
+       item.earning||0
+     );
 
 
-      const tr =
-        document.createElement(
-          "tr"
-        );
+     if(!item.checkOut){
+
+       earning=
+       (
+         minutes/60
+       )*
+       Number(
+         item.hourlyRate||
+         faculty?.hourlyRate||
+         0
+       );
+
+     }
 
 
-      tr.innerHTML = `
+     const tr=
+     document.createElement(
+       "tr"
+     );
 
-        <td>
-          Session ${index+1}
-        </td>
 
-        <td>
-          ${formatTime(item.checkIn)}
-        </td>
+     tr.innerHTML=`
 
-        <td>
-          ${
-            item.checkOut
-            ?
-            formatTime(item.checkOut)
-            :
-            `<span class="running">
+       <td>
+
+         ${
+           escapeHtml(
+             item.sessionName||
+             "Session "+(index+1)
+           )
+         }
+
+       </td>
+
+
+       <td>
+
+         ${formatTime(
+           item.checkIn
+         )}
+
+       </td>
+
+
+       <td>
+
+         ${
+           item.checkOut
+
+           ?
+
+           formatTime(
+             item.checkOut
+           )
+
+           :
+
+           `<span class="running">
               RUNNING
-             </span>`
-          }
-        </td>
+            </span>`
+         }
 
-        <td>
-          ${minutesToHours(minutes)}
-        </td>
-
-        <td class="rate">
-          ${money(item.hourlyRate)}/hr
-        </td>
-
-        <td class="earning">
-          ${money(earning)}
-        </td>
-
-      `;
+       </td>
 
 
-      body.appendChild(tr);
+       <td>
 
-    }
-  );
+         ${minutesToHours(
+           minutes
+         )}
+
+       </td>
+
+
+       <td class="rate">
+
+         ${money(
+           item.hourlyRate
+         )}/hr
+
+       </td>
+
+
+       <td class="earning">
+
+         ${money(
+           earning
+         )}
+
+       </td>
+
+     `;
+
+
+     body.appendChild(tr);
+
+   }
+ );
 
 }
 
@@ -2461,214 +3268,210 @@ function renderTodaySessions(){
 
 function updateTodayStats(){
 
-  let totalMinutes =
-    0;
+ let totalMinutes=
+ 0;
 
-  let totalEarning =
-    0;
-
-
-  todaySessions.forEach(
-    item=>{
-
-      let minutes =
-        Number(
-          item.totalMinutes || 0
-        );
+ let totalEarning=
+ 0;
 
 
-      if(
-        !item.checkOut &&
-        item.checkIn
-      ){
+ todaySessions.forEach(
+   item=>{
 
-        const start =
-          getDateValue(
-            item.checkIn
-          );
+     let minutes=
+     Number(
+       item.totalMinutes||0
+     );
 
 
-        if(start){
+     if(
+       !item.checkOut &&
+       item.checkIn
+     ){
 
-          minutes =
-            Math.max(
-              0,
-              Math.floor(
-                (
-                  new Date().getTime() -
-                  start.getTime()
-                ) / 60000
-              )
-            );
-
-        }
-
-      }
+       const start=
+       getDateValue(
+         item.checkIn
+       );
 
 
-      totalMinutes +=
-        minutes;
+       if(start){
+
+         minutes=
+         Math.max(
+           0,
+           Math.floor(
+             (
+               new Date().getTime()-
+               start.getTime()
+             )/60000
+           )
+         );
+
+       }
+
+     }
 
 
-      if(item.checkOut){
-
-        totalEarning +=
-          Number(
-            item.earning || 0
-          );
-
-      }else{
-
-        const rate =
-          Number(
-            item.hourlyRate ||
-            faculty?.hourlyRate ||
-            0
-          );
+     totalMinutes+=
+     minutes;
 
 
-        totalEarning +=
-          (
-            minutes / 60
-          ) * rate;
+     if(item.checkOut){
 
-      }
+       totalEarning+=
+       Number(
+         item.earning||0
+       );
 
-    }
-  );
+     }else{
+
+       totalEarning+=
+       (
+         minutes/60
+       )*
+       Number(
+         item.hourlyRate||
+         faculty?.hourlyRate||
+         0
+       );
+
+     }
+
+   }
+ );
 
 
-  todayHoursEl.textContent =
-    minutesToHours(
-      totalMinutes
-    );
+ todayHoursEl.textContent=
+ minutesToHours(
+   totalMinutes
+ );
 
 
-  todayEarningEl.textContent =
-    money(
-      totalEarning
-    );
+ todayEarningEl.textContent=
+ money(
+   totalEarning
+ );
 
 }
 
 
 /* =====================================================
-   MONTH FILTER
+   FILTER HISTORY
 ===================================================== */
 
 function getFilteredHistory(){
 
-  const now =
-    new Date();
+ const now=
+ new Date();
 
 
-  const year =
-    now.getFullYear();
+ const year=
+ now.getFullYear();
+
+ const month=
+ now.getMonth();
 
 
-  const month =
-    now.getMonth();
+ return attendanceList.filter(
+   item=>{
+
+     const date=
+     new Date(
+       item.date+
+       "T00:00:00"
+     );
 
 
-  return attendanceList.filter(
-    item=>{
+     if(
+       selectedFilter===
+       "month"
+     ){
 
-      const date =
-        new Date(
-          item.date +
-          "T00:00:00"
-        );
+       return(
+         date.getFullYear()===
+         year &&
+         date.getMonth()===
+         month
+       );
 
-
-      if(
-        selectedFilter ===
-        "month"
-      ){
-
-        return (
-          date.getFullYear() ===
-          year &&
-          date.getMonth() ===
-          month
-        );
-
-      }
+     }
 
 
-      if(
-        selectedFilter ===
-        "lastMonth"
-      ){
+     if(
+       selectedFilter===
+       "lastMonth"
+     ){
 
-        const lastMonth =
-          new Date(
-            year,
-            month-1,
-            1
-          );
-
-
-        return (
-          date.getFullYear() ===
-          lastMonth.getFullYear() &&
-          date.getMonth() ===
-          lastMonth.getMonth()
-        );
-
-      }
+       const last=
+       new Date(
+         year,
+         month-1,
+         1
+       );
 
 
-      if(
-        selectedFilter ===
-        "week"
-      ){
+       return(
+         date.getFullYear()===
+         last.getFullYear() &&
+         date.getMonth()===
+         last.getMonth()
+       );
 
-        const day =
-          now.getDay();
-
-
-        const difference =
-          day === 0
-          ? 6
-          : day - 1;
+     }
 
 
-        const start =
-          new Date(now);
+     if(
+       selectedFilter===
+       "week"
+     ){
+
+       const day=
+       now.getDay();
 
 
-        start.setHours(
-          0,0,0,0
-        );
+       const difference=
+       day===0
+       ? 6
+       : day-1;
 
 
-        start.setDate(
-          now.getDate() -
-          difference
-        );
+       const start=
+       new Date(now);
 
 
-        const end =
-          new Date(start);
+       start.setHours(
+         0,0,0,0
+       );
 
 
-        end.setDate(
-          start.getDate()+7
-        );
+       start.setDate(
+         now.getDate()-
+         difference
+       );
 
 
-        return (
-          date >= start &&
-          date < end
-        );
-
-      }
+       const end=
+       new Date(start);
 
 
-      return true;
+       end.setDate(
+         start.getDate()+7
+       );
 
-    }
-  );
+
+       return(
+         date>=start &&
+         date<end
+       );
+
+     }
+
+
+     return true;
+
+   }
+ );
 
 }
 
@@ -2679,177 +3482,174 @@ function getFilteredHistory(){
 
 function renderHistory(){
 
-  const body =
-    document.getElementById(
-      "historyBody"
-    );
+ const body=
+ document.getElementById(
+   "historyBody"
+ );
+
+ const table=
+ document.getElementById(
+   "historyTable"
+ );
+
+ const loading=
+ document.getElementById(
+   "historyLoading"
+ );
+
+ const empty=
+ document.getElementById(
+   "emptyHistory"
+ );
 
 
-  const table =
-    document.getElementById(
-      "historyTable"
-    );
+ loading.style.display=
+ "none";
 
 
-  const loading =
-    document.getElementById(
-      "historyLoading"
-    );
+ body.innerHTML="";
 
 
-  const empty =
-    document.getElementById(
-      "emptyHistory"
-    );
+ const data=
+ getFilteredHistory();
 
 
-  loading.style.display =
-    "none";
+ if(!data.length){
+
+   table.style.display=
+   "none";
+
+   empty.style.display=
+   "block";
+
+   return;
+
+ }
 
 
-  body.innerHTML = "";
+ table.style.display=
+ "table";
+
+ empty.style.display=
+ "none";
 
 
-  const data =
-    getFilteredHistory();
+ const grouped={};
 
 
-  if(!data.length){
+ data.forEach(
+   item=>{
 
-    table.style.display =
-      "none";
+     if(
+       !grouped[item.date]
+     ){
 
-    empty.style.display =
-      "block";
+       grouped[item.date]=[];
 
-    empty.textContent =
-      "No attendance records found.";
-
-    return;
-
-  }
+     }
 
 
-  table.style.display =
-    "table";
+     grouped[item.date]
+     .push(item);
 
-  empty.style.display =
-    "none";
-
-
-  const grouped =
-    {};
+   }
+ );
 
 
-  data.forEach(
-    item=>{
+ Object.keys(grouped)
+ .sort()
+ .reverse()
+ .forEach(
+   date=>{
 
-      if(
-        !grouped[item.date]
-      ){
+     grouped[date]
+     .sort(
+       (a,b)=>{
 
-        grouped[item.date] =
-          [];
+         const da=
+         getDateValue(
+           a.checkIn
+         )?.getTime()||0;
 
-      }
+         const dbb=
+         getDateValue(
+           b.checkIn
+         )?.getTime()||0;
 
+         return da-dbb;
 
-      grouped[item.date]
-        .push(item);
+       }
+     )
+     .forEach(
+       (item,index)=>{
 
-    }
-  );
-
-
-  let rowNumber = 1;
-
-
-  Object.keys(grouped)
-    .sort()
-    .reverse()
-    .forEach(
-      date=>{
-
-        const sessions =
-          grouped[date]
-            .sort(
-              (a,b)=>{
-
-                const da =
-                  getDateValue(
-                    a.checkIn
-                  )?.getTime() || 0;
-
-                const dbb =
-                  getDateValue(
-                    b.checkIn
-                  )?.getTime() || 0;
-
-                return da-dbb;
-
-              }
-            );
+         const tr=
+         document.createElement(
+           "tr"
+         );
 
 
-        sessions.forEach(
-          (item,index)=>{
+         tr.innerHTML=`
 
-            const tr =
-              document.createElement(
-                "tr"
-              );
+           <td>
+             ${item.date}
+           </td>
+
+           <td>
+             ${escapeHtml(
+               item.sessionName||
+               "Session "+(index+1)
+             )}
+           </td>
+
+           <td>
+             ${formatTime(
+               item.checkIn
+             )}
+           </td>
+
+           <td>
+
+             ${
+               item.checkOut
+
+               ?
+
+               formatTime(
+                 item.checkOut
+               )
+
+               :
+
+               `<span class="running">
+                 RUNNING
+                </span>`
+             }
+
+           </td>
+
+           <td>
+             ${minutesToHours(
+               item.totalMinutes
+             )}
+           </td>
+
+           <td class="earning">
+             ${money(
+               item.earning
+             )}
+           </td>
+
+         `;
 
 
-            tr.innerHTML = `
+         body.appendChild(tr);
 
-              <td>
-                ${item.date}
-              </td>
+       }
+     );
 
-              <td>
-                Session ${index+1}
-              </td>
-
-              <td>
-                ${formatTime(item.checkIn)}
-              </td>
-
-              <td>
-                ${
-                  item.checkOut
-                  ?
-                  formatTime(item.checkOut)
-                  :
-                  `<span class="running">
-                    RUNNING
-                   </span>`
-                }
-              </td>
-
-              <td>
-                ${minutesToHours(
-                  item.totalMinutes
-                )}
-              </td>
-
-              <td class="earning">
-                ${money(
-                  item.earning
-                )}
-              </td>
-
-            `;
-
-
-            body.appendChild(tr);
-
-            rowNumber++;
-
-          }
-        );
-
-      }
-    );
+   }
+ );
 
 }
 
@@ -2860,171 +3660,172 @@ function renderHistory(){
 
 function updateMonthlyStats(){
 
-  const now =
-    new Date();
+ const now=
+ new Date();
 
 
-  const year =
-    now.getFullYear();
+ const year=
+ now.getFullYear();
+
+ const month=
+ now.getMonth();
 
 
-  const month =
-    now.getMonth();
+ const monthData=
+ attendanceList.filter(
+   item=>{
+
+     const date=
+     new Date(
+       item.date+
+       "T00:00:00"
+     );
 
 
-  const monthData =
-    attendanceList.filter(
-      item=>{
+     return(
+       date.getFullYear()===
+       year &&
+       date.getMonth()===
+       month
+     );
 
-        const date =
-          new Date(
-            item.date +
-            "T00:00:00"
-          );
-
-
-        return (
-          date.getFullYear() ===
-          year &&
-          date.getMonth() ===
-          month
-        );
-
-      }
-    );
+   }
+ );
 
 
-  let totalMinutes =
-    0;
+ let totalMinutes=
+ 0;
 
-  let totalEarnings =
-    0;
-
-  const workDates =
-    new Set();
+ let totalEarnings=
+ 0;
 
 
-  monthData.forEach(
-    item=>{
-
-      totalMinutes +=
-        Number(
-          item.totalMinutes || 0
-        );
+ const workDates=
+ new Set();
 
 
-      totalEarnings +=
-        Number(
-          item.earning || 0
-        );
+ monthData.forEach(
+   item=>{
+
+     totalMinutes+=
+     Number(
+       item.totalMinutes||0
+     );
 
 
-      if(
-        Number(
-          item.totalMinutes || 0
-        ) > 0
-      ){
-
-        workDates.add(
-          item.date
-        );
-
-      }
-
-    }
-  );
+     totalEarnings+=
+     Number(
+       item.earning||0
+     );
 
 
-  /*
-    Agar current session running hai,
-    monthly live stats mein bhi add karo.
-  */
+     if(
+       Number(
+         item.totalMinutes||0
+       )>0
+     ){
 
-  if(currentSession){
+       workDates.add(
+         item.date
+       );
 
-    const start =
-      getDateValue(
-        currentSession.checkIn
-      );
+     }
 
-
-    if(start){
-
-      const liveMinutes =
-        Math.max(
-          0,
-          Math.floor(
-            (
-              new Date().getTime() -
-              start.getTime()
-            ) / 60000
-          )
-        );
+   }
+ );
 
 
-      totalMinutes +=
-        liveMinutes;
+ /*
+   Add live current session.
+ */
+
+ if(currentSession){
+
+   const start=
+   getDateValue(
+     currentSession.checkIn
+   );
 
 
-      totalEarnings +=
-        (
-          liveMinutes / 60
-        ) *
-        Number(
-          currentSession.hourlyRate ||
-          faculty?.hourlyRate ||
-          0
-        );
+   if(start){
+
+     const liveMinutes=
+     Math.max(
+       0,
+       Math.floor(
+         (
+           new Date().getTime()-
+           start.getTime()
+         )/60000
+       )
+     );
 
 
-      workDates.add(
-        todayKey()
-      );
-
-    }
-
-  }
+     totalMinutes+=
+     liveMinutes;
 
 
-  totalHoursEl.textContent =
-    minutesToHours(
-      totalMinutes
-    );
+     totalEarnings+=
+     (
+       liveMinutes/60
+     )*
+     Number(
+       currentSession.hourlyRate||
+       faculty?.hourlyRate||
+       0
+     );
 
 
-  totalMinutesEl.textContent =
-    totalMinutes;
+     workDates.add(
+       todayKey()
+     );
+
+   }
+
+ }
 
 
-  totalEarningsEl.textContent =
-    money(
-      totalEarnings
-    );
+ totalHoursEl.textContent=
+ minutesToHours(
+   totalMinutes
+ );
 
 
-  monthEarningEl.textContent =
-    money(
-      totalEarnings
-    );
+ totalMinutesEl.textContent=
+ totalMinutes;
 
 
-  workDaysEl.textContent =
-    workDates.size;
+ totalEarningsEl.textContent=
+ money(
+   totalEarnings
+ );
 
 
-  const avg =
-    workDates.size
-    ?
-    Math.round(
-      totalMinutes /
-      workDates.size
-    )
-    :
-    0;
+ monthEarningEl.textContent=
+ money(
+   totalEarnings
+ );
 
 
-  avgHoursEl.textContent =
-    minutesToHours(avg);
+ workDaysEl.textContent=
+ workDates.size;
+
+
+ const avg=
+ workDates.size
+ ?
+ Math.round(
+   totalMinutes/
+   workDates.size
+ )
+ :
+ 0;
+
+
+ avgHoursEl.textContent=
+ minutesToHours(
+   avg
+ );
 
 }
 
@@ -3034,42 +3835,44 @@ function updateMonthlyStats(){
 ===================================================== */
 
 document
-  .querySelectorAll(".filter")
-  .forEach(
-    button=>{
+.querySelectorAll(
+ ".filter"
+)
+.forEach(
+ button=>{
 
-      button.addEventListener(
-        "click",
-        ()=>{
+   button.addEventListener(
+     "click",
+     ()=>{
 
-          document
-            .querySelectorAll(
-              ".filter"
-            )
-            .forEach(
-              x =>
-                x.classList.remove(
-                  "active"
-                )
-            );
-
-
-          button.classList.add(
-            "active"
-          );
+       document
+       .querySelectorAll(
+         ".filter"
+       )
+       .forEach(
+         x=>
+           x.classList.remove(
+             "active"
+           )
+       );
 
 
-          selectedFilter =
-            button.dataset.filter;
+       button.classList.add(
+         "active"
+       );
 
 
-          renderHistory();
+       selectedFilter=
+       button.dataset.filter;
 
-        }
-      );
 
-    }
-  );
+       renderHistory();
+
+     }
+   );
+
+ }
+);
 
 
 /* =====================================================
@@ -3077,67 +3880,114 @@ document
 ===================================================== */
 
 document.getElementById(
-  "logoutBtn"
+ "logoutBtn"
 )
 .addEventListener(
-  "click",
-  ()=>{
+ "click",
+ ()=>{
 
-    localStorage.removeItem(
-      "facultyMobile"
-    );
+   localStorage.removeItem(
+     "facultyMobile"
+   );
 
-    localStorage.removeItem(
-      "facultyName"
-    );
+   localStorage.removeItem(
+     "facultyName"
+   );
 
-    localStorage.removeItem(
-      "facultyLoggedIn"
-    );
+   localStorage.removeItem(
+     "facultyLoggedIn"
+   );
 
-    window.location.href =
-      "./faculty-login.html";
 
-  }
+   window.location.href=
+   "./faculty-login.html";
+
+ }
 );
 
 
 /* =====================================================
-   LIVE REFRESH
+   HTML ESCAPE
+===================================================== */
+
+function escapeHtml(value){
+
+ return String(value||"")
+ .replaceAll(
+   "&",
+   "&amp;"
+ )
+ .replaceAll(
+   "<",
+   "&lt;"
+ )
+ .replaceAll(
+   ">",
+   "&gt;"
+ )
+ .replaceAll(
+   '"',
+   "&quot;"
+ )
+ .replaceAll(
+   "'",
+   "&#039;"
+ );
+
+}
+
+
+/* =====================================================
+   LIVE UPDATE
 ===================================================== */
 
 setInterval(
-  ()=>{
+ async()=>{
 
-    if(faculty){
+   if(!faculty){
+     return;
+   }
 
-      renderCurrentSession();
 
-      renderTodaySessions();
+   /*
+     Refresh schedule + attendance
+     every minute so the START CLASS
+     button automatically becomes
+     available when the scheduled
+     time begins.
+   */
 
-      updateTodayStats();
+   await loadTodaySchedule();
 
-      updateMonthlyStats();
+   await loadAttendance();
 
-    }
-
-  },
-  60000
+ },
+ 60000
 );
 
 
 /* =====================================================
-   START
+   INITIAL LOAD
 ===================================================== */
 
-if(
-  facultyMobile &&
-  loggedIn === "true"
-){
+async function startDashboard(){
 
-  await loadFaculty();
+ await loadFaculty();
+
+
+ if(!faculty){
+   return;
+ }
+
+
+ await loadTodaySchedule();
+
+ await loadAttendance();
 
 }
+
+
+startDashboard();
 
 </script>
 
