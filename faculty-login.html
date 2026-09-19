@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Black Terminal — Faculty Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+
+<style>
+
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+}
+
+:root{
+ --bg:#050711;
+ --card:rgba(14,18,37,.82);
+ --border:rgba(255,255,255,.10);
+ --cyan:#00eaff;
+ --purple:#9b5cff;
+ --pink:#ff3cac;
+ --green:#00ff9d;
+ --red:#ff4d6d;
+ --text:#f5f7ff;
+ --muted:#8991ad;
+}
+
+body{
+
+ min-height:100vh;
+
+ display:flex;
+ align-items:center;
+ justify-content:center;
+
+ padding:20px;
+
+ color:var(--text);
+
+ font-family:"Plus Jakarta Sans",sans-serif;
+
+ background:
+ radial-gradient(
+   circle at 15% 15%,
+   rgba(0,234,255,.14),
+   transparent 32%
+ ),
+ radial-gradient(
+   circle at 85% 20%,
+   rgba(155,92,255,.15),
+   transparent 32%
+ ),
+ radial-gradient(
+   circle at 50% 100%,
+   rgba(255,60,172,.10),
+   transparent 35%
+ ),
+ var(--bg);
+
+ overflow:hidden;
+}
+
+body:before{
+
+ content:"";
+
+ position:fixed;
+ inset:0;
+
+ background-image:
+ linear-gradient(
+   rgba(255,255,255,.018) 1px,
+   transparent 1px
+ ),
+ linear-gradient(
+   90deg,
+   rgba(255,255,255,.018) 1px,
+   transparent 1px
+ );
+
+ background-size:40px 40px;
+
+ pointer-events:none;
+}
+
+.login-box{
+
+ width:min(430px,100%);
+
+ padding:28px 22px;
+
+ border:1px solid var(--border);
+
+ border-radius:28px;
+
+ background:var(--card);
+
+ backdrop-filter:blur(22px);
+
+ box-shadow:
+ 0 30px 100px rgba(0,0,0,.5),
+ 0 0 50px rgba(0,234,255,.04);
+
+ position:relative;
+
+ z-index:2;
+}
+
+.logo{
+
+ text-align:center;
+
+ font-family:Orbitron;
+
+ font-size:25px;
+
+ font-weight:800;
+
+ letter-spacing:1px;
+
+ margin-bottom:7px;
+}
+
+.logo span{
+ color:var(--cyan);
+}
+
+.subtitle{
+
+ text-align:center;
+
+ color:var(--muted);
+
+ font-size:11px;
+
+ margin-bottom:28px;
+}
+
+.icon{
+
+ width:78px;
+ height:78px;
+
+ margin:0 auto 18px;
+
+ display:grid;
+ place-items:center;
+
+ border-radius:24px;
+
+ font-size:36px;
+
+ color:white;
+
+ background:
+ linear-gradient(
+   135deg,
+   #3bbcff,
+   #8a5cff,
+   #e43cac
+ );
+
+ box-shadow:
+ 0 0 35px rgba(0,234,255,.18);
+}
+
+.title{
+
+ text-align:center;
+
+ font-family:Orbitron;
+
+ font-size:17px;
+
+ margin-bottom:7px;
+}
+
+.description{
+
+ text-align:center;
+
+ color:var(--muted);
+
+ font-size:11px;
+
+ line-height:1.6;
+
+ margin-bottom:24px;
+}
+
+.field{
+
+ margin-bottom:14px;
+}
+
+label{
+
+ display:block;
+
+ font-size:10px;
+
+ color:var(--muted);
+
+ margin-bottom:7px;
+
+ font-weight:700;
+
+ letter-spacing:.5px;
+}
+
+.phone-wrap{
+
+ display:flex;
+
+ gap:7px;
+}
+
+.country{
+
+ width:70px;
+
+ display:flex;
+
+ align-items:center;
+
+ justify-content:center;
+
+ border:1px solid var(--border);
+
+ border-radius:13px;
+
+ background:rgba(255,255,255,.045);
+
+ color:var(--cyan);
+
+ font-family:Orbitron;
+
+ font-size:12px;
+}
+
+input{
+
+ width:100%;
+
+ padding:14px;
+
+ border-radius:13px;
+
+ border:1px solid var(--border);
+
+ outline:none;
+
+ background:rgba(255,255,255,.045);
+
+ color:white;
+
+ font-size:14px;
+}
+
+input:focus{
+
+ border-color:var(--cyan);
+
+ box-shadow:
+ 0 0 18px rgba(0,234,255,.08);
+}
+
+input::placeholder{
+ color:#5d6683;
+}
+
+button{
+
+ width:100%;
+
+ border:0;
+
+ border-radius:14px;
+
+ padding:14px;
+
+ cursor:pointer;
+
+ font-size:12px;
+
+ font-weight:800;
+
+ background:var(--cyan);
+
+ color:#041018;
+
+ transition:.2s;
+}
+
+button:hover{
+ transform:translateY(-1px);
+}
+
+button:disabled{
+ opacity:.45;
+ cursor:not-allowed;
+ transform:none;
+}
+
+.otp-section{
+ display:none;
+}
+
+.otp-section.show{
+ display:block;
+}
+
+.otp-input{
+
+ text-align:center;
+
+ font-family:Orbitron;
+
+ font-size:21px;
+
+ letter-spacing:7px;
+}
+
+.resend{
+
+ margin-top:11px;
+
+ background:transparent;
+
+ border:1px solid var(--border);
+
+ color:var(--cyan);
+
+}
+
+.back{
+
+ margin-top:9px;
+
+ background:transparent;
+
+ border:1px solid var(--border);
+
+ color:var(--muted);
+}
+
+.message{
+
+ display:none;
+
+ margin-top:13px;
+
+ padding:11px;
+
+ border-radius:12px;
+
+ font-size:10px;
+
+ line-height:1.5;
+
+ text-align:center;
+}
+
+.message.show{
+ display:block;
+}
+
+.message.error{
+
+ color:#ff8098;
+
+ background:rgba(255,77,109,.08);
+
+ border:1px solid rgba(255,77,109,.20);
+}
+
+.message.success{
+
+ color:var(--green);
+
+ background:rgba(0,255,157,.07);
+
+ border:1px solid rgba(0,255,157,.20);
+}
+
+.security{
+
+ margin-top:22px;
+
+ text-align:center;
+
+ color:#59617b;
+
+ font-size:9px;
+
+ line-height:1.5;
+}
+
+.footer{
+
+ margin-top:20px;
+
+ text-align:center;
+
+ color:#515a76;
+
+ font-size:9px;
+}
+
+#recaptcha-container{
+
+ margin-top:10px;
+
+ display:flex;
+
+ justify-content:center;
+}
+
+@media(max-width:400px){
+
+ .login-box{
+   padding:24px 17px;
+ }
+
+ .logo{
+   font-size:21px;
+ }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="login-box">
+
+
+ <div class="logo">
+   BLACK<span>TERMINAL</span>
+ </div>
+
+ <div class="subtitle">
+   FACULTY MANAGEMENT SYSTEM
+ </div>
+
+
+ <div class="icon">
+   <i class="ri-user-star-line"></i>
+ </div>
+
+
+ <!-- PHONE LOGIN -->
+
+ <div id="phoneSection">
+
+   <div class="title">
+     FACULTY LOGIN
+   </div>
+
+   <div class="description">
+     Enter your registered mobile number.
+     We will send you a verification OTP.
+   </div>
+
+
+   <div class="field">
+
+     <label>
+       REGISTERED MOBILE NUMBER
+     </label>
+
+     <div class="phone-wrap">
+
+       <div class="country">
+         +91
+       </div>
+
+       <input
+         id="phone"
+         type="tel"
+         inputmode="numeric"
+         maxlength="10"
+         placeholder="Enter 10 digit number"
+       >
+
+     </div>
+
+   </div>
+
+
+   <div id="recaptcha-container"></div>
+
+
+   <button id="sendOtpBtn">
+
+     <i class="ri-message-2-line"></i>
+
+     SEND OTP
+
+   </button>
+
+ </div>
+
+
+ <!-- OTP LOGIN -->
+
+ <div id="otpSection" class="otp-section">
+
+   <div class="title">
+     VERIFY OTP
+   </div>
+
+   <div class="description">
+     Enter the 6-digit OTP sent to
+     <strong id="maskedPhone"></strong>
+   </div>
+
+
+   <div class="field">
+
+     <label>
+       VERIFICATION CODE
+     </label>
+
+     <input
+       id="otp"
+       class="otp-input"
+       type="tel"
+       inputmode="numeric"
+       maxlength="6"
+       placeholder="000000"
+     >
+
+   </div>
+
+
+   <button id="verifyBtn">
+
+     <i class="ri-shield-check-line"></i>
+
+     VERIFY & LOGIN
+
+   </button>
+
+
+   <button
+     id="resendBtn"
+     class="resend"
+   >
+
+     <i class="ri-refresh-line"></i>
+
+     RESEND OTP
+
+   </button>
+
+
+   <button
+     id="backBtn"
+     class="back"
+   >
+
+     <i class="ri-arrow-left-line"></i>
+
+     CHANGE NUMBER
+
+   </button>
+
+ </div>
+
+
+ <div id="message" class="message"></div>
+
+
+ <div class="security">
+
+   <i class="ri-shield-check-line"></i>
+
+   Secure Firebase Phone Authentication
+
+ </div>
+
+
+ <div class="footer">
+   BLACK TERMINAL © 2026
+ </div>
+
+
+</div>
+
+
+<script type="module">
+
+
+import {
+ initializeApp
+} from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+
+import {
+ getAuth,
+ RecaptchaVerifier,
+ signInWithPhoneNumber
+} from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+
+import {
+ getFirestore,
+ doc,
+ getDoc
+} from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+
+import {
+ firebaseConfig
+} from "./firebase-config.js";
+
+
+/* =========================
+   FIREBASE
+========================= */
+
+const app =
+initializeApp(firebaseConfig);
+
+
+const auth =
+getAuth(app);
+
+
+const db =
+getFirestore(app);
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const phoneInput =
+document.getElementById("phone");
+
+const otpInput =
+document.getElementById("otp");
+
+const sendBtn =
+document.getElementById("sendOtpBtn");
+
+const verifyBtn =
+document.getElementById("verifyBtn");
+
+const resendBtn =
+document.getElementById("resendBtn");
+
+const backBtn =
+document.getElementById("backBtn");
+
+const phoneSection =
+document.getElementById("phoneSection");
+
+const otpSection =
+document.getElementById("otpSection");
+
+const message =
+document.getElementById("message");
+
+const maskedPhone =
+document.getElementById("maskedPhone");
+
+
+let confirmationResult=null;
+
+let recaptchaVerifier=null;
+
+let currentPhone="";
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+function showMessage(text,type="error"){
+
+ message.textContent=text;
+
+ message.className=
+ "message show "+type;
+
+}
+
+
+/* =========================
+   MASK PHONE
+========================= */
+
+function maskPhone(phone){
+
+ return "+91 " +
+ phone.substring(0,2) +
+ "******" +
+ phone.substring(8);
+
+}
+
+
+/* =========================
+   RECAPTCHA
+========================= */
+
+function setupRecaptcha(){
+
+ if(recaptchaVerifier) return;
+
+
+ recaptchaVerifier =
+ new RecaptchaVerifier(
+   auth,
+   "recaptcha-container",
+   {
+     size:"normal"
+   }
+ );
+
+
+ recaptchaVerifier.render();
+
+}
+
+
+setupRecaptcha();
+
+
+/* =========================
+   SEND OTP
+========================= */
+
+sendBtn.addEventListener(
+ "click",
+ async()=>{
+
+   showMessage("");
+
+   const phone =
+   phoneInput.value
+   .replace(/\D/g,"");
+
+
+   if(phone.length!==10){
+
+     showMessage(
+       "Please enter a valid 10 digit mobile number."
+     );
+
+     return;
+
+   }
+
+
+   currentPhone="+91"+phone;
+
+
+   sendBtn.disabled=true;
+
+   sendBtn.innerHTML=
+   '<i class="ri-loader-4-line"></i> SENDING...';
+
+
+   try{
+
+     /*
+       IMPORTANT:
+       Faculty must already exist
+       in Firestore faculty collection.
+     */
+
+     const facultyRef=
+     doc(
+       db,
+       "faculty",
+       phone
+     );
+
+
+     const facultySnap=
+     await getDoc(facultyRef);
+
+
+     if(!facultySnap.exists()){
+
+       throw new Error(
+         "This mobile number is not registered as faculty. Please contact Admin."
+       );
+
+     }
+
+
+     const facultyData=
+     facultySnap.data();
+
+
+     if(facultyData.active===false){
+
+       throw new Error(
+         "Your faculty account is inactive. Please contact Admin."
+       );
+
+     }
+
+
+     confirmationResult=
+     await signInWithPhoneNumber(
+       auth,
+       currentPhone,
+       recaptchaVerifier
+     );
+
+
+     maskedPhone.textContent=
+     maskPhone(phone);
+
+
+     phoneSection.style.display="none";
+
+     otpSection.classList.add("show");
+
+     otpInput.focus();
+
+
+     showMessage(
+       "OTP sent successfully.",
+       "success"
+     );
+
+
+   }catch(error){
+
+     console.error(error);
+
+
+     let msg=
+     error.message ||
+     "Unable to send OTP.";
+
+
+     if(
+       error.code ===
+       "auth/invalid-phone-number"
+     ){
+
+       msg=
+       "Invalid mobile number.";
+
+     }
+
+
+     if(
+       error.code ===
+       "auth/too-many-requests"
+     ){
+
+       msg=
+       "Too many attempts. Please try again later.";
+
+     }
+
+
+     showMessage(msg);
+
+
+     /*
+       Reset reCAPTCHA after failure.
+     */
+
+     if(recaptchaVerifier){
+
+       try{
+
+         recaptchaVerifier.clear();
+
+       }catch(e){}
+
+       recaptchaVerifier=null;
+
+     }
+
+
+     setupRecaptcha();
+
+
+   }finally{
+
+     sendBtn.disabled=false;
+
+     sendBtn.innerHTML=
+     '<i class="ri-message-2-line"></i> SEND OTP';
+
+   }
+
+ });
+
+
+/* =========================
+   VERIFY OTP
+========================= */
+
+verifyBtn.addEventListener(
+ "click",
+ async()=>{
+
+   const otp=
+   otpInput.value
+   .replace(/\D/g,"");
+
+
+   if(otp.length!==6){
+
+     showMessage(
+       "Please enter the 6 digit OTP."
+     );
+
+     return;
+
+   }
+
+
+   if(!confirmationResult){
+
+     showMessage(
+       "Please request OTP again."
+     );
+
+     return;
+
+   }
+
+
+   verifyBtn.disabled=true;
+
+   verifyBtn.innerHTML=
+   '<i class="ri-loader-4-line"></i> VERIFYING...';
+
+
+   try{
+
+     const result=
+     await confirmationResult
+     .confirm(otp);
+
+
+     const user=
+     result.user;
+
+
+     /*
+       Firebase has now verified
+       the faculty phone number.
+     */
+
+
+     const cleanPhone=
+     phoneInput.value
+     .replace(/\D/g,"");
+
+
+     /*
+       Save faculty mobile so the
+       existing dashboard can identify
+       the faculty.
+     */
+
+     localStorage.setItem(
+       "facultyMobile",
+       cleanPhone
+     );
+
+
+     localStorage.setItem(
+       "facultyUid",
+       user.uid
+     );
+
+
+     localStorage.setItem(
+       "facultyLoggedIn",
+       "true"
+     );
+
+
+     showMessage(
+       "Login successful. Opening dashboard...",
+       "success"
+     );
+
+
+     setTimeout(()=>{
+
+       window.location.href=
+       "faculty-dashboard.html";
+
+     },700);
+
+
+   }catch(error){
+
+     console.error(error);
+
+
+     if(
+       error.code===
+       "auth/invalid-verification-code"
+     ){
+
+       showMessage(
+         "Wrong OTP. Please check and try again."
+       );
+
+     }else if(
+       error.code===
+       "auth/code-expired"
+     ){
+
+       showMessage(
+         "OTP expired. Please request a new OTP."
+       );
+
+     }else{
+
+       showMessage(
+         error.message ||
+         "OTP verification failed."
+       );
+
+     }
+
+
+   }finally{
+
+     verifyBtn.disabled=false;
+
+     verifyBtn.innerHTML=
+     '<i class="ri-shield-check-line"></i> VERIFY & LOGIN';
+
+   }
+
+ });
+
+
+/* =========================
+   RESEND OTP
+========================= */
+
+resendBtn.addEventListener(
+ "click",
+ async()=>{
+
+   const phone=
+   phoneInput.value
+   .replace(/\D/g,"");
+
+
+   if(phone.length!==10){
+
+     showMessage(
+       "Invalid mobile number."
+     );
+
+     return;
+
+   }
+
+
+   sendBtn.click();
+
+ });
+
+
+/* =========================
+   BACK
+========================= */
+
+backBtn.addEventListener(
+ "click",
+ ()=>{
+
+   otpSection.classList.remove("show");
+
+   phoneSection.style.display="block";
+
+   otpInput.value="";
+
+   confirmationResult=null;
+
+   showMessage("");
+
+ });
+
+
+/* =========================
+   ENTER KEY
+========================= */
+
+phoneInput.addEventListener(
+ "keydown",
+ e=>{
+
+   if(e.key==="Enter"){
+     sendBtn.click();
+   }
+
+ });
+
+
+otpInput.addEventListener(
+ "keydown",
+ e=>{
+
+   if(e.key==="Enter"){
+     verifyBtn.click();
+   }
+
+ });
+
+
+</script>
+
+</body>
+</html>
