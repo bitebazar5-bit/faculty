@@ -1,123 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <title>Black Terminal — Admin Panel</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+}
 
 :root{
+
  --bg:#050711;
- --card:rgba(15,19,38,.78);
+ --card:rgba(15,19,38,.80);
  --border:rgba(255,255,255,.09);
+
  --cyan:#00eaff;
  --purple:#9b5cff;
  --pink:#ff3cac;
  --green:#00ff9d;
  --yellow:#ffd166;
  --red:#ff4d6d;
+
  --text:#f5f7ff;
  --muted:#8991ad;
 }
 
 body{
- background:
- radial-gradient(circle at 10% 10%,rgba(0,234,255,.12),transparent 30%),
- radial-gradient(circle at 90% 20%,rgba(155,92,255,.14),transparent 30%),
- var(--bg);
- color:var(--text);
- font-family:"Plus Jakarta Sans",sans-serif;
+
  min-height:100vh;
+
+ color:var(--text);
+
+ font-family:"Plus Jakarta Sans",sans-serif;
+
+ background:
+ radial-gradient(
+   circle at 10% 10%,
+   rgba(0,234,255,.12),
+   transparent 30%
+ ),
+ radial-gradient(
+   circle at 90% 20%,
+   rgba(155,92,255,.14),
+   transparent 30%
+ ),
+ var(--bg);
 }
 
 body:before{
+
  content:"";
+
  position:fixed;
+
  inset:0;
+
  pointer-events:none;
+
  background-image:
- linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
- linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+ linear-gradient(
+   rgba(255,255,255,.018) 1px,
+   transparent 1px
+ ),
+ linear-gradient(
+   90deg,
+   rgba(255,255,255,.018) 1px,
+   transparent 1px
+ );
+
  background-size:40px 40px;
 }
 
 .app{
+
  width:min(1200px,100%);
+
  margin:auto;
+
  padding:18px 14px 80px;
+
  position:relative;
+
  z-index:1;
 }
 
+
+/* =========================
+   TOP
+========================= */
+
 .topbar{
+
  display:flex;
+
  align-items:center;
+
  justify-content:space-between;
+
  margin-bottom:18px;
 }
 
 .logo{
+
  font-family:Orbitron;
+
  font-weight:800;
+
  font-size:18px;
+
  letter-spacing:1px;
 }
 
-.logo span{color:var(--cyan)}
+.logo span{
+ color:var(--cyan);
+}
 
 .admin-status{
+
  display:flex;
+
  align-items:center;
+
  gap:7px;
+
  color:var(--green);
+
  font-size:10px;
+
  font-weight:700;
 }
 
 .dot{
+
  width:7px;
+
  height:7px;
+
  background:var(--green);
+
  border-radius:50%;
- box-shadow:0 0 12px var(--green);
+
+ box-shadow:
+ 0 0 12px var(--green);
 }
 
+
+/* =========================
+   HERO
+========================= */
+
 .hero{
+
  padding:22px;
+
  border:1px solid var(--border);
+
  border-radius:24px;
+
  background:var(--card);
+
  backdrop-filter:blur(18px);
+
  margin-bottom:15px;
 }
 
 .hero h1{
+
  font-family:Orbitron;
+
  font-size:22px;
 }
 
 .hero p{
+
  margin-top:7px;
+
  color:var(--muted);
+
  font-size:12px;
 }
 
+
+/* =========================
+   GRID
+========================= */
+
 .grid{
+
  display:grid;
- grid-template-columns:repeat(4,1fr);
+
+ grid-template-columns:
+ repeat(4,1fr);
+
  gap:12px;
 }
 
 .card{
+
  background:var(--card);
+
  border:1px solid var(--border);
+
  border-radius:20px;
+
  padding:17px;
+
  backdrop-filter:blur(18px);
 }
 
@@ -126,127 +224,247 @@ body:before{
 }
 
 .stat i{
+
  font-size:23px;
+
  color:var(--cyan);
 }
 
 .label{
+
  margin-top:12px;
+
  color:var(--muted);
+
  font-size:10px;
 }
 
 .value{
+
  margin-top:5px;
+
  font-family:Orbitron;
+
  font-size:21px;
+
  font-weight:700;
 }
 
-.green{color:var(--green)}
-.yellow{color:var(--yellow)}
-.pink{color:var(--pink)}
-.purple{color:var(--purple)}
+.green{
+ color:var(--green);
+}
+
+.yellow{
+ color:var(--yellow);
+}
+
+.pink{
+ color:var(--pink);
+}
+
+.purple{
+ color:var(--purple);
+}
+
+.red{
+ color:var(--red);
+}
+
+
+/* =========================
+   SECTION
+========================= */
 
 .section{
- margin-top:15px;
+ margin-top:17px;
 }
 
 .section-title{
+
  font-family:Orbitron;
+
  font-size:13px;
+
  margin-bottom:10px;
 }
 
+
+/* =========================
+   FORM
+========================= */
+
 .form-grid{
+
  display:grid;
- grid-template-columns:repeat(2,1fr);
+
+ grid-template-columns:
+ repeat(2,1fr);
+
  gap:12px;
 }
 
 .field label{
+
  display:block;
+
  color:var(--muted);
+
  font-size:10px;
+
  margin-bottom:6px;
 }
 
-input,select{
+input,
+select{
+
  width:100%;
+
  border:1px solid var(--border);
+
  background:rgba(255,255,255,.045);
+
  color:var(--text);
+
  padding:13px;
+
  border-radius:12px;
+
  outline:none;
 }
 
-input:focus,select:focus{
+input:focus,
+select:focus{
+
  border-color:var(--cyan);
- box-shadow:0 0 15px rgba(0,234,255,.08);
+
+ box-shadow:
+ 0 0 15px rgba(0,234,255,.08);
 }
 
 select option{
  background:#101426;
 }
 
+
+/* =========================
+   BUTTON
+========================= */
+
 .buttons{
+
  display:flex;
+
  gap:9px;
+
  margin-top:13px;
 }
 
 button{
+
  border:0;
+
  cursor:pointer;
+
  padding:12px 16px;
+
  border-radius:12px;
+
  font-weight:800;
+
  background:var(--cyan);
+
  color:#061018;
+
+ transition:.2s;
+}
+
+button:hover{
+ transform:translateY(-1px);
+}
+
+button:disabled{
+
+ opacity:.45;
+
+ cursor:not-allowed;
+
+ transform:none;
 }
 
 button.secondary{
+
  background:rgba(255,255,255,.06);
+
  border:1px solid var(--border);
+
  color:white;
 }
 
 button.danger{
+
  background:var(--red);
+
  color:white;
 }
 
 button.small{
+
  padding:8px 10px;
+
  font-size:10px;
 }
 
+
+/* =========================
+   MESSAGE
+========================= */
+
 .message{
+
  display:none;
+
  margin-top:10px;
+
  padding:10px;
+
  border-radius:10px;
+
  font-size:11px;
 }
 
-.message.show{display:block}
+.message.show{
+ display:block;
+}
 
 .success{
+
  color:var(--green);
+
  background:rgba(0,255,157,.07);
+
  border:1px solid rgba(0,255,157,.2);
 }
 
 .error{
+
  color:#ff8098;
+
  background:rgba(255,77,109,.08);
+
  border:1px solid rgba(255,77,109,.2);
 }
 
+
+/* =========================
+   TABLE
+========================= */
+
 .toolbar{
+
  display:flex;
+
  gap:10px;
+
  margin-bottom:12px;
 }
 
@@ -259,23 +477,36 @@ button.small{
 }
 
 table{
+
  width:100%;
+
  min-width:850px;
+
  border-collapse:collapse;
 }
 
 th{
+
  color:var(--muted);
+
  font-size:10px;
+
  text-align:left;
+
  padding:12px;
- border-bottom:1px solid var(--border);
+
+ border-bottom:
+ 1px solid var(--border);
 }
 
 td{
+
  padding:12px;
+
  font-size:11px;
- border-bottom:1px solid rgba(255,255,255,.05);
+
+ border-bottom:
+ 1px solid rgba(255,255,255,.05);
 }
 
 .faculty-name{
@@ -283,55 +514,151 @@ td{
 }
 
 .mobile{
+
  color:var(--muted);
+
  font-size:10px;
+
  margin-top:3px;
 }
 
 .rate{
+
  color:var(--yellow);
+
  font-weight:800;
 }
 
 .earning{
+
  color:var(--green);
+
  font-weight:800;
 }
 
-.active{
- color:var(--green);
-}
-
-.inactive{
- color:var(--red);
-}
-
 .badge{
+
  display:inline-block;
+
  padding:5px 8px;
+
  border-radius:20px;
+
  font-size:9px;
+
  font-weight:800;
 }
 
 .badge.active{
+
+ color:var(--green);
+
  background:rgba(0,255,157,.08);
+
  border:1px solid rgba(0,255,157,.2);
 }
 
 .badge.inactive{
+
+ color:var(--red);
+
  background:rgba(255,77,109,.08);
+
  border:1px solid rgba(255,77,109,.2);
 }
 
-.modal{
- position:fixed;
- inset:0;
- background:rgba(0,0,0,.72);
- display:none;
+.badge.allowed{
+
+ color:var(--green);
+
+ background:rgba(0,255,157,.08);
+
+ border:1px solid rgba(0,255,157,.2);
+}
+
+.badge.blocked{
+
+ color:var(--red);
+
+ background:rgba(255,77,109,.08);
+
+ border:1px solid rgba(255,77,109,.2);
+}
+
+
+/* =========================
+   SCHEDULE ROW
+========================= */
+
+.schedule-row{
+
+ display:grid;
+
+ grid-template-columns:
+ 1.2fr 1fr 1fr .7fr auto;
+
+ gap:9px;
+
+ align-items:end;
+
+ padding:12px;
+
+ margin-top:9px;
+
+ border:1px solid var(--border);
+
+ border-radius:15px;
+
+ background:rgba(255,255,255,.025);
+}
+
+.schedule-row .field{
+ min-width:0;
+}
+
+.remove-session{
+
+ background:rgba(255,77,109,.10);
+
+ color:#ff8098;
+
+ border:1px solid rgba(255,77,109,.2);
+
+ padding:10px;
+}
+
+.schedule-header{
+
+ display:flex;
+
+ justify-content:space-between;
+
  align-items:center;
+
+ margin-bottom:8px;
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+
+ position:fixed;
+
+ inset:0;
+
+ background:rgba(0,0,0,.72);
+
+ display:none;
+
+ align-items:center;
+
  justify-content:center;
+
  padding:15px;
+
  z-index:10;
 }
 
@@ -340,60 +667,159 @@ td{
 }
 
 .modal-box{
- width:min(500px,100%);
+
+ width:min(520px,100%);
+
+ max-height:90vh;
+
+ overflow:auto;
+
  background:#0c1020;
+
  border:1px solid var(--border);
+
  border-radius:22px;
+
  padding:20px;
- box-shadow:0 20px 80px rgba(0,0,0,.5);
+
+ box-shadow:
+ 0 20px 80px rgba(0,0,0,.5);
 }
 
 .modal-head{
+
  display:flex;
+
  justify-content:space-between;
+
  align-items:center;
+
  margin-bottom:15px;
 }
 
 .close{
+
  background:transparent;
+
  color:white;
+
  font-size:20px;
+
  padding:4px;
 }
 
+
+/* =========================
+   EMPTY / LOADING
+========================= */
+
 .empty{
+
  text-align:center;
+
  padding:25px;
+
  color:var(--muted);
+
  font-size:12px;
 }
 
 .loading{
+
  text-align:center;
+
  padding:20px;
+
  color:var(--cyan);
 }
 
+
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:800px){
- .grid{grid-template-columns:repeat(2,1fr)}
+
+ .grid{
+
+   grid-template-columns:
+   repeat(2,1fr);
+ }
+
+ .schedule-row{
+
+   grid-template-columns:
+   1fr 1fr;
+ }
+
+ .schedule-row .field:first-child{
+
+   grid-column:
+   1 / -1;
+ }
+
+ .remove-session{
+
+   width:100%;
+ }
+
 }
 
 @media(max-width:500px){
- .app{padding:13px 10px 70px}
- .form-grid{grid-template-columns:1fr}
- .buttons{flex-direction:column}
- .hero h1{font-size:18px}
- .toolbar{flex-direction:column}
+
+ .app{
+
+   padding:
+   13px 10px 70px;
+ }
+
+ .form-grid{
+
+   grid-template-columns:1fr;
+ }
+
+ .buttons{
+
+   flex-direction:column;
+ }
+
+ .hero h1{
+
+   font-size:18px;
+ }
+
+ .toolbar{
+
+   flex-direction:column;
+ }
+
+ .schedule-row{
+
+   grid-template-columns:1fr;
+ }
+
+ .schedule-row .field:first-child{
+
+   grid-column:auto;
+ }
+
 }
+
 </style>
 </head>
+
 
 <body>
 
 <div class="app">
 
+
+<!-- =========================
+     TOP BAR
+========================= -->
+
 <div class="topbar">
+
  <div class="logo">
    BLACK<span>TERMINAL</span>
  </div>
@@ -402,341 +828,911 @@ td{
    <span class="dot"></span>
    ADMIN CONTROL
  </div>
+
 </div>
 
+
+<!-- =========================
+     HERO
+========================= -->
 
 <div class="hero">
- <h1>FACULTY ADMIN PANEL</h1>
- <p>Manage faculty • Hourly rates • Attendance • Earnings</p>
+
+ <h1>
+   FACULTY ADMIN PANEL
+ </h1>
+
+ <p>
+   Faculty • Rates • Class Schedule • Attendance • Earnings
+ </p>
+
 </div>
 
 
-<!-- STATS -->
+<!-- =========================
+     STATS
+========================= -->
 
 <div class="grid">
 
+
  <div class="card stat">
+
    <i class="ri-team-line"></i>
-   <div class="label">TOTAL FACULTY</div>
-   <div class="value" id="totalFaculty">0</div>
+
+   <div class="label">
+     TOTAL FACULTY
+   </div>
+
+   <div
+     class="value"
+     id="totalFaculty"
+   >
+     0
+   </div>
+
  </div>
 
+
  <div class="card stat">
+
    <i class="ri-user-follow-line"></i>
-   <div class="label">ACTIVE FACULTY</div>
-   <div class="value green" id="activeFaculty">0</div>
+
+   <div class="label">
+     ACTIVE FACULTY
+   </div>
+
+   <div
+     class="value green"
+     id="activeFaculty"
+   >
+     0
+   </div>
+
  </div>
 
- <div class="card stat">
-   <i class="ri-time-line"></i>
-   <div class="label">TODAY PRESENT</div>
-   <div class="value purple" id="todayPresent">0</div>
- </div>
 
  <div class="card stat">
+
+   <i class="ri-calendar-check-line"></i>
+
+   <div class="label">
+     TODAY PRESENT
+   </div>
+
+   <div
+     class="value purple"
+     id="todayPresent"
+   >
+     0
+   </div>
+
+ </div>
+
+
+ <div class="card stat">
+
    <i class="ri-money-rupee-circle-line"></i>
-   <div class="label">MONTH EARNINGS</div>
-   <div class="value yellow" id="monthEarnings">₹0</div>
+
+   <div class="label">
+     MONTH EARNINGS
+   </div>
+
+   <div
+     class="value yellow"
+     id="monthEarnings"
+   >
+     ₹0
+   </div>
+
  </div>
+
 
 </div>
 
 
-<!-- ADD FACULTY -->
+<!-- =================================================
+     ADD / UPDATE FACULTY
+================================================= -->
 
 <div class="section">
 
-<div class="section-title">
- <i class="ri-user-add-line"></i>
- ADD / UPDATE FACULTY
-</div>
-
-<div class="card">
-
- <div class="form-grid">
-
-   <div class="field">
-     <label>FACULTY NAME</label>
-     <input id="name" placeholder="Example: Rahul Kumar">
-   </div>
-
-   <div class="field">
-     <label>MOBILE NUMBER</label>
-     <input id="mobile" inputmode="numeric" maxlength="15"
-            placeholder="Faculty mobile number">
-   </div>
-
-   <div class="field">
-     <label>HOURLY RATE ₹</label>
-     <input id="rate" type="number"
-            placeholder="Example: 150">
-   </div>
-
-   <div class="field">
-     <label>STATUS</label>
-
-     <select id="active">
-       <option value="true">ACTIVE</option>
-       <option value="false">INACTIVE</option>
-     </select>
-
-   </div>
-
-   <div class="field">
-     <label>PHOTO URL — OPTIONAL</label>
-     <input id="photo"
-            placeholder="https://...">
-   </div>
-
+ <div class="section-title">
+   <i class="ri-user-add-line"></i>
+   ADD / UPDATE FACULTY
  </div>
 
 
- <div class="buttons">
+ <div class="card">
 
-   <button id="saveFaculty">
-     <i class="ri-save-line"></i>
-     SAVE FACULTY
-   </button>
+   <div class="form-grid">
 
-   <button class="secondary" id="clearForm">
-     CLEAR
-   </button>
+
+     <div class="field">
+
+       <label>
+         FACULTY NAME
+       </label>
+
+       <input
+         id="name"
+         placeholder="Example: Amit Kumar"
+       >
+
+     </div>
+
+
+     <div class="field">
+
+       <label>
+         MOBILE NUMBER
+       </label>
+
+       <input
+         id="mobile"
+         inputmode="numeric"
+         maxlength="10"
+         placeholder="10 digit mobile"
+       >
+
+     </div>
+
+
+     <div class="field">
+
+       <label>
+         HOURLY RATE ₹
+       </label>
+
+       <input
+         id="rate"
+         type="number"
+         min="0"
+         placeholder="Example: 140"
+       >
+
+     </div>
+
+
+     <div class="field">
+
+       <label>
+         STATUS
+       </label>
+
+       <select id="active">
+
+         <option value="true">
+           ACTIVE
+         </option>
+
+         <option value="false">
+           INACTIVE
+         </option>
+
+       </select>
+
+     </div>
+
+
+     <div class="field">
+
+       <label>
+         PHOTO URL — OPTIONAL
+       </label>
+
+       <input
+         id="photo"
+         placeholder="https://..."
+       >
+
+     </div>
+
+
+   </div>
+
+
+   <div class="buttons">
+
+     <button id="saveFaculty">
+
+       <i class="ri-save-line"></i>
+
+       SAVE FACULTY
+
+     </button>
+
+
+     <button
+       class="secondary"
+       id="clearForm"
+     >
+
+       CLEAR
+
+     </button>
+
+   </div>
+
+
+   <div
+     class="message"
+     id="message"
+   ></div>
 
  </div>
 
- <div class="message" id="message"></div>
-
-</div>
-
 </div>
 
 
-<!-- FACULTY LIST -->
+<!-- =================================================
+     CLASS SCHEDULE CONTROL
+================================================= -->
 
 <div class="section">
 
-<div class="section-title">
- <i class="ri-group-line"></i>
- FACULTY MANAGEMENT
-</div>
+ <div class="section-title">
 
-<div class="card">
+   <i class="ri-calendar-schedule-line"></i>
 
- <div class="toolbar">
-
-   <input class="search"
-          id="search"
-          placeholder="Search faculty name or mobile...">
-
-   <button class="secondary" id="refresh">
-     <i class="ri-refresh-line"></i>
-   </button>
+   CLASS SCHEDULE / ATTENDANCE CONTROL
 
  </div>
 
 
- <div class="table-wrap">
+ <div class="card">
 
-   <div id="facultyLoading" class="loading">
-     Loading faculty...
+
+   <div class="form-grid">
+
+
+     <div class="field">
+
+       <label>
+         SELECT FACULTY
+       </label>
+
+       <select id="scheduleFaculty">
+
+         <option value="">
+           Select Faculty
+         </option>
+
+       </select>
+
+     </div>
+
+
+     <div class="field">
+
+       <label>
+         CLASS DATE
+       </label>
+
+       <input
+         id="scheduleDate"
+         type="date"
+       >
+
+     </div>
+
+
    </div>
 
-   <table id="facultyTable" style="display:none">
 
-     <thead>
-       <tr>
-         <th>FACULTY</th>
-         <th>MOBILE</th>
-         <th>RATE</th>
-         <th>STATUS</th>
-         <th>ACTION</th>
-       </tr>
-     </thead>
+   <div
+     id="scheduleArea"
+     style="display:none;margin-top:15px"
+   >
 
-     <tbody id="facultyBody"></tbody>
+     <div class="schedule-header">
 
-   </table>
+       <strong>
+         ALLOWED CLASS SESSIONS
+       </strong>
 
-   <div id="facultyEmpty" class="empty" style="display:none">
-     No faculty found.
+       <button
+         class="secondary small"
+         id="addSession"
+       >
+
+         <i class="ri-add-line"></i>
+
+         ADD SESSION
+
+       </button>
+
+     </div>
+
+
+     <div id="sessionList"></div>
+
+
+     <div class="buttons">
+
+       <button id="saveSchedule">
+
+         <i class="ri-calendar-check-line"></i>
+
+         SAVE TODAY'S SCHEDULE
+
+       </button>
+
+
+       <button
+         class="secondary"
+         id="noClass"
+       >
+
+         <i class="ri-close-circle-line"></i>
+
+         NO CLASS
+
+       </button>
+
+     </div>
+
+
+     <div
+       class="message"
+       id="scheduleMessage"
+     ></div>
+
    </div>
+
 
  </div>
 
 </div>
 
-</div>
 
-
-<!-- ATTENDANCE -->
+<!-- =================================================
+     SAVED SCHEDULE
+================================================= -->
 
 <div class="section">
 
-<div class="section-title">
- <i class="ri-calendar-check-line"></i>
- TODAY ATTENDANCE
-</div>
+ <div class="section-title">
 
-<div class="card">
+   <i class="ri-calendar-todo-line"></i>
 
- <div class="table-wrap">
+   SAVED CLASS SCHEDULE
 
-   <div id="attendanceLoading" class="loading">
-     Loading today's attendance...
+ </div>
+
+
+ <div class="card">
+
+
+   <div class="toolbar">
+
+     <input
+       id="scheduleSearch"
+       class="search"
+       placeholder="Search faculty..."
+     >
+
+     <button
+       class="secondary"
+       id="refreshSchedule"
+     >
+
+       <i class="ri-refresh-line"></i>
+
+     </button>
+
    </div>
 
-   <table id="attendanceTable" style="display:none">
 
-     <thead>
-       <tr>
-         <th>FACULTY</th>
-         <th>CHECK IN</th>
-         <th>CHECK OUT</th>
-         <th>TEACHING</th>
-         <th>EARNING</th>
-       </tr>
-     </thead>
+   <div class="table-wrap">
 
-     <tbody id="attendanceBody"></tbody>
 
-   </table>
+     <div
+       id="scheduleLoading"
+       class="loading"
+     >
+       Loading schedules...
+     </div>
 
-   <div id="attendanceEmpty" class="empty" style="display:none">
-     No attendance today.
+
+     <table
+       id="scheduleTable"
+       style="display:none"
+     >
+
+       <thead>
+
+         <tr>
+
+           <th>
+             FACULTY
+           </th>
+
+           <th>
+             DATE
+           </th>
+
+           <th>
+             SESSION
+           </th>
+
+           <th>
+             TIME
+           </th>
+
+           <th>
+             STATUS
+           </th>
+
+           <th>
+             ACTION
+           </th>
+
+         </tr>
+
+       </thead>
+
+
+       <tbody
+         id="scheduleBody"
+       ></tbody>
+
+     </table>
+
+
+     <div
+       id="scheduleEmpty"
+       class="empty"
+       style="display:none"
+     >
+       No class schedules found.
+     </div>
+
+
    </div>
 
  </div>
 
 </div>
 
-</div>
 
-
-<!-- MONTHLY EARNINGS -->
+<!-- =================================================
+     FACULTY MANAGEMENT
+================================================= -->
 
 <div class="section">
 
-<div class="section-title">
- <i class="ri-money-rupee-circle-line"></i>
- MONTHLY EARNINGS
-</div>
+ <div class="section-title">
 
-<div class="card">
+   <i class="ri-group-line"></i>
 
- <div class="table-wrap">
+   FACULTY MANAGEMENT
 
-   <div id="earningLoading" class="loading">
-     Loading earnings...
+ </div>
+
+
+ <div class="card">
+
+
+   <div class="toolbar">
+
+     <input
+       class="search"
+       id="search"
+       placeholder="Search faculty name or mobile..."
+     >
+
+     <button
+       class="secondary"
+       id="refresh"
+     >
+
+       <i class="ri-refresh-line"></i>
+
+     </button>
+
    </div>
 
-   <table id="earningTable" style="display:none">
 
-     <thead>
-       <tr>
-         <th>FACULTY</th>
-         <th>WORK DAYS</th>
-         <th>HOURS</th>
-         <th>RATE</th>
-         <th>TOTAL EARNING</th>
-       </tr>
-     </thead>
+   <div class="table-wrap">
 
-     <tbody id="earningBody"></tbody>
 
-   </table>
+     <div
+       id="facultyLoading"
+       class="loading"
+     >
+       Loading faculty...
+     </div>
 
-   <div id="earningEmpty" class="empty" style="display:none">
-     No earnings data.
+
+     <table
+       id="facultyTable"
+       style="display:none"
+     >
+
+       <thead>
+
+         <tr>
+
+           <th>
+             FACULTY
+           </th>
+
+           <th>
+             MOBILE
+           </th>
+
+           <th>
+             RATE
+           </th>
+
+           <th>
+             STATUS
+           </th>
+
+           <th>
+             ACTION
+           </th>
+
+         </tr>
+
+       </thead>
+
+
+       <tbody
+         id="facultyBody"
+       ></tbody>
+
+     </table>
+
+
+     <div
+       id="facultyEmpty"
+       class="empty"
+       style="display:none"
+     >
+       No faculty found.
+     </div>
+
+
    </div>
 
  </div>
 
 </div>
 
-</div>
 
-</div>
+<!-- =================================================
+     TODAY ATTENDANCE
+================================================= -->
 
+<div class="section">
 
-<!-- EDIT MODAL -->
+ <div class="section-title">
 
-<div class="modal" id="editModal">
+   <i class="ri-calendar-check-line"></i>
 
-<div class="modal-box">
-
- <div class="modal-head">
-
-   <div class="section-title">
-     EDIT FACULTY
-   </div>
-
-   <button class="close" id="closeModal">
-     <i class="ri-close-line"></i>
-   </button>
+   TODAY ATTENDANCE
 
  </div>
 
- <div class="form-grid">
 
-   <div class="field">
-     <label>NAME</label>
-     <input id="editName">
+ <div class="card">
+
+
+   <div class="table-wrap">
+
+
+     <div
+       id="attendanceLoading"
+       class="loading"
+     >
+       Loading today's attendance...
+     </div>
+
+
+     <table
+       id="attendanceTable"
+       style="display:none"
+     >
+
+       <thead>
+
+         <tr>
+
+           <th>
+             FACULTY
+           </th>
+
+           <th>
+             DATE
+           </th>
+
+           <th>
+             CHECK IN
+           </th>
+
+           <th>
+             CHECK OUT
+           </th>
+
+           <th>
+             TEACHING
+           </th>
+
+           <th>
+             EARNING
+           </th>
+
+         </tr>
+
+       </thead>
+
+
+       <tbody
+         id="attendanceBody"
+       ></tbody>
+
+     </table>
+
+
+     <div
+       id="attendanceEmpty"
+       class="empty"
+       style="display:none"
+     >
+       No attendance today.
+     </div>
+
+
    </div>
-
-   <div class="field">
-     <label>MOBILE</label>
-     <input id="editMobile" disabled>
-   </div>
-
-   <div class="field">
-     <label>HOURLY RATE ₹</label>
-     <input id="editRate" type="number">
-   </div>
-
-   <div class="field">
-     <label>STATUS</label>
-
-     <select id="editActive">
-       <option value="true">ACTIVE</option>
-       <option value="false">INACTIVE</option>
-     </select>
-
-   </div>
-
-   <div class="field">
-     <label>PHOTO URL</label>
-     <input id="editPhoto">
-   </div>
-
- </div>
-
- <div class="buttons">
-
-   <button id="updateFaculty">
-     <i class="ri-check-line"></i>
-     UPDATE
-   </button>
-
-   <button class="danger" id="deleteFaculty">
-     <i class="ri-delete-bin-line"></i>
-     DELETE
-   </button>
 
  </div>
 
 </div>
+
+
+<!-- =================================================
+     MONTHLY EARNINGS
+================================================= -->
+
+<div class="section">
+
+ <div class="section-title">
+
+   <i class="ri-money-rupee-circle-line"></i>
+
+   MONTHLY EARNINGS
+
+ </div>
+
+
+ <div class="card">
+
+
+   <div class="table-wrap">
+
+
+     <div
+       id="earningLoading"
+       class="loading"
+     >
+       Loading earnings...
+     </div>
+
+
+     <table
+       id="earningTable"
+       style="display:none"
+     >
+
+       <thead>
+
+         <tr>
+
+           <th>
+             FACULTY
+           </th>
+
+           <th>
+             WORK DAYS
+           </th>
+
+           <th>
+             HOURS
+           </th>
+
+           <th>
+             RATE
+           </th>
+
+           <th>
+             TOTAL EARNING
+           </th>
+
+         </tr>
+
+       </thead>
+
+
+       <tbody
+         id="earningBody"
+       ></tbody>
+
+     </table>
+
+
+     <div
+       id="earningEmpty"
+       class="empty"
+       style="display:none"
+     >
+       No earnings data.
+     </div>
+
+
+   </div>
+
+ </div>
+
+</div>
+
+
+</div>
+
+
+<!-- =================================================
+     EDIT FACULTY MODAL
+================================================= -->
+
+<div
+ class="modal"
+ id="editModal"
+>
+
+ <div class="modal-box">
+
+
+   <div class="modal-head">
+
+     <div class="section-title">
+       EDIT FACULTY
+     </div>
+
+     <button
+       class="close"
+       id="closeModal"
+     >
+       <i class="ri-close-line"></i>
+     </button>
+
+   </div>
+
+
+   <div class="form-grid">
+
+
+     <div class="field">
+
+       <label>
+         NAME
+       </label>
+
+       <input id="editName">
+
+     </div>
+
+
+     <div class="field">
+
+       <label>
+         MOBILE
+       </label>
+
+       <input
+         id="editMobile"
+         disabled
+       >
+
+     </div>
+
+
+     <div class="field">
+
+       <label>
+         HOURLY RATE ₹
+       </label>
+
+       <input
+         id="editRate"
+         type="number"
+       >
+
+     </div>
+
+
+     <div class="field">
+
+       <label>
+         STATUS
+       </label>
+
+       <select id="editActive">
+
+         <option value="true">
+           ACTIVE
+         </option>
+
+         <option value="false">
+           INACTIVE
+         </option>
+
+       </select>
+
+     </div>
+
+
+     <div class="field">
+
+       <label>
+         PHOTO URL
+       </label>
+
+       <input id="editPhoto">
+
+     </div>
+
+
+   </div>
+
+
+   <div class="buttons">
+
+
+     <button id="updateFaculty">
+
+       <i class="ri-check-line"></i>
+
+       UPDATE
+
+     </button>
+
+
+     <button
+       class="danger"
+       id="deleteFaculty"
+     >
+
+       <i class="ri-delete-bin-line"></i>
+
+       DELETE
+
+     </button>
+
+
+   </div>
+
+
+ </div>
 
 </div>
 
 
 <script type="module">
 
-import {
- initializeApp
-} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+/* =====================================================
+   FIREBASE
+===================================================== */
 
 import {
- getFirestore,
+ initializeApp
+} from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+
+import {
+ initializeFirestore,
  collection,
  doc,
  getDoc,
@@ -745,53 +1741,63 @@ import {
  updateDoc,
  deleteDoc,
  query,
- where,
- orderBy
-} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
-
-import { firebaseConfig } from "./firebase-config.js";
+ where
+} from
+"https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 
-/* =========================
-   FIREBASE
-========================= */
+import {
+ firebaseConfig
+} from "./firebase-config.js";
+
 
 const app =
 initializeApp(firebaseConfig);
 
+
 const db =
-getFirestore(app);
+initializeFirestore(
+ app,
+ {
+   experimentalForceLongPolling:true
+ }
+);
 
 
-/* =========================
+/* =====================================================
    GLOBAL
-========================= */
+===================================================== */
 
 let facultyList=[];
+
 let attendanceList=[];
+
+let scheduleList=[];
+
 let selectedFaculty=null;
 
 
-/* =========================
+/* =====================================================
    HELPERS
-========================= */
+===================================================== */
 
 function today(){
 
  const d=new Date();
 
- const y=d.getFullYear();
- const m=String(d.getMonth()+1).padStart(2,"0");
- const day=String(d.getDate()).padStart(2,"0");
-
- return `${y}-${m}-${day}`;
+ return `${d.getFullYear()}-${
+   String(d.getMonth()+1).padStart(2,"0")
+ }-${
+   String(d.getDate()).padStart(2,"0")
+ }`;
 
 }
 
 
 function money(value){
 
- return "₹"+Math.round(
+ return "₹"+
+ Math.round(
    Number(value||0)
  ).toLocaleString("en-IN");
 
@@ -802,10 +1808,9 @@ function minutesToHours(minutes){
 
  minutes=Number(minutes||0);
 
- const h=Math.floor(minutes/60);
- const m=minutes%60;
-
- return `${h}h ${m}m`;
+ return `${Math.floor(minutes/60)}h ${
+   minutes%60
+ }m`;
 
 }
 
@@ -816,26 +1821,53 @@ function formatTime(value){
 
  let d;
 
- if(typeof value.toDate==="function"){
-   d=value.toDate();
- }else{
-   d=new Date(value);
+ try{
+
+   d=
+   typeof value.toDate==="function"
+   ? value.toDate()
+   : new Date(value);
+
+ }catch(e){
+
+   return "--:--";
+
  }
 
- if(isNaN(d)) return "--:--";
+ if(isNaN(d.getTime())) return "--:--";
 
- return d.toLocaleTimeString([],{
-   hour:"2-digit",
-   minute:"2-digit"
- });
+ return d.toLocaleTimeString(
+   [],
+   {
+     hour:"2-digit",
+     minute:"2-digit"
+   }
+ );
 
 }
 
 
-function showMessage(text,type="success"){
+function escapeHtml(value){
+
+ return String(value||"")
+ .replaceAll("&","&amp;")
+ .replaceAll("<","&lt;")
+ .replaceAll(">","&gt;")
+ .replaceAll('"',"&quot;")
+ .replaceAll("'","&#039;");
+
+}
+
+
+function showMessage(
+ text,
+ type="success"
+){
 
  const el=
- document.getElementById("message");
+ document.getElementById(
+   "message"
+ );
 
  el.textContent=text;
 
@@ -843,22 +1875,45 @@ function showMessage(text,type="success"){
  "message show "+type;
 
  setTimeout(()=>{
+
    el.className="message";
+
  },3500);
 
 }
 
 
-/* =========================
+function showScheduleMessage(
+ text,
+ type="success"
+){
+
+ const el=
+ document.getElementById(
+   "scheduleMessage"
+ );
+
+ el.textContent=text;
+
+ el.className=
+ "message show "+type;
+
+}
+
+
+/* =====================================================
    LOAD FACULTY
-========================= */
+===================================================== */
 
 async function loadFaculty(){
 
  const loading=
- document.getElementById("facultyLoading");
+ document.getElementById(
+   "facultyLoading"
+ );
 
  loading.style.display="block";
+
 
  try{
 
@@ -869,21 +1924,28 @@ async function loadFaculty(){
 
 
    facultyList=
-   snap.docs.map(d=>({
-     id:d.id,
-     ...d.data()
-   }));
+   snap.docs.map(
+     d=>({
+       id:d.id,
+       ...d.data()
+     })
+   );
 
 
    renderFaculty();
 
-   document.getElementById("totalFaculty")
-   .textContent=
+   populateScheduleFaculty();
+
+
+   document.getElementById(
+     "totalFaculty"
+   ).textContent=
    facultyList.length;
 
 
-   document.getElementById("activeFaculty")
-   .textContent=
+   document.getElementById(
+     "activeFaculty"
+   ).textContent=
    facultyList.filter(
      x=>x.active!==false
    ).length;
@@ -894,7 +1956,8 @@ async function loadFaculty(){
    console.error(error);
 
    showMessage(
-     "Faculty load error: "+error.message,
+     "Faculty load error: "+
+     error.message,
      "error"
    );
 
@@ -907,42 +1970,115 @@ async function loadFaculty(){
 }
 
 
-/* =========================
+/* =====================================================
+   FACULTY DROPDOWN
+===================================================== */
+
+function populateScheduleFaculty(){
+
+ const select=
+ document.getElementById(
+   "scheduleFaculty"
+ );
+
+
+ const current=
+ select.value;
+
+
+ select.innerHTML=
+ `
+ <option value="">
+   Select Faculty
+ </option>
+ `;
+
+
+ facultyList
+ .filter(
+   f=>f.active!==false
+ )
+ .forEach(
+   f=>{
+
+     const mobile=
+       f.mobile||f.id;
+
+
+     const option=
+       document.createElement(
+         "option"
+       );
+
+
+     option.value=
+       mobile;
+
+
+     option.textContent=
+       `${f.name} — ${mobile}`;
+
+
+     select.appendChild(
+       option
+     );
+
+   }
+ );
+
+
+ if(current){
+   select.value=current;
+ }
+
+}
+
+
+/* =====================================================
    RENDER FACULTY
-========================= */
+===================================================== */
 
 function renderFaculty(){
 
  const body=
- document.getElementById("facultyBody");
+ document.getElementById(
+   "facultyBody"
+ );
 
  const table=
- document.getElementById("facultyTable");
+ document.getElementById(
+   "facultyTable"
+ );
 
  const empty=
- document.getElementById("facultyEmpty");
-
+ document.getElementById(
+   "facultyEmpty"
+ );
 
  const search=
- document.getElementById("search")
- .value
+ document.getElementById(
+   "search"
+ ).value
  .toLowerCase()
  .trim();
 
 
  const data=
- facultyList.filter(f=>{
+ facultyList.filter(
+   f=>{
 
-   return (
-     String(f.name||"")
-     .toLowerCase()
-     .includes(search)
-     ||
-     String(f.mobile||f.id||"")
-     .includes(search)
-   );
+     return(
+       String(f.name||"")
+       .toLowerCase()
+       .includes(search)
+       ||
+       String(
+         f.mobile||f.id||""
+       ).includes(search)
+     );
 
- });
+   }
+ );
 
 
  body.innerHTML="";
@@ -951,6 +2087,7 @@ function renderFaculty(){
  if(!data.length){
 
    table.style.display="none";
+
    empty.style.display="block";
 
    return;
@@ -958,339 +2095,1041 @@ function renderFaculty(){
  }
 
 
- empty.style.display="none";
  table.style.display="table";
 
-
- data.forEach(f=>{
-
-   const mobile=
-   f.mobile || f.id;
+ empty.style.display="none";
 
 
-   const tr=
-   document.createElement("tr");
+ data.forEach(
+   f=>{
+
+     const mobile=
+       f.mobile||f.id;
 
 
-   tr.innerHTML=`
-
-    <td>
-      <div class="faculty-name">
-       ${escapeHtml(f.name||"Unnamed")}
-      </div>
-    </td>
-
-    <td>
-      <div class="mobile">
-       ${escapeHtml(mobile)}
-      </div>
-    </td>
-
-    <td>
-      <span class="rate">
-       ${money(f.hourlyRate)}/hr
-      </span>
-    </td>
-
-    <td>
-
-      ${
-       f.active!==false
-
-       ?
-
-       `<span class="badge active">
-          ACTIVE
-        </span>`
-
-       :
-
-       `<span class="badge inactive">
-          INACTIVE
-        </span>`
-      }
-
-    </td>
-
-    <td>
-
-      <button
-       class="small secondary"
-       data-id="${escapeHtml(f.id)}">
-
-       <i class="ri-edit-line"></i>
-       EDIT
-
-      </button>
-
-    </td>
-
-   `;
+     const tr=
+       document.createElement(
+         "tr"
+       );
 
 
-   tr.querySelector("button")
-   .addEventListener(
-     "click",
-     ()=>openEdit(f)
-   );
+     tr.innerHTML=`
+
+       <td>
+         <div class="faculty-name">
+           ${escapeHtml(f.name)}
+         </div>
+       </td>
+
+       <td>
+         <div class="mobile">
+           ${escapeHtml(mobile)}
+         </div>
+       </td>
+
+       <td>
+         <span class="rate">
+           ${money(f.hourlyRate)}/hr
+         </span>
+       </td>
+
+       <td>
+
+         ${
+           f.active!==false
+
+           ?
+
+           `<span class="badge active">
+              ACTIVE
+            </span>`
+
+           :
+
+           `<span class="badge inactive">
+              INACTIVE
+            </span>`
+         }
+
+       </td>
+
+       <td>
+
+         <button
+           class="small secondary"
+         >
+           <i class="ri-edit-line"></i>
+           EDIT
+         </button>
+
+       </td>
+     `;
 
 
-   body.appendChild(tr);
+     tr.querySelector("button")
+     .addEventListener(
+       "click",
+       ()=>openEdit(f)
+     );
 
- });
+
+     body.appendChild(tr);
+
+   }
+ );
 
 }
 
 
-/* =========================
+/* =====================================================
    ADD FACULTY
-========================= */
+===================================================== */
 
-document.getElementById("saveFaculty")
-.addEventListener("click",async()=>{
+document.getElementById(
+ "saveFaculty"
+).addEventListener(
+ "click",
+ async()=>{
 
- const name=
- document.getElementById("name")
- .value.trim();
-
- const mobile=
- document.getElementById("mobile")
- .value.trim();
-
- const rate=
- Number(
-   document.getElementById("rate")
-   .value
- );
-
- const active=
- document.getElementById("active")
- .value==="true";
-
- const photo=
- document.getElementById("photo")
- .value.trim();
+   const name=
+     document.getElementById(
+       "name"
+     ).value.trim();
 
 
- if(!name){
+   const mobile=
+     document.getElementById(
+       "mobile"
+     ).value
+     .replace(/\D/g,"");
 
-   showMessage(
-     "Faculty name required.",
-     "error"
-   );
 
-   return;
+   const rate=
+     Number(
+       document.getElementById(
+         "rate"
+       ).value
+     );
+
+
+   const active=
+     document.getElementById(
+       "active"
+     ).value==="true";
+
+
+   const photo=
+     document.getElementById(
+       "photo"
+     ).value.trim();
+
+
+   if(!name){
+
+     showMessage(
+       "Faculty name required.",
+       "error"
+     );
+
+     return;
+
+   }
+
+
+   if(mobile.length!==10){
+
+     showMessage(
+       "Enter valid 10 digit mobile number.",
+       "error"
+     );
+
+     return;
+
+   }
+
+
+   if(rate<0 || isNaN(rate)){
+
+     showMessage(
+       "Enter valid hourly rate.",
+       "error"
+     );
+
+     return;
+
+   }
+
+
+   try{
+
+     await setDoc(
+       doc(
+         db,
+         "faculty",
+         mobile
+       ),
+       {
+         name,
+         mobile,
+         hourlyRate:rate,
+         active,
+         photo,
+         updatedAt:new Date()
+       },
+       {
+         merge:true
+       }
+     );
+
+
+     showMessage(
+       "Faculty saved successfully."
+     );
+
+
+     clearForm();
+
+     await loadFaculty();
+
+
+   }catch(error){
+
+     console.error(error);
+
+     showMessage(
+       "Save failed: "+
+       error.message,
+       "error"
+     );
+
+   }
 
  }
+);
 
 
- if(!mobile){
-
-   showMessage(
-     "Mobile number required.",
-     "error"
-   );
-
-   return;
-
- }
-
-
- if(!rate || rate<0){
-
-   showMessage(
-     "Enter valid hourly rate.",
-     "error"
-   );
-
-   return;
-
- }
-
-
- try{
-
-   await setDoc(
-     doc(db,"faculty",mobile),
-     {
-       name:name,
-       mobile:mobile,
-       hourlyRate:rate,
-       active:active,
-       photo:photo,
-       updatedAt:new Date()
-     },
-     {merge:true}
-   );
-
-
-   showMessage(
-     "Faculty saved successfully."
-   );
-
-
-   clearForm();
-
-   await loadFaculty();
-
-   await loadTodayAttendance();
-
-   await loadMonthlyEarnings();
-
-
- }catch(error){
-
-   console.error(error);
-
-   showMessage(
-     "Save failed: "+error.message,
-     "error"
-   );
-
- }
-
-});
-
-
-/* =========================
-   CLEAR FORM
-========================= */
+/* =====================================================
+   CLEAR
+===================================================== */
 
 function clearForm(){
 
  document.getElementById("name").value="";
+
  document.getElementById("mobile").value="";
+
  document.getElementById("rate").value="";
+
  document.getElementById("photo").value="";
+
  document.getElementById("active").value="true";
 
 }
 
 
-document.getElementById("clearForm")
-.addEventListener(
+document.getElementById(
+ "clearForm"
+).addEventListener(
  "click",
  clearForm
 );
 
 
-/* =========================
-   EDIT
-========================= */
+/* =====================================================
+   EDIT FACULTY
+===================================================== */
 
 function openEdit(f){
 
  selectedFaculty=f;
 
- document.getElementById("editName")
- .value=f.name||"";
 
- document.getElementById("editMobile")
- .value=f.mobile||f.id;
+ document.getElementById(
+   "editName"
+ ).value=f.name||"";
 
- document.getElementById("editRate")
- .value=f.hourlyRate||0;
 
- document.getElementById("editActive")
- .value=
+ document.getElementById(
+   "editMobile"
+ ).value=f.mobile||f.id;
+
+
+ document.getElementById(
+   "editRate"
+ ).value=f.hourlyRate||0;
+
+
+ document.getElementById(
+   "editActive"
+ ).value=
  f.active===false
  ? "false"
  : "true";
 
- document.getElementById("editPhoto")
- .value=f.photo||"";
+
+ document.getElementById(
+   "editPhoto"
+ ).value=f.photo||"";
 
 
- document.getElementById("editModal")
- .classList.add("show");
+ document.getElementById(
+   "editModal"
+ ).classList.add("show");
 
 }
 
 
-document.getElementById("closeModal")
-.addEventListener("click",()=>{
+document.getElementById(
+ "closeModal"
+).addEventListener(
+ "click",
+ ()=>{
 
- document.getElementById("editModal")
- .classList.remove("show");
-
-});
-
-
-/* =========================
-   UPDATE
-========================= */
-
-document.getElementById("updateFaculty")
-.addEventListener("click",async()=>{
-
- if(!selectedFaculty) return;
-
- const name=
- document.getElementById("editName")
- .value.trim();
-
- const rate=
- Number(
-   document.getElementById("editRate")
-   .value
- );
-
- const active=
- document.getElementById("editActive")
- .value==="true";
-
- const photo=
- document.getElementById("editPhoto")
- .value.trim();
-
-
- if(!name || rate<0){
-
-   alert("Please enter valid details.");
-
-   return;
+   document.getElementById(
+     "editModal"
+   ).classList.remove("show");
 
  }
+);
+
+
+/* =====================================================
+   UPDATE FACULTY
+===================================================== */
+
+document.getElementById(
+ "updateFaculty"
+).addEventListener(
+ "click",
+ async()=>{
+
+   if(!selectedFaculty) return;
+
+
+   const name=
+     document.getElementById(
+       "editName"
+     ).value.trim();
+
+
+   const rate=
+     Number(
+       document.getElementById(
+         "editRate"
+     ).value
+   );
+
+
+   const active=
+     document.getElementById(
+       "editActive"
+     ).value==="true";
+
+
+   const photo=
+     document.getElementById(
+       "editPhoto"
+     ).value.trim();
+
+
+   try{
+
+     await updateDoc(
+       doc(
+         db,
+         "faculty",
+         selectedFaculty.id
+       ),
+       {
+         name,
+         hourlyRate:rate,
+         active,
+         photo,
+         updatedAt:new Date()
+       }
+     );
+
+
+     document.getElementById(
+       "editModal"
+     ).classList.remove("show");
+
+
+     showMessage(
+       "Faculty updated successfully."
+     );
+
+
+     await loadFaculty();
+
+
+   }catch(error){
+
+     alert(
+       "Update failed: "+
+       error.message
+     );
+
+   }
+
+ }
+);
+
+
+/* =====================================================
+   DELETE FACULTY
+===================================================== */
+
+document.getElementById(
+ "deleteFaculty"
+).addEventListener(
+ "click",
+ async()=>{
+
+   if(!selectedFaculty) return;
+
+
+   if(
+     !confirm(
+       `Delete ${
+         selectedFaculty.name
+       }?`
+     )
+   ){
+
+     return;
+
+   }
+
+
+   try{
+
+     await deleteDoc(
+       doc(
+         db,
+         "faculty",
+         selectedFaculty.id
+       )
+     );
+
+
+     document.getElementById(
+       "editModal"
+     ).classList.remove("show");
+
+
+     showMessage(
+       "Faculty deleted."
+     );
+
+
+     await loadFaculty();
+
+
+   }catch(error){
+
+     alert(
+       "Delete failed: "+
+       error.message
+     );
+
+   }
+
+ }
+);
+
+
+/* =====================================================
+   SCHEDULE DATE
+===================================================== */
+
+const scheduleDate=
+ document.getElementById(
+   "scheduleDate"
+ );
+
+
+scheduleDate.value=
+ today();
+
+
+/* =====================================================
+   FACULTY SELECT
+===================================================== */
+
+document.getElementById(
+ "scheduleFaculty"
+).addEventListener(
+ "change",
+ async()=>{
+
+   const facultyId=
+     document.getElementById(
+       "scheduleFaculty"
+     ).value;
+
+
+   const date=
+     scheduleDate.value;
+
+
+   if(!facultyId || !date){
+
+     document.getElementById(
+       "scheduleArea"
+     ).style.display="none";
+
+     return;
+
+   }
+
+
+   document.getElementById(
+     "scheduleArea"
+   ).style.display="block";
+
+
+   await loadSelectedSchedule();
+
+ }
+);
+
+
+/* =====================================================
+   DATE CHANGE
+===================================================== */
+
+scheduleDate.addEventListener(
+ "change",
+ async()=>{
+
+   const facultyId=
+     document.getElementById(
+       "scheduleFaculty"
+     ).value;
+
+
+   if(
+     facultyId &&
+     scheduleDate.value
+   ){
+
+     document.getElementById(
+       "scheduleArea"
+     ).style.display="block";
+
+
+     await loadSelectedSchedule();
+
+   }
+
+ }
+);
+
+
+/* =====================================================
+   CREATE SESSION ROW
+===================================================== */
+
+function addSessionRow(
+ data={}
+){
+
+ const list=
+   document.getElementById(
+     "sessionList"
+   );
+
+
+ const row=
+   document.createElement(
+     "div"
+   );
+
+
+ row.className=
+   "schedule-row";
+
+
+ row.innerHTML=`
+
+   <div class="field">
+
+     <label>
+       SESSION NAME
+     </label>
+
+     <input
+       class="session-name"
+       value="${escapeHtml(
+         data.sessionName||""
+       )}"
+       placeholder="Morning Class"
+     >
+
+   </div>
+
+
+   <div class="field">
+
+     <label>
+       START TIME
+     </label>
+
+     <input
+       class="session-start"
+       type="time"
+       value="${data.startTime||""}"
+     >
+
+   </div>
+
+
+   <div class="field">
+
+     <label>
+       END TIME
+     </label>
+
+     <input
+       class="session-end"
+       type="time"
+       value="${data.endTime||""}"
+     >
+
+   </div>
+
+
+   <div class="field">
+
+     <label>
+       STATUS
+     </label>
+
+     <select class="session-allowed">
+
+       <option
+         value="true"
+         ${
+           data.allowed!==false
+           ? "selected"
+           : ""
+         }
+       >
+         ALLOW
+       </option>
+
+       <option
+         value="false"
+         ${
+           data.allowed===false
+           ? "selected"
+           : ""
+         }
+       >
+         BLOCK
+       </option>
+
+     </select>
+
+   </div>
+
+
+   <button
+     class="remove-session"
+     title="Remove"
+   >
+
+     <i class="ri-delete-bin-line"></i>
+
+   </button>
+
+ `;
+
+
+ row.querySelector(
+   ".remove-session"
+ )
+ .addEventListener(
+   "click",
+   ()=>{
+     row.remove();
+   }
+ );
+
+
+ list.appendChild(row);
+
+}
+
+
+/* =====================================================
+   ADD SESSION
+===================================================== */
+
+document.getElementById(
+ "addSession"
+).addEventListener(
+ "click",
+ ()=>{
+
+   addSessionRow();
+
+ }
+);
+
+
+/* =====================================================
+   LOAD SELECTED SCHEDULE
+===================================================== */
+
+async function loadSelectedSchedule(){
+
+ const facultyId=
+   document.getElementById(
+     "scheduleFaculty"
+   ).value;
+
+
+ const date=
+   scheduleDate.value;
+
+
+ if(!facultyId || !date){
+   return;
+ }
+
+
+ const list=
+   document.getElementById(
+     "sessionList"
+   );
+
+
+ list.innerHTML="";
 
 
  try{
 
-   await updateDoc(
-     doc(
-       db,
-       "faculty",
-       selectedFaculty.id
-     ),
-     {
-       name:name,
-       hourlyRate:rate,
-       active:active,
-       photo:photo,
-       updatedAt:new Date()
+   const q=
+     query(
+       collection(
+         db,
+         "facultySchedules"
+       ),
+       where(
+         "facultyId",
+         "==",
+         facultyId
+       ),
+       where(
+         "date",
+         "==",
+         date
+       )
+     );
+
+
+   const snap=
+     await getDocs(q);
+
+
+   if(
+     snap.empty
+   ){
+
+     /*
+       New date.
+       Default one session.
+     */
+
+     addSessionRow({
+
+       sessionName:
+         "Morning Class",
+
+       startTime:
+         "07:00",
+
+       endTime:
+         "08:00",
+
+       allowed:true
+
+     });
+
+     return;
+
+   }
+
+
+   snap.docs
+   .map(
+     d=>d.data()
+   )
+   .sort(
+     (a,b)=>
+       String(a.startTime||"")
+       .localeCompare(
+         String(b.startTime||"")
+       )
+   )
+   .forEach(
+     data=>{
+       addSessionRow(data);
      }
    );
-
-
-   document.getElementById("editModal")
-   .classList.remove("show");
-
-
-   showMessage(
-     "Faculty updated successfully."
-   );
-
-
-   await loadFaculty();
-
-   await loadMonthlyEarnings();
 
 
  }catch(error){
 
    console.error(error);
 
-   alert(
-     "Update failed: "+error.message
+   showScheduleMessage(
+     "Schedule load failed: "+
+     error.message,
+     "error"
+   );
+
+ }
+
+}
+
+
+/* =====================================================
+   SAVE SCHEDULE
+===================================================== */
+
+document.getElementById(
+ "saveSchedule"
+).addEventListener(
+ "click",
+ async()=>{
+
+   const facultyId=
+     document.getElementById(
+       "scheduleFaculty"
+     ).value;
+
+
+   const date=
+     scheduleDate.value;
+
+
+   if(!facultyId || !date){
+
+     showScheduleMessage(
+       "Select faculty and date.",
+       "error"
+     );
+
+     return;
+
+   }
+
+
+   const faculty=
+     facultyList.find(
+       f=>
+         (f.mobile||f.id) ===
+         facultyId
+     );
+
+
+   if(!faculty){
+
+     showScheduleMessage(
+       "Faculty not found.",
+       "error"
+     );
+
+     return;
+
+   }
+
+
+   const rows=
+     [...document.querySelectorAll(
+       ".schedule-row"
+     )];
+
+
+   if(!rows.length){
+
+     showScheduleMessage(
+       "Add at least one session.",
+       "error"
+     );
+
+     return;
+
+   }
+
+
+   try{
+
+     /*
+       Delete old schedule for
+       this faculty/date first.
+     */
+
+     const oldQuery=
+       query(
+         collection(
+           db,
+           "facultySchedules"
+         ),
+         where(
+           "facultyId",
+           "==",
+           facultyId
+         ),
+         where(
+           "date",
+           "==",
+           date
+         )
+       );
+
+
+     const oldSnap=
+       await getDocs(oldQuery);
+
+
+     for(
+       const oldDoc
+       of oldSnap.docs
+     ){
+
+       await deleteDoc(
+         doc(
+           db,
+           "facultySchedules",
+           oldDoc.id
+         )
+       );
+
+     }
+
+
+     /*
+       Save new sessions.
+     */
+
+     let saved=0;
+
+
+     for(
+       let i=0;
+       i<rows.length;
+       i++
+     ){
+
+       const row=
+         rows[i];
+
+
+       const sessionName=
+         row.querySelector(
+           ".session-name"
+         ).value.trim();
+
+
+       const startTime=
+         row.querySelector(
+           ".session-start"
+         ).value;
+
+
+       const endTime=
+         row.querySelector(
+           ".session-end"
+         ).value;
+
+
+       const allowed=
+         row.querySelector(
+           ".session-allowed"
+         ).value === "true";
+
+
+       if(
+         !sessionName ||
+         !startTime ||
+         !endTime
+       ){
+
+         continue;
+
+       }
+
+
+       const sessionRef=
+         doc(
+           collection(
+             db,
+             "facultySchedules"
+           )
+         );
+
+
+       await setDoc(
+         sessionRef,
+         {
+
+           facultyId:
+             facultyId,
+
+           facultyName:
+             faculty.name,
+
+           date:
+             date,
+
+           sessionName:
+             sessionName,
+
+           startTime:
+             startTime,
+
+           endTime:
+             endTime,
+
+           allowed:
+             allowed,
+
+           createdAt:
+             new Date(),
+
+           updatedAt:
+             new Date()
+
+         }
+       );
+
+
+       saved++;
+
+     }
+
+
+     showScheduleMessage(
+       `${saved} class session(s) saved successfully.`,
+       "success"
+     );
+
+
+     await loadSchedules();
+
+
+ }catch(error){
+
+   console.error(error);
+
+   showScheduleMessage(
+     "Schedule save failed: "+
+     error.message,
+     "error"
    );
 
  }
@@ -1298,23 +3137,350 @@ document.getElementById("updateFaculty")
 });
 
 
-/* =========================
-   DELETE
-========================= */
+/* =====================================================
+   NO CLASS
+===================================================== */
 
-document.getElementById("deleteFaculty")
-.addEventListener("click",async()=>{
+document.getElementById(
+ "noClass"
+).addEventListener(
+ "click",
+ async()=>{
 
- if(!selectedFaculty) return;
+   const facultyId=
+     document.getElementById(
+       "scheduleFaculty"
+     ).value;
 
 
- const ok=
- confirm(
-   `Delete ${selectedFaculty.name || "this faculty"}?`
+   const date=
+     scheduleDate.value;
+
+
+   if(!facultyId || !date){
+
+     showScheduleMessage(
+       "Select faculty and date.",
+       "error"
+     );
+
+     return;
+
+   }
+
+
+   if(
+     !confirm(
+       "Set NO CLASS for this faculty on this date?"
+     )
+   ){
+
+     return;
+
+   }
+
+
+   try{
+
+     const q=
+       query(
+         collection(
+           db,
+           "facultySchedules"
+         ),
+         where(
+           "facultyId",
+           "==",
+           facultyId
+         ),
+         where(
+           "date",
+           "==",
+           date
+         )
+       );
+
+
+     const snap=
+       await getDocs(q);
+
+
+     for(
+       const item
+       of snap.docs
+     ){
+
+       await deleteDoc(
+         doc(
+           db,
+           "facultySchedules",
+           item.id
+         )
+       );
+
+     }
+
+
+     document.getElementById(
+       "sessionList"
+     ).innerHTML="";
+
+
+     document.getElementById(
+       "scheduleArea"
+     ).style.display="none";
+
+
+     alert(
+       "NO CLASS set successfully."
+     );
+
+
+     await loadSchedules();
+
+
+   }catch(error){
+
+     console.error(error);
+
+     alert(
+       "Unable to set no class: "+
+       error.message
+     );
+
+   }
+
+ });
+
+
+/* =====================================================
+   LOAD ALL SCHEDULES
+===================================================== */
+
+async function loadSchedules(){
+
+ const loading=
+   document.getElementById(
+     "scheduleLoading"
+   );
+
+
+ loading.style.display="block";
+
+
+ try{
+
+   const snap=
+     await getDocs(
+       collection(
+         db,
+         "facultySchedules"
+       )
+     );
+
+
+   scheduleList=
+     snap.docs.map(
+       d=>({
+
+         id:d.id,
+
+         ...d.data()
+
+       })
+     );
+
+
+   renderSchedules();
+
+
+ }catch(error){
+
+   console.error(error);
+
+ }finally{
+
+   loading.style.display="none";
+
+ }
+
+}
+
+
+/* =====================================================
+   RENDER SCHEDULES
+===================================================== */
+
+function renderSchedules(){
+
+ const body=
+   document.getElementById(
+     "scheduleBody"
+   );
+
+
+ const table=
+   document.getElementById(
+     "scheduleTable"
+   );
+
+
+ const empty=
+   document.getElementById(
+     "scheduleEmpty"
+   );
+
+
+ const search=
+   document.getElementById(
+     "scheduleSearch"
+   ).value
+   .toLowerCase()
+   .trim();
+
+
+ const data=
+   scheduleList
+   .filter(
+     x=>
+       String(
+         x.facultyName||""
+       )
+       .toLowerCase()
+       .includes(search)
+       ||
+       String(
+         x.facultyId||""
+       ).includes(search)
+   )
+   .sort(
+     (a,b)=>
+       String(
+         b.date||""
+       ).localeCompare(
+         String(a.date||"")
+       )
+   );
+
+
+ body.innerHTML="";
+
+
+ if(!data.length){
+
+   table.style.display="none";
+
+   empty.style.display="block";
+
+   return;
+
+ }
+
+
+ table.style.display="table";
+
+ empty.style.display="none";
+
+
+ data.forEach(
+   item=>{
+
+     const tr=
+       document.createElement(
+         "tr"
+       );
+
+
+     tr.innerHTML=`
+
+       <td>
+         <b>
+           ${escapeHtml(
+             item.facultyName
+           )}
+         </b>
+       </td>
+
+       <td>
+         ${item.date}
+       </td>
+
+       <td>
+         ${escapeHtml(
+           item.sessionName
+         )}
+       </td>
+
+       <td>
+         ${item.startTime}
+         →
+         ${item.endTime}
+       </td>
+
+       <td>
+
+         ${
+           item.allowed
+
+           ?
+
+           `<span class="badge allowed">
+              ALLOWED
+            </span>`
+
+           :
+
+           `<span class="badge blocked">
+              BLOCKED
+            </span>`
+         }
+
+       </td>
+
+       <td>
+
+         <button
+           class="small danger"
+         >
+
+           <i class="ri-delete-bin-line"></i>
+
+         </button>
+
+       </td>
+
+     `;
+
+
+     tr.querySelector(
+       "button"
+     ).addEventListener(
+       "click",
+       ()=>deleteSchedule(item.id)
+     );
+
+
+     body.appendChild(tr);
+
+   }
  );
 
+}
 
- if(!ok) return;
+
+/* =====================================================
+   DELETE SCHEDULE
+===================================================== */
+
+async function deleteSchedule(id){
+
+ if(
+   !confirm(
+     "Delete this class schedule?"
+   )
+ ){
+   return;
+ }
 
 
  try{
@@ -1322,49 +3488,50 @@ document.getElementById("deleteFaculty")
    await deleteDoc(
      doc(
        db,
-       "faculty",
-       selectedFaculty.id
+       "facultySchedules",
+       id
      )
    );
 
 
-   document.getElementById("editModal")
-   .classList.remove("show");
-
-
-   showMessage(
-     "Faculty deleted."
-   );
-
-
-   await loadFaculty();
-
-   await loadTodayAttendance();
-
-   await loadMonthlyEarnings();
+   await loadSchedules();
 
 
  }catch(error){
 
-   console.error(error);
-
    alert(
-     "Delete failed: "+error.message
+     "Delete failed: "+
+     error.message
    );
 
  }
 
-});
+}
 
 
-/* =========================
+/* =====================================================
+   SCHEDULE SEARCH
+===================================================== */
+
+document.getElementById(
+ "scheduleSearch"
+).addEventListener(
+ "input",
+ renderSchedules
+);
+
+
+/* =====================================================
    TODAY ATTENDANCE
-========================= */
+===================================================== */
 
 async function loadTodayAttendance(){
 
  const loading=
- document.getElementById("attendanceLoading");
+   document.getElementById(
+     "attendanceLoading"
+   );
+
 
  loading.style.display="block";
 
@@ -1372,21 +3539,33 @@ async function loadTodayAttendance(){
  try{
 
    const q=
-   query(
-     collection(db,"facultyAttendance"),
-     where("date","==",today())
-   );
+     query(
+       collection(
+         db,
+         "facultyAttendance"
+       ),
+       where(
+         "date",
+         "==",
+         today()
+       )
+     );
 
 
    const snap=
-   await getDocs(q);
+     await getDocs(q);
 
 
    attendanceList=
-   snap.docs.map(d=>({
-     id:d.id,
-     ...d.data()
-   }));
+     snap.docs.map(
+       d=>({
+
+         id:d.id,
+
+         ...d.data()
+
+       })
+     );
 
 
    renderTodayAttendance();
@@ -1405,20 +3584,28 @@ async function loadTodayAttendance(){
 }
 
 
-/* =========================
-   RENDER TODAY
-========================= */
+/* =====================================================
+   ATTENDANCE RENDER
+===================================================== */
 
 function renderTodayAttendance(){
 
  const body=
- document.getElementById("attendanceBody");
+   document.getElementById(
+     "attendanceBody"
+   );
+
 
  const table=
- document.getElementById("attendanceTable");
+   document.getElementById(
+     "attendanceTable"
+   );
+
 
  const empty=
- document.getElementById("attendanceEmpty");
+   document.getElementById(
+     "attendanceEmpty"
+   );
 
 
  body.innerHTML="";
@@ -1427,10 +3614,12 @@ function renderTodayAttendance(){
  if(!attendanceList.length){
 
    table.style.display="none";
+
    empty.style.display="block";
 
-   document.getElementById("todayPresent")
-   .textContent="0";
+   document.getElementById(
+     "todayPresent"
+   ).textContent="0";
 
    return;
 
@@ -1438,60 +3627,109 @@ function renderTodayAttendance(){
 
 
  table.style.display="table";
+
  empty.style.display="none";
 
 
- document.getElementById("todayPresent")
- .textContent=
- attendanceList.length;
+ /*
+   Number of unique faculties
+   present today.
+ */
+
+ const uniqueFaculty=
+   new Set(
+     attendanceList.map(
+       x=>x.facultyId
+     )
+   );
 
 
- attendanceList.forEach(item=>{
-
-   const tr=
-   document.createElement("tr");
-
-
-   tr.innerHTML=`
-
-     <td>
-       <b>${escapeHtml(item.facultyName||"Faculty")}</b>
-     </td>
-
-     <td>
-       ${formatTime(item.checkIn)}
-     </td>
-
-     <td>
-       ${formatTime(item.checkOut)}
-     </td>
-
-     <td>
-       ${minutesToHours(item.totalMinutes)}
-     </td>
-
-     <td class="earning">
-       ${money(item.earning)}
-     </td>
-
-   `;
+ document.getElementById(
+   "todayPresent"
+ ).textContent=
+   uniqueFaculty.size;
 
 
-   body.appendChild(tr);
+ attendanceList
+ .sort(
+   (a,b)=>
+     String(
+       a.facultyName||""
+     ).localeCompare(
+       String(
+         b.facultyName||""
+       )
+     )
+ )
+ .forEach(
+   item=>{
 
- });
+     const tr=
+       document.createElement(
+         "tr"
+       );
+
+
+     tr.innerHTML=`
+
+       <td>
+         <b>
+           ${escapeHtml(
+             item.facultyName
+           )}
+         </b>
+       </td>
+
+       <td>
+         ${item.date}
+       </td>
+
+       <td>
+         ${formatTime(
+           item.checkIn
+         )}
+       </td>
+
+       <td>
+         ${formatTime(
+           item.checkOut
+         )}
+       </td>
+
+       <td>
+         ${minutesToHours(
+           item.totalMinutes
+         )}
+       </td>
+
+       <td class="earning">
+         ${money(
+           item.earning
+         )}
+       </td>
+
+     `;
+
+
+     body.appendChild(tr);
+
+   }
+ );
 
 }
 
 
-/* =========================
+/* =====================================================
    MONTHLY EARNINGS
-========================= */
+===================================================== */
 
 async function loadMonthlyEarnings(){
 
  const loading=
- document.getElementById("earningLoading");
+   document.getElementById(
+     "earningLoading"
+   );
+
 
  loading.style.display="block";
 
@@ -1499,42 +3737,38 @@ async function loadMonthlyEarnings(){
  try{
 
    const now=
-   new Date();
-
-   const year=
-   now.getFullYear();
-
-   const month=
-   String(now.getMonth()+1)
-   .padStart(2,"0");
+     new Date();
 
 
    const prefix=
-   `${year}-${month}`;
+     `${now.getFullYear()}-${
+       String(
+         now.getMonth()+1
+       ).padStart(2,"0")
+     }`;
 
-
-   /*
-      Firestore date starts with YYYY-MM.
-      We retrieve faculty attendance
-      and filter current month locally.
-   */
 
    const snap=
-   await getDocs(
-     collection(db,"facultyAttendance")
-   );
+     await getDocs(
+       collection(
+         db,
+         "facultyAttendance"
+       )
+     );
 
 
-   const current=
-   snap.docs
-   .map(d=>d.data())
-   .filter(x=>
-     String(x.date||"")
-     .startsWith(prefix)
-   );
+   const data=
+     snap.docs
+     .map(d=>d.data())
+     .filter(
+       x=>
+         String(
+           x.date||""
+         ).startsWith(prefix)
+     );
 
 
-   renderMonthlyEarnings(current);
+   renderMonthlyEarnings(data);
 
 
  }catch(error){
@@ -1550,20 +3784,28 @@ async function loadMonthlyEarnings(){
 }
 
 
-/* =========================
-   RENDER MONTHLY
-========================= */
+/* =====================================================
+   MONTHLY RENDER
+===================================================== */
 
 function renderMonthlyEarnings(data){
 
  const body=
- document.getElementById("earningBody");
+   document.getElementById(
+     "earningBody"
+   );
+
 
  const table=
- document.getElementById("earningTable");
+   document.getElementById(
+     "earningTable"
+   );
+
 
  const empty=
- document.getElementById("earningEmpty");
+   document.getElementById(
+     "earningEmpty"
+   );
 
 
  body.innerHTML="";
@@ -1572,10 +3814,12 @@ function renderMonthlyEarnings(data){
  if(!data.length){
 
    table.style.display="none";
+
    empty.style.display="block";
 
-   document.getElementById("monthEarnings")
-   .textContent="₹0";
+   document.getElementById(
+     "monthEarnings"
+   ).textContent="₹0";
 
    return;
 
@@ -1585,148 +3829,175 @@ function renderMonthlyEarnings(data){
  const grouped={};
 
 
- data.forEach(item=>{
+ data.forEach(
+   item=>{
 
-   const id=
-   item.facultyId ||
-   item.facultyName ||
-   "unknown";
+     const id=
+       item.facultyId;
 
 
-   if(!grouped[id]){
+     if(!grouped[id]){
 
-     grouped[id]={
-       name:item.facultyName||"Faculty",
-       days:0,
-       minutes:0,
-       earning:0,
-       rate:item.hourlyRate||0
-     };
+       grouped[id]={
+         name:item.facultyName||"Faculty",
+         days:new Set(),
+         minutes:0,
+         earning:0,
+         rate:item.hourlyRate||0
+       };
+
+     }
+
+
+     grouped[id].minutes +=
+       Number(
+         item.totalMinutes||0
+       );
+
+
+     grouped[id].earning +=
+       Number(
+         item.earning||0
+       );
+
+
+     if(
+       Number(
+         item.totalMinutes||0
+       )>0
+     ){
+
+       grouped[id]
+       .days
+       .add(
+         item.date
+       );
+
+     }
 
    }
-
-
-   grouped[id].minutes +=
-   Number(item.totalMinutes||0);
-
-
-   grouped[id].earning +=
-   Number(item.earning||0);
-
-
-   if(Number(item.totalMinutes||0)>0){
-
-     grouped[id].days++;
-
-   }
-
- });
-
-
- const rows=
- Object.values(grouped);
+ );
 
 
  let total=0;
 
 
- rows.forEach(item=>{
+ Object.values(grouped)
+ .forEach(
+   item=>{
 
-   total += item.earning;
-
-
-   const tr=
-   document.createElement("tr");
-
-
-   tr.innerHTML=`
-
-     <td>
-       <b>${escapeHtml(item.name)}</b>
-     </td>
-
-     <td>
-       ${item.days}
-     </td>
-
-     <td>
-       ${minutesToHours(item.minutes)}
-     </td>
-
-     <td class="rate">
-       ${money(item.rate)}/hr
-     </td>
-
-     <td class="earning">
-       ${money(item.earning)}
-     </td>
-
-   `;
+     total+=
+       item.earning;
 
 
-   body.appendChild(tr);
+     const tr=
+       document.createElement(
+         "tr"
+       );
 
- });
+
+     tr.innerHTML=`
+
+       <td>
+         <b>
+           ${escapeHtml(
+             item.name
+           )}
+         </b>
+       </td>
+
+       <td>
+         ${item.days.size}
+       </td>
+
+       <td>
+         ${minutesToHours(
+           item.minutes
+         )}
+       </td>
+
+       <td class="rate">
+         ${money(item.rate)}/hr
+       </td>
+
+       <td class="earning">
+         ${money(
+           item.earning
+         )}
+       </td>
+
+     `;
+
+
+     body.appendChild(tr);
+
+   }
+ );
 
 
  table.style.display="table";
+
  empty.style.display="none";
 
 
- document.getElementById("monthEarnings")
- .textContent=
- money(total);
+ document.getElementById(
+   "monthEarnings"
+ ).textContent=
+   money(total);
 
 }
 
 
-/* =========================
-   SEARCH
-========================= */
+/* =====================================================
+   SEARCH FACULTY
+===================================================== */
 
-document.getElementById("search")
-.addEventListener(
+document.getElementById(
+ "search"
+).addEventListener(
  "input",
  renderFaculty
 );
 
 
-/* =========================
+/* =====================================================
    REFRESH
-========================= */
+===================================================== */
 
-document.getElementById("refresh")
-.addEventListener("click",async()=>{
+document.getElementById(
+ "refresh"
+).addEventListener(
+ "click",
+ async()=>{
 
- await loadFaculty();
- await loadTodayAttendance();
- await loadMonthlyEarnings();
+   await loadFaculty();
 
-});
+   await loadTodayAttendance();
 
+   await loadMonthlyEarnings();
 
-/* =========================
-   SECURITY HELPER
-========================= */
-
-function escapeHtml(value){
-
- return String(value||"")
- .replaceAll("&","&amp;")
- .replaceAll("<","&lt;")
- .replaceAll(">","&gt;")
- .replaceAll('"',"&quot;")
- .replaceAll("'","&#039;");
-
-}
+ }
+);
 
 
-/* =========================
+document.getElementById(
+ "refreshSchedule"
+).addEventListener(
+ "click",
+ loadSchedules
+);
+
+
+/* =====================================================
    START
-========================= */
+===================================================== */
 
 await loadFaculty();
+
+await loadSchedules();
+
 await loadTodayAttendance();
+
 await loadMonthlyEarnings();
 
 </script>
