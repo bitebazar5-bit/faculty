@@ -22,14 +22,12 @@
  --bg:#050711;
  --card:rgba(15,19,38,.78);
  --border:rgba(255,255,255,.09);
-
  --cyan:#00eaff;
  --purple:#9b5cff;
  --pink:#ff3cac;
  --green:#00ff9d;
  --yellow:#ffd166;
  --red:#ff4d6d;
-
  --text:#f5f7ff;
  --muted:#8991ad;
 }
@@ -39,7 +37,6 @@ body{
  radial-gradient(circle at 10% 10%,rgba(0,234,255,.12),transparent 30%),
  radial-gradient(circle at 90% 20%,rgba(155,92,255,.14),transparent 30%),
  var(--bg);
-
  color:var(--text);
  font-family:"Plus Jakarta Sans",sans-serif;
  min-height:100vh;
@@ -50,11 +47,9 @@ body:before{
  position:fixed;
  inset:0;
  pointer-events:none;
-
  background-image:
  linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
  linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
-
  background-size:40px 40px;
 }
 
@@ -65,8 +60,6 @@ body:before{
  position:relative;
  z-index:1;
 }
-
-/* ================= TOPBAR ================= */
 
 .topbar{
  display:flex;
@@ -90,7 +83,6 @@ body:before{
  display:flex;
  align-items:center;
  gap:7px;
-
  color:var(--green);
  font-size:10px;
  font-weight:700;
@@ -99,24 +91,17 @@ body:before{
 .dot{
  width:7px;
  height:7px;
-
  background:var(--green);
  border-radius:50%;
-
  box-shadow:0 0 12px var(--green);
 }
 
-/* ================= HERO ================= */
-
 .hero{
  padding:22px;
-
  border:1px solid var(--border);
  border-radius:24px;
-
  background:var(--card);
  backdrop-filter:blur(18px);
-
  margin-bottom:15px;
 }
 
@@ -131,8 +116,6 @@ body:before{
  font-size:12px;
 }
 
-/* ================= GRID ================= */
-
 .grid{
  display:grid;
  grid-template-columns:repeat(4,1fr);
@@ -142,10 +125,8 @@ body:before{
 .card{
  background:var(--card);
  border:1px solid var(--border);
-
  border-radius:20px;
  padding:17px;
-
  backdrop-filter:blur(18px);
 }
 
@@ -166,7 +147,6 @@ body:before{
 
 .value{
  margin-top:5px;
-
  font-family:Orbitron;
  font-size:21px;
  font-weight:700;
@@ -188,8 +168,6 @@ body:before{
  color:var(--purple);
 }
 
-/* ================= SECTION ================= */
-
 .section{
  margin-top:15px;
 }
@@ -200,8 +178,6 @@ body:before{
  margin-bottom:10px;
 }
 
-/* ================= FORMS ================= */
-
 .form-grid{
  display:grid;
  grid-template-columns:repeat(2,1fr);
@@ -210,43 +186,32 @@ body:before{
 
 .field label{
  display:block;
-
  color:var(--muted);
  font-size:10px;
-
  margin-bottom:6px;
 }
 
 input,
 select{
  width:100%;
-
  border:1px solid var(--border);
-
  background:rgba(255,255,255,.045);
-
  color:var(--text);
-
  padding:13px;
-
  border-radius:12px;
-
  outline:none;
 }
 
 input:focus,
 select:focus{
  border-color:var(--cyan);
-
- box-shadow:
- 0 0 15px rgba(0,234,255,.08);
+ box-shadow:0 0 15px rgba(0,234,255,.08);
 }
 
 select option{
  background:#101426;
+ color:white;
 }
-
-/* ================= BUTTONS ================= */
 
 .buttons{
  display:flex;
@@ -257,22 +222,16 @@ select option{
 button{
  border:0;
  cursor:pointer;
-
  padding:12px 16px;
-
  border-radius:12px;
-
  font-weight:800;
-
  background:var(--cyan);
  color:#061018;
 }
 
 button.secondary{
  background:rgba(255,255,255,.06);
-
  border:1px solid var(--border);
-
  color:white;
 }
 
@@ -296,17 +255,16 @@ button.warning{
  color:#17110a;
 }
 
-/* ================= MESSAGE ================= */
+button:disabled{
+ opacity:.45;
+ cursor:not-allowed;
+}
 
 .message{
  display:none;
-
  margin-top:10px;
-
  padding:10px;
-
  border-radius:10px;
-
  font-size:11px;
 }
 
@@ -316,21 +274,15 @@ button.warning{
 
 .success-msg{
  color:var(--green);
-
  background:rgba(0,255,157,.07);
-
  border:1px solid rgba(0,255,157,.2);
 }
 
 .error-msg{
  color:#ff8098;
-
  background:rgba(255,77,109,.08);
-
  border:1px solid rgba(255,77,109,.2);
 }
-
-/* ================= TOOLBAR ================= */
 
 .toolbar{
  display:flex;
@@ -342,8 +294,6 @@ button.warning{
  flex:1;
 }
 
-/* ================= TABLE ================= */
-
 .table-wrap{
  overflow-x:auto;
 }
@@ -351,27 +301,20 @@ button.warning{
 table{
  width:100%;
  min-width:850px;
-
  border-collapse:collapse;
 }
 
 th{
  color:var(--muted);
-
  font-size:10px;
-
  text-align:left;
-
  padding:12px;
-
  border-bottom:1px solid var(--border);
 }
 
 td{
  padding:12px;
-
  font-size:11px;
-
  border-bottom:1px solid rgba(255,255,255,.05);
 }
 
@@ -381,9 +324,7 @@ td{
 
 .mobile{
  color:var(--muted);
-
  font-size:10px;
-
  margin-top:3px;
 }
 
@@ -397,51 +338,42 @@ td{
  font-weight:800;
 }
 
-.active{
- color:var(--green);
-}
-
-.inactive{
- color:var(--red);
-}
-
 .badge{
  display:inline-block;
-
  padding:5px 8px;
-
  border-radius:20px;
-
  font-size:9px;
  font-weight:800;
 }
 
 .badge.active{
+ color:var(--green);
  background:rgba(0,255,157,.08);
-
  border:1px solid rgba(0,255,157,.2);
 }
 
 .badge.inactive{
+ color:var(--red);
  background:rgba(255,77,109,.08);
-
  border:1px solid rgba(255,77,109,.2);
 }
 
 .badge.allowed{
  color:var(--green);
-
  background:rgba(0,255,157,.08);
-
  border:1px solid rgba(0,255,157,.2);
 }
 
 .badge.blocked{
  color:var(--red);
-
  background:rgba(255,77,109,.08);
-
  border:1px solid rgba(255,77,109,.2);
+}
+
+.badge.recurring{
+ color:var(--purple);
+ background:rgba(155,92,255,.08);
+ border:1px solid rgba(155,92,255,.2);
 }
 
 .session{
@@ -459,97 +391,14 @@ td{
  font-weight:700;
 }
 
-/* ================= MODAL ================= */
-
-.modal{
- position:fixed;
- inset:0;
-
- background:rgba(0,0,0,.72);
-
- display:none;
-
- align-items:center;
- justify-content:center;
-
- padding:15px;
-
- z-index:10;
-}
-
-.modal.show{
- display:flex;
-}
-
-.modal-box{
- width:min(500px,100%);
-
- background:#0c1020;
-
- border:1px solid var(--border);
-
- border-radius:22px;
-
- padding:20px;
-
- box-shadow:
- 0 20px 80px rgba(0,0,0,.5);
-}
-
-.modal-head{
- display:flex;
-
- justify-content:space-between;
- align-items:center;
-
- margin-bottom:15px;
-}
-
-.close{
- background:transparent;
-
- color:white;
-
- font-size:20px;
-
- padding:4px;
-}
-
-/* ================= EMPTY ================= */
-
-.empty{
- text-align:center;
-
- padding:25px;
-
- color:var(--muted);
-
- font-size:12px;
-}
-
-.loading{
- text-align:center;
-
- padding:20px;
-
- color:var(--cyan);
-}
-
-/* ================= SCHEDULE CARD ================= */
-
 .schedule-info{
- margin-top:8px;
-
- padding:10px;
-
+ margin-top:12px;
+ padding:12px;
  border-radius:12px;
-
  background:rgba(0,234,255,.035);
-
  border:1px solid rgba(0,234,255,.07);
-
  font-size:10px;
-
+ line-height:1.7;
  color:var(--muted);
 }
 
@@ -561,7 +410,108 @@ td{
  color:var(--yellow);
 }
 
-/* ================= RESPONSIVE ================= */
+.day-grid{
+ display:grid;
+ grid-template-columns:repeat(7,1fr);
+ gap:7px;
+ margin-top:10px;
+}
+
+.dayBox{
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ gap:5px;
+ padding:10px 4px;
+ border-radius:10px;
+ background:rgba(255,255,255,.045);
+ border:1px solid var(--border);
+ color:var(--muted);
+ font-size:9px;
+ font-weight:800;
+ cursor:pointer;
+}
+
+.dayBox:has(input:checked){
+ color:var(--cyan);
+ border-color:var(--cyan);
+ background:rgba(0,234,255,.08);
+ box-shadow:0 0 12px rgba(0,234,255,.08);
+}
+
+.dayBox input{
+ width:auto;
+ accent-color:var(--cyan);
+}
+
+.progress{
+ height:7px;
+ width:100%;
+ background:rgba(255,255,255,.06);
+ border-radius:20px;
+ overflow:hidden;
+ margin-top:10px;
+}
+
+.progress-bar{
+ height:100%;
+ width:0%;
+ background:var(--cyan);
+ transition:.2s;
+}
+
+.modal{
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,.72);
+ display:none;
+ align-items:center;
+ justify-content:center;
+ padding:15px;
+ z-index:10;
+}
+
+.modal.show{
+ display:flex;
+}
+
+.modal-box{
+ width:min(520px,100%);
+ max-height:90vh;
+ overflow-y:auto;
+ background:#0c1020;
+ border:1px solid var(--border);
+ border-radius:22px;
+ padding:20px;
+ box-shadow:0 20px 80px rgba(0,0,0,.5);
+}
+
+.modal-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:15px;
+}
+
+.close{
+ background:transparent;
+ color:white;
+ font-size:20px;
+ padding:4px;
+}
+
+.empty{
+ text-align:center;
+ padding:25px;
+ color:var(--muted);
+ font-size:12px;
+}
+
+.loading{
+ text-align:center;
+ padding:20px;
+ color:var(--cyan);
+}
 
 @media(max-width:800px){
 
@@ -593,6 +543,10 @@ td{
   flex-direction:column;
  }
 
+ .day-grid{
+  grid-template-columns:repeat(4,1fr);
+ }
+
 }
 
 </style>
@@ -602,7 +556,9 @@ td{
 
 <div class="app">
 
-<!-- ================= TOPBAR ================= -->
+<!-- ================================================= -->
+<!-- TOP BAR -->
+<!-- ================================================= -->
 
 <div class="topbar">
 
@@ -618,20 +574,24 @@ td{
 </div>
 
 
-<!-- ================= HERO ================= -->
+<!-- ================================================= -->
+<!-- HERO -->
+<!-- ================================================= -->
 
 <div class="hero">
 
  <h1>FACULTY ADMIN PANEL</h1>
 
  <p>
-  Manage faculty • Schedule classes • Attendance • Earnings
+  Faculty • Automatic Schedule • Attendance • Earnings
  </p>
 
 </div>
 
 
-<!-- ================= STATS ================= -->
+<!-- ================================================= -->
+<!-- STATS -->
+<!-- ================================================= -->
 
 <div class="grid">
 
@@ -708,16 +668,13 @@ td{
   ADD / UPDATE FACULTY
  </div>
 
-
  <div class="card">
 
   <div class="form-grid">
 
    <div class="field">
 
-    <label>
-     FACULTY NAME
-    </label>
+    <label>FACULTY NAME</label>
 
     <input
      id="name"
@@ -728,9 +685,7 @@ td{
 
    <div class="field">
 
-    <label>
-     MOBILE NUMBER
-    </label>
+    <label>MOBILE NUMBER</label>
 
     <input
      id="mobile"
@@ -743,9 +698,7 @@ td{
 
    <div class="field">
 
-    <label>
-     HOURLY RATE ₹
-    </label>
+    <label>HOURLY RATE ₹</label>
 
     <input
      id="rate"
@@ -758,9 +711,7 @@ td{
 
    <div class="field">
 
-    <label>
-     STATUS
-    </label>
+    <label>STATUS</label>
 
     <select id="active">
 
@@ -779,9 +730,7 @@ td{
 
    <div class="field">
 
-    <label>
-     PHOTO URL — OPTIONAL
-    </label>
+    <label>PHOTO URL — OPTIONAL</label>
 
     <input
      id="photo"
@@ -830,12 +779,9 @@ td{
 <div class="section">
 
  <div class="section-title">
-
   <i class="ri-group-line"></i>
   FACULTY MANAGEMENT
-
  </div>
-
 
  <div class="card">
 
@@ -845,7 +791,6 @@ td{
     class="search"
     id="search"
     placeholder="Search faculty name or mobile...">
-
 
    <button
     class="secondary"
@@ -877,33 +822,17 @@ td{
 
      <tr>
 
-      <th>
-       FACULTY
-      </th>
-
-      <th>
-       MOBILE
-      </th>
-
-      <th>
-       RATE
-      </th>
-
-      <th>
-       STATUS
-      </th>
-
-      <th>
-       ACTION
-      </th>
+      <th>FACULTY</th>
+      <th>MOBILE</th>
+      <th>RATE</th>
+      <th>STATUS</th>
+      <th>ACTION</th>
 
      </tr>
 
     </thead>
 
-
-    <tbody id="facultyBody">
-    </tbody>
+    <tbody id="facultyBody"></tbody>
 
    </table>
 
@@ -925,7 +854,7 @@ td{
 
 
 <!-- ================================================= -->
-<!-- CLASS SCHEDULE CONTROL -->
+<!-- MANUAL SCHEDULE -->
 <!-- ================================================= -->
 
 <div class="section">
@@ -942,33 +871,20 @@ td{
 
   <div class="form-grid">
 
-
-   <!-- FACULTY -->
-
    <div class="field">
 
-    <label>
-     SELECT FACULTY
-    </label>
+    <label>SELECT FACULTY</label>
 
     <select id="scheduleFaculty">
-
-     <option value="">
-      Select faculty
-     </option>
-
+     <option value="">Select faculty</option>
     </select>
 
    </div>
 
 
-   <!-- DATE -->
-
    <div class="field">
 
-    <label>
-     CLASS DATE
-    </label>
+    <label>CLASS DATE</label>
 
     <input
      id="scheduleDate"
@@ -977,13 +893,9 @@ td{
    </div>
 
 
-   <!-- SESSION -->
-
    <div class="field">
 
-    <label>
-     SESSION NAME
-    </label>
+    <label>SESSION NAME</label>
 
     <select id="sessionName">
 
@@ -1008,13 +920,9 @@ td{
    </div>
 
 
-   <!-- START -->
-
    <div class="field">
 
-    <label>
-     START TIME
-    </label>
+    <label>START TIME</label>
 
     <input
      id="startTime"
@@ -1023,13 +931,9 @@ td{
    </div>
 
 
-   <!-- END -->
-
    <div class="field">
 
-    <label>
-     END TIME
-    </label>
+    <label>END TIME</label>
 
     <input
      id="endTime"
@@ -1038,13 +942,9 @@ td{
    </div>
 
 
-   <!-- STATUS -->
-
    <div class="field">
 
-    <label>
-     CLASS STATUS
-    </label>
+    <label>CLASS STATUS</label>
 
     <select id="scheduleAllowed">
 
@@ -1065,16 +965,12 @@ td{
 
   <div class="schedule-info">
 
-   <strong>
-    Attendance Rule:
-   </strong>
+   <strong>Attendance Rule:</strong>
 
-   Faculty can start attendance only when an
-   <span class="schedule-note">
-    ALLOWED
-   </span>
-   schedule exists and the current time is inside
-   the scheduled start/end time.
+   Faculty can start a class only if an
+   <span class="schedule-note">ALLOWED</span>
+   schedule exists and current time is inside the
+   scheduled start/end time.
 
   </div>
 
@@ -1111,7 +1007,248 @@ td{
 
 
 <!-- ================================================= -->
-<!-- SCHEDULE LIST -->
+<!-- AUTOMATIC RECURRING SCHEDULE -->
+<!-- ================================================= -->
+
+<div class="section">
+
+ <div class="section-title">
+
+  <i class="ri-repeat-2-line"></i>
+  AUTOMATIC RECURRING SCHEDULE
+
+ </div>
+
+
+ <div class="card">
+
+  <div class="form-grid">
+
+
+   <div class="field">
+
+    <label>SELECT FACULTY</label>
+
+    <select id="repeatFaculty">
+
+     <option value="">
+      Select faculty
+     </option>
+
+    </select>
+
+   </div>
+
+
+   <div class="field">
+
+    <label>SESSION NAME</label>
+
+    <select id="repeatSession">
+
+     <option value="Morning Class">
+      Morning Class
+     </option>
+
+     <option value="Afternoon Class">
+      Afternoon Class
+     </option>
+
+     <option value="Evening Class">
+      Evening Class
+     </option>
+
+     <option value="Special Class">
+      Special Class
+     </option>
+
+    </select>
+
+   </div>
+
+
+   <div class="field">
+
+    <label>START TIME</label>
+
+    <input
+     id="repeatStart"
+     type="time">
+
+   </div>
+
+
+   <div class="field">
+
+    <label>END TIME</label>
+
+    <input
+     id="repeatEnd"
+     type="time">
+
+   </div>
+
+
+   <div class="field">
+
+    <label>START FROM</label>
+
+    <input
+     id="repeatFrom"
+     type="date">
+
+   </div>
+
+
+   <div class="field">
+
+    <label>REPEAT UNTIL</label>
+
+    <input
+     id="repeatUntil"
+     type="date">
+
+   </div>
+
+  </div>
+
+
+  <div style="margin-top:15px">
+
+   <label style="
+    display:block;
+    color:var(--muted);
+    font-size:10px;
+    margin-bottom:8px;
+   ">
+    REPEAT ON
+   </label>
+
+
+   <div class="day-grid">
+
+    <label class="dayBox">
+     <input
+      type="checkbox"
+      class="repeatDay"
+      value="1">
+     MON
+    </label>
+
+
+    <label class="dayBox">
+     <input
+      type="checkbox"
+      class="repeatDay"
+      value="2">
+     TUE
+    </label>
+
+
+    <label class="dayBox">
+     <input
+      type="checkbox"
+      class="repeatDay"
+      value="3">
+     WED
+    </label>
+
+
+    <label class="dayBox">
+     <input
+      type="checkbox"
+      class="repeatDay"
+      value="4">
+     THU
+    </label>
+
+
+    <label class="dayBox">
+     <input
+      type="checkbox"
+      class="repeatDay"
+      value="5">
+     FRI
+    </label>
+
+
+    <label class="dayBox">
+     <input
+      type="checkbox"
+      class="repeatDay"
+      value="6">
+     SAT
+    </label>
+
+
+    <label class="dayBox">
+     <input
+      type="checkbox"
+      class="repeatDay"
+      value="0">
+     SUN
+    </label>
+
+   </div>
+
+  </div>
+
+
+  <div class="schedule-info">
+
+   <strong>Example:</strong>
+
+   Rahul Kumar → Monday to Friday →
+   07:00 AM–08:00 AM →
+   20 Sep to 31 Dec.
+
+   <br>
+
+   System automatically creates each selected day's
+   schedule.
+
+   <br>
+
+   <span class="schedule-note">
+    Existing overlapping classes will not be overwritten.
+   </span>
+
+  </div>
+
+
+  <div class="buttons">
+
+   <button id="createRecurring">
+
+    <i class="ri-calendar-schedule-line"></i>
+    CREATE AUTOMATIC SCHEDULE
+
+   </button>
+
+
+   <button
+    class="secondary"
+    id="clearRecurring">
+
+    CLEAR
+
+   </button>
+
+  </div>
+
+
+  <div
+   class="message"
+   id="repeatMessage">
+  </div>
+
+ </div>
+
+</div>
+
+
+<!-- ================================================= -->
+<!-- SCHEDULE MANAGEMENT -->
 <!-- ================================================= -->
 
 <div class="section">
@@ -1173,41 +1310,20 @@ td{
 
      <tr>
 
-      <th>
-       FACULTY
-      </th>
-
-      <th>
-       DATE
-      </th>
-
-      <th>
-       SESSION
-      </th>
-
-      <th>
-       START
-      </th>
-
-      <th>
-       END
-      </th>
-
-      <th>
-       STATUS
-      </th>
-
-      <th>
-       ACTION
-      </th>
+      <th>FACULTY</th>
+      <th>DATE</th>
+      <th>SESSION</th>
+      <th>START</th>
+      <th>END</th>
+      <th>TYPE</th>
+      <th>STATUS</th>
+      <th>ACTION</th>
 
      </tr>
 
     </thead>
 
-
-    <tbody id="scheduleBody">
-    </tbody>
+    <tbody id="scheduleBody"></tbody>
 
    </table>
 
@@ -1263,41 +1379,19 @@ td{
 
      <tr>
 
-      <th>
-       FACULTY
-      </th>
-
-      <th>
-       SESSION
-      </th>
-
-      <th>
-       SCHEDULE
-      </th>
-
-      <th>
-       CHECK IN
-      </th>
-
-      <th>
-       CHECK OUT
-      </th>
-
-      <th>
-       TEACHING
-      </th>
-
-      <th>
-       EARNING
-      </th>
+      <th>FACULTY</th>
+      <th>SESSION</th>
+      <th>SCHEDULE</th>
+      <th>CHECK IN</th>
+      <th>CHECK OUT</th>
+      <th>TEACHING</th>
+      <th>EARNING</th>
 
      </tr>
 
     </thead>
 
-
-    <tbody id="attendanceBody">
-    </tbody>
+    <tbody id="attendanceBody"></tbody>
 
    </table>
 
@@ -1353,33 +1447,17 @@ td{
 
      <tr>
 
-      <th>
-       FACULTY
-      </th>
-
-      <th>
-       WORK DAYS
-      </th>
-
-      <th>
-       HOURS
-      </th>
-
-      <th>
-       RATE
-      </th>
-
-      <th>
-       TOTAL EARNING
-      </th>
+      <th>FACULTY</th>
+      <th>WORK DAYS</th>
+      <th>HOURS</th>
+      <th>RATE</th>
+      <th>TOTAL EARNING</th>
 
      </tr>
 
     </thead>
 
-
-    <tbody id="earningBody">
-    </tbody>
+    <tbody id="earningBody"></tbody>
 
    </table>
 
@@ -1398,7 +1476,6 @@ td{
  </div>
 
 </div>
-
 
 </div>
 
@@ -1419,7 +1496,6 @@ td{
     EDIT FACULTY
    </div>
 
-
    <button
     class="close"
     id="closeModal">
@@ -1433,12 +1509,9 @@ td{
 
   <div class="form-grid">
 
-
    <div class="field">
 
-    <label>
-     NAME
-    </label>
+    <label>NAME</label>
 
     <input id="editName">
 
@@ -1447,9 +1520,7 @@ td{
 
    <div class="field">
 
-    <label>
-     MOBILE
-    </label>
+    <label>MOBILE</label>
 
     <input
      id="editMobile"
@@ -1460,9 +1531,7 @@ td{
 
    <div class="field">
 
-    <label>
-     HOURLY RATE ₹
-    </label>
+    <label>HOURLY RATE ₹</label>
 
     <input
      id="editRate"
@@ -1473,9 +1542,7 @@ td{
 
    <div class="field">
 
-    <label>
-     STATUS
-    </label>
+    <label>STATUS</label>
 
     <select id="editActive">
 
@@ -1494,9 +1561,7 @@ td{
 
    <div class="field">
 
-    <label>
-     PHOTO URL
-    </label>
+    <label>PHOTO URL</label>
 
     <input id="editPhoto">
 
@@ -1547,7 +1612,6 @@ td{
     EDIT CLASS SCHEDULE
    </div>
 
-
    <button
     class="close"
     id="closeScheduleModal">
@@ -1561,12 +1625,9 @@ td{
 
   <div class="form-grid">
 
-
    <div class="field">
 
-    <label>
-     FACULTY
-    </label>
+    <label>FACULTY</label>
 
     <select id="editScheduleFaculty">
     </select>
@@ -1576,9 +1637,7 @@ td{
 
    <div class="field">
 
-    <label>
-     DATE
-    </label>
+    <label>DATE</label>
 
     <input
      id="editScheduleDate"
@@ -1589,9 +1648,7 @@ td{
 
    <div class="field">
 
-    <label>
-     SESSION
-    </label>
+    <label>SESSION</label>
 
     <select id="editSessionName">
 
@@ -1618,9 +1675,7 @@ td{
 
    <div class="field">
 
-    <label>
-     START TIME
-    </label>
+    <label>START TIME</label>
 
     <input
      id="editStartTime"
@@ -1631,9 +1686,7 @@ td{
 
    <div class="field">
 
-    <label>
-     END TIME
-    </label>
+    <label>END TIME</label>
 
     <input
      id="editEndTime"
@@ -1644,9 +1697,7 @@ td{
 
    <div class="field">
 
-    <label>
-     STATUS
-    </label>
+    <label>STATUS</label>
 
     <select id="editScheduleAllowed">
 
@@ -1724,14 +1775,14 @@ from "./firebase-config.js";
 
 
 /* =================================================
-   FIREBASE INIT
+   FIREBASE
 ================================================= */
 
 const app =
-initializeApp(firebaseConfig);
+ initializeApp(firebaseConfig);
 
 const db =
-getFirestore(app);
+ getFirestore(app);
 
 
 /* =================================================
@@ -1757,12 +1808,12 @@ function today(){
  const y=d.getFullYear();
 
  const m=
- String(d.getMonth()+1)
- .padStart(2,"0");
+  String(d.getMonth()+1)
+  .padStart(2,"0");
 
  const day=
- String(d.getDate())
- .padStart(2,"0");
+  String(d.getDate())
+  .padStart(2,"0");
 
  return `${y}-${m}-${day}`;
 
@@ -1771,9 +1822,10 @@ function today(){
 
 function money(value){
 
- return "₹"+Math.round(
-  Number(value||0)
- ).toLocaleString("en-IN");
+ return "₹"+
+  Math.round(
+   Number(value||0)
+  ).toLocaleString("en-IN");
 
 }
 
@@ -1781,15 +1833,51 @@ function money(value){
 function minutesToHours(minutes){
 
  minutes=
- Number(minutes||0);
+  Number(minutes||0);
 
  const h=
- Math.floor(minutes/60);
+  Math.floor(minutes/60);
 
  const m=
- minutes%60;
+  minutes%60;
 
  return `${h}h ${m}m`;
+
+}
+
+
+function timeToMinutes(time){
+
+ if(!time)
+  return 0;
+
+ const p=
+  time.split(":");
+
+ return(
+  Number(p[0])*60+
+  Number(p[1])
+ );
+
+}
+
+
+function dateToKey(date){
+
+ const y=
+  date.getFullYear();
+
+ const m=
+  String(
+   date.getMonth()+1
+  ).padStart(2,"0");
+
+ const d=
+  String(
+   date.getDate()
+  ).padStart(2,"0");
+
+ return `${y}-${m}-${d}`;
 
 }
 
@@ -1798,7 +1886,6 @@ function formatTime(value){
 
  if(!value)
   return "--:--";
-
 
  let d;
 
@@ -1822,10 +1909,15 @@ function formatTime(value){
 
  }
 
+ if(
+  isNaN(
+   d.getTime()
+  )
+ ){
 
- if(isNaN(d.getTime()))
   return "--:--";
 
+ }
 
  return d.toLocaleTimeString([],{
   hour:"2-digit",
@@ -1847,29 +1939,35 @@ function escapeHtml(value){
 }
 
 
+/* =================================================
+   MESSAGES
+================================================= */
+
 function showMessage(
  text,
  type="success"
 ){
 
  const el=
- document.getElementById("message");
+  document.getElementById(
+   "message"
+  );
 
  el.textContent=text;
 
  el.className=
- "message show "+
- (
-  type==="error"
-  ?"error-msg"
-  :"success-msg"
- );
+  "message show "+
+  (
+   type==="error"
+   ?"error-msg"
+   :"success-msg"
+  );
 
  setTimeout(()=>{
 
   el.className="message";
 
- },3500);
+ },4000);
 
 }
 
@@ -1880,31 +1978,60 @@ function showScheduleMessage(
 ){
 
  const el=
- document.getElementById(
-  "scheduleMessage"
- );
+  document.getElementById(
+   "scheduleMessage"
+  );
 
  el.textContent=text;
 
  el.className=
- "message show "+
- (
-  type==="error"
-  ?"error-msg"
-  :"success-msg"
- );
+  "message show "+
+  (
+   type==="error"
+   ?"error-msg"
+   :"success-msg"
+  );
 
  setTimeout(()=>{
 
   el.className="message";
 
- },3500);
+ },4000);
+
+}
+
+
+function showRepeatMessage(
+ text,
+ type="success"
+){
+
+ const el=
+  document.getElementById(
+   "repeatMessage"
+  );
+
+ el.textContent=text;
+
+ el.className=
+  "message show "+
+  (
+   type==="error"
+   ?"error-msg"
+   :"success-msg"
+  );
+
+ setTimeout(()=>{
+
+  el.className="message";
+
+ },6000);
 
 }
 
 
 /* =================================================
-   DATE DEFAULTS
+   DEFAULT DATES
 ================================================= */
 
 document.getElementById(
@@ -1917,43 +2044,51 @@ document.getElementById(
 ).value=today();
 
 
+document.getElementById(
+ "repeatFrom"
+).value=today();
+
+
 /* =================================================
-   LOAD FACULTY
+   FACULTY LOAD
 ================================================= */
 
 async function loadFaculty(){
 
  const loading=
- document.getElementById(
-  "facultyLoading"
- );
+  document.getElementById(
+   "facultyLoading"
+  );
 
  loading.style.display="block";
 
  try{
 
   const snap=
-  await getDocs(
-   collection(db,"faculty")
-  );
+   await getDocs(
+    collection(
+     db,
+     "faculty"
+    )
+   );
 
 
   facultyList=
-  snap.docs.map(d=>({
+   snap.docs.map(d=>({
 
-   id:d.id,
+    id:d.id,
 
-   ...d.data()
+    ...d.data()
 
-  }));
+   }));
 
 
   facultyList.sort(
    (a,b)=>
-   String(a.name||"")
-   .localeCompare(
-    String(b.name||"")
-   )
+    String(a.name||"")
+    .localeCompare(
+     String(b.name||"")
+    )
   );
 
 
@@ -1965,15 +2100,15 @@ async function loadFaculty(){
   document.getElementById(
    "totalFaculty"
   ).textContent=
-  facultyList.length;
+   facultyList.length;
 
 
   document.getElementById(
    "activeFaculty"
   ).textContent=
-  facultyList.filter(
-   x=>x.active!==false
-  ).length;
+   facultyList.filter(
+    x=>x.active!==false
+   ).length;
 
 
  }catch(error){
@@ -1996,37 +2131,50 @@ async function loadFaculty(){
 
 
 /* =================================================
-   FACULTY DROPDOWNS
+   DROPDOWNS
 ================================================= */
 
 function populateFacultyDropdowns(){
 
  const selects=[
+
   document.getElementById(
    "scheduleFaculty"
   ),
+
   document.getElementById(
    "editScheduleFaculty"
+  ),
+
+  document.getElementById(
+   "repeatFaculty"
   )
+
  ];
 
 
  selects.forEach(select=>{
 
-  if(!select) return;
+  if(!select)
+   return;
+
 
   const old=
-  select.value;
+   select.value;
+
 
   select.innerHTML="";
 
+
   const first=
-  document.createElement("option");
+   document.createElement(
+    "option"
+   );
 
   first.value="";
 
   first.textContent=
-  "Select faculty";
+   "Select faculty";
 
   select.appendChild(first);
 
@@ -2034,17 +2182,21 @@ function populateFacultyDropdowns(){
   facultyList.forEach(f=>{
 
    const option=
-   document.createElement("option");
+    document.createElement(
+     "option"
+    );
 
    option.value=
-   f.mobile||f.id;
+    f.mobile||f.id;
 
    option.textContent=
-   `${f.name||"Unnamed"} — ${
-    f.mobile||f.id
-   }`;
+    `${f.name||"Unnamed"} — ${
+      f.mobile||f.id
+    }`;
 
-   select.appendChild(option);
+   select.appendChild(
+    option
+   );
 
   });
 
@@ -2058,53 +2210,55 @@ function populateFacultyDropdowns(){
 
 
 /* =================================================
-   RENDER FACULTY
+   FACULTY RENDER
 ================================================= */
 
 function renderFaculty(){
 
  const body=
- document.getElementById(
-  "facultyBody"
- );
+  document.getElementById(
+   "facultyBody"
+  );
 
  const table=
- document.getElementById(
-  "facultyTable"
- );
+  document.getElementById(
+   "facultyTable"
+  );
 
  const empty=
- document.getElementById(
-  "facultyEmpty"
- );
+  document.getElementById(
+   "facultyEmpty"
+  );
 
 
  const search=
- document.getElementById(
-  "search"
- ).value
-  .toLowerCase()
-  .trim();
+  document.getElementById(
+   "search"
+  ).value
+   .toLowerCase()
+   .trim();
 
 
  const data=
- facultyList.filter(f=>{
+  facultyList.filter(f=>{
 
-  const name=
-  String(f.name||"")
-   .toLowerCase();
+   const name=
+    String(f.name||"")
+    .toLowerCase();
 
-  const mobile=
-  String(
-   f.mobile||f.id||""
-  );
+   const mobile=
+    String(
+     f.mobile||
+     f.id||
+     ""
+    );
 
-  return(
-   name.includes(search) ||
-   mobile.includes(search)
-  );
+   return(
+    name.includes(search)||
+    mobile.includes(search)
+   );
 
- });
+  });
 
 
  body.innerHTML="";
@@ -2121,59 +2275,42 @@ function renderFaculty(){
  }
 
 
- empty.style.display="none";
-
  table.style.display="table";
+
+ empty.style.display="none";
 
 
  data.forEach(f=>{
 
   const mobile=
-  f.mobile||f.id;
+   f.mobile||f.id;
 
 
   const tr=
-  document.createElement("tr");
+   document.createElement("tr");
 
 
   tr.innerHTML=`
 
    <td>
-
     <div class="faculty-name">
-
      ${escapeHtml(
       f.name||"Unnamed"
      )}
-
     </div>
-
    </td>
 
-
    <td>
-
     <div class="mobile">
-
      ${escapeHtml(mobile)}
-
     </div>
-
    </td>
-
 
    <td>
-
     <span class="rate">
-
-     ${money(
-      f.hourlyRate
-     )}/hr
-
+     ${money(f.hourlyRate)}/hr
     </span>
-
    </td>
-
 
    <td>
 
@@ -2195,7 +2332,6 @@ function renderFaculty(){
 
    </td>
 
-
    <td>
 
     <button
@@ -2211,11 +2347,12 @@ function renderFaculty(){
   `;
 
 
-  tr.querySelector("button")
-   .addEventListener(
-    "click",
-    ()=>openEdit(f)
-   );
+  tr.querySelector(
+   "button"
+  ).addEventListener(
+   "click",
+   ()=>openEdit(f)
+  );
 
 
   body.appendChild(tr);
@@ -2226,7 +2363,7 @@ function renderFaculty(){
 
 
 /* =================================================
-   ADD FACULTY
+   SAVE FACULTY
 ================================================= */
 
 document.getElementById(
@@ -2237,35 +2374,35 @@ document.getElementById(
  async()=>{
 
   const name=
-  document.getElementById(
-   "name"
-  ).value.trim();
+   document.getElementById(
+    "name"
+   ).value.trim();
 
 
   const mobile=
-  document.getElementById(
-   "mobile"
-  ).value.trim();
+   document.getElementById(
+    "mobile"
+   ).value.trim();
 
 
   const rate=
-  Number(
-   document.getElementById(
-    "rate"
-   ).value
-  );
+   Number(
+    document.getElementById(
+     "rate"
+    ).value
+   );
 
 
   const active=
-  document.getElementById(
-   "active"
-  ).value==="true";
+   document.getElementById(
+    "active"
+   ).value==="true";
 
 
   const photo=
-  document.getElementById(
-   "photo"
-  ).value.trim();
+   document.getElementById(
+    "photo"
+   ).value.trim();
 
 
   if(!name){
@@ -2363,7 +2500,7 @@ document.getElementById(
 
 
 /* =================================================
-   CLEAR FACULTY FORM
+   CLEAR FACULTY
 ================================================= */
 
 function clearForm(){
@@ -2372,21 +2509,17 @@ function clearForm(){
   "name"
  ).value="";
 
-
  document.getElementById(
   "mobile"
  ).value="";
-
 
  document.getElementById(
   "rate"
  ).value="";
 
-
  document.getElementById(
   "photo"
  ).value="";
-
 
  document.getElementById(
   "active"
@@ -2416,38 +2549,40 @@ function openEdit(f){
  document.getElementById(
   "editName"
  ).value=
- f.name||"";
+  f.name||"";
 
 
  document.getElementById(
   "editMobile"
  ).value=
- f.mobile||f.id;
+  f.mobile||f.id;
 
 
  document.getElementById(
   "editRate"
  ).value=
- f.hourlyRate||0;
+  f.hourlyRate||0;
 
 
  document.getElementById(
   "editActive"
  ).value=
- f.active===false
- ?"false"
- :"true";
+  f.active===false
+  ?"false"
+  :"true";
 
 
  document.getElementById(
   "editPhoto"
  ).value=
- f.photo||"";
+  f.photo||"";
 
 
  document.getElementById(
   "editModal"
- ).classList.add("show");
+ ).classList.add(
+  "show"
+ );
 
 }
 
@@ -2461,7 +2596,9 @@ document.getElementById(
 
   document.getElementById(
    "editModal"
-  ).classList.remove("show");
+  ).classList.remove(
+   "show"
+  );
 
  }
 );
@@ -2483,29 +2620,29 @@ document.getElementById(
 
 
   const name=
-  document.getElementById(
-   "editName"
-  ).value.trim();
+   document.getElementById(
+    "editName"
+   ).value.trim();
 
 
   const rate=
-  Number(
-   document.getElementById(
-    "editRate"
-   ).value
-  );
+   Number(
+    document.getElementById(
+     "editRate"
+    ).value
+   );
 
 
   const active=
-  document.getElementById(
-   "editActive"
-  ).value==="true";
+   document.getElementById(
+    "editActive"
+   ).value==="true";
 
 
   const photo=
-  document.getElementById(
-   "editPhoto"
-  ).value.trim();
+   document.getElementById(
+    "editPhoto"
+   ).value.trim();
 
 
   if(!name || rate<0){
@@ -2545,7 +2682,9 @@ document.getElementById(
 
    document.getElementById(
     "editModal"
-   ).classList.remove("show");
+   ).classList.remove(
+    "show"
+   );
 
 
    showMessage(
@@ -2588,12 +2727,12 @@ document.getElementById(
 
 
   const ok=
-  confirm(
-   `Delete ${
-    selectedFaculty.name||
-    "this faculty"
-   }?`
-  );
+   confirm(
+    `Delete ${
+      selectedFaculty.name||
+      "this faculty"
+    }?`
+   );
 
 
   if(!ok)
@@ -2613,7 +2752,9 @@ document.getElementById(
 
    document.getElementById(
     "editModal"
-   ).classList.remove("show");
+   ).classList.remove(
+    "show"
+   );
 
 
    showMessage(
@@ -2643,7 +2784,7 @@ document.getElementById(
 
 
 /* =================================================
-   CREATE SCHEDULE ID
+   SCHEDULE ID
 ================================================= */
 
 function makeScheduleId(
@@ -2652,19 +2793,13 @@ function makeScheduleId(
  startTime
 ){
 
- const safeTime=
- startTime.replace(
-  ":",
-  ""
- );
-
- return `${facultyId}_${date}_${safeTime}`;
+ return `${facultyId}_${date}_${startTime.replace(":","")}`;
 
 }
 
 
 /* =================================================
-   CHECK OVERLAPPING SCHEDULE
+   OVERLAP CHECK
 ================================================= */
 
 async function hasOverlap(
@@ -2676,28 +2811,40 @@ async function hasOverlap(
 ){
 
  const q=
- query(
-  collection(
-   db,
-   "facultySchedules"
-  ),
+  query(
+   collection(
+    db,
+    "facultySchedules"
+   ),
 
-  where(
-   "facultyId",
-   "==",
-   facultyId
-  ),
+   where(
+    "facultyId",
+    "==",
+    facultyId
+   ),
 
-  where(
-   "date",
-   "==",
-   date
-  )
- );
+   where(
+    "date",
+    "==",
+    date
+   )
+  );
 
 
  const snap=
- await getDocs(q);
+  await getDocs(q);
+
+
+ const newStart=
+  timeToMinutes(
+   startTime
+  );
+
+
+ const newEnd=
+  timeToMinutes(
+   endTime
+  );
 
 
  for(const d of snap.docs){
@@ -2710,28 +2857,27 @@ async function hasOverlap(
 
 
   if(
-   !x.startTime ||
+   !x.startTime||
    !x.endTime
   )
    continue;
 
 
-  const newStart=
-   timeToMinutes(startTime);
-
-  const newEnd=
-   timeToMinutes(endTime);
-
   const oldStart=
-   timeToMinutes(x.startTime);
+   timeToMinutes(
+    x.startTime
+   );
+
 
   const oldEnd=
-   timeToMinutes(x.endTime);
+   timeToMinutes(
+    x.endTime
+   );
 
 
   if(
-   newStart < oldEnd &&
-   newEnd > oldStart
+   newStart<oldEnd &&
+   newEnd>oldStart
   ){
 
    return true;
@@ -2747,24 +2893,7 @@ async function hasOverlap(
 
 
 /* =================================================
-   TIME TO MINUTES
-================================================= */
-
-function timeToMinutes(time){
-
- const parts=
- time.split(":");
-
- return(
-  Number(parts[0])*60+
-  Number(parts[1])
- );
-
-}
-
-
-/* =================================================
-   SAVE SCHEDULE
+   SAVE MANUAL SCHEDULE
 ================================================= */
 
 document.getElementById(
@@ -2775,39 +2904,39 @@ document.getElementById(
  async()=>{
 
   const facultyId=
-  document.getElementById(
-   "scheduleFaculty"
-  ).value;
+   document.getElementById(
+    "scheduleFaculty"
+   ).value;
 
 
   const date=
-  document.getElementById(
-   "scheduleDate"
-  ).value;
+   document.getElementById(
+    "scheduleDate"
+   ).value;
 
 
   const sessionName=
-  document.getElementById(
-   "sessionName"
-  ).value;
+   document.getElementById(
+    "sessionName"
+   ).value;
 
 
   const startTime=
-  document.getElementById(
-   "startTime"
-  ).value;
+   document.getElementById(
+    "startTime"
+   ).value;
 
 
   const endTime=
-  document.getElementById(
-   "endTime"
-  ).value;
+   document.getElementById(
+    "endTime"
+   ).value;
 
 
   const allowed=
-  document.getElementById(
-   "scheduleAllowed"
-  ).value==="true";
+   document.getElementById(
+    "scheduleAllowed"
+   ).value==="true";
 
 
   if(!facultyId){
@@ -2834,7 +2963,7 @@ document.getElementById(
   }
 
 
-  if(!startTime || !endTime){
+  if(!startTime||!endTime){
 
    showScheduleMessage(
     "Start and end time required.",
@@ -2865,12 +2994,12 @@ document.getElementById(
   try{
 
    const overlap=
-   await hasOverlap(
-    facultyId,
-    date,
-    startTime,
-    endTime
-   );
+    await hasOverlap(
+     facultyId,
+     date,
+     startTime,
+     endTime
+    );
 
 
    if(overlap){
@@ -2886,19 +3015,19 @@ document.getElementById(
 
 
    const faculty=
-   facultyList.find(
-    f=>
-    (f.mobile||f.id)
-    ===facultyId
-   );
+    facultyList.find(
+     f=>
+      (f.mobile||f.id)
+      ===facultyId
+    );
 
 
    const scheduleId=
-   makeScheduleId(
-    facultyId,
-    date,
-    startTime
-   );
+    makeScheduleId(
+     facultyId,
+     date,
+     startTime
+    );
 
 
    await setDoc(
@@ -2909,30 +3038,45 @@ document.getElementById(
     ),
     {
 
-     facultyId:facultyId,
+     facultyId:
+
+      facultyId,
 
      facultyName:
+
       faculty?.name||
       "Faculty",
 
-     date:date,
+     date:
+
+      date,
 
      sessionName:
+
       sessionName,
 
      startTime:
+
       startTime,
 
      endTime:
+
       endTime,
 
      allowed:
+
       allowed,
 
+     scheduleType:
+
+      "manual",
+
      createdAt:
+
       new Date(),
 
      updatedAt:
+
       new Date()
 
     },
@@ -2974,7 +3118,7 @@ document.getElementById(
 
 
 /* =================================================
-   CLEAR SCHEDULE FORM
+   CLEAR MANUAL SCHEDULE
 ================================================= */
 
 function clearScheduleForm(){
@@ -2992,7 +3136,7 @@ function clearScheduleForm(){
  document.getElementById(
   "sessionName"
  ).value=
- "Morning Class";
+  "Morning Class";
 
 
  document.getElementById(
@@ -3022,6 +3166,451 @@ document.getElementById(
 
 
 /* =================================================
+   RECURRING SCHEDULE
+================================================= */
+
+document.getElementById(
+ "createRecurring"
+)
+.addEventListener(
+ "click",
+ async()=>{
+
+  const facultyId=
+   document.getElementById(
+    "repeatFaculty"
+   ).value;
+
+
+  const sessionName=
+   document.getElementById(
+    "repeatSession"
+   ).value;
+
+
+  const startTime=
+   document.getElementById(
+    "repeatStart"
+   ).value;
+
+
+  const endTime=
+   document.getElementById(
+    "repeatEnd"
+   ).value;
+
+
+  const from=
+   document.getElementById(
+    "repeatFrom"
+   ).value;
+
+
+  const until=
+   document.getElementById(
+    "repeatUntil"
+   ).value;
+
+
+  const selectedDays=
+   [
+    ...document.querySelectorAll(
+     ".repeatDay:checked"
+    )
+   ].map(
+    x=>Number(x.value)
+   );
+
+
+  /* VALIDATION */
+
+  if(!facultyId){
+
+   showRepeatMessage(
+    "Please select faculty.",
+    "error"
+   );
+
+   return;
+
+  }
+
+
+  if(!startTime||!endTime){
+
+   showRepeatMessage(
+    "Start and end time required.",
+    "error"
+   );
+
+   return;
+
+  }
+
+
+  if(
+   timeToMinutes(endTime)
+   <=
+   timeToMinutes(startTime)
+  ){
+
+   showRepeatMessage(
+    "End time must be after start time.",
+    "error"
+   );
+
+   return;
+
+  }
+
+
+  if(!from||!until){
+
+   showRepeatMessage(
+    "Please select start and end dates.",
+    "error"
+   );
+
+   return;
+
+  }
+
+
+  if(from>until){
+
+   showRepeatMessage(
+    "Repeat until must be after start date.",
+    "error"
+   );
+
+   return;
+
+  }
+
+
+  if(!selectedDays.length){
+
+   showRepeatMessage(
+    "Select at least one day.",
+    "error"
+   );
+
+   return;
+
+  }
+
+
+  const faculty=
+   facultyList.find(
+    f=>
+     (f.mobile||f.id)
+     ===facultyId
+   );
+
+
+  if(!faculty){
+
+   showRepeatMessage(
+    "Faculty not found.",
+    "error"
+   );
+
+   return;
+
+  }
+
+
+  try{
+
+   const startDate=
+    new Date(
+     from+"T00:00:00"
+    );
+
+
+   const endDate=
+    new Date(
+     until+"T00:00:00"
+    );
+
+
+   let created=0;
+   let skipped=0;
+
+
+   for(
+    let d=new Date(startDate);
+    d<=endDate;
+    d.setDate(
+     d.getDate()+1
+    )
+   ){
+
+    const day=
+     d.getDay();
+
+
+    if(
+     !selectedDays.includes(day)
+    ){
+
+     continue;
+
+    }
+
+
+    const date=
+     dateToKey(d);
+
+
+    /*
+       Check existing classes
+    */
+
+    const q=
+     query(
+      collection(
+       db,
+       "facultySchedules"
+      ),
+
+      where(
+       "facultyId",
+       "==",
+       facultyId
+      ),
+
+      where(
+       "date",
+       "==",
+       date
+      )
+     );
+
+
+    const snap=
+     await getDocs(q);
+
+
+    const newStart=
+     timeToMinutes(
+      startTime
+     );
+
+
+    const newEnd=
+     timeToMinutes(
+      endTime
+     );
+
+
+    let overlap=false;
+
+
+    snap.docs.forEach(existing=>{
+
+     const x=
+      existing.data();
+
+
+     if(
+      !x.startTime||
+      !x.endTime
+     ){
+
+      return;
+
+     }
+
+
+     const oldStart=
+      timeToMinutes(
+       x.startTime
+      );
+
+
+     const oldEnd=
+      timeToMinutes(
+       x.endTime
+      );
+
+
+     if(
+      newStart<oldEnd &&
+      newEnd>oldStart
+     ){
+
+      overlap=true;
+
+     }
+
+    });
+
+
+    if(overlap){
+
+     skipped++;
+
+     continue;
+
+    }
+
+
+    const scheduleId=
+     makeScheduleId(
+      facultyId,
+      date,
+      startTime
+     );
+
+
+    await setDoc(
+     doc(
+      db,
+      "facultySchedules",
+      scheduleId
+     ),
+     {
+
+      facultyId:
+
+       facultyId,
+
+      facultyName:
+
+       faculty.name||
+       "Faculty",
+
+      date:
+
+       date,
+
+      sessionName:
+
+       sessionName,
+
+      startTime:
+
+       startTime,
+
+      endTime:
+
+       endTime,
+
+      allowed:
+
+       true,
+
+      scheduleType:
+
+       "recurring",
+
+      createdAt:
+
+       new Date(),
+
+      updatedAt:
+
+       new Date()
+
+     },
+     {
+      merge:true
+     }
+    );
+
+
+    created++;
+
+   }
+
+
+   showRepeatMessage(
+    `Done! ${created} schedules created. ${skipped} overlapping schedules skipped.`
+   );
+
+
+   clearRecurringForm();
+
+
+   await loadSchedules(
+    document.getElementById(
+     "scheduleFilterDate"
+    ).value
+   );
+
+
+  }catch(error){
+
+   console.error(error);
+
+   showRepeatMessage(
+    "Automatic schedule failed: "+
+    error.message,
+    "error"
+   );
+
+  }
+
+ });
+
+
+/* =================================================
+   CLEAR RECURRING
+================================================= */
+
+function clearRecurringForm(){
+
+ document.getElementById(
+  "repeatFaculty"
+ ).value="";
+
+
+ document.getElementById(
+  "repeatSession"
+ ).value=
+  "Morning Class";
+
+
+ document.getElementById(
+  "repeatStart"
+ ).value="";
+
+
+ document.getElementById(
+  "repeatEnd"
+ ).value="";
+
+
+ document.getElementById(
+  "repeatFrom"
+ ).value=today();
+
+
+ document.getElementById(
+  "repeatUntil"
+ ).value="";
+
+
+ document.querySelectorAll(
+  ".repeatDay"
+ ).forEach(
+  x=>x.checked=false
+ );
+
+}
+
+
+document.getElementById(
+ "clearRecurring"
+)
+.addEventListener(
+ "click",
+ clearRecurringForm
+);
+
+
+/* =================================================
    LOAD SCHEDULES
 ================================================= */
 
@@ -3030,9 +3619,9 @@ async function loadSchedules(
 ){
 
  const loading=
- document.getElementById(
-  "scheduleLoading"
- );
+  document.getElementById(
+   "scheduleLoading"
+  );
 
  loading.style.display="block";
 
@@ -3045,62 +3634,69 @@ async function loadSchedules(
   if(filterDate){
 
    const q=
-   query(
-    collection(
-     db,
-     "facultySchedules"
-    ),
+    query(
+     collection(
+      db,
+      "facultySchedules"
+     ),
 
-    where(
-     "date",
-     "==",
-     filterDate
-    )
-   );
+     where(
+      "date",
+      "==",
+      filterDate
+     )
+    );
 
 
    snap=
-   await getDocs(q);
+    await getDocs(q);
 
   }else{
 
    snap=
-   await getDocs(
-    collection(
-     db,
-     "facultySchedules"
-    )
-   );
+    await getDocs(
+     collection(
+      db,
+      "facultySchedules"
+     )
+    );
 
   }
 
 
   scheduleList=
-  snap.docs.map(d=>({
+   snap.docs.map(d=>({
 
-   id:d.id,
+    id:d.id,
 
-   ...d.data()
+    ...d.data()
 
-  }));
+   }));
 
 
   scheduleList.sort(
    (a,b)=>{
 
-    const fa=
-    String(a.facultyName||"");
+    const facultyCompare=
+     String(
+      a.facultyName||""
+     ).localeCompare(
+      String(
+       b.facultyName||""
+      )
+     );
 
-    const fb=
-    String(b.facultyName||"");
 
-    if(fa!==fb)
-     return fa.localeCompare(fb);
+    if(facultyCompare!==0)
+     return facultyCompare;
+
 
     return String(
      a.startTime||""
     ).localeCompare(
-     String(b.startTime||"")
+     String(
+      b.startTime||""
+     )
     );
 
    }
@@ -3113,10 +3709,12 @@ async function loadSchedules(
 
   console.error(error);
 
-  alert(
+  const message=
    "Schedule load failed: "+
-   error.message
-  );
+   error.message;
+
+
+  alert(message);
 
  }finally{
 
@@ -3134,19 +3732,19 @@ async function loadSchedules(
 function renderSchedules(){
 
  const body=
- document.getElementById(
-  "scheduleBody"
- );
+  document.getElementById(
+   "scheduleBody"
+  );
 
  const table=
- document.getElementById(
-  "scheduleTable"
- );
+  document.getElementById(
+   "scheduleTable"
+  );
 
  const empty=
- document.getElementById(
-  "scheduleEmpty"
- );
+  document.getElementById(
+   "scheduleEmpty"
+  );
 
 
  body.innerHTML="";
@@ -3171,7 +3769,7 @@ function renderSchedules(){
  scheduleList.forEach(item=>{
 
   const tr=
-  document.createElement("tr");
+   document.createElement("tr");
 
 
   tr.innerHTML=`
@@ -3197,11 +3795,9 @@ function renderSchedules(){
    <td>
 
     <span class="date">
-
      ${escapeHtml(
       item.date||""
      )}
-
     </span>
 
    </td>
@@ -3210,12 +3806,10 @@ function renderSchedules(){
    <td>
 
     <span class="session">
-
      ${escapeHtml(
       item.sessionName||
       "Class"
      )}
-
     </span>
 
    </td>
@@ -3224,11 +3818,10 @@ function renderSchedules(){
    <td>
 
     <span class="time">
-
      ${escapeHtml(
-      item.startTime||"--:--"
+      item.startTime||
+      "--:--"
      )}
-
     </span>
 
    </td>
@@ -3237,12 +3830,32 @@ function renderSchedules(){
    <td>
 
     <span class="time">
-
      ${escapeHtml(
-      item.endTime||"--:--"
+      item.endTime||
+      "--:--"
      )}
-
     </span>
+
+   </td>
+
+
+   <td>
+
+    ${
+     item.scheduleType==="recurring"
+
+     ?
+
+     `<span class="badge recurring">
+       AUTO
+      </span>`
+
+     :
+
+     `<span class="badge allowed">
+       MANUAL
+      </span>`
+    }
 
    </td>
 
@@ -3299,7 +3912,7 @@ function renderSchedules(){
 
 
 /* =================================================
-   FILTER SCHEDULE
+   SCHEDULE FILTER
 ================================================= */
 
 document.getElementById(
@@ -3310,9 +3923,10 @@ document.getElementById(
  async()=>{
 
   const date=
-  document.getElementById(
-   "scheduleFilterDate"
-  ).value;
+   document.getElementById(
+    "scheduleFilterDate"
+   ).value;
+
 
   await loadSchedules(date);
 
@@ -3331,7 +3945,10 @@ document.getElementById(
    "scheduleFilterDate"
   ).value=today();
 
-  await loadSchedules(today());
+
+  await loadSchedules(
+   today()
+  );
 
  }
 );
@@ -3352,45 +3969,47 @@ function openScheduleEdit(item){
  document.getElementById(
   "editScheduleFaculty"
  ).value=
- item.facultyId||"";
+  item.facultyId||"";
 
 
  document.getElementById(
   "editScheduleDate"
  ).value=
- item.date||"";
+  item.date||"";
 
 
  document.getElementById(
   "editSessionName"
  ).value=
- item.sessionName||
- "Morning Class";
+  item.sessionName||
+  "Morning Class";
 
 
  document.getElementById(
   "editStartTime"
  ).value=
- item.startTime||"";
+  item.startTime||"";
 
 
  document.getElementById(
   "editEndTime"
  ).value=
- item.endTime||"";
+  item.endTime||"";
 
 
  document.getElementById(
   "editScheduleAllowed"
  ).value=
- item.allowed===false
- ?"false"
- :"true";
+  item.allowed===false
+  ?"false"
+  :"true";
 
 
  document.getElementById(
   "scheduleEditModal"
- ).classList.add("show");
+ ).classList.add(
+  "show"
+ );
 
 }
 
@@ -3404,7 +4023,9 @@ document.getElementById(
 
   document.getElementById(
    "scheduleEditModal"
-  ).classList.remove("show");
+  ).classList.remove(
+   "show"
+  );
 
  }
 );
@@ -3426,56 +4047,50 @@ document.getElementById(
 
 
   const facultyId=
-  document.getElementById(
-   "editScheduleFaculty"
-  ).value;
+   document.getElementById(
+    "editScheduleFaculty"
+   ).value;
 
 
   const date=
-  document.getElementById(
-   "editScheduleDate"
-  ).value;
+   document.getElementById(
+    "editScheduleDate"
+   ).value;
 
 
   const sessionName=
-  document.getElementById(
-   "editSessionName"
-  ).value;
+   document.getElementById(
+    "editSessionName"
+   ).value;
 
 
   const startTime=
-  document.getElementById(
-   "editStartTime"
-  ).value;
+   document.getElementById(
+    "editStartTime"
+   ).value;
 
 
   const endTime=
-  document.getElementById(
-   "editEndTime"
-  ).value;
+   document.getElementById(
+    "editEndTime"
+   ).value;
 
 
   const allowed=
-  document.getElementById(
-   "editScheduleAllowed"
-  ).value==="true";
+   document.getElementById(
+    "editScheduleAllowed"
+   ).value==="true";
 
 
-  if(!facultyId || !date){
-
-   alert(
-    "Faculty and date are required."
-   );
-
-   return;
-
-  }
-
-
-  if(!startTime || !endTime){
+  if(
+   !facultyId||
+   !date||
+   !startTime||
+   !endTime
+  ){
 
    alert(
-    "Start and end time required."
+    "Please fill all schedule details."
    );
 
    return;
@@ -3501,13 +4116,13 @@ document.getElementById(
   try{
 
    const overlap=
-   await hasOverlap(
-    facultyId,
-    date,
-    startTime,
-    endTime,
-    selectedSchedule.id
-   );
+    await hasOverlap(
+     facultyId,
+     date,
+     startTime,
+     endTime,
+     selectedSchedule.id
+    );
 
 
    if(overlap){
@@ -3522,52 +4137,19 @@ document.getElementById(
 
 
    const faculty=
-   facultyList.find(
-    f=>
-    (f.mobile||f.id)
-    ===facultyId
-   );
+    facultyList.find(
+     f=>
+      (f.mobile||f.id)
+      ===facultyId
+    );
 
-
-   /*
-      If faculty/date/time changes,
-      create the correct new deterministic ID.
-   */
 
    const newId=
-   makeScheduleId(
-    facultyId,
-    date,
-    startTime
-   );
-
-
-   const data={
-
-    facultyId:facultyId,
-
-    facultyName:
-     faculty?.name||
-     "Faculty",
-
-    date:date,
-
-    sessionName:
-     sessionName,
-
-    startTime:
-     startTime,
-
-    endTime:
-     endTime,
-
-    allowed:
-     allowed,
-
-    updatedAt:
-     new Date()
-
-   };
+    makeScheduleId(
+     facultyId,
+     date,
+     startTime
+    );
 
 
    await setDoc(
@@ -3576,16 +4158,57 @@ document.getElementById(
      "facultySchedules",
      newId
     ),
-    data,
+    {
+
+     facultyId:
+
+      facultyId,
+
+     facultyName:
+
+      faculty?.name||
+      "Faculty",
+
+     date:
+
+      date,
+
+     sessionName:
+
+      sessionName,
+
+     startTime:
+
+      startTime,
+
+     endTime:
+
+      endTime,
+
+     allowed:
+
+      allowed,
+
+     scheduleType:
+
+      selectedSchedule.scheduleType||
+      "manual",
+
+     createdAt:
+
+      selectedSchedule.createdAt||
+      new Date(),
+
+     updatedAt:
+
+      new Date()
+
+    },
     {
      merge:true
     }
    );
 
-
-   /*
-      Delete old document when ID changed.
-   */
 
    if(
     selectedSchedule.id!==newId
@@ -3604,7 +4227,9 @@ document.getElementById(
 
    document.getElementById(
     "scheduleEditModal"
-   ).classList.remove("show");
+   ).classList.remove(
+    "show"
+   );
 
 
    alert(
@@ -3619,19 +4244,18 @@ document.getElementById(
 
    await loadSchedules(date);
 
- }catch(error){
+  }catch(error){
 
-  console.error(error);
+   console.error(error);
 
-  alert(
-   "Schedule update failed: "+
-   error.message
-  );
+   alert(
+    "Schedule update failed: "+
+    error.message
+   );
 
- }
+  }
 
- }
-);
+ });
 
 
 /* =================================================
@@ -3650,15 +4274,15 @@ document.getElementById(
 
 
   const ok=
-  confirm(
-   `Delete ${
-    selectedSchedule.sessionName||
-    "this schedule"
-   } for ${
-    selectedSchedule.facultyName||
-    "faculty"
-   }?`
-  );
+   confirm(
+    `Delete ${
+      selectedSchedule.sessionName||
+      "this schedule"
+    } for ${
+      selectedSchedule.facultyName||
+      "faculty"
+    }?`
+   );
 
 
   if(!ok)
@@ -3678,7 +4302,9 @@ document.getElementById(
 
    document.getElementById(
     "scheduleEditModal"
-   ).classList.remove("show");
+   ).classList.remove(
+    "show"
+   );
 
 
    alert(
@@ -3687,9 +4313,9 @@ document.getElementById(
 
 
    const date=
-   document.getElementById(
-    "scheduleFilterDate"
-   ).value;
+    document.getElementById(
+     "scheduleFilterDate"
+    ).value;
 
 
    await loadSchedules(date);
@@ -3705,8 +4331,7 @@ document.getElementById(
 
   }
 
- }
-);
+ });
 
 
 /* =================================================
@@ -3716,9 +4341,9 @@ document.getElementById(
 async function loadTodayAttendance(){
 
  const loading=
- document.getElementById(
-  "attendanceLoading"
- );
+  document.getElementById(
+   "attendanceLoading"
+  );
 
  loading.style.display="block";
 
@@ -3726,51 +4351,47 @@ async function loadTodayAttendance(){
  try{
 
   const q=
-  query(
-   collection(
-    db,
-    "facultyAttendance"
-   ),
+   query(
+    collection(
+     db,
+     "facultyAttendance"
+    ),
 
-   where(
-    "date",
-    "==",
-    today()
-   )
-  );
+    where(
+     "date",
+     "==",
+     today()
+    )
+   );
 
 
   const snap=
-  await getDocs(q);
+   await getDocs(q);
 
 
   attendanceList=
-  snap.docs.map(d=>({
+   snap.docs.map(d=>({
 
-   id:d.id,
+    id:d.id,
 
-   ...d.data()
+    ...d.data()
 
-  }));
+   }));
 
 
   attendanceList.sort(
-   (a,b)=>{
-
-    const aa=
-    String(a.facultyName||"");
-
-    const bb=
-    String(b.facultyName||"");
-
-    return aa.localeCompare(bb);
-
-   }
+   (a,b)=>
+    String(
+     a.facultyName||""
+    ).localeCompare(
+     String(
+      b.facultyName||""
+     )
+    )
   );
 
 
   renderTodayAttendance();
-
 
  }catch(error){
 
@@ -3786,25 +4407,25 @@ async function loadTodayAttendance(){
 
 
 /* =================================================
-   RENDER TODAY ATTENDANCE
+   RENDER ATTENDANCE
 ================================================= */
 
 function renderTodayAttendance(){
 
  const body=
- document.getElementById(
-  "attendanceBody"
- );
+  document.getElementById(
+   "attendanceBody"
+  );
 
  const table=
- document.getElementById(
-  "attendanceTable"
- );
+  document.getElementById(
+   "attendanceTable"
+  );
 
  const empty=
- document.getElementById(
-  "attendanceEmpty"
- );
+  document.getElementById(
+   "attendanceEmpty"
+  );
 
 
  body.innerHTML="";
@@ -3815,7 +4436,6 @@ function renderTodayAttendance(){
   table.style.display="none";
 
   empty.style.display="block";
-
 
   document.getElementById(
    "todayPresent"
@@ -3834,23 +4454,13 @@ function renderTodayAttendance(){
  document.getElementById(
   "todayPresent"
  ).textContent=
- attendanceList.length;
+  attendanceList.length;
 
 
  attendanceList.forEach(item=>{
 
   const tr=
-  document.createElement("tr");
-
-
-  const scheduleStart=
-   item.scheduledStart||
-   "--:--";
-
-
-  const scheduleEnd=
-   item.scheduledEnd||
-   "--:--";
+   document.createElement("tr");
 
 
   tr.innerHTML=`
@@ -3886,11 +4496,15 @@ function renderTodayAttendance(){
     <span class="time">
 
      ${escapeHtml(
-      scheduleStart
+      item.scheduledStart||
+      "--:--"
      )}
+
      -
+
      ${escapeHtml(
-      scheduleEnd
+      item.scheduledEnd||
+      "--:--"
      )}
 
     </span>
@@ -3899,38 +4513,30 @@ function renderTodayAttendance(){
 
 
    <td>
-
     ${formatTime(
      item.checkIn
     )}
-
    </td>
 
 
    <td>
-
     ${formatTime(
      item.checkOut
     )}
-
    </td>
 
 
    <td>
-
     ${minutesToHours(
      item.totalMinutes
     )}
-
    </td>
 
 
    <td class="earning">
-
     ${money(
      item.earning
     )}
-
    </td>
 
   `;
@@ -3950,9 +4556,9 @@ function renderTodayAttendance(){
 async function loadMonthlyEarnings(){
 
  const loading=
- document.getElementById(
-  "earningLoading"
- );
+  document.getElementById(
+   "earningLoading"
+  );
 
  loading.style.display="block";
 
@@ -3960,41 +4566,35 @@ async function loadMonthlyEarnings(){
  try{
 
   const now=
-  new Date();
-
-
-  const year=
-  now.getFullYear();
-
-
-  const month=
-  String(
-   now.getMonth()+1
-  ).padStart(2,"0");
+   new Date();
 
 
   const prefix=
-  `${year}-${month}`;
+   `${now.getFullYear()}-${
+    String(
+     now.getMonth()+1
+    ).padStart(2,"0")
+   }`;
 
 
   const snap=
-  await getDocs(
-   collection(
-    db,
-    "facultyAttendance"
-   )
-  );
+   await getDocs(
+    collection(
+     db,
+     "facultyAttendance"
+    )
+   );
 
 
   const current=
-  snap.docs
-   .map(d=>d.data())
-   .filter(
-    x=>
-    String(
-     x.date||""
-    ).startsWith(prefix)
-   );
+   snap.docs
+    .map(d=>d.data())
+    .filter(
+     x=>
+      String(
+       x.date||""
+      ).startsWith(prefix)
+    );
 
 
   renderMonthlyEarnings(
@@ -4015,25 +4615,27 @@ async function loadMonthlyEarnings(){
 
 
 /* =================================================
-   RENDER MONTHLY
+   RENDER MONTHLY EARNINGS
 ================================================= */
 
-function renderMonthlyEarnings(data){
+function renderMonthlyEarnings(
+ data
+){
 
  const body=
- document.getElementById(
-  "earningBody"
- );
+  document.getElementById(
+   "earningBody"
+  );
 
  const table=
- document.getElementById(
-  "earningTable"
- );
+  document.getElementById(
+   "earningTable"
+  );
 
  const empty=
- document.getElementById(
-  "earningEmpty"
- );
+  document.getElementById(
+   "earningEmpty"
+  );
 
 
  body.innerHTML="";
@@ -4044,7 +4646,6 @@ function renderMonthlyEarnings(data){
   table.style.display="none";
 
   empty.style.display="block";
-
 
   document.getElementById(
    "monthEarnings"
@@ -4114,7 +4715,7 @@ function renderMonthlyEarnings(data){
 
 
  const rows=
- Object.values(grouped);
+  Object.values(grouped);
 
 
  let total=0;
@@ -4133,13 +4734,11 @@ function renderMonthlyEarnings(data){
   tr.innerHTML=`
 
    <td>
-
     <b>
      ${escapeHtml(
       item.name
      )}
     </b>
-
    </td>
 
 
@@ -4156,20 +4755,16 @@ function renderMonthlyEarnings(data){
 
 
    <td class="rate">
-
     ${money(
      item.rate
     )}/hr
-
    </td>
 
 
    <td class="earning">
-
     ${money(
      item.earning
     )}
-
    </td>
 
   `;
@@ -4188,13 +4783,13 @@ function renderMonthlyEarnings(data){
  document.getElementById(
   "monthEarnings"
  ).textContent=
- money(total);
+  money(total);
 
 }
 
 
 /* =================================================
-   SEARCH FACULTY
+   SEARCH
 ================================================= */
 
 document.getElementById(
@@ -4239,7 +4834,9 @@ document.getElementById(
 
 await loadFaculty();
 
-await loadSchedules(today());
+await loadSchedules(
+ today()
+);
 
 await loadTodayAttendance();
 
