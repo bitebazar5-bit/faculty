@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Black Terminal — Faculty Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+ --bg:#050711;
+ --card:rgba(15,19,38,.72);
+ --border:rgba(255,255,255,.09);
+ --cyan:#00eaff;
+ --purple:#9b5cff;
+ --pink:#ff3cac;
+ --green:#00ff9d;
+ --yellow:#ffd166;
+ --text:#f5f7ff;
+ --muted:#8991ad;
+}
+
+body{
+ background:
+ radial-gradient(circle at 10% 10%,rgba(0,234,255,.12),transparent 30%),
+ radial-gradient(circle at 90% 20%,rgba(155,92,255,.14),transparent 30%),
+ radial-gradient(circle at 50% 100%,rgba(255,60,172,.08),transparent 35%),
+ var(--bg);
+ color:var(--text);
+ font-family:"Plus Jakarta Sans",sans-serif;
+ min-height:100vh;
+}
+
+body:before{
+ content:"";
+ position:fixed;
+ inset:0;
+ pointer-events:none;
+ background-image:
+ linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+ background-size:40px 40px;
+}
+
+.app{
+ width:min(1100px,100%);
+ margin:auto;
+ padding:18px 14px 100px;
+ position:relative;
+ z-index:1;
+}
+
+.topbar{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:18px;
+}
+
+.logo{
+ font-family:Orbitron;
+ font-weight:800;
+ font-size:18px;
+ letter-spacing:1px;
+}
+
+.logo span{color:var(--cyan)}
+
+.status{
+ display:flex;
+ align-items:center;
+ gap:7px;
+ font-size:11px;
+ color:var(--green);
+}
+
+.dot{
+ width:7px;
+ height:7px;
+ background:var(--green);
+ border-radius:50%;
+ box-shadow:0 0 12px var(--green);
+}
+
+.profile{
+ padding:20px;
+ border:1px solid var(--border);
+ border-radius:24px;
+ background:var(--card);
+ backdrop-filter:blur(18px);
+ display:flex;
+ gap:16px;
+ align-items:center;
+ margin-bottom:15px;
+}
+
+.avatar{
+ width:66px;
+ height:66px;
+ border-radius:20px;
+ background:linear-gradient(135deg,var(--cyan),var(--purple),var(--pink));
+ display:grid;
+ place-items:center;
+ font-family:Orbitron;
+ font-size:23px;
+ font-weight:800;
+ flex-shrink:0;
+ overflow:hidden;
+}
+
+.avatar img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+}
+
+.profile h1{
+ font-size:20px;
+ margin-bottom:5px;
+}
+
+.profile p{
+ color:var(--muted);
+ font-size:12px;
+}
+
+.badge{
+ margin-top:8px;
+ display:inline-block;
+ padding:5px 9px;
+ border-radius:20px;
+ background:rgba(0,234,255,.08);
+ color:var(--cyan);
+ border:1px solid rgba(0,234,255,.2);
+ font-size:10px;
+ font-weight:700;
+}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:12px;
+}
+
+.card{
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:20px;
+ padding:17px;
+ backdrop-filter:blur(18px);
+}
+
+.stat{
+ min-height:120px;
+}
+
+.stat i{
+ font-size:23px;
+ color:var(--cyan);
+}
+
+.label{
+ margin-top:13px;
+ color:var(--muted);
+ font-size:11px;
+}
+
+.value{
+ margin-top:5px;
+ font-family:Orbitron;
+ font-size:21px;
+ font-weight:700;
+}
+
+.green{color:var(--green)}
+.yellow{color:var(--yellow)}
+.pink{color:var(--pink)}
+.purple{color:var(--purple)}
+
+.section{
+ margin-top:15px;
+}
+
+.section-title{
+ font-family:Orbitron;
+ font-size:13px;
+ letter-spacing:.7px;
+ margin-bottom:10px;
+ color:#dce2ff;
+}
+
+.attendance{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+}
+
+.time-box{
+ border:1px solid var(--border);
+ background:rgba(255,255,255,.025);
+ border-radius:16px;
+ padding:15px;
+}
+
+.time-box small{
+ color:var(--muted);
+ font-size:10px;
+}
+
+.time{
+ font-family:Orbitron;
+ font-size:19px;
+ margin-top:7px;
+}
+
+.actions{
+ display:flex;
+ gap:10px;
+ margin-top:12px;
+}
+
+button{
+ border:0;
+ cursor:pointer;
+ border-radius:14px;
+ padding:13px 16px;
+ font-weight:800;
+ color:#061018;
+ background:var(--cyan);
+ flex:1;
+}
+
+button.secondary{
+ color:var(--text);
+ background:rgba(255,255,255,.06);
+ border:1px solid var(--border);
+}
+
+button.danger{
+ background:#ff4d6d;
+ color:white;
+}
+
+button:disabled{
+ opacity:.45;
+ cursor:not-allowed;
+}
+
+.message{
+ margin-top:10px;
+ padding:10px;
+ border-radius:12px;
+ font-size:11px;
+ display:none;
+}
+
+.message.show{display:block}
+.message.error{
+ color:#ff8098;
+ background:rgba(255,77,109,.08);
+ border:1px solid rgba(255,77,109,.2);
+}
+.message.success{
+ color:var(--green);
+ background:rgba(0,255,157,.07);
+ border:1px solid rgba(0,255,157,.2);
+}
+
+.filters{
+ display:flex;
+ gap:8px;
+ overflow:auto;
+ padding-bottom:4px;
+}
+
+.filter{
+ flex:0 0 auto;
+ padding:9px 13px;
+ border-radius:20px;
+ background:rgba(255,255,255,.05);
+ border:1px solid var(--border);
+ color:var(--muted);
+ font-size:11px;
+ cursor:pointer;
+}
+
+.filter.active{
+ color:#071019;
+ background:var(--cyan);
+ border-color:var(--cyan);
+}
+
+.history{
+ overflow-x:auto;
+}
+
+table{
+ width:100%;
+ border-collapse:collapse;
+ min-width:650px;
+}
+
+th{
+ color:var(--muted);
+ font-size:10px;
+ text-align:left;
+ padding:12px;
+ border-bottom:1px solid var(--border);
+}
+
+td{
+ padding:13px 12px;
+ border-bottom:1px solid rgba(255,255,255,.05);
+ font-size:11px;
+}
+
+.earning{
+ color:var(--green);
+ font-weight:800;
+}
+
+.rate{
+ color:var(--yellow);
+}
+
+.empty{
+ text-align:center;
+ color:var(--muted);
+ padding:25px;
+ font-size:12px;
+}
+
+.loading{
+ text-align:center;
+ padding:20px;
+ color:var(--cyan);
+ font-size:12px;
+}
+
+@media(max-width:750px){
+ .grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:480px){
+ .app{padding:14px 11px 90px}
+ .profile{padding:16px}
+ .profile h1{font-size:17px}
+ .grid{gap:9px}
+ .card{padding:14px}
+ .value{font-size:17px}
+ .attendance{grid-template-columns:1fr 1fr}
+ .actions{flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+ <div class="topbar">
+   <div class="logo">BLACK<span>TERMINAL</span></div>
+   <div class="status">
+     <span class="dot"></span>
+     FACULTY PORTAL
+   </div>
+ </div>
+
+ <div class="profile">
+   <div class="avatar" id="avatar">F</div>
+   <div>
+     <h1 id="facultyName">Loading...</h1>
+     <p id="facultyMobile">Faculty ID: —</p>
+     <span class="badge" id="facultyStatus">CHECKING...</span>
+   </div>
+ </div>
+
+ <div class="grid">
+
+   <div class="card stat">
+     <i class="ri-time-line"></i>
+     <div class="label">TODAY'S TEACHING</div>
+     <div class="value" id="todayHours">0h 0m</div>
+   </div>
+
+   <div class="card stat">
+     <i class="ri-calendar-check-line"></i>
+     <div class="label">WORK DAYS</div>
+     <div class="value purple" id="workDays">0</div>
+   </div>
+
+   <div class="card stat">
+     <i class="ri-money-rupee-circle-line"></i>
+     <div class="label">MONTH EARNINGS</div>
+     <div class="value green" id="monthEarning">₹0</div>
+   </div>
+
+   <div class="card stat">
+     <i class="ri-price-tag-3-line"></i>
+     <div class="label">HOURLY RATE</div>
+     <div class="value yellow" id="hourlyRate">₹0/hr</div>
+   </div>
+
+ </div>
+
+ <div class="section">
+   <div class="section-title">TODAY'S ATTENDANCE</div>
+
+   <div class="card">
+
+     <div class="attendance">
+
+       <div class="time-box">
+         <small>ARRIVAL / CHECK-IN</small>
+         <div class="time" id="checkInTime">--:--</div>
+       </div>
+
+       <div class="time-box">
+         <small>CHECK-OUT</small>
+         <div class="time" id="checkOutTime">--:--</div>
+       </div>
+
+     </div>
+
+     <div class="actions">
+       <button id="checkInBtn">
+         <i class="ri-login-box-line"></i> CHECK IN
+       </button>
+
+       <button id="checkOutBtn" class="danger" disabled>
+         <i class="ri-logout-box-line"></i> CHECK OUT
+       </button>
+     </div>
+
+     <div class="message" id="message"></div>
+
+   </div>
+ </div>
+
+ <div class="section">
+   <div class="section-title">MONTHLY OVERVIEW</div>
+
+   <div class="card">
+     <div class="grid">
+       <div>
+         <div class="label">TOTAL HOURS</div>
+         <div class="value" id="totalHours">0h</div>
+       </div>
+
+       <div>
+         <div class="label">TOTAL MINUTES</div>
+         <div class="value" id="totalMinutes">0</div>
+       </div>
+
+       <div>
+         <div class="label">EARNINGS</div>
+         <div class="value green" id="totalEarnings">₹0</div>
+       </div>
+
+       <div>
+         <div class="label">AVG / DAY</div>
+         <div class="value pink" id="avgHours">0h</div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <div class="section">
+
+   <div class="section-title">ATTENDANCE HISTORY</div>
+
+   <div class="filters">
+     <div class="filter active" data-filter="month">THIS MONTH</div>
+     <div class="filter" data-filter="week">THIS WEEK</div>
+     <div class="filter" data-filter="lastMonth">LAST MONTH</div>
+   </div>
+
+   <div class="card" style="margin-top:10px">
+     <div class="history">
+       <div id="historyLoading" class="loading">
+         Loading attendance...
+       </div>
+
+       <table id="historyTable" style="display:none">
+         <thead>
+           <tr>
+             <th>DATE</th>
+             <th>ARRIVAL</th>
+             <th>EXIT</th>
+             <th>TEACHING</th>
+             <th>RATE</th>
+             <th>EARNING</th>
+           </tr>
+         </thead>
+         <tbody id="historyBody"></tbody>
+       </table>
+
+       <div id="emptyHistory" class="empty" style="display:none">
+         No attendance records found.
+       </div>
+     </div>
+   </div>
+
+ </div>
+
+</div>
+
+
+<script type="module">
+
+import {
+ initializeApp
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+import {
+ getFirestore,
+ doc,
+ getDoc,
+ setDoc,
+ updateDoc,
+ collection,
+ query,
+ where,
+ getDocs,
+ orderBy,
+ serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+import { firebaseConfig } from "./firebase-config.js";
+
+
+/* =========================
+   FIREBASE
+========================= */
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+
+/* =========================
+   FACULTY LOGIN
+========================= */
+
+/*
+   Login page se ye localStorage me save hona chahiye:
+
+   localStorage.setItem("facultyMobile","9876543210");
+
+*/
+
+const facultyMobile =
+ localStorage.getItem("facultyMobile") || "";
+
+
+if(!facultyMobile){
+
+ document.getElementById("facultyName").textContent =
+ "Faculty Login Required";
+
+ document.getElementById("facultyMobile").textContent =
+ "Please login with your mobile number";
+
+ document.getElementById("facultyStatus").textContent =
+ "NOT LOGGED IN";
+
+ document.getElementById("checkInBtn").disabled = true;
+
+}else{
+
+ loadFaculty();
+
+}
+
+
+/* =========================
+   GLOBAL DATA
+========================= */
+
+let faculty = null;
+let currentAttendance = null;
+let allAttendance = [];
+let selectedFilter = "month";
+
+
+/* =========================
+   HELPERS
+========================= */
+
+function todayKey(){
+
+ const d = new Date();
+
+ const y = d.getFullYear();
+ const m = String(d.getMonth()+1).padStart(2,"0");
+ const day = String(d.getDate()).padStart(2,"0");
+
+ return `${y}-${m}-${day}`;
+
+}
+
+
+function attendanceId(){
+
+ return `${facultyMobile}_${todayKey()}`;
+
+}
+
+
+function formatTime(value){
+
+ if(!value) return "--:--";
+
+ let d;
+
+ if(typeof value.toDate === "function"){
+   d = value.toDate();
+ }else{
+   d = new Date(value);
+ }
+
+ if(isNaN(d)) return "--:--";
+
+ return d.toLocaleTimeString([],{
+   hour:"2-digit",
+   minute:"2-digit"
+ });
+
+}
+
+
+function minutesToHours(minutes){
+
+ minutes = Number(minutes || 0);
+
+ const h = Math.floor(minutes/60);
+ const m = minutes%60;
+
+ return `${h}h ${m}m`;
+
+}
+
+
+function money(value){
+
+ return "₹" + Math.round(Number(value || 0)).toLocaleString("en-IN");
+
+}
+
+
+function showMessage(text,type="success"){
+
+ const el = document.getElementById("message");
+
+ el.textContent = text;
+ el.className = "message show " + type;
+
+ setTimeout(()=>{
+   el.className="message";
+ },4000);
+
+}
+
+
+/* =========================
+   LOAD FACULTY
+========================= */
+
+async function loadFaculty(){
+
+ try{
+
+   const ref =
+   doc(db,"faculty",facultyMobile);
+
+   const snap = await getDoc(ref);
+
+   if(!snap.exists()){
+
+     document.getElementById("facultyName").textContent =
+     "Faculty Not Found";
+
+     document.getElementById("facultyMobile").textContent =
+     facultyMobile;
+
+     document.getElementById("facultyStatus").textContent =
+     "CONTACT ADMIN";
+
+     document.getElementById("checkInBtn").disabled = true;
+
+     return;
+
+   }
+
+
+   faculty = {
+     id:snap.id,
+     ...snap.data()
+   };
+
+
+   document.getElementById("facultyName").textContent =
+   faculty.name || "Faculty";
+
+   document.getElementById("facultyMobile").textContent =
+   "Faculty ID: " + facultyMobile;
+
+   document.getElementById("hourlyRate").textContent =
+   money(faculty.hourlyRate) + "/hr";
+
+
+   if(faculty.photo){
+
+     document.getElementById("avatar").innerHTML =
+     `<img src="${faculty.photo}" alt="Faculty">`;
+
+   }else{
+
+     document.getElementById("avatar").textContent =
+     (faculty.name || "F").charAt(0).toUpperCase();
+
+   }
+
+
+   document.getElementById("facultyStatus").textContent =
+   faculty.active === false ? "INACTIVE" : "ACTIVE";
+
+
+   if(faculty.active === false){
+
+     document.getElementById("checkInBtn").disabled = true;
+
+   }
+
+
+   await loadToday();
+
+   await loadHistory();
+
+ }catch(error){
+
+   console.error(error);
+
+   showMessage(
+     "Firebase error: " + error.message,
+     "error"
+   );
+
+ }
+
+}
+
+
+/* =========================
+   LOAD TODAY
+========================= */
+
+async function loadToday(){
+
+ const ref =
+ doc(db,"facultyAttendance",attendanceId());
+
+ const snap =
+ await getDoc(ref);
+
+
+ if(!snap.exists()){
+
+   currentAttendance = null;
+
+   document.getElementById("checkInTime").textContent =
+   "--:--";
+
+   document.getElementById("checkOutTime").textContent =
+   "--:--";
+
+   document.getElementById("checkInBtn").disabled = false;
+
+   document.getElementById("checkOutBtn").disabled = true;
+
+   document.getElementById("todayHours").textContent =
+   "0h 0m";
+
+   return;
+
+ }
+
+
+ currentAttendance = snap.data();
+
+
+ document.getElementById("checkInTime").textContent =
+ formatTime(currentAttendance.checkIn);
+
+
+ document.getElementById("checkOutTime").textContent =
+ formatTime(currentAttendance.checkOut);
+
+
+ if(currentAttendance.checkOut){
+
+   document.getElementById("checkInBtn").disabled = true;
+
+   document.getElementById("checkOutBtn").disabled = true;
+
+ }else{
+
+   document.getElementById("checkInBtn").disabled = true;
+
+   document.getElementById("checkOutBtn").disabled = false;
+
+ }
+
+
+ document.getElementById("todayHours").textContent =
+ minutesToHours(currentAttendance.totalMinutes || 0);
+
+}
+
+
+/* =========================
+   CHECK IN
+========================= */
+
+document.getElementById("checkInBtn")
+.addEventListener("click",async()=>{
+
+ if(!faculty) return;
+
+ try{
+
+   const id = attendanceId();
+
+   const ref =
+   doc(db,"facultyAttendance",id);
+
+
+   const existing =
+   await getDoc(ref);
+
+
+   if(existing.exists()){
+
+     showMessage(
+       "You are already checked in today.",
+       "error"
+     );
+
+     return;
+
+   }
+
+
+   await setDoc(ref,{
+
+     facultyId:facultyMobile,
+
+     facultyName:faculty.name || "",
+
+     date:todayKey(),
+
+     checkIn:new Date(),
+
+     checkOut:null,
+
+     totalMinutes:0,
+
+     hourlyRate:Number(faculty.hourlyRate || 0),
+
+     earning:0,
+
+     createdAt:serverTimestamp(),
+
+     updatedAt:serverTimestamp()
+
+   });
+
+
+   showMessage("Check-in recorded successfully.");
+
+   await loadToday();
+
+   await loadHistory();
+
+ }catch(error){
+
+   console.error(error);
+
+   showMessage(
+     "Check-in failed: " + error.message,
+     "error"
+   );
+
+ }
+
+});
+
+
+/* =========================
+   CHECK OUT
+========================= */
+
+document.getElementById("checkOutBtn")
+.addEventListener("click",async()=>{
+
+ if(!currentAttendance) return;
+
+ if(currentAttendance.checkOut){
+
+   showMessage(
+     "Already checked out.",
+     "error"
+   );
+
+   return;
+
+ }
+
+
+ try{
+
+   const now = new Date();
+
+   let checkIn;
+
+
+   if(typeof currentAttendance.checkIn.toDate === "function"){
+
+     checkIn =
+     currentAttendance.checkIn.toDate();
+
+   }else{
+
+     checkIn =
+     new Date(currentAttendance.checkIn);
+
+   }
+
+
+   let totalMinutes =
+   Math.max(
+     0,
+     Math.floor((now-checkIn)/60000)
+   );
+
+
+   const rate =
+   Number(
+     currentAttendance.hourlyRate ||
+     faculty.hourlyRate ||
+     0
+   );
+
+
+   /*
+      Earnings calculation:
+      total hours × hourly rate
+   */
+
+   const earning =
+   (totalMinutes/60) * rate;
+
+
+   const ref =
+   doc(
+     db,
+     "facultyAttendance",
+     attendanceId()
+   );
+
+
+   await updateDoc(ref,{
+
+     checkOut:now,
+
+     totalMinutes:totalMinutes,
+
+     earning:Number(earning.toFixed(2)),
+
+     updatedAt:serverTimestamp()
+
+   });
+
+
+   showMessage(
+     `Checkout recorded. Earned ${money(earning)}`
+   );
+
+
+   await loadToday();
+
+   await loadHistory();
+
+
+ }catch(error){
+
+   console.error(error);
+
+   showMessage(
+     "Checkout failed: " + error.message,
+     "error"
+   );
+
+ }
+
+});
+
+
+/* =========================
+   LOAD HISTORY
+========================= */
+
+async function loadHistory(){
+
+ const loading =
+ document.getElementById("historyLoading");
+
+ const table =
+ document.getElementById("historyTable");
+
+ const empty =
+ document.getElementById("emptyHistory");
+
+ loading.style.display="block";
+ table.style.display="none";
+ empty.style.display="none";
+
+
+ try{
+
+   const q =
+   query(
+     collection(db,"facultyAttendance"),
+     where("facultyId","==",facultyMobile),
+     orderBy("date","desc")
+   );
+
+
+   const snap =
+   await getDocs(q);
+
+
+   allAttendance =
+   snap.docs.map(doc=>({
+     id:doc.id,
+     ...doc.data()
+   }));
+
+
+   renderHistory();
+
+ }catch(error){
+
+   console.error(error);
+
+   /*
+      If Firestore asks for an index, this message helps.
+   */
+
+   loading.style.display="none";
+
+   empty.style.display="block";
+
+   empty.textContent =
+   "Could not load attendance. Check Firestore rules/index.";
+
+ }
+
+}
+
+
+/* =========================
+   FILTER
+========================= */
+
+function getFilteredData(){
+
+ const now = new Date();
+
+ const currentYear =
+ now.getFullYear();
+
+ const currentMonth =
+ now.getMonth();
+
+
+ return allAttendance.filter(item=>{
+
+   const date =
+   new Date(item.date + "T00:00:00");
+
+
+   if(selectedFilter==="month"){
+
+     return (
+       date.getFullYear()===currentYear &&
+       date.getMonth()===currentMonth
+     );
+
+   }
+
+
+   if(selectedFilter==="lastMonth"){
+
+     const last =
+     new Date(
+       currentYear,
+       currentMonth-1,
+       1
+     );
+
+     return (
+       date.getFullYear()===last.getFullYear() &&
+       date.getMonth()===last.getMonth()
+     );
+
+   }
+
+
+   if(selectedFilter==="week"){
+
+     const day =
+     now.getDay();
+
+     const diff =
+     day===0 ? 6 : day-1;
+
+     const start =
+     new Date(now);
+
+     start.setHours(0,0,0,0);
+
+     start.setDate(
+       now.getDate()-diff
+     );
+
+
+     const end =
+     new Date(start);
+
+     end.setDate(
+       start.getDate()+7
+     );
+
+
+     return date>=start && date<end;
+
+   }
+
+
+   return true;
+
+ });
+
+}
+
+
+/* =========================
+   RENDER HISTORY
+========================= */
+
+function renderHistory(){
+
+ const data =
+ getFilteredData();
+
+
+ const body =
+ document.getElementById("historyBody");
+
+ const table =
+ document.getElementById("historyTable");
+
+ const loading =
+ document.getElementById("historyLoading");
+
+ const empty =
+ document.getElementById("emptyHistory");
+
+
+ loading.style.display="none";
+
+ body.innerHTML="";
+
+
+ if(!data.length){
+
+   table.style.display="none";
+
+   empty.style.display="block";
+
+   empty.textContent =
+   "No attendance records found.";
+
+   updateStats([]);
+
+   return;
+
+ }
+
+
+ empty.style.display="none";
+ table.style.display="table";
+
+
+ data.forEach(item=>{
+
+   const tr =
+   document.createElement("tr");
+
+
+   tr.innerHTML=`
+
+     <td>${item.date || "—"}</td>
+
+     <td>${formatTime(item.checkIn)}</td>
+
+     <td>${formatTime(item.checkOut)}</td>
+
+     <td>${minutesToHours(item.totalMinutes)}</td>
+
+     <td class="rate">
+       ${money(item.hourlyRate || 0)}/hr
+     </td>
+
+     <td class="earning">
+       ${money(item.earning || 0)}
+     </td>
+
+   `;
+
+
+   body.appendChild(tr);
+
+ });
+
+
+ updateStats(data);
+
+}
+
+
+/* =========================
+   STATISTICS
+========================= */
+
+function updateStats(data){
+
+ let minutes=0;
+ let earnings=0;
+ let days=0;
+
+
+ data.forEach(item=>{
+
+   minutes +=
+   Number(item.totalMinutes || 0);
+
+   earnings +=
+   Number(item.earning || 0);
+
+   if(item.totalMinutes>0){
+     days++;
+   }
+
+ });
+
+
+ document.getElementById("totalHours").textContent =
+ minutesToHours(minutes);
+
+ document.getElementById("totalMinutes").textContent =
+ minutes;
+
+ document.getElementById("totalEarnings").textContent =
+ money(earnings);
+
+ document.getElementById("workDays").textContent =
+ days;
+
+
+ const avg =
+ days ? minutes/days : 0;
+
+
+ document.getElementById("avgHours").textContent =
+ minutesToHours(Math.round(avg));
+
+}
+
+
+/* =========================
+   FILTER BUTTONS
+========================= */
+
+document.querySelectorAll(".filter")
+.forEach(btn=>{
+
+ btn.addEventListener("click",()=>{
+
+   document.querySelectorAll(".filter")
+   .forEach(x=>x.classList.remove("active"));
+
+   btn.classList.add("active");
+
+   selectedFilter =
+   btn.dataset.filter;
+
+   renderHistory();
+
+ });
+
+});
+
+
+/* =========================
+   AUTO REFRESH
+========================= */
+
+setInterval(()=>{
+
+ if(faculty){
+
+   loadToday();
+
+ }
+
+},60000);
+
+</script>
+
+</body>
+</html>
