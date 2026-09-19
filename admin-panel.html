@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Black Terminal — Admin Panel</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+ --bg:#050711;
+ --card:rgba(15,19,38,.78);
+ --border:rgba(255,255,255,.09);
+ --cyan:#00eaff;
+ --purple:#9b5cff;
+ --pink:#ff3cac;
+ --green:#00ff9d;
+ --yellow:#ffd166;
+ --red:#ff4d6d;
+ --text:#f5f7ff;
+ --muted:#8991ad;
+}
+
+body{
+ background:
+ radial-gradient(circle at 10% 10%,rgba(0,234,255,.12),transparent 30%),
+ radial-gradient(circle at 90% 20%,rgba(155,92,255,.14),transparent 30%),
+ var(--bg);
+ color:var(--text);
+ font-family:"Plus Jakarta Sans",sans-serif;
+ min-height:100vh;
+}
+
+body:before{
+ content:"";
+ position:fixed;
+ inset:0;
+ pointer-events:none;
+ background-image:
+ linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+ background-size:40px 40px;
+}
+
+.app{
+ width:min(1200px,100%);
+ margin:auto;
+ padding:18px 14px 80px;
+ position:relative;
+ z-index:1;
+}
+
+.topbar{
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ margin-bottom:18px;
+}
+
+.logo{
+ font-family:Orbitron;
+ font-weight:800;
+ font-size:18px;
+ letter-spacing:1px;
+}
+
+.logo span{color:var(--cyan)}
+
+.admin-status{
+ display:flex;
+ align-items:center;
+ gap:7px;
+ color:var(--green);
+ font-size:10px;
+ font-weight:700;
+}
+
+.dot{
+ width:7px;
+ height:7px;
+ background:var(--green);
+ border-radius:50%;
+ box-shadow:0 0 12px var(--green);
+}
+
+.hero{
+ padding:22px;
+ border:1px solid var(--border);
+ border-radius:24px;
+ background:var(--card);
+ backdrop-filter:blur(18px);
+ margin-bottom:15px;
+}
+
+.hero h1{
+ font-family:Orbitron;
+ font-size:22px;
+}
+
+.hero p{
+ margin-top:7px;
+ color:var(--muted);
+ font-size:12px;
+}
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:12px;
+}
+
+.card{
+ background:var(--card);
+ border:1px solid var(--border);
+ border-radius:20px;
+ padding:17px;
+ backdrop-filter:blur(18px);
+}
+
+.stat{
+ min-height:115px;
+}
+
+.stat i{
+ font-size:23px;
+ color:var(--cyan);
+}
+
+.label{
+ margin-top:12px;
+ color:var(--muted);
+ font-size:10px;
+}
+
+.value{
+ margin-top:5px;
+ font-family:Orbitron;
+ font-size:21px;
+ font-weight:700;
+}
+
+.green{color:var(--green)}
+.yellow{color:var(--yellow)}
+.pink{color:var(--pink)}
+.purple{color:var(--purple)}
+
+.section{
+ margin-top:15px;
+}
+
+.section-title{
+ font-family:Orbitron;
+ font-size:13px;
+ margin-bottom:10px;
+}
+
+.form-grid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:12px;
+}
+
+.field label{
+ display:block;
+ color:var(--muted);
+ font-size:10px;
+ margin-bottom:6px;
+}
+
+input,select{
+ width:100%;
+ border:1px solid var(--border);
+ background:rgba(255,255,255,.045);
+ color:var(--text);
+ padding:13px;
+ border-radius:12px;
+ outline:none;
+}
+
+input:focus,select:focus{
+ border-color:var(--cyan);
+ box-shadow:0 0 15px rgba(0,234,255,.08);
+}
+
+select option{
+ background:#101426;
+}
+
+.buttons{
+ display:flex;
+ gap:9px;
+ margin-top:13px;
+}
+
+button{
+ border:0;
+ cursor:pointer;
+ padding:12px 16px;
+ border-radius:12px;
+ font-weight:800;
+ background:var(--cyan);
+ color:#061018;
+}
+
+button.secondary{
+ background:rgba(255,255,255,.06);
+ border:1px solid var(--border);
+ color:white;
+}
+
+button.danger{
+ background:var(--red);
+ color:white;
+}
+
+button.small{
+ padding:8px 10px;
+ font-size:10px;
+}
+
+.message{
+ display:none;
+ margin-top:10px;
+ padding:10px;
+ border-radius:10px;
+ font-size:11px;
+}
+
+.message.show{display:block}
+
+.success{
+ color:var(--green);
+ background:rgba(0,255,157,.07);
+ border:1px solid rgba(0,255,157,.2);
+}
+
+.error{
+ color:#ff8098;
+ background:rgba(255,77,109,.08);
+ border:1px solid rgba(255,77,109,.2);
+}
+
+.toolbar{
+ display:flex;
+ gap:10px;
+ margin-bottom:12px;
+}
+
+.search{
+ flex:1;
+}
+
+.table-wrap{
+ overflow-x:auto;
+}
+
+table{
+ width:100%;
+ min-width:850px;
+ border-collapse:collapse;
+}
+
+th{
+ color:var(--muted);
+ font-size:10px;
+ text-align:left;
+ padding:12px;
+ border-bottom:1px solid var(--border);
+}
+
+td{
+ padding:12px;
+ font-size:11px;
+ border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.faculty-name{
+ font-weight:700;
+}
+
+.mobile{
+ color:var(--muted);
+ font-size:10px;
+ margin-top:3px;
+}
+
+.rate{
+ color:var(--yellow);
+ font-weight:800;
+}
+
+.earning{
+ color:var(--green);
+ font-weight:800;
+}
+
+.active{
+ color:var(--green);
+}
+
+.inactive{
+ color:var(--red);
+}
+
+.badge{
+ display:inline-block;
+ padding:5px 8px;
+ border-radius:20px;
+ font-size:9px;
+ font-weight:800;
+}
+
+.badge.active{
+ background:rgba(0,255,157,.08);
+ border:1px solid rgba(0,255,157,.2);
+}
+
+.badge.inactive{
+ background:rgba(255,77,109,.08);
+ border:1px solid rgba(255,77,109,.2);
+}
+
+.modal{
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,.72);
+ display:none;
+ align-items:center;
+ justify-content:center;
+ padding:15px;
+ z-index:10;
+}
+
+.modal.show{
+ display:flex;
+}
+
+.modal-box{
+ width:min(500px,100%);
+ background:#0c1020;
+ border:1px solid var(--border);
+ border-radius:22px;
+ padding:20px;
+ box-shadow:0 20px 80px rgba(0,0,0,.5);
+}
+
+.modal-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ margin-bottom:15px;
+}
+
+.close{
+ background:transparent;
+ color:white;
+ font-size:20px;
+ padding:4px;
+}
+
+.empty{
+ text-align:center;
+ padding:25px;
+ color:var(--muted);
+ font-size:12px;
+}
+
+.loading{
+ text-align:center;
+ padding:20px;
+ color:var(--cyan);
+}
+
+@media(max-width:800px){
+ .grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:500px){
+ .app{padding:13px 10px 70px}
+ .form-grid{grid-template-columns:1fr}
+ .buttons{flex-direction:column}
+ .hero h1{font-size:18px}
+ .toolbar{flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<div class="topbar">
+ <div class="logo">
+   BLACK<span>TERMINAL</span>
+ </div>
+
+ <div class="admin-status">
+   <span class="dot"></span>
+   ADMIN CONTROL
+ </div>
+</div>
+
+
+<div class="hero">
+ <h1>FACULTY ADMIN PANEL</h1>
+ <p>Manage faculty • Hourly rates • Attendance • Earnings</p>
+</div>
+
+
+<!-- STATS -->
+
+<div class="grid">
+
+ <div class="card stat">
+   <i class="ri-team-line"></i>
+   <div class="label">TOTAL FACULTY</div>
+   <div class="value" id="totalFaculty">0</div>
+ </div>
+
+ <div class="card stat">
+   <i class="ri-user-follow-line"></i>
+   <div class="label">ACTIVE FACULTY</div>
+   <div class="value green" id="activeFaculty">0</div>
+ </div>
+
+ <div class="card stat">
+   <i class="ri-time-line"></i>
+   <div class="label">TODAY PRESENT</div>
+   <div class="value purple" id="todayPresent">0</div>
+ </div>
+
+ <div class="card stat">
+   <i class="ri-money-rupee-circle-line"></i>
+   <div class="label">MONTH EARNINGS</div>
+   <div class="value yellow" id="monthEarnings">₹0</div>
+ </div>
+
+</div>
+
+
+<!-- ADD FACULTY -->
+
+<div class="section">
+
+<div class="section-title">
+ <i class="ri-user-add-line"></i>
+ ADD / UPDATE FACULTY
+</div>
+
+<div class="card">
+
+ <div class="form-grid">
+
+   <div class="field">
+     <label>FACULTY NAME</label>
+     <input id="name" placeholder="Example: Rahul Kumar">
+   </div>
+
+   <div class="field">
+     <label>MOBILE NUMBER</label>
+     <input id="mobile" inputmode="numeric" maxlength="15"
+            placeholder="Faculty mobile number">
+   </div>
+
+   <div class="field">
+     <label>HOURLY RATE ₹</label>
+     <input id="rate" type="number"
+            placeholder="Example: 150">
+   </div>
+
+   <div class="field">
+     <label>STATUS</label>
+
+     <select id="active">
+       <option value="true">ACTIVE</option>
+       <option value="false">INACTIVE</option>
+     </select>
+
+   </div>
+
+   <div class="field">
+     <label>PHOTO URL — OPTIONAL</label>
+     <input id="photo"
+            placeholder="https://...">
+   </div>
+
+ </div>
+
+
+ <div class="buttons">
+
+   <button id="saveFaculty">
+     <i class="ri-save-line"></i>
+     SAVE FACULTY
+   </button>
+
+   <button class="secondary" id="clearForm">
+     CLEAR
+   </button>
+
+ </div>
+
+ <div class="message" id="message"></div>
+
+</div>
+
+</div>
+
+
+<!-- FACULTY LIST -->
+
+<div class="section">
+
+<div class="section-title">
+ <i class="ri-group-line"></i>
+ FACULTY MANAGEMENT
+</div>
+
+<div class="card">
+
+ <div class="toolbar">
+
+   <input class="search"
+          id="search"
+          placeholder="Search faculty name or mobile...">
+
+   <button class="secondary" id="refresh">
+     <i class="ri-refresh-line"></i>
+   </button>
+
+ </div>
+
+
+ <div class="table-wrap">
+
+   <div id="facultyLoading" class="loading">
+     Loading faculty...
+   </div>
+
+   <table id="facultyTable" style="display:none">
+
+     <thead>
+       <tr>
+         <th>FACULTY</th>
+         <th>MOBILE</th>
+         <th>RATE</th>
+         <th>STATUS</th>
+         <th>ACTION</th>
+       </tr>
+     </thead>
+
+     <tbody id="facultyBody"></tbody>
+
+   </table>
+
+   <div id="facultyEmpty" class="empty" style="display:none">
+     No faculty found.
+   </div>
+
+ </div>
+
+</div>
+
+</div>
+
+
+<!-- ATTENDANCE -->
+
+<div class="section">
+
+<div class="section-title">
+ <i class="ri-calendar-check-line"></i>
+ TODAY ATTENDANCE
+</div>
+
+<div class="card">
+
+ <div class="table-wrap">
+
+   <div id="attendanceLoading" class="loading">
+     Loading today's attendance...
+   </div>
+
+   <table id="attendanceTable" style="display:none">
+
+     <thead>
+       <tr>
+         <th>FACULTY</th>
+         <th>CHECK IN</th>
+         <th>CHECK OUT</th>
+         <th>TEACHING</th>
+         <th>EARNING</th>
+       </tr>
+     </thead>
+
+     <tbody id="attendanceBody"></tbody>
+
+   </table>
+
+   <div id="attendanceEmpty" class="empty" style="display:none">
+     No attendance today.
+   </div>
+
+ </div>
+
+</div>
+
+</div>
+
+
+<!-- MONTHLY EARNINGS -->
+
+<div class="section">
+
+<div class="section-title">
+ <i class="ri-money-rupee-circle-line"></i>
+ MONTHLY EARNINGS
+</div>
+
+<div class="card">
+
+ <div class="table-wrap">
+
+   <div id="earningLoading" class="loading">
+     Loading earnings...
+   </div>
+
+   <table id="earningTable" style="display:none">
+
+     <thead>
+       <tr>
+         <th>FACULTY</th>
+         <th>WORK DAYS</th>
+         <th>HOURS</th>
+         <th>RATE</th>
+         <th>TOTAL EARNING</th>
+       </tr>
+     </thead>
+
+     <tbody id="earningBody"></tbody>
+
+   </table>
+
+   <div id="earningEmpty" class="empty" style="display:none">
+     No earnings data.
+   </div>
+
+ </div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- EDIT MODAL -->
+
+<div class="modal" id="editModal">
+
+<div class="modal-box">
+
+ <div class="modal-head">
+
+   <div class="section-title">
+     EDIT FACULTY
+   </div>
+
+   <button class="close" id="closeModal">
+     <i class="ri-close-line"></i>
+   </button>
+
+ </div>
+
+ <div class="form-grid">
+
+   <div class="field">
+     <label>NAME</label>
+     <input id="editName">
+   </div>
+
+   <div class="field">
+     <label>MOBILE</label>
+     <input id="editMobile" disabled>
+   </div>
+
+   <div class="field">
+     <label>HOURLY RATE ₹</label>
+     <input id="editRate" type="number">
+   </div>
+
+   <div class="field">
+     <label>STATUS</label>
+
+     <select id="editActive">
+       <option value="true">ACTIVE</option>
+       <option value="false">INACTIVE</option>
+     </select>
+
+   </div>
+
+   <div class="field">
+     <label>PHOTO URL</label>
+     <input id="editPhoto">
+   </div>
+
+ </div>
+
+ <div class="buttons">
+
+   <button id="updateFaculty">
+     <i class="ri-check-line"></i>
+     UPDATE
+   </button>
+
+   <button class="danger" id="deleteFaculty">
+     <i class="ri-delete-bin-line"></i>
+     DELETE
+   </button>
+
+ </div>
+
+</div>
+
+</div>
+
+
+<script type="module">
+
+import {
+ initializeApp
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+import {
+ getFirestore,
+ collection,
+ doc,
+ getDoc,
+ getDocs,
+ setDoc,
+ updateDoc,
+ deleteDoc,
+ query,
+ where,
+ orderBy
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+import { firebaseConfig } from "./firebase-config.js";
+
+
+/* =========================
+   FIREBASE
+========================= */
+
+const app =
+initializeApp(firebaseConfig);
+
+const db =
+getFirestore(app);
+
+
+/* =========================
+   GLOBAL
+========================= */
+
+let facultyList=[];
+let attendanceList=[];
+let selectedFaculty=null;
+
+
+/* =========================
+   HELPERS
+========================= */
+
+function today(){
+
+ const d=new Date();
+
+ const y=d.getFullYear();
+ const m=String(d.getMonth()+1).padStart(2,"0");
+ const day=String(d.getDate()).padStart(2,"0");
+
+ return `${y}-${m}-${day}`;
+
+}
+
+
+function money(value){
+
+ return "₹"+Math.round(
+   Number(value||0)
+ ).toLocaleString("en-IN");
+
+}
+
+
+function minutesToHours(minutes){
+
+ minutes=Number(minutes||0);
+
+ const h=Math.floor(minutes/60);
+ const m=minutes%60;
+
+ return `${h}h ${m}m`;
+
+}
+
+
+function formatTime(value){
+
+ if(!value) return "--:--";
+
+ let d;
+
+ if(typeof value.toDate==="function"){
+   d=value.toDate();
+ }else{
+   d=new Date(value);
+ }
+
+ if(isNaN(d)) return "--:--";
+
+ return d.toLocaleTimeString([],{
+   hour:"2-digit",
+   minute:"2-digit"
+ });
+
+}
+
+
+function showMessage(text,type="success"){
+
+ const el=
+ document.getElementById("message");
+
+ el.textContent=text;
+
+ el.className=
+ "message show "+type;
+
+ setTimeout(()=>{
+   el.className="message";
+ },3500);
+
+}
+
+
+/* =========================
+   LOAD FACULTY
+========================= */
+
+async function loadFaculty(){
+
+ const loading=
+ document.getElementById("facultyLoading");
+
+ loading.style.display="block";
+
+ try{
+
+   const snap=
+   await getDocs(
+     collection(db,"faculty")
+   );
+
+
+   facultyList=
+   snap.docs.map(d=>({
+     id:d.id,
+     ...d.data()
+   }));
+
+
+   renderFaculty();
+
+   document.getElementById("totalFaculty")
+   .textContent=
+   facultyList.length;
+
+
+   document.getElementById("activeFaculty")
+   .textContent=
+   facultyList.filter(
+     x=>x.active!==false
+   ).length;
+
+
+ }catch(error){
+
+   console.error(error);
+
+   showMessage(
+     "Faculty load error: "+error.message,
+     "error"
+   );
+
+ }finally{
+
+   loading.style.display="none";
+
+ }
+
+}
+
+
+/* =========================
+   RENDER FACULTY
+========================= */
+
+function renderFaculty(){
+
+ const body=
+ document.getElementById("facultyBody");
+
+ const table=
+ document.getElementById("facultyTable");
+
+ const empty=
+ document.getElementById("facultyEmpty");
+
+
+ const search=
+ document.getElementById("search")
+ .value
+ .toLowerCase()
+ .trim();
+
+
+ const data=
+ facultyList.filter(f=>{
+
+   return (
+     String(f.name||"")
+     .toLowerCase()
+     .includes(search)
+     ||
+     String(f.mobile||f.id||"")
+     .includes(search)
+   );
+
+ });
+
+
+ body.innerHTML="";
+
+
+ if(!data.length){
+
+   table.style.display="none";
+   empty.style.display="block";
+
+   return;
+
+ }
+
+
+ empty.style.display="none";
+ table.style.display="table";
+
+
+ data.forEach(f=>{
+
+   const mobile=
+   f.mobile || f.id;
+
+
+   const tr=
+   document.createElement("tr");
+
+
+   tr.innerHTML=`
+
+    <td>
+      <div class="faculty-name">
+       ${escapeHtml(f.name||"Unnamed")}
+      </div>
+    </td>
+
+    <td>
+      <div class="mobile">
+       ${escapeHtml(mobile)}
+      </div>
+    </td>
+
+    <td>
+      <span class="rate">
+       ${money(f.hourlyRate)}/hr
+      </span>
+    </td>
+
+    <td>
+
+      ${
+       f.active!==false
+
+       ?
+
+       `<span class="badge active">
+          ACTIVE
+        </span>`
+
+       :
+
+       `<span class="badge inactive">
+          INACTIVE
+        </span>`
+      }
+
+    </td>
+
+    <td>
+
+      <button
+       class="small secondary"
+       data-id="${escapeHtml(f.id)}">
+
+       <i class="ri-edit-line"></i>
+       EDIT
+
+      </button>
+
+    </td>
+
+   `;
+
+
+   tr.querySelector("button")
+   .addEventListener(
+     "click",
+     ()=>openEdit(f)
+   );
+
+
+   body.appendChild(tr);
+
+ });
+
+}
+
+
+/* =========================
+   ADD FACULTY
+========================= */
+
+document.getElementById("saveFaculty")
+.addEventListener("click",async()=>{
+
+ const name=
+ document.getElementById("name")
+ .value.trim();
+
+ const mobile=
+ document.getElementById("mobile")
+ .value.trim();
+
+ const rate=
+ Number(
+   document.getElementById("rate")
+   .value
+ );
+
+ const active=
+ document.getElementById("active")
+ .value==="true";
+
+ const photo=
+ document.getElementById("photo")
+ .value.trim();
+
+
+ if(!name){
+
+   showMessage(
+     "Faculty name required.",
+     "error"
+   );
+
+   return;
+
+ }
+
+
+ if(!mobile){
+
+   showMessage(
+     "Mobile number required.",
+     "error"
+   );
+
+   return;
+
+ }
+
+
+ if(!rate || rate<0){
+
+   showMessage(
+     "Enter valid hourly rate.",
+     "error"
+   );
+
+   return;
+
+ }
+
+
+ try{
+
+   await setDoc(
+     doc(db,"faculty",mobile),
+     {
+       name:name,
+       mobile:mobile,
+       hourlyRate:rate,
+       active:active,
+       photo:photo,
+       updatedAt:new Date()
+     },
+     {merge:true}
+   );
+
+
+   showMessage(
+     "Faculty saved successfully."
+   );
+
+
+   clearForm();
+
+   await loadFaculty();
+
+   await loadTodayAttendance();
+
+   await loadMonthlyEarnings();
+
+
+ }catch(error){
+
+   console.error(error);
+
+   showMessage(
+     "Save failed: "+error.message,
+     "error"
+   );
+
+ }
+
+});
+
+
+/* =========================
+   CLEAR FORM
+========================= */
+
+function clearForm(){
+
+ document.getElementById("name").value="";
+ document.getElementById("mobile").value="";
+ document.getElementById("rate").value="";
+ document.getElementById("photo").value="";
+ document.getElementById("active").value="true";
+
+}
+
+
+document.getElementById("clearForm")
+.addEventListener(
+ "click",
+ clearForm
+);
+
+
+/* =========================
+   EDIT
+========================= */
+
+function openEdit(f){
+
+ selectedFaculty=f;
+
+ document.getElementById("editName")
+ .value=f.name||"";
+
+ document.getElementById("editMobile")
+ .value=f.mobile||f.id;
+
+ document.getElementById("editRate")
+ .value=f.hourlyRate||0;
+
+ document.getElementById("editActive")
+ .value=
+ f.active===false
+ ? "false"
+ : "true";
+
+ document.getElementById("editPhoto")
+ .value=f.photo||"";
+
+
+ document.getElementById("editModal")
+ .classList.add("show");
+
+}
+
+
+document.getElementById("closeModal")
+.addEventListener("click",()=>{
+
+ document.getElementById("editModal")
+ .classList.remove("show");
+
+});
+
+
+/* =========================
+   UPDATE
+========================= */
+
+document.getElementById("updateFaculty")
+.addEventListener("click",async()=>{
+
+ if(!selectedFaculty) return;
+
+ const name=
+ document.getElementById("editName")
+ .value.trim();
+
+ const rate=
+ Number(
+   document.getElementById("editRate")
+   .value
+ );
+
+ const active=
+ document.getElementById("editActive")
+ .value==="true";
+
+ const photo=
+ document.getElementById("editPhoto")
+ .value.trim();
+
+
+ if(!name || rate<0){
+
+   alert("Please enter valid details.");
+
+   return;
+
+ }
+
+
+ try{
+
+   await updateDoc(
+     doc(
+       db,
+       "faculty",
+       selectedFaculty.id
+     ),
+     {
+       name:name,
+       hourlyRate:rate,
+       active:active,
+       photo:photo,
+       updatedAt:new Date()
+     }
+   );
+
+
+   document.getElementById("editModal")
+   .classList.remove("show");
+
+
+   showMessage(
+     "Faculty updated successfully."
+   );
+
+
+   await loadFaculty();
+
+   await loadMonthlyEarnings();
+
+
+ }catch(error){
+
+   console.error(error);
+
+   alert(
+     "Update failed: "+error.message
+   );
+
+ }
+
+});
+
+
+/* =========================
+   DELETE
+========================= */
+
+document.getElementById("deleteFaculty")
+.addEventListener("click",async()=>{
+
+ if(!selectedFaculty) return;
+
+
+ const ok=
+ confirm(
+   `Delete ${selectedFaculty.name || "this faculty"}?`
+ );
+
+
+ if(!ok) return;
+
+
+ try{
+
+   await deleteDoc(
+     doc(
+       db,
+       "faculty",
+       selectedFaculty.id
+     )
+   );
+
+
+   document.getElementById("editModal")
+   .classList.remove("show");
+
+
+   showMessage(
+     "Faculty deleted."
+   );
+
+
+   await loadFaculty();
+
+   await loadTodayAttendance();
+
+   await loadMonthlyEarnings();
+
+
+ }catch(error){
+
+   console.error(error);
+
+   alert(
+     "Delete failed: "+error.message
+   );
+
+ }
+
+});
+
+
+/* =========================
+   TODAY ATTENDANCE
+========================= */
+
+async function loadTodayAttendance(){
+
+ const loading=
+ document.getElementById("attendanceLoading");
+
+ loading.style.display="block";
+
+
+ try{
+
+   const q=
+   query(
+     collection(db,"facultyAttendance"),
+     where("date","==",today())
+   );
+
+
+   const snap=
+   await getDocs(q);
+
+
+   attendanceList=
+   snap.docs.map(d=>({
+     id:d.id,
+     ...d.data()
+   }));
+
+
+   renderTodayAttendance();
+
+
+ }catch(error){
+
+   console.error(error);
+
+ }finally{
+
+   loading.style.display="none";
+
+ }
+
+}
+
+
+/* =========================
+   RENDER TODAY
+========================= */
+
+function renderTodayAttendance(){
+
+ const body=
+ document.getElementById("attendanceBody");
+
+ const table=
+ document.getElementById("attendanceTable");
+
+ const empty=
+ document.getElementById("attendanceEmpty");
+
+
+ body.innerHTML="";
+
+
+ if(!attendanceList.length){
+
+   table.style.display="none";
+   empty.style.display="block";
+
+   document.getElementById("todayPresent")
+   .textContent="0";
+
+   return;
+
+ }
+
+
+ table.style.display="table";
+ empty.style.display="none";
+
+
+ document.getElementById("todayPresent")
+ .textContent=
+ attendanceList.length;
+
+
+ attendanceList.forEach(item=>{
+
+   const tr=
+   document.createElement("tr");
+
+
+   tr.innerHTML=`
+
+     <td>
+       <b>${escapeHtml(item.facultyName||"Faculty")}</b>
+     </td>
+
+     <td>
+       ${formatTime(item.checkIn)}
+     </td>
+
+     <td>
+       ${formatTime(item.checkOut)}
+     </td>
+
+     <td>
+       ${minutesToHours(item.totalMinutes)}
+     </td>
+
+     <td class="earning">
+       ${money(item.earning)}
+     </td>
+
+   `;
+
+
+   body.appendChild(tr);
+
+ });
+
+}
+
+
+/* =========================
+   MONTHLY EARNINGS
+========================= */
+
+async function loadMonthlyEarnings(){
+
+ const loading=
+ document.getElementById("earningLoading");
+
+ loading.style.display="block";
+
+
+ try{
+
+   const now=
+   new Date();
+
+   const year=
+   now.getFullYear();
+
+   const month=
+   String(now.getMonth()+1)
+   .padStart(2,"0");
+
+
+   const prefix=
+   `${year}-${month}`;
+
+
+   /*
+      Firestore date starts with YYYY-MM.
+      We retrieve faculty attendance
+      and filter current month locally.
+   */
+
+   const snap=
+   await getDocs(
+     collection(db,"facultyAttendance")
+   );
+
+
+   const current=
+   snap.docs
+   .map(d=>d.data())
+   .filter(x=>
+     String(x.date||"")
+     .startsWith(prefix)
+   );
+
+
+   renderMonthlyEarnings(current);
+
+
+ }catch(error){
+
+   console.error(error);
+
+ }finally{
+
+   loading.style.display="none";
+
+ }
+
+}
+
+
+/* =========================
+   RENDER MONTHLY
+========================= */
+
+function renderMonthlyEarnings(data){
+
+ const body=
+ document.getElementById("earningBody");
+
+ const table=
+ document.getElementById("earningTable");
+
+ const empty=
+ document.getElementById("earningEmpty");
+
+
+ body.innerHTML="";
+
+
+ if(!data.length){
+
+   table.style.display="none";
+   empty.style.display="block";
+
+   document.getElementById("monthEarnings")
+   .textContent="₹0";
+
+   return;
+
+ }
+
+
+ const grouped={};
+
+
+ data.forEach(item=>{
+
+   const id=
+   item.facultyId ||
+   item.facultyName ||
+   "unknown";
+
+
+   if(!grouped[id]){
+
+     grouped[id]={
+       name:item.facultyName||"Faculty",
+       days:0,
+       minutes:0,
+       earning:0,
+       rate:item.hourlyRate||0
+     };
+
+   }
+
+
+   grouped[id].minutes +=
+   Number(item.totalMinutes||0);
+
+
+   grouped[id].earning +=
+   Number(item.earning||0);
+
+
+   if(Number(item.totalMinutes||0)>0){
+
+     grouped[id].days++;
+
+   }
+
+ });
+
+
+ const rows=
+ Object.values(grouped);
+
+
+ let total=0;
+
+
+ rows.forEach(item=>{
+
+   total += item.earning;
+
+
+   const tr=
+   document.createElement("tr");
+
+
+   tr.innerHTML=`
+
+     <td>
+       <b>${escapeHtml(item.name)}</b>
+     </td>
+
+     <td>
+       ${item.days}
+     </td>
+
+     <td>
+       ${minutesToHours(item.minutes)}
+     </td>
+
+     <td class="rate">
+       ${money(item.rate)}/hr
+     </td>
+
+     <td class="earning">
+       ${money(item.earning)}
+     </td>
+
+   `;
+
+
+   body.appendChild(tr);
+
+ });
+
+
+ table.style.display="table";
+ empty.style.display="none";
+
+
+ document.getElementById("monthEarnings")
+ .textContent=
+ money(total);
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+document.getElementById("search")
+.addEventListener(
+ "input",
+ renderFaculty
+);
+
+
+/* =========================
+   REFRESH
+========================= */
+
+document.getElementById("refresh")
+.addEventListener("click",async()=>{
+
+ await loadFaculty();
+ await loadTodayAttendance();
+ await loadMonthlyEarnings();
+
+});
+
+
+/* =========================
+   SECURITY HELPER
+========================= */
+
+function escapeHtml(value){
+
+ return String(value||"")
+ .replaceAll("&","&amp;")
+ .replaceAll("<","&lt;")
+ .replaceAll(">","&gt;")
+ .replaceAll('"',"&quot;")
+ .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+await loadFaculty();
+await loadTodayAttendance();
+await loadMonthlyEarnings();
+
+</script>
+
+</body>
+</html>
