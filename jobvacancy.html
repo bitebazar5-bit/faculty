@@ -3,17 +3,16 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta
   name="viewport"
   content="width=device-width, initial-scale=1.0"
 >
 
-<title>
-BlackTerminal | Job Application
-</title>
+<title>BlackTerminal | Job Application</title>
 
 <link
-  href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
   rel="stylesheet"
 >
 
@@ -24,9 +23,9 @@ BlackTerminal | Job Application
 
 <style>
 
-/* ==============================
+/* =========================================================
    RESET
-============================== */
+========================================================= */
 
 *{
   margin:0;
@@ -36,24 +35,39 @@ BlackTerminal | Job Application
 
 :root{
 
-  --bg:#070a12;
-  --card:#0e1420;
-  --card2:#0a0f18;
+  --primary:#635bff;
+  --primary-dark:#5048d9;
 
-  --border:#202b40;
+  --blue:#2388ff;
+  --cyan:#08bfe8;
 
-  --text:#f4f7ff;
-  --muted:#858fa5;
-
-  --cyan:#00eaff;
-  --blue:#168cff;
   --purple:#8b5cf6;
   --pink:#ec4899;
 
-  --green:#22c55e;
+  --green:#18b875;
+  --orange:#f59e0b;
   --red:#ef4444;
 
+  --dark:#111827;
+  --dark2:#1f2937;
+
+  --text:#172033;
+  --muted:#697386;
+
+  --light:#f6f8fc;
+  --white:#ffffff;
+
+  --border:#e5e9f2;
+
+  --shadow:
+    0 10px 35px rgba(31,41,55,.08);
+
 }
+
+
+/* =========================================================
+   BODY
+========================================================= */
 
 html{
   scroll-behavior:smooth;
@@ -65,6 +79,7 @@ body{
 
   font-family:
     "Plus Jakarta Sans",
+    "Inter",
     sans-serif;
 
   color:var(--text);
@@ -72,138 +87,200 @@ body{
   background:
 
     radial-gradient(
-      circle at 0 0,
-      rgba(0,234,255,.08),
-      transparent 30%
+      circle at 0% 0%,
+      rgba(99,91,255,.08),
+      transparent 25%
     ),
 
     radial-gradient(
-      circle at 100% 0,
-      rgba(139,92,246,.09),
-      transparent 30%
+      circle at 100% 0%,
+      rgba(236,72,153,.07),
+      transparent 25%
     ),
 
-    var(--bg);
+    #f7f9fd;
 
 }
 
-button,
-input,
-select,
-textarea{
-  font-family:inherit;
-}
 
+/* =========================================================
+   TOP HEADER
+========================================================= */
 
-/* ==============================
-   HEADER
-============================== */
-
-.header{
+.topbar{
 
   position:relative;
 
-  padding:
-    28px 15px 70px;
+  overflow:hidden;
 
-  text-align:center;
+  padding:
+    22px 15px 65px;
+
+  color:white;
 
   background:
 
     linear-gradient(
-      145deg,
-      #07142f,
-      #0c2355,
-      #102f78
+      135deg,
+      #17134b 0%,
+      #4633b8 45%,
+      #7561ff 100%
     );
 
-  overflow:hidden;
-
 }
 
-.header::before{
+.topbar::before{
 
   content:"";
 
   position:absolute;
 
-  width:260px;
-  height:260px;
-
-  left:-130px;
-  top:-130px;
+  width:230px;
+  height:230px;
 
   border-radius:50%;
 
-  background:rgba(0,234,255,.08);
+  top:-150px;
+  right:-60px;
+
+  background:
+    rgba(255,255,255,.10);
 
 }
 
-.header::after{
+.topbar::after{
 
   content:"";
 
   position:absolute;
 
-  width:260px;
-  height:260px;
-
-  right:-130px;
-  top:-130px;
+  width:180px;
+  height:180px;
 
   border-radius:50%;
 
-  background:rgba(139,92,246,.1);
+  bottom:-120px;
+  left:-70px;
+
+  background:
+    rgba(8,191,232,.16);
 
 }
 
-.brand{
+.top-content{
 
   position:relative;
 
   z-index:2;
 
+  width:min(
+    1000px,
+    calc(100% - 10px)
+  );
+
+  margin:auto;
+
 }
 
-.logo{
+.brand{
 
-  font-family:Orbitron,sans-serif;
+  display:flex;
 
-  font-size:29px;
+  align-items:center;
+
+  gap:11px;
+
+}
+
+.brand-logo{
+
+  width:44px;
+  height:44px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:13px;
+
+  color:white;
+
+  background:
+    rgba(255,255,255,.15);
+
+  border:
+    1px solid rgba(255,255,255,.2);
+
+  backdrop-filter:blur(10px);
+
+  font-size:23px;
+
+}
+
+.brand-name{
+
+  font-size:17px;
 
   font-weight:800;
 
-  letter-spacing:.5px;
+  letter-spacing:.2px;
 
 }
 
-.logo span{
-  color:var(--cyan);
+.brand-name span{
+  color:#6ff4ff;
 }
 
-.institute{
+.brand-sub{
 
-  margin-top:5px;
+  margin-top:2px;
 
-  color:#d3ddf2;
+  color:#dfe4ff;
 
-  font-size:10px;
+  font-size:8px;
 
-  letter-spacing:3px;
-
-}
-
-.location{
-
-  margin-top:7px;
-
-  color:#94b9ee;
-
-  font-size:11px;
+  letter-spacing:2px;
 
 }
 
-.job-badge{
+.header-text{
+
+  margin-top:30px;
+
+  max-width:650px;
+
+}
+
+.header-text h1{
+
+  font-size:
+    clamp(26px,5vw,42px);
+
+  line-height:1.15;
+
+  font-weight:800;
+
+}
+
+.header-text h1 span{
+  color:#72f3ff;
+}
+
+.header-text p{
+
+  margin-top:10px;
+
+  max-width:550px;
+
+  color:#e1e5ff;
+
+  font-size:12px;
+
+  line-height:1.7;
+
+}
+
+.job-chip{
 
   display:inline-flex;
 
@@ -211,129 +288,135 @@ textarea{
 
   gap:7px;
 
-  margin-top:22px;
+  margin-top:15px;
 
-  padding:9px 17px;
-
-  border:1px solid rgba(0,234,255,.3);
+  padding:8px 12px;
 
   border-radius:30px;
 
-  color:var(--cyan);
-
-  background:rgba(0,234,255,.08);
-
-  font-size:10px;
-
-  font-weight:800;
-
-}
-
-
-/* ==============================
-   CONTAINER
-============================== */
-
-.container{
-
-  width:min(
-    900px,
-    calc(100% - 24px)
-  );
-
-  margin:auto;
-
-}
-
-
-/* ==============================
-   HERO
-============================== */
-
-.hero{
-
-  position:relative;
-
-  margin-top:-35px;
-
-  z-index:5;
-
-}
-
-.hero-card{
-
-  padding:25px 18px;
-
-  text-align:center;
-
-  border:1px solid var(--border);
-
-  border-radius:20px;
+  color:#fff;
 
   background:
-    linear-gradient(
-      145deg,
-      rgba(17,25,40,.98),
-      rgba(10,15,25,.98)
-    );
+    rgba(255,255,255,.12);
 
-  box-shadow:
-    0 20px 50px rgba(0,0,0,.35);
+  border:
+    1px solid rgba(255,255,255,.2);
 
-}
-
-.hero-card h1{
-
-  font-family:Orbitron,sans-serif;
-
-  font-size:27px;
-
-}
-
-.hero-card h1 span{
-  color:var(--cyan);
-}
-
-.position{
-
-  display:inline-block;
-
-  margin-top:13px;
-
-  padding:10px 14px;
-
-  border:1px solid rgba(0,234,255,.14);
-
-  border-radius:10px;
-
-  color:#dce8ff;
-
-  background:rgba(0,234,255,.05);
-
-  font-size:13px;
+  font-size:9px;
 
   font-weight:700;
 
 }
 
-.salary{
 
-  max-width:360px;
+/* =========================================================
+   MAIN
+========================================================= */
 
-  margin:18px auto 0;
+.main{
 
-  padding:14px;
+  position:relative;
 
-  border-radius:14px;
+  z-index:5;
+
+  width:min(
+    1000px,
+    calc(100% - 20px)
+  );
+
+  margin:
+    -35px auto 50px;
+
+}
+
+
+/* =========================================================
+   JOB CARD
+========================================================= */
+
+.job-card{
+
+  padding:18px;
+
+  border:
+    1px solid rgba(255,255,255,.8);
+
+  border-radius:20px;
+
+  background:white;
+
+  box-shadow:
+    0 18px 50px rgba(34,42,68,.12);
+
+}
+
+.job-top{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:15px;
+
+}
+
+.job-title{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:11px;
+
+}
+
+.job-icon{
+
+  width:43px;
+  height:43px;
+
+  display:grid;
+
+  place-items:center;
+
+  flex-shrink:0;
+
+  border-radius:12px;
+
+  color:white;
 
   background:
     linear-gradient(
       135deg,
-      rgba(139,92,246,.16),
-      rgba(0,234,255,.08)
+      var(--pink),
+      var(--purple)
     );
 
-  border:1px solid rgba(139,92,246,.2);
+  font-size:21px;
+
+}
+
+.job-title h2{
+
+  font-size:15px;
+
+}
+
+.job-title p{
+
+  margin-top:3px;
+
+  color:var(--muted);
+
+  font-size:9px;
+
+}
+
+.salary{
+
+  text-align:right;
 
 }
 
@@ -343,7 +426,7 @@ textarea{
 
   color:var(--muted);
 
-  font-size:9px;
+  font-size:8px;
 
 }
 
@@ -351,102 +434,247 @@ textarea{
 
   display:block;
 
-  margin:3px 0;
+  margin-top:2px;
 
-  font-family:Orbitron,sans-serif;
-
-  font-size:25px;
-
-  color:white;
-
-}
-
-
-/* ==============================
-   INFO
-============================== */
-
-.info-grid{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:10px;
-
-  margin-top:18px;
-
-}
-
-.info-card{
-
-  padding:15px 12px;
-
-  text-align:center;
-
-  border:1px solid var(--border);
-
-  border-radius:13px;
-
-  background:var(--card);
-
-}
-
-.info-card i{
-
-  display:block;
-
-  margin-bottom:6px;
-
-  color:var(--cyan);
+  color:var(--primary);
 
   font-size:20px;
 
 }
 
-.info-card strong{
+.job-tags{
 
-  display:block;
+  display:flex;
 
-  font-size:11px;
+  flex-wrap:wrap;
+
+  gap:6px;
+
+  margin-top:15px;
 
 }
 
-.info-card span{
+.tag{
 
-  display:block;
+  padding:6px 9px;
 
-  margin-top:3px;
-
-  color:var(--muted);
+  border-radius:20px;
 
   font-size:8px;
 
+  font-weight:700;
+
+}
+
+.tag-blue{
+
+  color:#2365cf;
+
+  background:#edf5ff;
+
+}
+
+.tag-purple{
+
+  color:#7048d9;
+
+  background:#f1edff;
+
+}
+
+.tag-green{
+
+  color:#0a9960;
+
+  background:#eafbf3;
+
+}
+
+.tag-orange{
+
+  color:#c87800;
+
+  background:#fff6df;
+
 }
 
 
-/* ==============================
-   SECTION
-============================== */
+/* =========================================================
+   PROGRESS
+========================================================= */
 
-.section{
+.progress-card{
 
-  margin-top:18px;
+  margin-top:14px;
+
+  padding:15px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:16px;
+
+  background:white;
 
 }
+
+.progress-line{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  position:relative;
+
+}
+
+.progress-line::before{
+
+  content:"";
+
+  position:absolute;
+
+  left:20px;
+  right:20px;
+  top:16px;
+
+  height:2px;
+
+  background:#e9edf5;
+
+  z-index:0;
+
+}
+
+.step{
+
+  position:relative;
+
+  z-index:2;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  gap:5px;
+
+  width:25%;
+
+}
+
+.step-circle{
+
+  width:33px;
+  height:33px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:50%;
+
+  color:#8b94a5;
+
+  background:#eef1f7;
+
+  border:
+    3px solid white;
+
+  font-size:12px;
+
+  font-weight:800;
+
+  transition:.3s;
+
+}
+
+.step.active .step-circle{
+
+  color:white;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--blue)
+    );
+
+  box-shadow:
+    0 5px 16px rgba(99,91,255,.25);
+
+}
+
+.step.completed .step-circle{
+
+  color:white;
+
+  background:var(--green);
+
+}
+
+.step-text{
+
+  color:#8992a3;
+
+  font-size:8px;
+
+  font-weight:700;
+
+}
+
+.step.active .step-text{
+
+  color:var(--primary);
+
+}
+
+
+/* =========================================================
+   CONTENT GRID
+========================================================= */
+
+.content-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    1fr 330px;
+
+  gap:15px;
+
+  margin-top:15px;
+
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
 
 .card{
 
   padding:20px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
-  border-radius:17px;
+  border-radius:18px;
 
-  background:rgba(14,20,32,.88);
+  background:white;
+
+  box-shadow:
+    0 7px 25px rgba(31,41,55,.04);
 
 }
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
 
 .section-title{
 
@@ -456,24 +684,26 @@ textarea{
 
   gap:10px;
 
-  margin-bottom:17px;
+  margin-bottom:18px;
 
 }
 
 .section-icon{
 
-  width:36px;
-  height:36px;
+  width:38px;
+  height:38px;
 
   display:grid;
 
   place-items:center;
 
-  border-radius:10px;
+  flex-shrink:0;
 
-  color:var(--cyan);
+  border-radius:11px;
 
-  background:rgba(0,234,255,.07);
+  color:var(--primary);
+
+  background:#f0efff;
 
   font-size:18px;
 
@@ -481,7 +711,7 @@ textarea{
 
 .section-title h2{
 
-  font-size:15px;
+  font-size:14px;
 
 }
 
@@ -496,69 +726,19 @@ textarea{
 }
 
 
-/* ==============================
-   JOB DETAILS
-============================== */
-
-.details-grid{
-
-  display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:10px;
-
-}
-
-.detail{
-
-  padding:13px;
-
-  border:1px solid rgba(32,43,64,.8);
-
-  border-radius:11px;
-
-  background:#0a0f18;
-
-}
-
-.detail i{
-
-  color:var(--cyan);
-
-  font-size:17px;
-
-}
-
-.detail strong{
-
-  display:block;
-
-  margin-top:6px;
-
-  font-size:10px;
-
-}
-
-.detail span{
-
-  display:block;
-
-  margin-top:3px;
-
-  color:var(--muted);
-
-  font-size:9px;
-
-  line-height:1.4;
-
-}
-
-
-/* ==============================
+/* =========================================================
    FORM
-============================== */
+========================================================= */
+
+.form-section{
+
+  display:none;
+
+}
+
+.form-section.active{
+  display:block;
+}
 
 .form-grid{
 
@@ -577,24 +757,36 @@ textarea{
 
 .field label{
 
-  display:block;
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
 
   margin-bottom:6px;
 
-  color:#aeb8cc;
+  color:#4b5568;
 
   font-size:9px;
 
-  font-weight:700;
-
-  text-transform:uppercase;
-
-  letter-spacing:.4px;
+  font-weight:800;
 
 }
 
 .required{
+
   color:var(--pink);
+
+}
+
+.optional{
+
+  color:#9ca5b4;
+
+  font-size:7px;
+
+  font-weight:500;
+
 }
 
 .field input,
@@ -603,22 +795,23 @@ textarea{
 
   width:100%;
 
-  min-height:43px;
+  min-height:44px;
 
   padding:
     10px 12px;
 
-  outline:none;
-
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
   border-radius:10px;
 
-  color:white;
+  outline:none;
 
-  background:#080c15;
+  color:var(--text);
 
-  font-size:11px;
+  background:#fbfcfe;
+
+  font-size:10px;
 
   transition:.2s;
 
@@ -635,7 +828,7 @@ textarea{
 .field input::placeholder,
 .field textarea::placeholder{
 
-  color:#596377;
+  color:#a6adba;
 
 }
 
@@ -643,17 +836,145 @@ textarea{
 .field select:focus,
 .field textarea:focus{
 
-  border-color:var(--cyan);
+  border-color:
+    var(--primary);
+
+  background:white;
 
   box-shadow:
-    0 0 0 2px rgba(0,234,255,.06);
+    0 0 0 3px rgba(99,91,255,.08);
 
 }
 
 
-/* ==============================
+/* =========================================================
+   SIDE INFORMATION
+========================================================= */
+
+.side{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:15px;
+
+}
+
+.side-card{
+
+  padding:18px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:18px;
+
+  background:white;
+
+}
+
+.side-card h3{
+
+  font-size:13px;
+
+}
+
+.side-card > p{
+
+  margin-top:4px;
+
+  color:var(--muted);
+
+  font-size:9px;
+
+  line-height:1.5;
+
+}
+
+.work-list{
+
+  margin-top:14px;
+
+  display:grid;
+
+  gap:9px;
+
+}
+
+.work-item{
+
+  display:flex;
+
+  gap:9px;
+
+  align-items:flex-start;
+
+}
+
+.work-icon{
+
+  width:28px;
+  height:28px;
+
+  display:grid;
+
+  place-items:center;
+
+  flex-shrink:0;
+
+  border-radius:8px;
+
+  font-size:14px;
+
+}
+
+.work-icon.blue{
+  color:#2878dc;
+  background:#edf5ff;
+}
+
+.work-icon.purple{
+  color:#7650d9;
+  background:#f1edff;
+}
+
+.work-icon.pink{
+  color:#dc3c87;
+  background:#fff0f6;
+}
+
+.work-icon.green{
+  color:#0a9b62;
+  background:#eafbf3;
+}
+
+.work-item strong{
+
+  display:block;
+
+  font-size:9px;
+
+}
+
+.work-item span{
+
+  display:block;
+
+  margin-top:2px;
+
+  color:var(--muted);
+
+  font-size:8px;
+
+  line-height:1.4;
+
+}
+
+
+/* =========================================================
    UPLOAD
-============================== */
+========================================================= */
 
 .upload-grid{
 
@@ -670,7 +991,7 @@ textarea{
 
   position:relative;
 
-  min-height:145px;
+  min-height:150px;
 
   display:flex;
 
@@ -684,11 +1005,12 @@ textarea{
 
   text-align:center;
 
-  border:1px dashed #334158;
+  border:
+    1.5px dashed #ccd3e0;
 
-  border-radius:13px;
+  border-radius:14px;
 
-  background:#090e17;
+  background:#fafbfe;
 
   cursor:pointer;
 
@@ -698,25 +1020,45 @@ textarea{
 
 .upload-box:hover{
 
-  border-color:var(--cyan);
+  border-color:
+    var(--primary);
 
-  background:rgba(0,234,255,.025);
+  background:#f8f7ff;
 
 }
 
-.upload-box i{
+.upload-box.has-file{
 
-  margin-bottom:7px;
+  border-color:var(--green);
 
-  color:var(--cyan);
+  background:#f2fcf7;
 
-  font-size:28px;
+}
+
+.upload-icon{
+
+  width:43px;
+  height:43px;
+
+  display:grid;
+
+  place-items:center;
+
+  margin-bottom:9px;
+
+  border-radius:12px;
+
+  color:var(--primary);
+
+  background:#efeeff;
+
+  font-size:20px;
 
 }
 
 .upload-box strong{
 
-  font-size:11px;
+  font-size:10px;
 
 }
 
@@ -727,6 +1069,8 @@ textarea{
   color:var(--muted);
 
   font-size:8px;
+
+  line-height:1.4;
 
 }
 
@@ -744,7 +1088,7 @@ textarea{
 
 .file-name{
 
-  max-width:100%;
+  max-width:90%;
 
   margin-top:8px;
 
@@ -754,38 +1098,42 @@ textarea{
 
   white-space:nowrap;
 
-  color:#75e9ff;
+  color:var(--green);
 
   font-size:8px;
+
+  font-weight:700;
 
 }
 
 
-/* ==============================
-   PHOTO PREVIEW
-============================== */
+/* PHOTO */
 
 .photo-preview{
 
-  width:65px;
-  height:65px;
+  width:70px;
+  height:70px;
 
   display:none;
 
-  margin-bottom:8px;
+  margin-bottom:7px;
 
   border-radius:50%;
 
   object-fit:cover;
 
-  border:2px solid var(--cyan);
+  border:
+    3px solid white;
+
+  box-shadow:
+    0 3px 12px rgba(0,0,0,.15);
 
 }
 
 
-/* ==============================
+/* =========================================================
    DECLARATION
-============================== */
+========================================================= */
 
 .declaration{
 
@@ -795,47 +1143,124 @@ textarea{
 
   gap:9px;
 
-  margin-top:15px;
+  margin-top:17px;
 
   padding:13px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid #e7eaf1;
 
-  border-radius:10px;
+  border-radius:11px;
 
-  background:#090e17;
+  background:#fafbfe;
 
 }
 
 .declaration input{
 
-  width:16px;
-  height:16px;
+  width:17px;
+  height:17px;
 
   flex-shrink:0;
 
-  margin-top:2px;
+  margin-top:1px;
 
-  accent-color:var(--cyan);
+  accent-color:var(--primary);
 
 }
 
 .declaration label{
 
-  color:#9ca7bb;
+  color:#70798a;
 
-  font-size:9px;
+  font-size:8px;
 
-  line-height:1.5;
+  line-height:1.6;
 
 }
 
 
-/* ==============================
-   SUBMIT
-============================== */
+/* =========================================================
+   NAVIGATION
+========================================================= */
 
-.submit{
+.form-navigation{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:10px;
+
+  margin-top:20px;
+
+  padding-top:17px;
+
+  border-top:
+    1px solid #edf0f5;
+
+}
+
+.nav-btn{
+
+  min-height:43px;
+
+  padding:
+    0 17px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:6px;
+
+  border-radius:10px;
+
+  font-size:10px;
+
+  font-weight:800;
+
+}
+
+.prev-btn{
+
+  color:#5e6879;
+
+  border:
+    1px solid var(--border);
+
+  background:white;
+
+}
+
+.next-btn{
+
+  border:0;
+
+  color:white;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--blue)
+    );
+
+  box-shadow:
+    0 7px 18px rgba(99,91,255,.18);
+
+}
+
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+.submit-btn{
 
   width:100%;
 
@@ -847,75 +1272,96 @@ textarea{
 
   border-radius:12px;
 
-  color:#001018;
+  color:white;
 
   background:
     linear-gradient(
       135deg,
-      var(--cyan),
-      var(--blue)
+      #635bff,
+      #2388ff
     );
 
-  font-size:12px;
+  font-size:11px;
 
   font-weight:800;
 
-  letter-spacing:.3px;
-
   box-shadow:
-    0 8px 25px rgba(0,234,255,.12);
+    0 9px 25px rgba(99,91,255,.2);
 
 }
 
-.submit:active{
-  transform:scale(.99);
+.submit-btn:disabled{
+
+  opacity:.65;
+
 }
 
-.submit i{
-  margin-right:5px;
-}
 
-
-/* ==============================
+/* =========================================================
    NOTICE
-============================== */
+========================================================= */
 
 .notice{
 
-  margin-top:18px;
+  display:flex;
 
-  padding:15px;
+  gap:9px;
+
+  margin-top:15px;
+
+  padding:13px;
 
   border:
-    1px solid rgba(250,204,21,.16);
+    1px solid #fde7b2;
 
   border-radius:12px;
 
-  background:
-    rgba(250,204,21,.04);
+  background:#fffaf0;
 
-  color:#c4cbd8;
+}
 
-  font-size:9px;
+.notice i{
 
-  line-height:1.6;
+  color:var(--orange);
+
+  font-size:18px;
 
 }
 
 .notice strong{
-  color:#facc15;
+
+  display:block;
+
+  color:#8a5a00;
+
+  font-size:9px;
+
+}
+
+.notice span{
+
+  display:block;
+
+  margin-top:3px;
+
+  color:#856f45;
+
+  font-size:8px;
+
+  line-height:1.5;
+
 }
 
 
-/* ==============================
+/* =========================================================
    SUCCESS
-============================== */
+========================================================= */
 
 .success{
 
   display:none;
 
-  padding:25px 18px;
+  padding:40px 20px;
 
   text-align:center;
 
@@ -927,86 +1373,94 @@ textarea{
 
 .success-icon{
 
-  width:65px;
-  height:65px;
+  width:75px;
+  height:75px;
 
   display:grid;
 
   place-items:center;
 
-  margin:0 auto 13px;
+  margin:
+    0 auto 15px;
 
   border-radius:50%;
 
   color:white;
 
-  background:var(--green);
-
-  font-size:30px;
+  background:
+    linear-gradient(
+      135deg,
+      #16b979,
+      #0ca66b
+    );
 
   box-shadow:
-    0 0 30px rgba(34,197,94,.2);
+    0 10px 30px rgba(24,184,117,.2);
+
+  font-size:34px;
 
 }
 
 .success h2{
 
-  font-family:Orbitron,sans-serif;
-
-  font-size:17px;
+  font-size:20px;
 
 }
 
 .success p{
 
-  margin-top:8px;
+  max-width:450px;
+
+  margin:
+    8px auto 0;
 
   color:var(--muted);
 
   font-size:10px;
 
-  line-height:1.6;
+  line-height:1.7;
 
 }
 
-.back-btn{
+.success-btn{
 
-  margin-top:15px;
+  margin-top:18px;
 
-  padding:10px 16px;
+  padding:
+    11px 16px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid var(--border);
 
-  border-radius:9px;
+  border-radius:10px;
 
-  background:#111827;
+  color:#4b5563;
 
-  color:#dce5f6;
+  background:white;
 
-  font-size:10px;
+  font-size:9px;
+
+  font-weight:700;
 
 }
 
 
-/* ==============================
+/* =========================================================
    FOOTER
-============================== */
+========================================================= */
 
 footer{
 
-  margin-top:35px;
-
-  padding:24px 15px;
+  padding:
+    25px 15px;
 
   text-align:center;
 
-  border-top:1px solid var(--border);
+  color:#8992a2;
 
-  background:#050810;
+  background:#111827;
 
-  color:#687286;
-
-  font-size:9px;
+  font-size:8px;
 
 }
 
@@ -1016,78 +1470,235 @@ footer strong{
 
   margin-bottom:4px;
 
-  color:var(--cyan);
+  color:#9fa8ff;
 
-  font-family:Orbitron,sans-serif;
-
-  font-size:11px;
+  font-size:10px;
 
 }
 
 
-/* ==============================
+/* =========================================================
    MOBILE
-============================== */
+========================================================= */
 
-@media(max-width:650px){
+@media(max-width:800px){
 
-  .header{
-    padding-bottom:55px;
+  .content-grid{
+
+    grid-template-columns:1fr;
+
   }
 
-  .logo{
-    font-size:25px;
+  .side{
+
+    order:2;
+
   }
 
-  .hero-card{
-    padding:22px 14px;
+}
+
+
+@media(max-width:600px){
+
+  .topbar{
+
+    padding:
+      19px 12px 58px;
+
   }
 
-  .hero-card h1{
-    font-size:23px;
+  .brand-logo{
+
+    width:40px;
+    height:40px;
+
   }
 
-  .position{
-    font-size:11px;
+  .brand-name{
+
+    font-size:14px;
+
+  }
+
+  .header-text{
+
+    margin-top:25px;
+
+  }
+
+  .header-text h1{
+
+    font-size:28px;
+
+  }
+
+  .header-text p{
+
+    font-size:10px;
+
+  }
+
+  .main{
+
+    width:
+      calc(100% - 14px);
+
+    margin-top:-30px;
+
+  }
+
+  .job-card{
+
+    padding:14px;
+
+    border-radius:16px;
+
+  }
+
+  .job-top{
+
+    align-items:flex-start;
+
+  }
+
+  .job-title h2{
+
+    font-size:12px;
+
+  }
+
+  .job-title p{
+
+    font-size:8px;
+
+  }
+
+  .job-icon{
+
+    width:38px;
+    height:38px;
+
+    font-size:18px;
+
   }
 
   .salary strong{
-    font-size:22px;
+
+    font-size:16px;
+
   }
 
-  .info-grid{
-    grid-template-columns:1fr 1fr 1fr;
-    gap:6px;
-  }
+  .salary small{
 
-  .info-card{
-    padding:12px 5px;
-  }
-
-  .info-card i{
-    font-size:17px;
-  }
-
-  .info-card strong{
-    font-size:9px;
-  }
-
-  .info-card span{
     font-size:7px;
+
   }
 
-  .details-grid,
-  .form-grid,
-  .upload-grid{
+  .progress-card{
+
+    padding:12px 8px;
+
+  }
+
+  .step-circle{
+
+    width:29px;
+    height:29px;
+
+    font-size:10px;
+
+  }
+
+  .progress-line::before{
+
+    left:17px;
+    right:17px;
+    top:14px;
+
+  }
+
+  .step-text{
+
+    font-size:7px;
+
+  }
+
+  .card,
+  .side-card{
+
+    padding:15px;
+
+    border-radius:15px;
+
+  }
+
+  .form-grid{
+
     grid-template-columns:1fr;
+
+    gap:11px;
+
   }
 
   .field.full{
+
     grid-column:auto;
+
   }
 
-  .card{
-    padding:15px;
+  .upload-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+  .upload-box{
+
+    min-height:130px;
+
+  }
+
+  .section-title h2{
+
+    font-size:13px;
+
+  }
+
+  .section-title p{
+
+    font-size:8px;
+
+  }
+
+  .nav-btn{
+
+    flex:1;
+
+  }
+
+}
+
+
+@media(max-width:370px){
+
+  .job-top{
+
+    flex-direction:column;
+
+  }
+
+  .salary{
+
+    width:100%;
+
+    text-align:left;
+
+  }
+
+  .step-text{
+
+    font-size:6px;
+
   }
 
 }
@@ -1100,29 +1711,60 @@ footer strong{
 <body>
 
 
-<!-- =================================
+<!-- =====================================================
      HEADER
-================================= -->
+===================================================== -->
 
-<header class="header">
+<header class="topbar">
 
-  <div class="brand">
+  <div class="top-content">
 
-    <div class="logo">
-      BLACK<span>TERMINAL</span>
+
+    <div class="brand">
+
+      <div class="brand-logo">
+
+        <i class="ri-terminal-box-line"></i>
+
+      </div>
+
+      <div>
+
+        <div class="brand-name">
+          Black<span>Terminal</span>
+        </div>
+
+        <div class="brand-sub">
+          COMPUTER INSTITUTE
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="institute">
-      COMPUTER INSTITUTE
-    </div>
 
-    <div class="location">
-      BARIPADA, ODISHA
-    </div>
+    <div class="header-text">
 
-    <div class="job-badge">
-      <i class="ri-briefcase-4-line"></i>
-      JOB APPLICATION PORTAL
+      <h1>
+        Build Your
+        <span>Future</span>
+        With Us
+      </h1>
+
+      <p>
+        Interested in design, AI and social media?
+        Join the BlackTerminal team and turn your
+        skills into real work experience.
+      </p>
+
+      <div class="job-chip">
+
+        <i class="ri-briefcase-4-line"></i>
+
+        SOCIAL MEDIA & DESIGN SUPPORT STAFF
+
+      </div>
+
     </div>
 
   </div>
@@ -1131,663 +1773,35 @@ footer strong{
 
 
 
-<!-- =================================
-     HERO
-================================= -->
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
-<div class="container hero">
+<main class="main">
 
-  <div class="hero-card">
 
-    <h1>
-      JOIN OUR <span>TEAM</span>
-    </h1>
+  <!-- JOB SUMMARY -->
 
-    <div class="position">
-      Social Media & Design Support Staff
-    </div>
+  <div class="job-card">
 
-    <div class="salary">
+    <div class="job-top">
 
-      <small>
-        Performance Based Opportunity
-      </small>
+      <div class="job-title">
 
-      <strong>
-        Up to ₹9,000 / Month
-      </strong>
+        <div class="job-icon">
 
-      <small>
-        Based on work & performance
-      </small>
+          <i class="ri-palette-line"></i>
 
-    </div>
-
-  </div>
-
-
-  <div class="info-grid">
-
-    <div class="info-card">
-
-      <i class="ri-user-star-line"></i>
-
-      <strong>
-        BlackTerminal Students
-      </strong>
-
-      <span>
-        Eligibility
-      </span>
-
-    </div>
-
-
-    <div class="info-card">
-
-      <i class="ri-palette-line"></i>
-
-      <strong>
-        Design + AI
-      </strong>
-
-      <span>
-        Work Type
-      </span>
-
-    </div>
-
-
-    <div class="info-card">
-
-      <i class="ri-smartphone-line"></i>
-
-      <strong>
-        Social Media
-      </strong>
-
-      <span>
-        Content Work
-      </span>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-
-<!-- =================================
-     JOB DETAILS
-================================= -->
-
-<section class="container section">
-
-  <div class="card">
-
-    <div class="section-title">
-
-      <div class="section-icon">
-        <i class="ri-briefcase-line"></i>
-      </div>
-
-      <div>
-
-        <h2>
-          Job Details
-        </h2>
-
-        <p>
-          What you will work on
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="details-grid">
-
-      <div class="detail">
-
-        <i class="ri-image-edit-line"></i>
-
-        <strong>
-          Poster & Design
-        </strong>
-
-        <span>
-          Create daily promotional posters,
-          offers and notices.
-        </span>
-
-      </div>
-
-
-      <div class="detail">
-
-        <i class="ri-instagram-line"></i>
-
-        <strong>
-          Social Media
-        </strong>
-
-        <span>
-          Create content for Instagram,
-          Facebook and WhatsApp.
-        </span>
-
-      </div>
-
-
-      <div class="detail">
-
-        <i class="ri-robot-2-line"></i>
-
-        <strong>
-          AI Tools
-        </strong>
-
-        <span>
-          Use Canva, ChatGPT and other
-          AI/design tools.
-        </span>
-
-      </div>
-
-
-      <div class="detail">
-
-        <i class="ri-team-line"></i>
-
-        <strong>
-          Team Coordination
-        </strong>
-
-        <span>
-          Coordinate with the
-          BlackTerminal team.
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =================================
-     ELIGIBILITY
-================================= -->
-
-<section class="container section">
-
-  <div class="card">
-
-    <div class="section-title">
-
-      <div class="section-icon">
-        <i class="ri-user-search-line"></i>
-      </div>
-
-      <div>
-
-        <h2>
-          Eligibility
-        </h2>
-
-        <p>
-          Before applying
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="details-grid">
-
-      <div class="detail">
-
-        <i class="ri-checkbox-circle-line"></i>
-
-        <strong>
-          BlackTerminal Student
-        </strong>
-
-        <span>
-          Current or former BlackTerminal
-          students can apply.
-        </span>
-
-      </div>
-
-
-      <div class="detail">
-
-        <i class="ri-computer-line"></i>
-
-        <strong>
-          Basic Computer Knowledge
-        </strong>
-
-        <span>
-          Applicant should know basic
-          computer operations.
-        </span>
-
-      </div>
-
-
-      <div class="detail">
-
-        <i class="ri-paint-brush-line"></i>
-
-        <strong>
-          Design Interest
-        </strong>
-
-        <span>
-          Interest in graphic design,
-          posters or social media.
-        </span>
-
-      </div>
-
-
-      <div class="detail">
-
-        <i class="ri-time-line"></i>
-
-        <strong>
-          Regular Work
-        </strong>
-
-        <span>
-          Applicant should be able to
-          complete assigned work on time.
-        </span>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =================================
-     APPLICATION FORM
-================================= -->
-
-<section class="container section">
-
-  <div class="card">
-
-
-    <div class="section-title">
-
-      <div class="section-icon">
-        <i class="ri-file-edit-line"></i>
-      </div>
-
-      <div>
-
-        <h2>
-          Application Form
-        </h2>
-
-        <p>
-          Fill in your details carefully
-        </p>
-
-      </div>
-
-    </div>
-
-
-
-    <!-- FORM -->
-
-    <form id="applicationForm">
-
-
-      <div class="form-grid">
-
-
-        <!-- NAME -->
-
-        <div class="field">
-
-          <label>
-            Full Name
-            <span class="required">*</span>
-          </label>
-
-          <input
-            type="text"
-            id="fullName"
-            placeholder="Enter your full name"
-            required
-          >
-
-        </div>
-
-
-        <!-- MOBILE -->
-
-        <div class="field">
-
-          <label>
-            Mobile Number
-            <span class="required">*</span>
-          </label>
-
-          <input
-            type="tel"
-            id="mobile"
-            placeholder="10 digit mobile number"
-            maxlength="10"
-            required
-          >
-
-        </div>
-
-
-        <!-- EMAIL -->
-
-        <div class="field">
-
-          <label>
-            Email
-          </label>
-
-          <input
-            type="email"
-            id="email"
-            placeholder="example@gmail.com"
-          >
-
-        </div>
-
-
-        <!-- DOB -->
-
-        <div class="field">
-
-          <label>
-            Date of Birth
-          </label>
-
-          <input
-            type="date"
-            id="dob"
-          >
-
-        </div>
-
-
-        <!-- GENDER -->
-
-        <div class="field">
-
-          <label>
-            Gender
-          </label>
-
-          <select id="gender">
-
-            <option value="">
-              Select Gender
-            </option>
-
-            <option>
-              Male
-            </option>
-
-            <option>
-              Female
-            </option>
-
-            <option>
-              Other
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <!-- COURSE -->
-
-        <div class="field">
-
-          <label>
-            BlackTerminal Course
-            <span class="required">*</span>
-          </label>
-
-          <input
-            type="text"
-            id="course"
-            placeholder="Example: PGDCA"
-            required
-          >
-
-        </div>
-
-
-        <!-- STUDENT ID -->
-
-        <div class="field">
-
-          <label>
-            Student ID / Roll No.
-          </label>
-
-          <input
-            type="text"
-            id="studentId"
-            placeholder="Enter student ID"
-          >
-
-        </div>
-
-
-        <!-- EXPERIENCE -->
-
-        <div class="field">
-
-          <label>
-            Design Experience
-            <span class="required">*</span>
-          </label>
-
-          <select
-            id="experience"
-            required
-          >
-
-            <option value="">
-              Select Experience
-            </option>
-
-            <option>
-              Beginner
-            </option>
-
-            <option>
-              Basic Experience
-            </option>
-
-            <option>
-              Good Experience
-            </option>
-
-            <option>
-              Experienced
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <!-- AI -->
-
-        <div class="field">
-
-          <label>
-            AI / Canva Knowledge
-            <span class="required">*</span>
-          </label>
-
-          <select
-            id="aiKnowledge"
-            required
-          >
-
-            <option value="">
-              Select
-            </option>
-
-            <option>
-              Yes - Good
-            </option>
-
-            <option>
-              Yes - Basic
-            </option>
-
-            <option>
-              Currently Learning
-            </option>
-
-            <option>
-              No
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <!-- SOCIAL -->
-
-        <div class="field">
-
-          <label>
-            Social Media Experience
-          </label>
-
-          <select id="socialExperience">
-
-            <option value="">
-              Select
-            </option>
-
-            <option>
-              No Experience
-            </option>
-
-            <option>
-              Basic
-            </option>
-
-            <option>
-              Good
-            </option>
-
-            <option>
-              Experienced
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <!-- ADDRESS -->
-
-        <div class="field full">
-
-          <label>
-            Address
-          </label>
-
-          <textarea
-            id="address"
-            placeholder="Enter your address"
-          ></textarea>
-
-        </div>
-
-
-        <!-- WHY -->
-
-        <div class="field full">
-
-          <label>
-            Why should we select you?
-            <span class="required">*</span>
-          </label>
-
-          <textarea
-            id="reason"
-            placeholder="Tell us briefly about yourself, your skills and why you are interested..."
-            required
-          ></textarea>
-
-        </div>
-
-
-        <!-- SKILLS -->
-
-        <div class="field full">
-
-          <label>
-            Skills
-          </label>
-
-          <input
-            type="text"
-            id="skills"
-            placeholder="Example: Canva, Photoshop, AI, Instagram, Video Editing"
-          >
-
-        </div>
-
-      </div>
-
-
-
-      <!-- =================================
-           FILE UPLOAD
-      ================================= -->
-
-      <div
-        class="section-title"
-        style="margin-top:25px"
-      >
-
-        <div class="section-icon">
-          <i class="ri-upload-cloud-2-line"></i>
         </div>
 
         <div>
 
           <h2>
-            Upload Documents
+            Social Media & Design Support Staff
           </h2>
 
           <p>
-            Photo and CV are required
+            BlackTerminal Computer Institute • Baripada
           </p>
 
         </div>
@@ -1795,245 +1809,1287 @@ footer strong{
       </div>
 
 
+      <div class="salary">
 
-      <div class="upload-grid">
+        <small>
+          Performance Based
+        </small>
 
+        <strong>
+          ₹9,000
+        </strong>
 
-        <!-- PHOTO -->
-
-        <label class="upload-box">
-
-          <img
-            id="photoPreview"
-            class="photo-preview"
-          >
-
-          <i
-            id="photoIcon"
-            class="ri-user-3-line"
-          ></i>
-
-          <strong>
-            Profile Photo
-          </strong>
-
-          <span>
-            JPG / PNG • Max 2MB
-          </span>
-
-          <div
-            id="photoName"
-            class="file-name"
-          ></div>
-
-          <input
-            type="file"
-            id="photo"
-            accept="image/jpeg,image/png,image/webp"
-            required
-          >
-
-        </label>
-
-
-
-        <!-- CV -->
-
-        <label class="upload-box">
-
-          <i class="ri-file-pdf-2-line"></i>
-
-          <strong>
-            CV / Resume
-          </strong>
-
-          <span>
-            PDF / DOC / DOCX • Max 5MB
-          </span>
-
-          <div
-            id="cvName"
-            class="file-name"
-          ></div>
-
-          <input
-            type="file"
-            id="cv"
-            accept=".pdf,.doc,.docx"
-            required
-          >
-
-        </label>
-
-
-
-        <!-- PORTFOLIO -->
-
-        <label class="upload-box">
-
-          <i class="ri-image-add-line"></i>
-
-          <strong>
-            Design / Portfolio Sample
-          </strong>
-
-          <span>
-            JPG / PNG / PDF • Optional
-          </span>
-
-          <div
-            id="portfolioName"
-            class="file-name"
-          ></div>
-
-          <input
-            type="file"
-            id="portfolio"
-            accept=".jpg,.jpeg,.png,.webp,.pdf"
-          >
-
-        </label>
-
-
-
-        <!-- ID -->
-
-        <label class="upload-box">
-
-          <i class="ri-id-card-line"></i>
-
-          <strong>
-            Student ID / Certificate
-          </strong>
-
-          <span>
-            Optional supporting document
-          </span>
-
-          <div
-            id="idName"
-            class="file-name"
-          ></div>
-
-          <input
-            type="file"
-            id="studentDocument"
-            accept=".jpg,.jpeg,.png,.pdf"
-          >
-
-        </label>
+        <small>
+          Up to / Month
+        </small>
 
       </div>
-
-
-
-      <!-- DECLARATION -->
-
-      <div class="declaration">
-
-        <input
-          type="checkbox"
-          id="declaration"
-          required
-        >
-
-        <label for="declaration">
-
-          I confirm that the information provided by me
-          is correct and I am a current/former
-          BlackTerminal student. I understand that
-          submitting this application does not guarantee
-          selection.
-
-        </label>
-
-      </div>
-
-
-
-      <!-- SUBMIT -->
-
-      <button
-        type="submit"
-        class="submit"
-        id="submitBtn"
-      >
-
-        <i class="ri-send-plane-fill"></i>
-
-        SUBMIT JOB APPLICATION
-
-      </button>
-
-
-    </form>
-
-
-
-    <!-- SUCCESS -->
-
-    <div
-      class="success"
-      id="successBox"
-    >
-
-      <div class="success-icon">
-
-        <i class="ri-check-line"></i>
-
-      </div>
-
-      <h2>
-        APPLICATION SUBMITTED
-      </h2>
-
-      <p>
-
-        Thank you for applying to
-        BlackTerminal Computer Institute.
-
-        <br><br>
-
-        Your application has been received.
-        Our team will review your details.
-
-      </p>
-
-      <button
-        class="back-btn"
-        onclick="location.reload()"
-      >
-        Submit Another Application
-      </button>
 
     </div>
 
 
+    <div class="job-tags">
+
+      <span class="tag tag-blue">
+        <i class="ri-image-line"></i>
+        Design
+      </span>
+
+      <span class="tag tag-purple">
+        <i class="ri-robot-line"></i>
+        AI Tools
+      </span>
+
+      <span class="tag tag-green">
+        <i class="ri-instagram-line"></i>
+        Social Media
+      </span>
+
+      <span class="tag tag-orange">
+        <i class="ri-user-star-line"></i>
+        Students
+      </span>
+
+    </div>
+
   </div>
 
-</section>
 
 
+  <!-- PROGRESS -->
 
-<!-- =================================
-     NOTICE
-================================= -->
+  <div class="progress-card">
 
-<div class="container">
+    <div class="progress-line">
 
-  <div class="notice">
 
-    <strong>
-      Important:
-    </strong>
+      <div
+        class="step active"
+        data-step="1"
+      >
 
-    Only current or former BlackTerminal students
-    are eligible to apply. Please provide genuine
-    information and valid documents.
+        <div class="step-circle">
+          1
+        </div>
+
+        <div class="step-text">
+          Personal
+        </div>
+
+      </div>
+
+
+      <div
+        class="step"
+        data-step="2"
+      >
+
+        <div class="step-circle">
+          2
+        </div>
+
+        <div class="step-text">
+          Education
+        </div>
+
+      </div>
+
+
+      <div
+        class="step"
+        data-step="3"
+      >
+
+        <div class="step-circle">
+          3
+        </div>
+
+        <div class="step-text">
+          Skills
+        </div>
+
+      </div>
+
+
+      <div
+        class="step"
+        data-step="4"
+      >
+
+        <div class="step-circle">
+          4
+        </div>
+
+        <div class="step-text">
+          Documents
+        </div>
+
+      </div>
+
+
+    </div>
 
   </div>
 
-</div>
+
+
+  <!-- CONTENT -->
+
+  <div class="content-grid">
+
+
+    <!-- FORM -->
+
+    <div class="card">
+
+
+      <form id="applicationForm">
+
+
+        <!-- =================================
+             STEP 1
+        ================================= -->
+
+        <div
+          class="form-section active"
+          data-section="1"
+        >
+
+          <div class="section-title">
+
+            <div class="section-icon">
+              <i class="ri-user-3-line"></i>
+            </div>
+
+            <div>
+
+              <h2>
+                Personal Information
+              </h2>
+
+              <p>
+                Tell us about yourself
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-grid">
+
+
+            <div class="field">
+
+              <label>
+
+                Full Name
+
+                <span class="required">*</span>
+
+              </label>
+
+              <input
+                type="text"
+                id="fullName"
+                placeholder="Enter your full name"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+
+                Mobile Number
+
+                <span class="required">*</span>
+
+              </label>
+
+              <input
+                type="tel"
+                id="mobile"
+                maxlength="10"
+                inputmode="numeric"
+                placeholder="10 digit mobile number"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+
+                Email
+
+                <span class="optional">
+                  Optional
+                </span>
+
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                placeholder="example@gmail.com"
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+
+                Date of Birth
+
+                <span class="optional">
+                  Optional
+                </span>
+
+              </label>
+
+              <input
+                type="date"
+                id="dob"
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+
+                Gender
+
+                <span class="optional">
+                  Optional
+                </span>
+
+              </label>
+
+              <select id="gender">
+
+                <option value="">
+                  Select Gender
+                </option>
+
+                <option>
+                  Male
+                </option>
+
+                <option>
+                  Female
+                </option>
+
+                <option>
+                  Other
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+
+                Student ID / Roll No.
+
+                <span class="optional">
+                  Optional
+                </span>
+
+              </label>
+
+              <input
+                type="text"
+                id="studentId"
+                placeholder="Example: BT2026-001"
+              >
+
+            </div>
+
+
+            <div class="field full">
+
+              <label>
+
+                Address
+
+                <span class="optional">
+                  Optional
+                </span>
+
+              </label>
+
+              <textarea
+                id="address"
+                placeholder="Enter your current address"
+              ></textarea>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =================================
+             STEP 2
+        ================================= -->
+
+        <div
+          class="form-section"
+          data-section="2"
+        >
+
+          <div class="section-title">
+
+            <div
+              class="section-icon"
+              style="
+                color:#0a9b62;
+                background:#eafbf3;
+              "
+            >
+
+              <i class="ri-graduation-cap-line"></i>
+
+            </div>
+
+            <div>
+
+              <h2>
+                Education
+              </h2>
+
+              <p>
+                Your BlackTerminal details
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-grid">
+
+
+            <div class="field full">
+
+              <label>
+
+                BlackTerminal Course
+
+                <span class="required">*</span>
+
+              </label>
+
+              <input
+                type="text"
+                id="course"
+                placeholder="Example: PGDCA"
+                required
+              >
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+
+                Course Status
+
+                <span class="optional">
+                  Optional
+                </span>
+
+              </label>
+
+              <select id="courseStatus">
+
+                <option value="">
+                  Select
+                </option>
+
+                <option>
+                  Currently Studying
+                </option>
+
+                <option>
+                  Course Completed
+                </option>
+
+                <option>
+                  Former Student
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+
+                Year / Batch
+
+                <span class="optional">
+                  Optional
+                </span>
+
+              </label>
+
+              <input
+                type="text"
+                id="batch"
+                placeholder="Example: 2025-26"
+              >
+
+            </div>
+
+
+            <div class="field full">
+
+              <label>
+
+                Other Qualification
+
+                <span class="optional">
+                  Optional
+                </span>
+
+              </label>
+
+              <textarea
+                id="qualification"
+                placeholder="Example: +2 Arts, Graduation, Diploma..."
+              ></textarea>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =================================
+             STEP 3
+        ================================= -->
+
+        <div
+          class="form-section"
+          data-section="3"
+        >
+
+          <div class="section-title">
+
+            <div
+              class="section-icon"
+              style="
+                color:#7650d9;
+                background:#f1edff;
+              "
+            >
+
+              <i class="ri-sparkling-2-line"></i>
+
+            </div>
+
+            <div>
+
+              <h2>
+                Skills & Experience
+              </h2>
+
+              <p>
+                Show us what you can do
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-grid">
+
+
+            <div class="field">
+
+              <label>
+
+                Design Experience
+
+                <span class="required">*</span>
+
+              </label>
+
+              <select
+                id="experience"
+                required
+              >
+
+                <option value="">
+                  Select Experience
+                </option>
+
+                <option>
+                  Beginner
+                </option>
+
+                <option>
+                  Basic Experience
+                </option>
+
+                <option>
+                  Good Experience
+                </option>
+
+                <option>
+                  Experienced
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+
+                AI / Canva Knowledge
+
+                <span class="required">*</span>
+
+              </label>
+
+              <select
+                id="aiKnowledge"
+                required
+              >
+
+                <option value="">
+                  Select
+                </option>
+
+                <option>
+                  Yes - Good
+                </option>
+
+                <option>
+                  Yes - Basic
+                </option>
+
+                <option>
+                  Currently Learning
+                </option>
+
+                <option>
+                  No
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+
+                Social Media Experience
+
+                <span class="optional">
+                  Optional
+                </span>
+
+              </label>
+
+              <select id="socialExperience">
+
+                <option value="">
+                  Select
+                </option>
+
+                <option>
+                  No Experience
+                </option>
+
+                <option>
+                  Basic
+                </option>
+
+                <option>
+                  Good
+                </option>
+
+                <option>
+                  Experienced
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label>
+
+                Video Editing
+
+                <span class="optional">
+                  Optional
+                </span>
+
+              </label>
+
+              <select id="videoEditing">
+
+                <option value="">
+                  Select
+                </option>
+
+                <option>
+                  No
+                </option>
+
+                <option>
+                  Basic
+                </option>
+
+                <option>
+                  Good
+                </option>
+
+                <option>
+                  Experienced
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field full">
+
+              <label>
+
+                Skills
+
+                <span class="optional">
+                  Optional
+                </span>
+
+              </label>
+
+              <input
+                type="text"
+                id="skills"
+                placeholder="Canva, Photoshop, AI, Instagram, Video Editing..."
+              >
+
+            </div>
+
+
+            <div class="field full">
+
+              <label>
+
+                Why should we select you?
+
+                <span class="required">*</span>
+
+              </label>
+
+              <textarea
+                id="reason"
+                placeholder="Tell us about your skills and why you are interested in this opportunity..."
+                required
+              ></textarea>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+
+        <!-- =================================
+             STEP 4
+        ================================= -->
+
+        <div
+          class="form-section"
+          data-section="4"
+        >
+
+          <div class="section-title">
+
+            <div
+              class="section-icon"
+              style="
+                color:#dc3c87;
+                background:#fff0f6;
+              "
+            >
+
+              <i class="ri-file-upload-line"></i>
+
+            </div>
+
+            <div>
+
+              <h2>
+                Documents
+              </h2>
+
+              <p>
+                Upload your photo and documents
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="upload-grid">
+
+
+            <!-- PHOTO -->
+
+            <label
+              class="upload-box"
+              id="photoBox"
+            >
+
+              <img
+                id="photoPreview"
+                class="photo-preview"
+              >
+
+              <div
+                class="upload-icon"
+                id="photoIcon"
+              >
+
+                <i class="ri-camera-line"></i>
+
+              </div>
+
+              <strong>
+                Profile Photo *
+              </strong>
+
+              <span>
+                JPG / PNG / WEBP
+                <br>
+                Maximum 2MB
+              </span>
+
+              <div
+                id="photoName"
+                class="file-name"
+              ></div>
+
+              <input
+                type="file"
+                id="photo"
+                accept="image/jpeg,image/png,image/webp"
+                required
+              >
+
+            </label>
+
+
+            <!-- CV -->
+
+            <label
+              class="upload-box"
+              id="cvBox"
+            >
+
+              <div class="upload-icon">
+
+                <i class="ri-file-text-line"></i>
+
+              </div>
+
+              <strong>
+                CV / Resume *
+              </strong>
+
+              <span>
+                PDF / DOC / DOCX
+                <br>
+                Maximum 5MB
+              </span>
+
+              <div
+                id="cvName"
+                class="file-name"
+              ></div>
+
+              <input
+                type="file"
+                id="cv"
+                accept=".pdf,.doc,.docx"
+                required
+              >
+
+            </label>
+
+
+            <!-- PORTFOLIO -->
+
+            <label
+              class="upload-box"
+              id="portfolioBox"
+            >
+
+              <div
+                class="upload-icon"
+                style="
+                  color:#d63c87;
+                  background:#fff0f6;
+                "
+              >
+
+                <i class="ri-image-add-line"></i>
+
+              </div>
+
+              <strong>
+                Portfolio / Design
+              </strong>
+
+              <span>
+                JPG / PNG / PDF
+                <br>
+                Optional
+              </span>
+
+              <div
+                id="portfolioName"
+                class="file-name"
+              ></div>
+
+              <input
+                type="file"
+                id="portfolio"
+                accept=".jpg,.jpeg,.png,.webp,.pdf"
+              >
+
+            </label>
+
+
+            <!-- STUDENT ID -->
+
+            <label
+              class="upload-box"
+              id="idBox"
+            >
+
+              <div
+                class="upload-icon"
+                style="
+                  color:#0a9b62;
+                  background:#eafbf3;
+                "
+              >
+
+                <i class="ri-id-card-line"></i>
+
+              </div>
+
+              <strong>
+                Student ID / Certificate
+              </strong>
+
+              <span>
+                JPG / PNG / PDF
+                <br>
+                Optional
+              </span>
+
+              <div
+                id="idName"
+                class="file-name"
+              ></div>
+
+              <input
+                type="file"
+                id="studentDocument"
+                accept=".jpg,.jpeg,.png,.pdf"
+              >
+
+            </label>
+
+
+          </div>
+
+
+          <!-- DECLARATION -->
+
+          <div class="declaration">
+
+            <input
+              type="checkbox"
+              id="declaration"
+              required
+            >
+
+            <label for="declaration">
+
+              I confirm that the information and documents
+              provided by me are genuine and correct. I
+              understand that submitting this application
+              does not guarantee selection.
+
+            </label>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <div class="form-navigation">
+
+
+          <button
+            type="button"
+            class="nav-btn prev-btn"
+            id="prevBtn"
+            style="display:none"
+          >
+
+            <i class="ri-arrow-left-line"></i>
+
+            BACK
+
+          </button>
+
+
+          <button
+            type="button"
+            class="nav-btn next-btn"
+            id="nextBtn"
+          >
+
+            CONTINUE
+
+            <i class="ri-arrow-right-line"></i>
+
+          </button>
+
+
+        </div>
+
+
+        <!-- SUBMIT -->
+
+        <button
+          type="submit"
+          class="submit-btn"
+          id="submitBtn"
+          style="display:none"
+        >
+
+          <i class="ri-send-plane-fill"></i>
+
+          SUBMIT APPLICATION
+
+        </button>
+
+
+      </form>
+
+
+      <!-- SUCCESS -->
+
+      <div
+        class="success"
+        id="successBox"
+      >
+
+        <div class="success-icon">
+
+          <i class="ri-check-line"></i>
+
+        </div>
+
+        <h2>
+          Application Submitted!
+        </h2>
+
+        <p>
+
+          Thank you for applying to
+          BlackTerminal Computer Institute.
+
+          <br><br>
+
+          Your application has been received.
+          Our team will review your details
+          and contact you if required.
+
+        </p>
+
+        <button
+          class="success-btn"
+          onclick="location.reload()"
+        >
+
+          Submit Another Application
+
+        </button>
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- SIDE -->
+
+    <aside class="side">
+
+
+      <div class="side-card">
+
+        <h3>
+          What You'll Do
+        </h3>
+
+        <p>
+          Work with our team on digital
+          content and promotional activities.
+        </p>
+
+
+        <div class="work-list">
+
+
+          <div class="work-item">
+
+            <div class="work-icon blue">
+              <i class="ri-image-edit-line"></i>
+            </div>
+
+            <div>
+
+              <strong>
+                Create Designs
+              </strong>
+
+              <span>
+                Posters, offers and notices
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="work-item">
+
+            <div class="work-icon purple">
+              <i class="ri-robot-2-line"></i>
+            </div>
+
+            <div>
+
+              <strong>
+                Use AI Tools
+              </strong>
+
+              <span>
+                Canva, ChatGPT and AI tools
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="work-item">
+
+            <div class="work-icon pink">
+              <i class="ri-instagram-line"></i>
+            </div>
+
+            <div>
+
+              <strong>
+                Social Media
+              </strong>
+
+              <span>
+                Instagram, Facebook & WhatsApp
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="work-item">
+
+            <div class="work-icon green">
+              <i class="ri-team-line"></i>
+            </div>
+
+            <div>
+
+              <strong>
+                Team Work
+              </strong>
+
+              <span>
+                Coordinate with BlackTerminal
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <div class="side-card">
+
+        <h3>
+          Eligibility
+        </h3>
+
+        <p>
+          Please check before submitting.
+        </p>
+
+
+        <div class="work-list">
+
+
+          <div class="work-item">
+
+            <div class="work-icon green">
+              <i class="ri-check-line"></i>
+            </div>
+
+            <div>
+
+              <strong>
+                BlackTerminal Student
+              </strong>
+
+              <span>
+                Current or former students
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="work-item">
+
+            <div class="work-icon blue">
+              <i class="ri-computer-line"></i>
+            </div>
+
+            <div>
+
+              <strong>
+                Basic Computer Knowledge
+              </strong>
+
+              <span>
+                Comfortable using a computer
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="work-item">
+
+            <div class="work-icon purple">
+              <i class="ri-palette-line"></i>
+            </div>
+
+            <div>
+
+              <strong>
+                Design Interest
+              </strong>
+
+              <span>
+                Interest in digital design
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <div class="notice">
+
+        <i class="ri-information-line"></i>
+
+        <div>
+
+          <strong>
+            Important
+          </strong>
+
+          <span>
+            Please upload genuine information
+            and valid documents. Selection depends
+            on the institute's recruitment process.
+          </span>
+
+        </div>
+
+      </div>
+
+
+    </aside>
+
+
+  </div>
+
+</main>
 
 
 
@@ -2055,193 +3111,157 @@ footer strong{
 
 <script>
 
-/* =================================
-   FILE PREVIEW
-================================= */
+/* =========================================================
+   MULTI STEP FORM
+========================================================= */
 
-const photoInput =
-  document.getElementById("photo");
+let currentStep = 1;
 
-const photoPreview =
-  document.getElementById("photoPreview");
-
-const photoIcon =
-  document.getElementById("photoIcon");
-
-const photoName =
-  document.getElementById("photoName");
+const totalSteps = 4;
 
 
-photoInput.addEventListener(
-  "change",
-  function(){
-
-    const file =
-      this.files[0];
-
-    if(!file) return;
+const sections =
+  document.querySelectorAll(
+    ".form-section"
+  );
 
 
-    if(file.size > 2 * 1024 * 1024){
+const steps =
+  document.querySelectorAll(
+    ".step"
+  );
 
-      alert(
-        "Profile photo must be under 2MB."
+
+const prevBtn =
+  document.getElementById(
+    "prevBtn"
+  );
+
+
+const nextBtn =
+  document.getElementById(
+    "nextBtn"
+  );
+
+
+const submitBtn =
+  document.getElementById(
+    "submitBtn"
+  );
+
+
+function showStep(step){
+
+  currentStep = step;
+
+
+  sections.forEach(
+    section => {
+
+      section.classList.toggle(
+        "active",
+        Number(
+          section.dataset.section
+        ) === step
       );
 
-      this.value = "";
-
-      return;
-
     }
+  );
 
 
-    photoName.textContent =
-      file.name;
+  steps.forEach(
+    item => {
+
+      const number =
+        Number(
+          item.dataset.step
+        );
 
 
-    const reader =
-      new FileReader();
-
-
-    reader.onload =
-      function(e){
-
-        photoPreview.src =
-          e.target.result;
-
-        photoPreview.style.display =
-          "block";
-
-        photoIcon.style.display =
-          "none";
-
-      };
-
-
-    reader.readAsDataURL(file);
-
-  }
-);
-
-
-/* =================================
-   CV
-================================= */
-
-document.getElementById("cv")
-.addEventListener(
-  "change",
-  function(){
-
-    const file =
-      this.files[0];
-
-    if(!file) return;
-
-
-    if(file.size > 5 * 1024 * 1024){
-
-      alert(
-        "CV must be under 5MB."
+      item.classList.toggle(
+        "active",
+        number === step
       );
 
-      this.value = "";
 
-      return;
+      item.classList.toggle(
+        "completed",
+        number < step
+      );
+
+    }
+  );
+
+
+  prevBtn.style.display =
+    step > 1
+      ? "flex"
+      : "none";
+
+
+  if(step === totalSteps){
+
+    nextBtn.style.display =
+      "none";
+
+    submitBtn.style.display =
+      "block";
+
+  }
+  else{
+
+    nextBtn.style.display =
+      "flex";
+
+    submitBtn.style.display =
+      "none";
+
+  }
+
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+
+/* =========================================================
+   STEP VALIDATION
+========================================================= */
+
+function validateCurrentStep(){
+
+  const section =
+    document.querySelector(
+      `.form-section[data-section="${currentStep}"]`
+    );
+
+
+  const fields =
+    section.querySelectorAll(
+      "input, select, textarea"
+    );
+
+
+  for(const field of fields){
+
+    if(
+      field.hasAttribute("required") &&
+      !field.checkValidity()
+    ){
+
+      field.reportValidity();
+
+      return false;
 
     }
 
-
-    document.getElementById(
-      "cvName"
-    ).textContent =
-      file.name;
-
   }
-);
 
 
-/* =================================
-   PORTFOLIO
-================================= */
-
-document.getElementById("portfolio")
-.addEventListener(
-  "change",
-  function(){
-
-    const file =
-      this.files[0];
-
-    if(file){
-
-      document.getElementById(
-        "portfolioName"
-      ).textContent =
-        file.name;
-
-    }
-
-  }
-);
-
-
-/* =================================
-   STUDENT DOCUMENT
-================================= */
-
-document.getElementById("studentDocument")
-.addEventListener(
-  "change",
-  function(){
-
-    const file =
-      this.files[0];
-
-    if(file){
-
-      document.getElementById(
-        "idName"
-      ).textContent =
-        file.name;
-
-    }
-
-  }
-);
-
-
-/* =================================
-   MOBILE VALIDATION
-================================= */
-
-document.getElementById("mobile")
-.addEventListener(
-  "input",
-  function(){
-
-    this.value =
-      this.value
-      .replace(/\D/g,"")
-      .slice(0,10);
-
-  }
-);
-
-
-/* =================================
-   FORM SUBMIT
-================================= */
-
-document.getElementById(
-  "applicationForm"
-)
-.addEventListener(
-  "submit",
-  function(e){
-
-    e.preventDefault();
-
+  if(currentStep === 1){
 
     const mobile =
       document.getElementById(
@@ -2255,6 +3275,312 @@ document.getElementById(
         "Please enter a valid 10 digit mobile number."
       );
 
+      document.getElementById(
+        "mobile"
+      ).focus();
+
+      return false;
+
+    }
+
+  }
+
+
+  return true;
+
+}
+
+
+/* =========================================================
+   NEXT
+========================================================= */
+
+nextBtn.addEventListener(
+  "click",
+  function(){
+
+    if(
+      !validateCurrentStep()
+    ){
+
+      return;
+
+    }
+
+
+    if(
+      currentStep < totalSteps
+    ){
+
+      showStep(
+        currentStep + 1
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   PREVIOUS
+========================================================= */
+
+prevBtn.addEventListener(
+  "click",
+  function(){
+
+    if(
+      currentStep > 1
+    ){
+
+      showStep(
+        currentStep - 1
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+document.getElementById(
+  "mobile"
+)
+.addEventListener(
+  "input",
+  function(){
+
+    this.value =
+      this.value
+      .replace(/\D/g,"")
+      .slice(0,10);
+
+  }
+);
+
+
+/* =========================================================
+   FILE HELPER
+========================================================= */
+
+function handleFile(
+  inputId,
+  nameId,
+  boxId,
+  maxSizeMB
+){
+
+  const input =
+    document.getElementById(
+      inputId
+    );
+
+  const name =
+    document.getElementById(
+      nameId
+    );
+
+  const box =
+    document.getElementById(
+      boxId
+    );
+
+
+  input.addEventListener(
+    "change",
+    function(){
+
+      const file =
+        this.files[0];
+
+
+      if(!file){
+
+        box.classList.remove(
+          "has-file"
+        );
+
+        name.textContent =
+          "";
+
+        return;
+
+      }
+
+
+      if(
+        file.size >
+        maxSizeMB *
+        1024 *
+        1024
+      ){
+
+        alert(
+          `File must be under ${maxSizeMB}MB.`
+        );
+
+        this.value =
+          "";
+
+        return;
+
+      }
+
+
+      name.textContent =
+        "✓ " + file.name;
+
+
+      box.classList.add(
+        "has-file"
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   PHOTO
+========================================================= */
+
+const photoInput =
+  document.getElementById(
+    "photo"
+  );
+
+
+photoInput.addEventListener(
+  "change",
+  function(){
+
+    const file =
+      this.files[0];
+
+
+    if(!file)
+      return;
+
+
+    if(
+      file.size >
+      2 * 1024 * 1024
+    ){
+
+      alert(
+        "Profile photo must be under 2MB."
+      );
+
+      this.value =
+        "";
+
+      return;
+
+    }
+
+
+    document.getElementById(
+      "photoName"
+    ).textContent =
+      "✓ " + file.name;
+
+
+    document.getElementById(
+      "photoBox"
+    ).classList.add(
+      "has-file"
+    );
+
+
+    const reader =
+      new FileReader();
+
+
+    reader.onload =
+      function(e){
+
+        const preview =
+          document.getElementById(
+            "photoPreview"
+          );
+
+
+        preview.src =
+          e.target.result;
+
+
+        preview.style.display =
+          "block";
+
+
+        document.getElementById(
+          "photoIcon"
+        ).style.display =
+          "none";
+
+      };
+
+
+    reader.readAsDataURL(
+      file
+    );
+
+  }
+);
+
+
+/* =========================================================
+   OTHER FILES
+========================================================= */
+
+handleFile(
+  "cv",
+  "cvName",
+  "cvBox",
+  5
+);
+
+
+handleFile(
+  "portfolio",
+  "portfolioName",
+  "portfolioBox",
+  5
+);
+
+
+handleFile(
+  "studentDocument",
+  "idName",
+  "idBox",
+  5
+);
+
+
+/* =========================================================
+   SUBMIT
+========================================================= */
+
+document.getElementById(
+  "applicationForm"
+)
+.addEventListener(
+  "submit",
+  function(e){
+
+    e.preventDefault();
+
+
+    if(
+      !validateCurrentStep()
+    ){
+
       return;
 
     }
@@ -2264,6 +3590,7 @@ document.getElementById(
       document.getElementById(
         "photo"
       ).files[0];
+
 
     const cv =
       document.getElementById(
@@ -2293,29 +3620,42 @@ document.getElementById(
     }
 
 
-    /*
-    ============================================
-    FRONTEND DEMO
+    if(
+      !document.getElementById(
+        "declaration"
+      ).checked
+    ){
 
-    Firebase Storage + Firestore connection
-    will be added in the next step.
-
-    ============================================
-    */
-
-
-    const submitBtn =
-      document.getElementById(
-        "submitBtn"
+      alert(
+        "Please accept the declaration."
       );
 
+      return;
 
-    submitBtn.disabled = true;
+    }
+
+
+    submitBtn.disabled =
+      true;
+
 
     submitBtn.innerHTML = `
+
       <i class="ri-loader-4-line"></i>
+
       SUBMITTING...
+
     `;
+
+
+    /*
+      ==========================================
+      FRONTEND DEMO
+
+      Firebase Storage + Firestore connection
+      will be connected here.
+      ==========================================
+    */
 
 
     setTimeout(
@@ -2333,12 +3673,25 @@ document.getElementById(
           "show"
         );
 
+
+        window.scrollTo({
+          top:0,
+          behavior:"smooth"
+        });
+
       },
-      800
+      1000
     );
 
   }
 );
+
+
+/* =========================================================
+   START
+========================================================= */
+
+showStep(1);
 
 </script>
 
