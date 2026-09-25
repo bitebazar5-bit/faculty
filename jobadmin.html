@@ -1,1 +1,3151 @@
-hh
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+BlackTerminal | Job Admin
+</title>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
+<link
+  href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
+  rel="stylesheet"
+>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+
+  --bg:#070a12;
+  --card:#0e1420;
+  --card2:#0a0f18;
+
+  --border:#202b40;
+
+  --text:#f4f7ff;
+  --muted:#818ba0;
+
+  --cyan:#00eaff;
+  --blue:#168cff;
+  --purple:#8b5cf6;
+  --pink:#ec4899;
+
+  --green:#22c55e;
+  --yellow:#facc15;
+  --red:#ef4444;
+
+}
+
+body{
+
+  min-height:100vh;
+
+  font-family:
+    "Plus Jakarta Sans",
+    sans-serif;
+
+  color:var(--text);
+
+  background:
+
+    radial-gradient(
+      circle at 0 0,
+      rgba(0,234,255,.07),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 100% 0,
+      rgba(139,92,246,.08),
+      transparent 28%
+    ),
+
+    var(--bg);
+
+}
+
+button,
+input,
+select,
+textarea{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+
+/* HEADER */
+
+.header{
+
+  position:sticky;
+
+  top:0;
+
+  z-index:50;
+
+  height:68px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  padding:0 22px;
+
+  background:
+    rgba(7,10,18,.92);
+
+  backdrop-filter:blur(18px);
+
+  border-bottom:
+    1px solid var(--border);
+
+}
+
+.brand{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:11px;
+
+}
+
+.logo{
+
+  width:40px;
+  height:40px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:11px;
+
+  color:#001018;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--cyan),
+      var(--purple)
+    );
+
+  font-size:21px;
+
+}
+
+.brand h1{
+
+  font-family:Orbitron,sans-serif;
+
+  font-size:15px;
+
+}
+
+.brand span{
+
+  display:block;
+
+  margin-top:3px;
+
+  color:var(--muted);
+
+  font-size:8px;
+
+  letter-spacing:.4px;
+
+}
+
+.admin{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  color:var(--cyan);
+
+  font-size:11px;
+
+  font-weight:800;
+
+}
+
+.dot{
+
+  width:7px;
+  height:7px;
+
+  border-radius:50%;
+
+  background:var(--green);
+
+  box-shadow:
+    0 0 12px var(--green);
+
+}
+
+
+/* CONTAINER */
+
+.container{
+
+  width:min(
+    1200px,
+    calc(100% - 24px)
+  );
+
+  margin:
+    22px auto 60px;
+
+}
+
+
+/* TITLE */
+
+.page-title{
+
+  margin-bottom:18px;
+
+}
+
+.page-title h2{
+
+  font-family:Orbitron,sans-serif;
+
+  font-size:22px;
+
+}
+
+.page-title p{
+
+  margin-top:5px;
+
+  color:var(--muted);
+
+  font-size:10px;
+
+}
+
+
+/* STATS */
+
+.stats{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(5,1fr);
+
+  gap:10px;
+
+  margin-bottom:18px;
+
+}
+
+.stat{
+
+  position:relative;
+
+  overflow:hidden;
+
+  padding:15px;
+
+  border:1px solid var(--border);
+
+  border-radius:15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #101725,
+      #0a0f18
+    );
+
+}
+
+.stat-icon{
+
+  width:34px;
+  height:34px;
+
+  display:grid;
+
+  place-items:center;
+
+  margin-bottom:10px;
+
+  border-radius:9px;
+
+  color:var(--accent);
+
+  background:
+    rgba(255,255,255,.04);
+
+}
+
+.stat h3{
+
+  font-size:20px;
+
+}
+
+.stat p{
+
+  margin-top:3px;
+
+  color:var(--muted);
+
+  font-size:9px;
+
+}
+
+
+/* TOOLBAR */
+
+.toolbar{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  margin-bottom:15px;
+
+}
+
+.search{
+
+  position:relative;
+
+  flex:1;
+
+}
+
+.search i{
+
+  position:absolute;
+
+  left:12px;
+  top:50%;
+
+  transform:
+    translateY(-50%);
+
+  color:#667187;
+
+}
+
+.search input{
+
+  width:100%;
+
+  height:42px;
+
+  padding:
+    0 12px 0 36px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:10px;
+
+  outline:none;
+
+  color:white;
+
+  background:#0b1019;
+
+  font-size:10px;
+
+}
+
+.search input:focus{
+
+  border-color:var(--cyan);
+
+}
+
+.filter{
+
+  height:42px;
+
+  min-width:140px;
+
+  padding:0 10px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:10px;
+
+  outline:none;
+
+  color:white;
+
+  background:#0b1019;
+
+  font-size:10px;
+
+}
+
+.add-btn{
+
+  height:42px;
+
+  padding:
+    0 14px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:6px;
+
+  border:0;
+
+  border-radius:10px;
+
+  color:#001018;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--cyan),
+      var(--blue)
+    );
+
+  font-size:10px;
+
+  font-weight:800;
+
+}
+
+
+/* APPLICATION CARD */
+
+.applications{
+
+  display:grid;
+
+  gap:10px;
+
+}
+
+.application{
+
+  display:grid;
+
+  grid-template-columns:
+    50px
+    1fr
+    auto;
+
+  align-items:center;
+
+  gap:12px;
+
+  padding:13px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:14px;
+
+  background:
+    rgba(14,20,32,.9);
+
+  transition:.2s;
+
+}
+
+.application:hover{
+
+  border-color:
+    rgba(0,234,255,.25);
+
+  transform:
+    translateY(-1px);
+
+}
+
+.avatar{
+
+  width:50px;
+  height:50px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:13px;
+
+  object-fit:cover;
+
+  color:var(--cyan);
+
+  background:#182131;
+
+  font-weight:800;
+
+  font-size:15px;
+
+}
+
+.app-info h3{
+
+  font-size:12px;
+
+}
+
+.app-info p{
+
+  margin-top:4px;
+
+  color:var(--muted);
+
+  font-size:9px;
+
+}
+
+.meta{
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:5px;
+
+  margin-top:7px;
+
+}
+
+.badge{
+
+  display:inline-flex;
+
+  padding:4px 7px;
+
+  border-radius:20px;
+
+  font-size:7px;
+
+  font-weight:800;
+
+}
+
+.new{
+  color:#58eaff;
+  background:rgba(0,234,255,.08);
+}
+
+.review{
+  color:#facc15;
+  background:rgba(250,204,21,.08);
+}
+
+.shortlisted{
+  color:#a78bfa;
+  background:rgba(139,92,246,.1);
+}
+
+.selected{
+  color:#4ade80;
+  background:rgba(34,197,94,.1);
+}
+
+.rejected{
+  color:#fb7185;
+  background:rgba(239,68,68,.1);
+}
+
+.actions{
+
+  display:flex;
+
+  gap:5px;
+
+}
+
+.icon-btn{
+
+  width:34px;
+  height:34px;
+
+  display:grid;
+
+  place-items:center;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:8px;
+
+  color:#9aa5ba;
+
+  background:#111722;
+
+}
+
+.icon-btn:hover{
+
+  color:var(--cyan);
+
+  border-color:var(--cyan);
+
+}
+
+
+/* EMPTY */
+
+.empty{
+
+  padding:45px 20px;
+
+  text-align:center;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:15px;
+
+  color:#697389;
+
+  background:var(--card);
+
+}
+
+.empty i{
+
+  display:block;
+
+  margin-bottom:8px;
+
+  font-size:30px;
+
+}
+
+
+/* MODAL */
+
+.modal{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:100;
+
+  display:none;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:15px;
+
+  background:
+    rgba(0,0,0,.75);
+
+  backdrop-filter:blur(8px);
+
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+
+  width:min(
+    760px,
+    100%
+  );
+
+  max-height:
+    calc(100vh - 30px);
+
+  overflow:auto;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:17px;
+
+  background:#101622;
+
+  box-shadow:
+    0 30px 90px rgba(0,0,0,.6);
+
+}
+
+.modal-head{
+
+  position:sticky;
+
+  top:0;
+
+  z-index:5;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  padding:15px 17px;
+
+  background:#101622;
+
+  border-bottom:
+    1px solid var(--border);
+
+}
+
+.modal-head h3{
+
+  font-size:14px;
+
+}
+
+.close{
+
+  width:32px;
+  height:32px;
+
+  border:0;
+
+  border-radius:8px;
+
+  color:#9aa5ba;
+
+  background:#171e2b;
+
+  font-size:18px;
+
+}
+
+.modal-body{
+
+  padding:17px;
+
+}
+
+
+/* DETAIL */
+
+.profile{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:13px;
+
+  padding:14px;
+
+  margin-bottom:15px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:12px;
+
+  background:#0a0f18;
+
+}
+
+.profile img,
+.profile .big-avatar{
+
+  width:70px;
+  height:70px;
+
+  flex-shrink:0;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:15px;
+
+  object-fit:cover;
+
+  color:var(--cyan);
+
+  background:#182131;
+
+  font-size:22px;
+
+  font-weight:800;
+
+}
+
+.profile h2{
+
+  font-size:16px;
+
+}
+
+.profile p{
+
+  margin-top:4px;
+
+  color:var(--muted);
+
+  font-size:9px;
+
+}
+
+.detail-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:9px;
+
+}
+
+.detail{
+
+  padding:12px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:10px;
+
+  background:#0b1019;
+
+}
+
+.detail label{
+
+  display:block;
+
+  margin-bottom:4px;
+
+  color:#687389;
+
+  font-size:8px;
+
+  text-transform:uppercase;
+
+}
+
+.detail strong{
+
+  color:#e7ecf6;
+
+  font-size:10px;
+
+  font-weight:600;
+
+}
+
+.detail.full{
+
+  grid-column:1/-1;
+
+}
+
+.documents{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:8px;
+
+  margin-top:14px;
+
+}
+
+.document{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:7px;
+
+  padding:11px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:9px;
+
+  color:#dce5f4;
+
+  background:#0b1019;
+
+  text-decoration:none;
+
+  font-size:9px;
+
+}
+
+.document i{
+
+  color:var(--cyan);
+
+  font-size:17px;
+
+}
+
+.document:hover{
+
+  border-color:var(--cyan);
+
+}
+
+
+/* ADMIN FORM */
+
+.form-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:11px;
+
+}
+
+.field.full{
+  grid-column:1/-1;
+}
+
+.field label{
+
+  display:block;
+
+  margin-bottom:5px;
+
+  color:#aab4c8;
+
+  font-size:8px;
+
+  font-weight:700;
+
+  text-transform:uppercase;
+
+}
+
+.field input,
+.field select,
+.field textarea{
+
+  width:100%;
+
+  min-height:40px;
+
+  padding:
+    9px 11px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:9px;
+
+  outline:none;
+
+  color:white;
+
+  background:#080c15;
+
+  font-size:10px;
+
+}
+
+.field textarea{
+
+  min-height:80px;
+
+  resize:vertical;
+
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+
+  border-color:var(--cyan);
+
+}
+
+.modal-actions{
+
+  display:flex;
+
+  justify-content:flex-end;
+
+  gap:7px;
+
+  margin-top:15px;
+
+}
+
+.btn{
+
+  min-height:39px;
+
+  padding:
+    0 13px;
+
+  border:0;
+
+  border-radius:9px;
+
+  font-size:9px;
+
+  font-weight:800;
+
+}
+
+.btn-dark{
+
+  color:#b9c2d2;
+
+  background:#171e2b;
+
+  border:
+    1px solid var(--border);
+
+}
+
+.btn-primary{
+
+  color:#001018;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--cyan),
+      var(--blue)
+    );
+
+}
+
+.btn-danger{
+
+  color:white;
+
+  background:#b91c1c;
+
+}
+
+
+/* TOAST */
+
+.toast{
+
+  position:fixed;
+
+  right:15px;
+  bottom:15px;
+
+  z-index:300;
+
+  max-width:
+    calc(100% - 30px);
+
+  padding:
+    11px 14px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:9px;
+
+  color:white;
+
+  background:#151c29;
+
+  font-size:9px;
+
+  opacity:0;
+
+  transform:
+    translateY(70px);
+
+  transition:.3s;
+
+}
+
+.toast.show{
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  .stats{
+
+    grid-template-columns:
+      repeat(3,1fr);
+
+  }
+
+}
+
+@media(max-width:600px){
+
+  .header{
+
+    padding:
+      0 13px;
+
+  }
+
+  .brand h1{
+    font-size:13px;
+  }
+
+  .admin{
+    font-size:9px;
+  }
+
+  .container{
+
+    width:
+      calc(100% - 18px);
+
+  }
+
+  .stats{
+
+    grid-template-columns:
+      repeat(2,1fr);
+
+  }
+
+  .toolbar{
+
+    flex-wrap:wrap;
+
+  }
+
+  .search{
+
+    flex-basis:100%;
+
+  }
+
+  .filter{
+
+    flex:1;
+
+  }
+
+  .add-btn{
+
+    flex:1;
+
+    justify-content:center;
+
+  }
+
+  .application{
+
+    grid-template-columns:
+      44px
+      1fr;
+
+  }
+
+  .avatar{
+
+    width:44px;
+    height:44px;
+
+  }
+
+  .actions{
+
+    grid-column:
+      1/-1;
+
+    justify-content:flex-end;
+
+  }
+
+  .detail-grid,
+  .form-grid{
+
+    grid-template-columns:1fr;
+
+  }
+
+  .detail.full,
+  .field.full{
+
+    grid-column:auto;
+
+  }
+
+  .documents{
+
+    grid-template-columns:1fr;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+  <div class="brand">
+
+    <div class="logo">
+      <i class="ri-terminal-box-line"></i>
+    </div>
+
+    <div>
+
+      <h1>
+        BLACKTERMINAL
+      </h1>
+
+      <span>
+        JOB APPLICATION ADMIN
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <div class="admin">
+
+    <span class="dot"></span>
+
+    ADMIN
+
+  </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<!-- TITLE -->
+
+<div class="page-title">
+
+  <h2>
+    Job Applications
+  </h2>
+
+  <p>
+    Manage student applications and recruitment.
+  </p>
+
+</div>
+
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+
+  <div
+    class="stat"
+    style="--accent:#00eaff"
+  >
+
+    <div class="stat-icon">
+      <i class="ri-group-line"></i>
+    </div>
+
+    <h3 id="totalCount">
+      0
+    </h3>
+
+    <p>
+      Total Applications
+    </p>
+
+  </div>
+
+
+  <div
+    class="stat"
+    style="--accent:#facc15"
+  >
+
+    <div class="stat-icon">
+      <i class="ri-notification-3-line"></i>
+    </div>
+
+    <h3 id="newCount">
+      0
+    </h3>
+
+    <p>
+      New
+    </p>
+
+  </div>
+
+
+  <div
+    class="stat"
+    style="--accent:#8b5cf6"
+  >
+
+    <div class="stat-icon">
+      <i class="ri-search-eye-line"></i>
+    </div>
+
+    <h3 id="reviewCount">
+      0
+    </h3>
+
+    <p>
+      Under Review
+    </p>
+
+  </div>
+
+
+  <div
+    class="stat"
+    style="--accent:#a78bfa"
+  >
+
+    <div class="stat-icon">
+      <i class="ri-star-line"></i>
+    </div>
+
+    <h3 id="shortlistedCount">
+      0
+    </h3>
+
+    <p>
+      Shortlisted
+    </p>
+
+  </div>
+
+
+  <div
+    class="stat"
+    style="--accent:#22c55e"
+  >
+
+    <div class="stat-icon">
+      <i class="ri-user-follow-line"></i>
+    </div>
+
+    <h3 id="selectedCount">
+      0
+    </h3>
+
+    <p>
+      Selected
+    </p>
+
+  </div>
+
+</div>
+
+
+
+<!-- TOOLBAR -->
+
+<div class="toolbar">
+
+  <div class="search">
+
+    <i class="ri-search-line"></i>
+
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="Search name, mobile, course..."
+    >
+
+  </div>
+
+
+  <select
+    id="statusFilter"
+    class="filter"
+  >
+
+    <option value="all">
+      All Applications
+    </option>
+
+    <option value="New">
+      New
+    </option>
+
+    <option value="Under Review">
+      Under Review
+    </option>
+
+    <option value="Shortlisted">
+      Shortlisted
+    </option>
+
+    <option value="Selected">
+      Selected
+    </option>
+
+    <option value="Rejected">
+      Rejected
+    </option>
+
+  </select>
+
+
+  <button
+    class="add-btn"
+    onclick="openNewStudent()"
+  >
+
+    <i class="ri-user-add-line"></i>
+
+    NEW STUDENT
+
+  </button>
+
+</div>
+
+
+
+<!-- APPLICATIONS -->
+
+<div
+  id="applications"
+  class="applications"
+></div>
+
+
+</main>
+
+
+
+<!-- =====================================
+     VIEW APPLICATION MODAL
+===================================== -->
+
+<div
+  class="modal"
+  id="viewModal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h3>
+        Student Application
+      </h3>
+
+      <button
+        class="close"
+        onclick="closeModal('viewModal')"
+      >
+
+        <i class="ri-close-line"></i>
+
+      </button>
+
+    </div>
+
+
+    <div
+      class="modal-body"
+      id="viewBody"
+    ></div>
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================
+     NEW / EDIT MODAL
+===================================== -->
+
+<div
+  class="modal"
+  id="formModal"
+>
+
+  <div class="modal-box">
+
+    <div class="modal-head">
+
+      <h3 id="formTitle">
+        New Student
+      </h3>
+
+      <button
+        class="close"
+        onclick="closeModal('formModal')"
+      >
+
+        <i class="ri-close-line"></i>
+
+      </button>
+
+    </div>
+
+
+    <div class="modal-body">
+
+
+      <input
+        type="hidden"
+        id="editId"
+      >
+
+
+      <div class="form-grid">
+
+
+        <div class="field">
+
+          <label>
+            Full Name
+          </label>
+
+          <input
+            id="fName"
+            placeholder="Student name"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Mobile
+          </label>
+
+          <input
+            id="fMobile"
+            placeholder="10 digit mobile"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Email
+          </label>
+
+          <input
+            id="fEmail"
+            type="email"
+            placeholder="Email"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Course
+          </label>
+
+          <input
+            id="fCourse"
+            placeholder="PGDCA"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Student ID
+          </label>
+
+          <input
+            id="fStudentId"
+            placeholder="Student ID"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Experience
+          </label>
+
+          <select id="fExperience">
+
+            <option value="">
+              Select
+            </option>
+
+            <option>
+              Beginner
+            </option>
+
+            <option>
+              Basic Experience
+            </option>
+
+            <option>
+              Good Experience
+            </option>
+
+            <option>
+              Experienced
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            AI / Canva
+          </label>
+
+          <select id="fAI">
+
+            <option value="">
+              Select
+            </option>
+
+            <option>
+              Yes - Good
+            </option>
+
+            <option>
+              Yes - Basic
+            </option>
+
+            <option>
+              Learning
+            </option>
+
+            <option>
+              No
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Status
+          </label>
+
+          <select id="fStatus">
+
+            <option>
+              New
+            </option>
+
+            <option>
+              Under Review
+            </option>
+
+            <option>
+              Shortlisted
+            </option>
+
+            <option>
+              Selected
+            </option>
+
+            <option>
+              Rejected
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Interview Date
+          </label>
+
+          <input
+            type="date"
+            id="fInterview"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label>
+            Joining Date
+          </label>
+
+          <input
+            type="date"
+            id="fJoining"
+          >
+
+        </div>
+
+
+        <div class="field full">
+
+          <label>
+            Skills
+          </label>
+
+          <input
+            id="fSkills"
+            placeholder="Canva, AI, Photoshop..."
+          >
+
+        </div>
+
+
+        <div class="field full">
+
+          <label>
+            Address
+          </label>
+
+          <textarea
+            id="fAddress"
+            placeholder="Student address"
+          ></textarea>
+
+        </div>
+
+
+        <div class="field full">
+
+          <label>
+            Why Should We Select
+          </label>
+
+          <textarea
+            id="fReason"
+            placeholder="Student reason"
+          ></textarea>
+
+        </div>
+
+
+        <div class="field full">
+
+          <label>
+            Admin Notes
+          </label>
+
+          <textarea
+            id="fNotes"
+            placeholder="Private admin notes..."
+          ></textarea>
+
+        </div>
+
+      </div>
+
+
+      <div class="modal-actions">
+
+        <button
+          class="btn btn-dark"
+          onclick="closeModal('formModal')"
+        >
+          CANCEL
+        </button>
+
+
+        <button
+          class="btn btn-primary"
+          onclick="saveStudent()"
+        >
+
+          <i class="ri-save-line"></i>
+
+          SAVE STUDENT
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<div
+  class="toast"
+  id="toast"
+></div>
+
+
+
+<script type="module">
+
+
+/* =====================================
+   FIREBASE
+===================================== */
+
+import {
+  firebaseConfig
+}
+from "./firebase-config.js";
+
+
+import {
+  initializeApp
+}
+from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+
+import {
+  getFirestore,
+  collection,
+  doc,
+  setDoc,
+  getDocs,
+  updateDoc,
+  deleteDoc
+}
+from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+
+const app =
+  initializeApp(
+    firebaseConfig
+  );
+
+
+const db =
+  getFirestore(app);
+
+
+/* =====================================
+   STATE
+===================================== */
+
+let applications = [];
+
+
+/* =====================================
+   TOAST
+===================================== */
+
+function toast(message){
+
+  const el =
+    document.getElementById(
+      "toast"
+    );
+
+  el.textContent =
+    message;
+
+  el.classList.add(
+    "show"
+  );
+
+  clearTimeout(
+    window.toastTimer
+  );
+
+  window.toastTimer =
+    setTimeout(
+      ()=>{
+        el.classList.remove(
+          "show"
+        );
+      },
+      3000
+    );
+
+}
+
+
+/* =====================================
+   ESCAPE
+===================================== */
+
+function esc(value){
+
+  return String(
+    value ?? ""
+  )
+  .replaceAll("&","&amp;")
+  .replaceAll("<","&lt;")
+  .replaceAll(">","&gt;")
+  .replaceAll('"',"&quot;")
+  .replaceAll("'","&#039;");
+
+}
+
+
+/* =====================================
+   STATUS CLASS
+===================================== */
+
+function statusClass(status){
+
+  if(status === "Under Review")
+    return "review";
+
+  if(status === "Shortlisted")
+    return "shortlisted";
+
+  if(status === "Selected")
+    return "selected";
+
+  if(status === "Rejected")
+    return "rejected";
+
+  return "new";
+
+}
+
+
+/* =====================================
+   LOAD
+===================================== */
+
+async function loadApplications(){
+
+  try{
+
+    const snap =
+      await getDocs(
+        collection(
+          db,
+          "jobApplications"
+        )
+      );
+
+
+    applications = [];
+
+
+    snap.forEach(item => {
+
+      applications.push({
+
+        id:item.id,
+
+        ...item.data()
+
+      });
+
+    });
+
+
+    applications.sort(
+      (a,b)=>
+        Number(
+          b.createdAt || 0
+        ) -
+        Number(
+          a.createdAt || 0
+        )
+    );
+
+
+    updateStats();
+
+    renderApplications();
+
+  }
+  catch(error){
+
+    console.error(error);
+
+    toast(
+      "Applications load failed"
+    );
+
+  }
+
+}
+
+
+/* =====================================
+   STATS
+===================================== */
+
+function updateStats(){
+
+  const count =
+    status =>
+      applications.filter(
+        x =>
+          (x.status || "New")
+          === status
+      ).length;
+
+
+  document.getElementById(
+    "totalCount"
+  ).textContent =
+    applications.length;
+
+
+  document.getElementById(
+    "newCount"
+  ).textContent =
+    count("New");
+
+
+  document.getElementById(
+    "reviewCount"
+  ).textContent =
+    count("Under Review");
+
+
+  document.getElementById(
+    "shortlistedCount"
+  ).textContent =
+    count("Shortlisted");
+
+
+  document.getElementById(
+    "selectedCount"
+  ).textContent =
+    count("Selected");
+
+}
+
+
+/* =====================================
+   RENDER
+===================================== */
+
+function renderApplications(){
+
+  const container =
+    document.getElementById(
+      "applications"
+    );
+
+
+  const search =
+    document.getElementById(
+      "searchInput"
+    )
+    .value
+    .trim()
+    .toLowerCase();
+
+
+  const filter =
+    document.getElementById(
+      "statusFilter"
+    ).value;
+
+
+  const list =
+    applications.filter(
+      a => {
+
+        const text = (
+
+          (a.name || "") +
+          " " +
+          (a.mobile || "") +
+          " " +
+          (a.course || "") +
+          " " +
+          (a.studentId || "")
+
+        ).toLowerCase();
+
+
+        const searchOK =
+          !search ||
+          text.includes(search);
+
+
+        const statusOK =
+          filter === "all" ||
+          (a.status || "New")
+            === filter;
+
+
+        return (
+          searchOK &&
+          statusOK
+        );
+
+      }
+    );
+
+
+  if(!list.length){
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        <i class="ri-inbox-line"></i>
+
+        No applications found.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    list.map(
+      a => {
+
+        const initial =
+          (a.name || "?")
+          .charAt(0)
+          .toUpperCase();
+
+
+        const avatar =
+          a.photoUrl
+
+          ? `
+
+            <img
+              class="avatar"
+              src="${esc(a.photoUrl)}"
+              onerror="
+                this.outerHTML=
+                '<div class=&quot;avatar&quot;>${initial}</div>'
+              "
+            >
+
+          `
+
+          : `
+
+            <div class="avatar">
+              ${initial}
+            </div>
+
+          `;
+
+
+        return `
+
+          <div class="application">
+
+            ${avatar}
+
+
+            <div class="app-info">
+
+              <h3>
+                ${esc(a.name || "Unnamed Student")}
+              </h3>
+
+              <p>
+                ${esc(a.mobile || "No mobile")}
+                •
+                ${esc(a.course || "Course not added")}
+              </p>
+
+
+              <div class="meta">
+
+                <span
+                  class="badge ${statusClass(
+                    a.status || "New"
+                  )}"
+                >
+                  ${esc(
+                    a.status || "New"
+                  )}
+                </span>
+
+
+                ${
+                  a.experience
+
+                  ? `
+
+                    <span class="badge new">
+                      ${esc(a.experience)}
+                    </span>
+
+                  `
+
+                  : ""
+
+                }
+
+
+                ${
+                  a.createdAt
+
+                  ? `
+
+                    <span class="badge">
+                      ${formatDateTime(
+                        a.createdAt
+                      )}
+                    </span>
+
+                  `
+
+                  : ""
+
+                }
+
+              </div>
+
+            </div>
+
+
+            <div class="actions">
+
+              <button
+                class="icon-btn"
+                title="View"
+                onclick="
+                  viewApplication(
+                    '${escAttr(a.id)}'
+                  )
+                "
+              >
+
+                <i class="ri-eye-line"></i>
+
+              </button>
+
+
+              <button
+                class="icon-btn"
+                title="Edit"
+                onclick="
+                  editApplication(
+                    '${escAttr(a.id)}'
+                  )
+                "
+              >
+
+                <i class="ri-edit-line"></i>
+
+              </button>
+
+
+              <button
+                class="icon-btn"
+                title="Delete"
+                onclick="
+                  deleteApplication(
+                    '${escAttr(a.id)}'
+                  )
+                "
+              >
+
+                <i class="ri-delete-bin-line"></i>
+
+              </button>
+
+            </div>
+
+          </div>
+
+        `;
+
+      }
+    )
+    .join("");
+
+}
+
+
+/* =====================================
+   VIEW
+===================================== */
+
+window.viewApplication =
+function(id){
+
+  const a =
+    applications.find(
+      x => x.id === id
+    );
+
+
+  if(!a) return;
+
+
+  const initial =
+    (a.name || "?")
+    .charAt(0)
+    .toUpperCase();
+
+
+  const photo =
+    a.photoUrl
+
+    ? `
+
+      <img
+        src="${esc(a.photoUrl)}"
+      >
+
+    `
+
+    : `
+
+      <div class="big-avatar">
+        ${initial}
+      </div>
+
+    `;
+
+
+  const documentButton =
+    (
+      url,
+      icon,
+      text
+    ) =>
+
+      url
+
+      ? `
+
+        <a
+          class="document"
+          href="${esc(url)}"
+          target="_blank"
+          rel="noopener"
+        >
+
+          <i class="${icon}"></i>
+
+          ${text}
+
+        </a>
+
+      `
+
+      : "";
+
+
+  document.getElementById(
+    "viewBody"
+  ).innerHTML = `
+
+
+    <div class="profile">
+
+      ${photo}
+
+      <div>
+
+        <h2>
+          ${esc(a.name || "-")}
+        </h2>
+
+        <p>
+          ${esc(a.course || "-")}
+          •
+          ${esc(a.mobile || "-")}
+        </p>
+
+        <div class="meta">
+
+          <span
+            class="badge ${statusClass(
+              a.status || "New"
+            )}"
+          >
+            ${esc(
+              a.status || "New"
+            )}
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="detail-grid">
+
+
+      ${detail(
+        "Mobile",
+        a.mobile
+      )}
+
+
+      ${detail(
+        "Email",
+        a.email
+      )}
+
+
+      ${detail(
+        "Course",
+        a.course
+      )}
+
+
+      ${detail(
+        "Student ID",
+        a.studentId
+      )}
+
+
+      ${detail(
+        "Date of Birth",
+        a.dob
+      )}
+
+
+      ${detail(
+        "Gender",
+        a.gender
+      )}
+
+
+      ${detail(
+        "Design Experience",
+        a.experience
+      )}
+
+
+      ${detail(
+        "AI / Canva",
+        a.aiKnowledge
+      )}
+
+
+      ${detail(
+        "Social Media",
+        a.socialExperience
+      )}
+
+
+      ${detail(
+        "Interview Date",
+        a.interviewDate
+      )}
+
+
+      ${detail(
+        "Joining Date",
+        a.joiningDate
+      )}
+
+
+      ${detail(
+        "Skills",
+        a.skills,
+        true
+      )}
+
+
+      ${detail(
+        "Address",
+        a.address,
+        true
+      )}
+
+
+      ${detail(
+        "Why Should We Select",
+        a.reason,
+        true
+      )}
+
+
+      ${detail(
+        "Admin Notes",
+        a.adminNotes,
+        true
+      )}
+
+    </div>
+
+
+
+    <div class="documents">
+
+      ${documentButton(
+        a.cvUrl,
+        "ri-file-pdf-2-line",
+        "CV / Resume"
+      )}
+
+      ${documentButton(
+        a.portfolioUrl,
+        "ri-image-line",
+        "Portfolio"
+      )}
+
+      ${documentButton(
+        a.studentDocumentUrl,
+        "ri-id-card-line",
+        "Student Document"
+      )}
+
+    </div>
+
+
+    <div class="modal-actions">
+
+      <button
+        class="btn btn-primary"
+        onclick="
+          closeModal('viewModal');
+          editApplication('${escAttr(a.id)}')
+        "
+      >
+
+        <i class="ri-edit-line"></i>
+
+        EDIT APPLICATION
+
+      </button>
+
+    </div>
+
+  `;
+
+
+  document.getElementById(
+    "viewModal"
+  ).classList.add(
+    "show"
+  );
+
+};
+
+
+/* =====================================
+   DETAIL HELPER
+===================================== */
+
+function detail(
+  label,
+  value,
+  full=false
+){
+
+  return `
+
+    <div class="detail ${
+      full ? "full" : ""
+    }">
+
+      <label>
+        ${label}
+      </label>
+
+      <strong>
+        ${esc(
+          value || "Not provided"
+        )}
+      </strong>
+
+    </div>
+
+  `;
+
+}
+
+
+/* =====================================
+   NEW STUDENT
+===================================== */
+
+window.openNewStudent =
+function(){
+
+  clearForm();
+
+
+  document.getElementById(
+    "formTitle"
+  ).textContent =
+    "Add New Student";
+
+
+  document.getElementById(
+    "formModal"
+  ).classList.add(
+    "show"
+  );
+
+};
+
+
+/* =====================================
+   EDIT
+===================================== */
+
+window.editApplication =
+function(id){
+
+  const a =
+    applications.find(
+      x => x.id === id
+    );
+
+
+  if(!a) return;
+
+
+  document.getElementById(
+    "editId"
+  ).value =
+    id;
+
+
+  document.getElementById(
+    "formTitle"
+  ).textContent =
+    "Edit Student";
+
+
+  setValue(
+    "fName",
+    a.name
+  );
+
+  setValue(
+    "fMobile",
+    a.mobile
+  );
+
+  setValue(
+    "fEmail",
+    a.email
+  );
+
+  setValue(
+    "fCourse",
+    a.course
+  );
+
+  setValue(
+    "fStudentId",
+    a.studentId
+  );
+
+  setValue(
+    "fExperience",
+    a.experience
+  );
+
+  setValue(
+    "fAI",
+    a.aiKnowledge
+  );
+
+  setValue(
+    "fStatus",
+    a.status || "New"
+  );
+
+  setValue(
+    "fInterview",
+    a.interviewDate
+  );
+
+  setValue(
+    "fJoining",
+    a.joiningDate
+  );
+
+  setValue(
+    "fSkills",
+    a.skills
+  );
+
+  setValue(
+    "fAddress",
+    a.address
+  );
+
+  setValue(
+    "fReason",
+    a.reason
+  );
+
+  setValue(
+    "fNotes",
+    a.adminNotes
+  );
+
+
+  document.getElementById(
+    "formModal"
+  ).classList.add(
+    "show"
+  );
+
+};
+
+
+/* =====================================
+   SAVE
+===================================== */
+
+window.saveStudent =
+async function(){
+
+  const id =
+    document.getElementById(
+      "editId"
+    ).value;
+
+
+  const name =
+    getValue("fName");
+
+
+  const mobile =
+    getValue("fMobile");
+
+
+  if(!name || !mobile){
+
+    toast(
+      "Name and mobile are required"
+    );
+
+    return;
+
+  }
+
+
+  const data = {
+
+    name,
+
+    mobile,
+
+    email:
+      getValue("fEmail"),
+
+    course:
+      getValue("fCourse"),
+
+    studentId:
+      getValue("fStudentId"),
+
+    experience:
+      getValue("fExperience"),
+
+    aiKnowledge:
+      getValue("fAI"),
+
+    status:
+      getValue("fStatus") ||
+      "New",
+
+    interviewDate:
+      getValue("fInterview"),
+
+    joiningDate:
+      getValue("fJoining"),
+
+    skills:
+      getValue("fSkills"),
+
+    address:
+      getValue("fAddress"),
+
+    reason:
+      getValue("fReason"),
+
+    adminNotes:
+      getValue("fNotes"),
+
+    updatedAt:
+      Date.now()
+
+  };
+
+
+  try{
+
+    if(id){
+
+      await updateDoc(
+
+        doc(
+          db,
+          "jobApplications",
+          id
+        ),
+
+        data
+
+      );
+
+      toast(
+        "Student updated"
+      );
+
+    }
+    else{
+
+      const newRef =
+        doc(
+          collection(
+            db,
+            "jobApplications"
+          )
+        );
+
+
+      await setDoc(
+        newRef,
+        {
+
+          ...data,
+
+          createdAt:
+            Date.now(),
+
+          source:
+            "admin"
+
+        }
+      );
+
+
+      toast(
+        "New student added"
+      );
+
+    }
+
+
+    closeModal(
+      "formModal"
+    );
+
+
+    await loadApplications();
+
+  }
+  catch(error){
+
+    console.error(error);
+
+    toast(
+      "Save failed: " +
+      error.message
+    );
+
+  }
+
+};
+
+
+/* =====================================
+   DELETE
+===================================== */
+
+window.deleteApplication =
+async function(id){
+
+  const a =
+    applications.find(
+      x => x.id === id
+    );
+
+
+  if(!a) return;
+
+
+  const ok =
+    confirm(
+
+      `Delete application of ${
+        a.name || "this student"
+      }?`
+
+    );
+
+
+  if(!ok) return;
+
+
+  try{
+
+    await deleteDoc(
+
+      doc(
+        db,
+        "jobApplications",
+        id
+      )
+
+    );
+
+
+    toast(
+      "Application deleted"
+    );
+
+
+    await loadApplications();
+
+  }
+  catch(error){
+
+    console.error(error);
+
+    toast(
+      "Delete failed"
+    );
+
+  }
+
+};
+
+
+/* =====================================
+   CLEAR FORM
+===================================== */
+
+function clearForm(){
+
+  document.getElementById(
+    "editId"
+  ).value = "";
+
+
+  [
+
+    "fName",
+    "fMobile",
+    "fEmail",
+    "fCourse",
+    "fStudentId",
+    "fSkills",
+    "fAddress",
+    "fReason",
+    "fNotes",
+    "fInterview",
+    "fJoining"
+
+  ].forEach(
+    id =>
+      document.getElementById(
+        id
+      ).value = ""
+  );
+
+
+  document.getElementById(
+    "fExperience"
+  ).value = "";
+
+
+  document.getElementById(
+    "fAI"
+  ).value = "";
+
+
+  document.getElementById(
+    "fStatus"
+  ).value = "New";
+
+}
+
+
+/* =====================================
+   HELPERS
+===================================== */
+
+function getValue(id){
+
+  return document.getElementById(
+    id
+  ).value.trim();
+
+}
+
+
+function setValue(
+  id,
+  value
+){
+
+  document.getElementById(
+    id
+  ).value =
+    value || "";
+
+}
+
+
+function escAttr(value){
+
+  return String(
+    value || ""
+  )
+  .replaceAll("\\","\\\\")
+  .replaceAll("'","\\'");
+
+}
+
+
+function formatDateTime(value){
+
+  if(!value) return "";
+
+  const d =
+    new Date(
+      Number(value)
+    );
+
+
+  if(
+    Number.isNaN(
+      d.getTime()
+    )
+  ){
+
+    return "";
+
+  }
+
+
+  return d.toLocaleDateString(
+    "en-IN",
+    {
+      day:"2-digit",
+      month:"short",
+      year:"numeric"
+    }
+  );
+
+}
+
+
+window.closeModal =
+function(id){
+
+  document.getElementById(
+    id
+  ).classList.remove(
+    "show"
+  );
+
+};
+
+
+/* =====================================
+   SEARCH
+===================================== */
+
+document.getElementById(
+  "searchInput"
+)
+.addEventListener(
+  "input",
+  renderApplications
+);
+
+
+document.getElementById(
+  "statusFilter"
+)
+.addEventListener(
+  "change",
+  renderApplications
+);
+
+
+/* =====================================
+   START
+===================================== */
+
+await loadApplications();
+
+</script>
+
+</body>
+</html>
