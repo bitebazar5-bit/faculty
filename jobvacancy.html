@@ -1,1 +1,765 @@
-hhh
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Job Vacancy | BlackTerminal Computer Institute</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f5f7ff;
+    color:#172033;
+    line-height:1.5;
+}
+
+.container{
+    width:92%;
+    max-width:1000px;
+    margin:auto;
+}
+
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#07142f,#123b9c,#1769e0);
+    color:white;
+    padding:30px 0 45px;
+    text-align:center;
+}
+
+.logo{
+    font-size:38px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#29a8ff;
+}
+
+.institute{
+    font-size:15px;
+    letter-spacing:4px;
+    margin-top:3px;
+}
+
+.location{
+    margin-top:5px;
+    color:#dbe8ff;
+}
+
+.badge{
+    display:inline-block;
+    margin-top:25px;
+    padding:10px 22px;
+    background:#ffcc00;
+    color:#111;
+    border-radius:30px;
+    font-weight:800;
+    font-size:14px;
+}
+
+/* HERO */
+.hero{
+    margin-top:-20px;
+}
+
+.hero-card{
+    background:white;
+    border-radius:25px;
+    padding:30px 20px;
+    text-align:center;
+    box-shadow:0 12px 35px rgba(0,0,0,.12);
+}
+
+.hero-card h1{
+    font-size:40px;
+    color:#111d45;
+}
+
+.hero-card h1 span{
+    color:#ed145b;
+}
+
+.position{
+    display:inline-block;
+    margin-top:18px;
+    padding:13px 20px;
+    border-radius:12px;
+    background:linear-gradient(90deg,#e8f1ff,#fff0f6);
+    font-size:20px;
+    font-weight:700;
+}
+
+.salary{
+    margin:25px auto 0;
+    max-width:400px;
+    padding:20px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#fff4b8,#ffe000);
+}
+
+.salary small{
+    display:block;
+    font-size:14px;
+}
+
+.salary strong{
+    display:block;
+    font-size:38px;
+    color:#111;
+}
+
+/* SECTIONS */
+section{
+    margin-top:25px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 7px 25px rgba(0,0,0,.07);
+}
+
+.card h2{
+    margin-bottom:18px;
+    font-size:24px;
+}
+
+.blue{
+    color:#1464db;
+}
+
+.green{
+    color:#00a86b;
+}
+
+.red{
+    color:#e7354d;
+}
+
+.orange{
+    color:#ef7d00;
+}
+
+ul{
+    list-style:none;
+}
+
+li{
+    margin:12px 0;
+    padding-left:28px;
+    position:relative;
+}
+
+li::before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    top:0;
+    width:21px;
+    height:21px;
+    border-radius:50%;
+    background:#13b875;
+    color:white;
+    font-size:13px;
+    font-weight:bold;
+    text-align:center;
+}
+
+/* TWO COLUMNS */
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+/* PAYMENT */
+.payment-box{
+    background:linear-gradient(135deg,#fff7e1,#fff);
+    border-left:6px solid #ff9800;
+}
+
+.payment-box strong{
+    color:#e66b00;
+}
+
+/* APPLY */
+.apply-section{
+    background:linear-gradient(135deg,#101c46,#174fc1);
+    color:white;
+    border-radius:25px;
+    padding:30px 20px;
+    margin-top:30px;
+}
+
+.apply-section h2{
+    text-align:center;
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.apply-sub{
+    text-align:center;
+    color:#dbe6ff;
+    margin-bottom:25px;
+}
+
+form{
+    max-width:650px;
+    margin:auto;
+}
+
+.form-group{
+    margin-bottom:16px;
+}
+
+label{
+    display:block;
+    margin-bottom:6px;
+    font-weight:600;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:13px 14px;
+    border:none;
+    border-radius:10px;
+    outline:none;
+    font-size:15px;
+}
+
+textarea{
+    min-height:100px;
+    resize:vertical;
+}
+
+.submit-btn{
+    width:100%;
+    border:none;
+    padding:15px;
+    border-radius:12px;
+    background:#19c777;
+    color:white;
+    font-size:18px;
+    font-weight:800;
+    cursor:pointer;
+    margin-top:8px;
+}
+
+.submit-btn:hover{
+    background:#0faa64;
+}
+
+/* NOTICE */
+.notice{
+    text-align:center;
+    padding:20px;
+    margin-top:25px;
+    background:#fff3cd;
+    border-radius:15px;
+    color:#654d03;
+}
+
+/* FOOTER */
+footer{
+    margin-top:35px;
+    background:#07142f;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+}
+
+footer strong{
+    color:#29a8ff;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+    .logo{
+        font-size:29px;
+    }
+
+    .institute{
+        font-size:11px;
+        letter-spacing:2px;
+    }
+
+    .hero-card h1{
+        font-size:31px;
+    }
+
+    .position{
+        font-size:17px;
+    }
+
+    .salary strong{
+        font-size:32px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        padding:20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+
+<div class="container">
+
+    <div class="logo">
+        Black<span>Terminal</span>
+    </div>
+
+    <div class="institute">
+        COMPUTER INSTITUTE
+    </div>
+
+    <div class="location">
+        BARIPADA, ODISHA
+    </div>
+
+    <div class="badge">
+        🚀 JOIN OUR TEAM
+    </div>
+
+</div>
+
+</header>
+
+
+<!-- HERO -->
+<div class="container hero">
+
+<div class="hero-card">
+
+    <h1>
+        JOB <span>VACANCY</span>
+    </h1>
+
+    <div class="position">
+        Social Media & Design Support Staff
+    </div>
+
+    <div class="salary">
+
+        <small>Performance Based Salary</small>
+
+        <strong>
+            Up to ₹9,000
+        </strong>
+
+        <small>
+            Per Month
+        </small>
+
+    </div>
+
+</div>
+
+</div>
+
+
+<!-- JOB ROLE -->
+<section class="container">
+
+<div class="card">
+
+<h2 class="blue">
+    💼 Job Role
+</h2>
+
+<ul>
+
+<li>Create daily posters and promotional designs.</li>
+
+<li>Create WhatsApp posters and promotional content.</li>
+
+<li>Update daily offers, notices and advertisements.</li>
+
+<li>Run and manage social media advertisements.</li>
+
+<li>Use AI tools such as Canva, ChatGPT and other design tools.</li>
+
+<li>Create attractive content for Instagram and Facebook.</li>
+
+<li>Deliver required posters and content on a daily basis.</li>
+
+<li>Coordinate with the BlackTerminal team.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+<!-- SKILLS + ELIGIBILITY -->
+<section class="container">
+
+<div class="grid">
+
+<div class="card">
+
+<h2 class="green">
+    ✅ Who Can Apply?
+</h2>
+
+<ul>
+
+<li>Must be a BlackTerminal student.</li>
+
+<li>Basic computer knowledge.</li>
+
+<li>Interested in graphic/design work.</li>
+
+<li>Can use AI tools for creating designs.</li>
+
+<li>Basic knowledge of Canva is preferred.</li>
+
+<li>Interested in social media and advertising.</li>
+
+<li>Responsible and regular with work.</li>
+
+</ul>
+
+</div>
+
+
+<div class="card">
+
+<h2 class="red">
+    ❌ Who Cannot Apply?
+</h2>
+
+<ul>
+
+<li>Non-BlackTerminal students.</li>
+
+<li>People not interested in design work.</li>
+
+<li>People who cannot work regularly.</li>
+
+<li>People unwilling to learn AI/design tools.</li>
+
+<li>People who cannot meet daily deadlines.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PAYMENT -->
+<section class="container">
+
+<div class="card payment-box">
+
+<h2 class="orange">
+    💰 Salary & Payment
+</h2>
+
+<p>
+This is a <strong>performance-based work opportunity</strong>.
+There is no fixed salary guarantee.
+</p>
+
+<br>
+
+<ul>
+
+<li>Payment depends on the amount and quality of work completed.</li>
+
+<li>Daily/regular work may lead to higher monthly earnings.</li>
+
+<li>Maximum earning opportunity: <strong>Up to ₹9,000 per month.</strong></li>
+
+<li>Payment will be made by BlackTerminal.</li>
+
+<li>Work performance and responsibility will be considered for payment.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+<!-- WORKING STYLE -->
+<section class="container">
+
+<div class="card">
+
+<h2 class="blue">
+    🕒 Working Style
+</h2>
+
+<ul>
+
+<li>Daily poster/content requirements will be provided.</li>
+
+<li>Posters should be created and submitted on time.</li>
+
+<li>Work can involve AI, Canva and social media platforms.</li>
+
+<li>Regular communication with the institute may be required.</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+<!-- APPLY FORM -->
+<div class="container">
+
+<div class="apply-section">
+
+<h2>
+    📩 Apply Now
+</h2>
+
+<p class="apply-sub">
+    Only BlackTerminal Students Can Apply
+</p>
+
+
+<form id="jobForm">
+
+<div class="form-group">
+
+<label>Full Name</label>
+
+<input
+type="text"
+id="name"
+placeholder="Enter your full name"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Mobile Number</label>
+
+<input
+type="tel"
+id="phone"
+placeholder="Enter your mobile number"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>BlackTerminal Course</label>
+
+<input
+type="text"
+id="course"
+placeholder="Example: PGDCA"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Design Experience</label>
+
+<select id="experience" required>
+
+<option value="">Select</option>
+
+<option>Beginner</option>
+
+<option>Basic Experience</option>
+
+<option>Good Experience</option>
+
+<option>Experienced</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Can you create posters using AI / Canva?</label>
+
+<select id="ai" required>
+
+<option value="">Select</option>
+
+<option>Yes</option>
+
+<option>No</option>
+
+<option>Learning</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Why should we select you?</label>
+
+<textarea
+id="message"
+placeholder="Write a short answer..."
+></textarea>
+
+</div>
+
+
+<button
+type="submit"
+class="submit-btn">
+
+📲 SUBMIT APPLICATION
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+<div class="container">
+
+<div class="notice">
+
+<strong>Important:</strong><br>
+
+Only current or former BlackTerminal students are eligible to apply.
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+
+<strong>BlackTerminal Computer Institute</strong>
+
+<br>
+
+Baripada, Odisha
+
+<br><br>
+
+© 2026 BlackTerminal. All Rights Reserved.
+
+</footer>
+
+
+<script>
+
+/*
+==================================================
+IMPORTANT
+==================================================
+
+Replace the number below with your BlackTerminal
+WhatsApp number.
+
+Example:
+919876543210
+
+Do NOT use + sign or spaces.
+==================================================
+*/
+
+const whatsappNumber = "919XXXXXXXXX";
+
+
+document.getElementById("jobForm").addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    const phone =
+        document.getElementById("phone").value.trim();
+
+    const course =
+        document.getElementById("course").value.trim();
+
+    const experience =
+        document.getElementById("experience").value;
+
+    const ai =
+        document.getElementById("ai").value;
+
+    const message =
+        document.getElementById("message").value.trim();
+
+
+    const whatsappMessage =
+
+`*BLACKTERMINAL JOB APPLICATION*
+
+*Position:* Social Media & Design Support Staff
+
+*Name:* ${name}
+
+*Mobile:* ${phone}
+
+*Course:* ${course}
+
+*Design Experience:* ${experience}
+
+*AI / Canva:* ${ai}
+
+*Why should we select you?*
+${message}
+
+I confirm that I am a BlackTerminal student and the information provided above is correct.`;
+
+
+    const url =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(whatsappMessage);
+
+
+    window.open(url, "_blank");
+
+});
+
+</script>
+
+</body>
+</html>
