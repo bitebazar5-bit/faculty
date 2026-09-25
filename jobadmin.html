@@ -1,1231 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 
 <meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
+    name="viewport"
+    content="width=device-width, initial-scale=1"
 >
 
-<title>
-BlackTerminal | Job Admin
-</title>
-
-<link
-  href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-  rel="stylesheet"
->
-
-<link
-  href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
-  rel="stylesheet"
->
+<title>BlackTerminal Job Admin</title>
 
 <style>
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-:root{
-
-  --bg:#070a12;
-  --card:#0e1420;
-  --card2:#0a0f18;
-
-  --border:#202b40;
-
-  --text:#f4f7ff;
-  --muted:#818ba0;
-
-  --cyan:#00eaff;
-  --blue:#168cff;
-  --purple:#8b5cf6;
-  --pink:#ec4899;
-
-  --green:#22c55e;
-  --yellow:#facc15;
-  --red:#ef4444;
-
+    box-sizing:border-box;
 }
 
 body{
 
-  min-height:100vh;
+    margin:0;
 
-  font-family:
-    "Plus Jakarta Sans",
-    sans-serif;
+    font-family:Arial,sans-serif;
 
-  color:var(--text);
+    background:#f4f6fb;
 
-  background:
-
-    radial-gradient(
-      circle at 0 0,
-      rgba(0,234,255,.07),
-      transparent 28%
-    ),
-
-    radial-gradient(
-      circle at 100% 0,
-      rgba(139,92,246,.08),
-      transparent 28%
-    ),
-
-    var(--bg);
+    color:#182033;
 
 }
-
-button,
-input,
-select,
-textarea{
-  font-family:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-
-/* HEADER */
 
 .header{
 
-  position:sticky;
+    background:
+        linear-gradient(
+            135deg,
+            #5148e8,
+            #8b5cf6
+        );
 
-  top:0;
+    color:white;
 
-  z-index:50;
-
-  height:68px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  padding:0 22px;
-
-  background:
-    rgba(7,10,18,.92);
-
-  backdrop-filter:blur(18px);
-
-  border-bottom:
-    1px solid var(--border);
+    padding:22px;
 
 }
 
-.brand{
+.header h1{
 
-  display:flex;
+    margin:0;
 
-  align-items:center;
-
-  gap:11px;
+    font-size:23px;
 
 }
 
-.logo{
+.header p{
 
-  width:40px;
-  height:40px;
+    margin:5px 0 0;
 
-  display:grid;
+    opacity:.85;
 
-  place-items:center;
-
-  border-radius:11px;
-
-  color:#001018;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--cyan),
-      var(--purple)
-    );
-
-  font-size:21px;
+    font-size:13px;
 
 }
-
-.brand h1{
-
-  font-family:Orbitron,sans-serif;
-
-  font-size:15px;
-
-}
-
-.brand span{
-
-  display:block;
-
-  margin-top:3px;
-
-  color:var(--muted);
-
-  font-size:8px;
-
-  letter-spacing:.4px;
-
-}
-
-.admin{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:7px;
-
-  color:var(--cyan);
-
-  font-size:11px;
-
-  font-weight:800;
-
-}
-
-.dot{
-
-  width:7px;
-  height:7px;
-
-  border-radius:50%;
-
-  background:var(--green);
-
-  box-shadow:
-    0 0 12px var(--green);
-
-}
-
-
-/* CONTAINER */
 
 .container{
 
-  width:min(
-    1200px,
-    calc(100% - 24px)
-  );
+    max-width:1100px;
 
-  margin:
-    22px auto 60px;
+    margin:auto;
+
+    padding:18px;
 
 }
-
-
-/* TITLE */
-
-.page-title{
-
-  margin-bottom:18px;
-
-}
-
-.page-title h2{
-
-  font-family:Orbitron,sans-serif;
-
-  font-size:22px;
-
-}
-
-.page-title p{
-
-  margin-top:5px;
-
-  color:var(--muted);
-
-  font-size:10px;
-
-}
-
-
-/* STATS */
 
 .stats{
 
-  display:grid;
+    display:grid;
 
-  grid-template-columns:
-    repeat(5,1fr);
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(150px,1fr)
+        );
 
-  gap:10px;
+    gap:12px;
 
-  margin-bottom:18px;
+    margin-bottom:18px;
 
 }
 
 .stat{
 
-  position:relative;
+    background:white;
 
-  overflow:hidden;
+    border-radius:15px;
 
-  padding:15px;
+    padding:16px;
 
-  border:1px solid var(--border);
-
-  border-radius:15px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #101725,
-      #0a0f18
-    );
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.05);
 
 }
 
-.stat-icon{
+.stat strong{
 
-  width:34px;
-  height:34px;
+    display:block;
 
-  display:grid;
-
-  place-items:center;
-
-  margin-bottom:10px;
-
-  border-radius:9px;
-
-  color:var(--accent);
-
-  background:
-    rgba(255,255,255,.04);
+    font-size:24px;
 
 }
 
-.stat h3{
+.stat span{
 
-  font-size:20px;
+    font-size:12px;
 
-}
-
-.stat p{
-
-  margin-top:3px;
-
-  color:var(--muted);
-
-  font-size:9px;
+    color:#737b8c;
 
 }
 
+.card{
 
-/* TOOLBAR */
+    background:white;
 
-.toolbar{
+    border-radius:17px;
 
-  display:flex;
+    padding:18px;
 
-  align-items:center;
+    margin-bottom:18px;
 
-  gap:9px;
-
-  margin-bottom:15px;
-
-}
-
-.search{
-
-  position:relative;
-
-  flex:1;
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.05);
 
 }
 
-.search i{
+.card h2{
 
-  position:absolute;
+    margin-top:0;
 
-  left:12px;
-  top:50%;
-
-  transform:
-    translateY(-50%);
-
-  color:#667187;
+    font-size:18px;
 
 }
 
-.search input{
+.form-grid{
 
-  width:100%;
+    display:grid;
 
-  height:42px;
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(220px,1fr)
+        );
 
-  padding:
-    0 12px 0 36px;
-
-  border:
-    1px solid var(--border);
-
-  border-radius:10px;
-
-  outline:none;
-
-  color:white;
-
-  background:#0b1019;
-
-  font-size:10px;
+    gap:12px;
 
 }
 
-.search input:focus{
+label{
 
-  border-color:var(--cyan);
+    display:block;
 
-}
+    font-size:12px;
 
-.filter{
+    font-weight:bold;
 
-  height:42px;
-
-  min-width:140px;
-
-  padding:0 10px;
-
-  border:
-    1px solid var(--border);
-
-  border-radius:10px;
-
-  outline:none;
-
-  color:white;
-
-  background:#0b1019;
-
-  font-size:10px;
+    margin-bottom:5px;
 
 }
 
-.add-btn{
+input,
+select,
+textarea{
 
-  height:42px;
+    width:100%;
 
-  padding:
-    0 14px;
+    padding:11px;
 
-  display:flex;
+    border:
+        1px solid #dfe3eb;
 
-  align-items:center;
+    border-radius:9px;
 
-  gap:6px;
-
-  border:0;
-
-  border-radius:10px;
-
-  color:#001018;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--cyan),
-      var(--blue)
-    );
-
-  font-size:10px;
-
-  font-weight:800;
+    outline:none;
 
 }
 
+textarea{
 
-/* APPLICATION CARD */
+    min-height:90px;
 
-.applications{
+}
 
-  display:grid;
+button{
 
-  gap:10px;
+    border:0;
+
+    padding:11px 15px;
+
+    border-radius:9px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+.primary{
+
+    background:#635bff;
+
+    color:white;
+
+}
+
+.secondary{
+
+    background:#eef0f5;
+
+    color:#333;
+
+}
+
+.danger{
+
+    background:#fee2e2;
+
+    color:#b91c1c;
+
+}
+
+.jobs-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(260px,1fr)
+        );
+
+    gap:12px;
+
+}
+
+.job{
+
+    border:
+        1px solid #e1e4eb;
+
+    border-radius:13px;
+
+    padding:15px;
+
+}
+
+.job h3{
+
+    margin:0 0 5px;
+
+    font-size:15px;
+
+}
+
+.job p{
+
+    font-size:12px;
+
+    color:#737b8c;
+
+    line-height:18px;
+
+}
+
+.job-actions{
+
+    display:flex;
+
+    gap:7px;
+
+    margin-top:12px;
+
+    flex-wrap:wrap;
 
 }
 
 .application{
 
-  display:grid;
+    border-top:
+        1px solid #e5e7ed;
 
-  grid-template-columns:
-    50px
-    1fr
-    auto;
-
-  align-items:center;
-
-  gap:12px;
-
-  padding:13px;
-
-  border:
-    1px solid var(--border);
-
-  border-radius:14px;
-
-  background:
-    rgba(14,20,32,.9);
-
-  transition:.2s;
+    padding:15px 0;
 
 }
 
-.application:hover{
+.application:first-child{
 
-  border-color:
-    rgba(0,234,255,.25);
-
-  transform:
-    translateY(-1px);
+    border-top:0;
 
 }
 
-.avatar{
+.application h3{
 
-  width:50px;
-  height:50px;
-
-  display:grid;
-
-  place-items:center;
-
-  border-radius:13px;
-
-  object-fit:cover;
-
-  color:var(--cyan);
-
-  background:#182131;
-
-  font-weight:800;
-
-  font-size:15px;
+    margin:0;
 
 }
 
-.app-info h3{
+.application p{
 
-  font-size:12px;
+    margin:4px 0;
 
-}
+    font-size:12px;
 
-.app-info p{
-
-  margin-top:4px;
-
-  color:var(--muted);
-
-  font-size:9px;
+    color:#626a79;
 
 }
 
-.meta{
+.status{
 
-  display:flex;
+    display:inline-block;
 
-  flex-wrap:wrap;
+    padding:5px 8px;
 
-  gap:5px;
+    border-radius:999px;
 
-  margin-top:7px;
+    font-size:10px;
 
-}
+    font-weight:bold;
 
-.badge{
-
-  display:inline-flex;
-
-  padding:4px 7px;
-
-  border-radius:20px;
-
-  font-size:7px;
-
-  font-weight:800;
+    background:#eef0f5;
 
 }
 
-.new{
-  color:#58eaff;
-  background:rgba(0,234,255,.08);
-}
+.status.New{
 
-.review{
-  color:#facc15;
-  background:rgba(250,204,21,.08);
-}
+    background:#dbeafe;
 
-.shortlisted{
-  color:#a78bfa;
-  background:rgba(139,92,246,.1);
-}
-
-.selected{
-  color:#4ade80;
-  background:rgba(34,197,94,.1);
-}
-
-.rejected{
-  color:#fb7185;
-  background:rgba(239,68,68,.1);
-}
-
-.actions{
-
-  display:flex;
-
-  gap:5px;
+    color:#1d4ed8;
 
 }
 
-.icon-btn{
+.status.Shortlisted{
 
-  width:34px;
-  height:34px;
+    background:#dcfce7;
 
-  display:grid;
-
-  place-items:center;
-
-  border:
-    1px solid var(--border);
-
-  border-radius:8px;
-
-  color:#9aa5ba;
-
-  background:#111722;
+    color:#15803d;
 
 }
 
-.icon-btn:hover{
+.status.Rejected{
 
-  color:var(--cyan);
+    background:#fee2e2;
 
-  border-color:var(--cyan);
-
-}
-
-
-/* EMPTY */
-
-.empty{
-
-  padding:45px 20px;
-
-  text-align:center;
-
-  border:
-    1px solid var(--border);
-
-  border-radius:15px;
-
-  color:#697389;
-
-  background:var(--card);
+    color:#b91c1c;
 
 }
 
-.empty i{
+.status.Selected{
 
-  display:block;
+    background:#ede9fe;
 
-  margin-bottom:8px;
-
-  font-size:30px;
+    color:#6d28d9;
 
 }
 
+.hidden{
 
-/* MODAL */
-
-.modal{
-
-  position:fixed;
-
-  inset:0;
-
-  z-index:100;
-
-  display:none;
-
-  align-items:center;
-
-  justify-content:center;
-
-  padding:15px;
-
-  background:
-    rgba(0,0,0,.75);
-
-  backdrop-filter:blur(8px);
-
-}
-
-.modal.show{
-  display:flex;
-}
-
-.modal-box{
-
-  width:min(
-    760px,
-    100%
-  );
-
-  max-height:
-    calc(100vh - 30px);
-
-  overflow:auto;
-
-  border:
-    1px solid var(--border);
-
-  border-radius:17px;
-
-  background:#101622;
-
-  box-shadow:
-    0 30px 90px rgba(0,0,0,.6);
-
-}
-
-.modal-head{
-
-  position:sticky;
-
-  top:0;
-
-  z-index:5;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  padding:15px 17px;
-
-  background:#101622;
-
-  border-bottom:
-    1px solid var(--border);
-
-}
-
-.modal-head h3{
-
-  font-size:14px;
-
-}
-
-.close{
-
-  width:32px;
-  height:32px;
-
-  border:0;
-
-  border-radius:8px;
-
-  color:#9aa5ba;
-
-  background:#171e2b;
-
-  font-size:18px;
-
-}
-
-.modal-body{
-
-  padding:17px;
-
-}
-
-
-/* DETAIL */
-
-.profile{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:13px;
-
-  padding:14px;
-
-  margin-bottom:15px;
-
-  border:
-    1px solid var(--border);
-
-  border-radius:12px;
-
-  background:#0a0f18;
-
-}
-
-.profile img,
-.profile .big-avatar{
-
-  width:70px;
-  height:70px;
-
-  flex-shrink:0;
-
-  display:grid;
-
-  place-items:center;
-
-  border-radius:15px;
-
-  object-fit:cover;
-
-  color:var(--cyan);
-
-  background:#182131;
-
-  font-size:22px;
-
-  font-weight:800;
-
-}
-
-.profile h2{
-
-  font-size:16px;
-
-}
-
-.profile p{
-
-  margin-top:4px;
-
-  color:var(--muted);
-
-  font-size:9px;
-
-}
-
-.detail-grid{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  gap:9px;
-
-}
-
-.detail{
-
-  padding:12px;
-
-  border:
-    1px solid var(--border);
-
-  border-radius:10px;
-
-  background:#0b1019;
-
-}
-
-.detail label{
-
-  display:block;
-
-  margin-bottom:4px;
-
-  color:#687389;
-
-  font-size:8px;
-
-  text-transform:uppercase;
-
-}
-
-.detail strong{
-
-  color:#e7ecf6;
-
-  font-size:10px;
-
-  font-weight:600;
-
-}
-
-.detail.full{
-
-  grid-column:1/-1;
-
-}
-
-.documents{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:8px;
-
-  margin-top:14px;
-
-}
-
-.document{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:7px;
-
-  padding:11px;
-
-  border:
-    1px solid var(--border);
-
-  border-radius:9px;
-
-  color:#dce5f4;
-
-  background:#0b1019;
-
-  text-decoration:none;
-
-  font-size:9px;
-
-}
-
-.document i{
-
-  color:var(--cyan);
-
-  font-size:17px;
-
-}
-
-.document:hover{
-
-  border-color:var(--cyan);
-
-}
-
-
-/* ADMIN FORM */
-
-.form-grid{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  gap:11px;
-
-}
-
-.field.full{
-  grid-column:1/-1;
-}
-
-.field label{
-
-  display:block;
-
-  margin-bottom:5px;
-
-  color:#aab4c8;
-
-  font-size:8px;
-
-  font-weight:700;
-
-  text-transform:uppercase;
-
-}
-
-.field input,
-.field select,
-.field textarea{
-
-  width:100%;
-
-  min-height:40px;
-
-  padding:
-    9px 11px;
-
-  border:
-    1px solid var(--border);
-
-  border-radius:9px;
-
-  outline:none;
-
-  color:white;
-
-  background:#080c15;
-
-  font-size:10px;
-
-}
-
-.field textarea{
-
-  min-height:80px;
-
-  resize:vertical;
-
-}
-
-.field input:focus,
-.field select:focus,
-.field textarea:focus{
-
-  border-color:var(--cyan);
-
-}
-
-.modal-actions{
-
-  display:flex;
-
-  justify-content:flex-end;
-
-  gap:7px;
-
-  margin-top:15px;
-
-}
-
-.btn{
-
-  min-height:39px;
-
-  padding:
-    0 13px;
-
-  border:0;
-
-  border-radius:9px;
-
-  font-size:9px;
-
-  font-weight:800;
-
-}
-
-.btn-dark{
-
-  color:#b9c2d2;
-
-  background:#171e2b;
-
-  border:
-    1px solid var(--border);
-
-}
-
-.btn-primary{
-
-  color:#001018;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--cyan),
-      var(--blue)
-    );
-
-}
-
-.btn-danger{
-
-  color:white;
-
-  background:#b91c1c;
-
-}
-
-
-/* TOAST */
-
-.toast{
-
-  position:fixed;
-
-  right:15px;
-  bottom:15px;
-
-  z-index:300;
-
-  max-width:
-    calc(100% - 30px);
-
-  padding:
-    11px 14px;
-
-  border:
-    1px solid var(--border);
-
-  border-radius:9px;
-
-  color:white;
-
-  background:#151c29;
-
-  font-size:9px;
-
-  opacity:0;
-
-  transform:
-    translateY(70px);
-
-  transition:.3s;
-
-}
-
-.toast.show{
-
-  opacity:1;
-
-  transform:
-    translateY(0);
-
-}
-
-
-/* MOBILE */
-
-@media(max-width:800px){
-
-  .stats{
-
-    grid-template-columns:
-      repeat(3,1fr);
-
-  }
+    display:none;
 
 }
 
 @media(max-width:600px){
 
-  .header{
+    .container{
 
-    padding:
-      0 13px;
+        padding:12px;
 
-  }
+    }
 
-  .brand h1{
-    font-size:13px;
-  }
+    .form-grid{
 
-  .admin{
-    font-size:9px;
-  }
+        grid-template-columns:1fr;
 
-  .container{
-
-    width:
-      calc(100% - 18px);
-
-  }
-
-  .stats{
-
-    grid-template-columns:
-      repeat(2,1fr);
-
-  }
-
-  .toolbar{
-
-    flex-wrap:wrap;
-
-  }
-
-  .search{
-
-    flex-basis:100%;
-
-  }
-
-  .filter{
-
-    flex:1;
-
-  }
-
-  .add-btn{
-
-    flex:1;
-
-    justify-content:center;
-
-  }
-
-  .application{
-
-    grid-template-columns:
-      44px
-      1fr;
-
-  }
-
-  .avatar{
-
-    width:44px;
-    height:44px;
-
-  }
-
-  .actions{
-
-    grid-column:
-      1/-1;
-
-    justify-content:flex-end;
-
-  }
-
-  .detail-grid,
-  .form-grid{
-
-    grid-template-columns:1fr;
-
-  }
-
-  .detail.full,
-  .field.full{
-
-    grid-column:auto;
-
-  }
-
-  .documents{
-
-    grid-template-columns:1fr;
-
-  }
+    }
 
 }
 
@@ -1233,1917 +388,1175 @@ button{
 
 </head>
 
-
 <body>
 
 
-<!-- HEADER -->
+<div class="header">
 
-<header class="header">
+    <h1>
+        BlackTerminal Job Admin
+    </h1>
 
-  <div class="brand">
-
-    <div class="logo">
-      <i class="ri-terminal-box-line"></i>
-    </div>
-
-    <div>
-
-      <h1>
-        BLACKTERMINAL
-      </h1>
-
-      <span>
-        JOB APPLICATION ADMIN
-      </span>
-
-    </div>
-
-  </div>
-
-
-  <div class="admin">
-
-    <span class="dot"></span>
-
-    ADMIN
-
-  </div>
-
-</header>
-
-
-
-<main class="container">
-
-
-<!-- TITLE -->
-
-<div class="page-title">
-
-  <h2>
-    Job Applications
-  </h2>
-
-  <p>
-    Manage student applications and recruitment.
-  </p>
+    <p>
+        Jobs & Student Applications
+    </p>
 
 </div>
 
 
+<div class="container">
 
-<!-- STATS -->
+
+<!-- =====================================================
+     STATS
+===================================================== -->
 
 <div class="stats">
 
+    <div class="stat">
 
-  <div
-    class="stat"
-    style="--accent:#00eaff"
-  >
+        <strong id="totalJobs">
+            0
+        </strong>
 
-    <div class="stat-icon">
-      <i class="ri-group-line"></i>
+        <span>
+            Active Jobs
+        </span>
+
     </div>
 
-    <h3 id="totalCount">
-      0
-    </h3>
 
-    <p>
-      Total Applications
-    </p>
+    <div class="stat">
 
-  </div>
+        <strong id="totalApplications">
+            0
+        </strong>
 
+        <span>
+            Applications
+        </span>
 
-  <div
-    class="stat"
-    style="--accent:#facc15"
-  >
-
-    <div class="stat-icon">
-      <i class="ri-notification-3-line"></i>
     </div>
 
-    <h3 id="newCount">
-      0
-    </h3>
 
-    <p>
-      New
-    </p>
+    <div class="stat">
 
-  </div>
+        <strong id="newApplications">
+            0
+        </strong>
 
+        <span>
+            New Applications
+        </span>
 
-  <div
-    class="stat"
-    style="--accent:#8b5cf6"
-  >
-
-    <div class="stat-icon">
-      <i class="ri-search-eye-line"></i>
     </div>
-
-    <h3 id="reviewCount">
-      0
-    </h3>
-
-    <p>
-      Under Review
-    </p>
-
-  </div>
-
-
-  <div
-    class="stat"
-    style="--accent:#a78bfa"
-  >
-
-    <div class="stat-icon">
-      <i class="ri-star-line"></i>
-    </div>
-
-    <h3 id="shortlistedCount">
-      0
-    </h3>
-
-    <p>
-      Shortlisted
-    </p>
-
-  </div>
-
-
-  <div
-    class="stat"
-    style="--accent:#22c55e"
-  >
-
-    <div class="stat-icon">
-      <i class="ri-user-follow-line"></i>
-    </div>
-
-    <h3 id="selectedCount">
-      0
-    </h3>
-
-    <p>
-      Selected
-    </p>
-
-  </div>
 
 </div>
 
 
+<!-- =====================================================
+     ADD JOB
+===================================================== -->
 
-<!-- TOOLBAR -->
+<div class="card">
 
-<div class="toolbar">
+    <h2>
+        Add / Edit Job
+    </h2>
 
-  <div class="search">
-
-    <i class="ri-search-line"></i>
 
     <input
-      id="searchInput"
-      type="text"
-      placeholder="Search name, mobile, course..."
+        type="hidden"
+        id="editJobId"
     >
 
-  </div>
+
+    <div class="form-grid">
 
 
-  <select
-    id="statusFilter"
-    class="filter"
-  >
+        <div>
 
-    <option value="all">
-      All Applications
-    </option>
+            <label>
+                Job Title
+            </label>
 
-    <option value="New">
-      New
-    </option>
+            <input
+                id="jobTitle"
+                placeholder="Example: Student Coordinator"
+            >
 
-    <option value="Under Review">
-      Under Review
-    </option>
-
-    <option value="Shortlisted">
-      Shortlisted
-    </option>
-
-    <option value="Selected">
-      Selected
-    </option>
-
-    <option value="Rejected">
-      Rejected
-    </option>
-
-  </select>
+        </div>
 
 
-  <button
-    class="add-btn"
-    onclick="openNewStudent()"
-  >
+        <div>
 
-    <i class="ri-user-add-line"></i>
+            <label>
+                Salary
+            </label>
 
-    NEW STUDENT
+            <input
+                id="jobSalary"
+                placeholder="Example: ₹9,000/month"
+            >
 
-  </button>
+        </div>
+
+
+        <div>
+
+            <label>
+                Job Type
+            </label>
+
+            <select id="jobType">
+
+                <option>
+                    Full Time
+                </option>
+
+                <option selected>
+                    Part Time
+                </option>
+
+                <option>
+                    Internship
+                </option>
+
+                <option>
+                    Performance Based
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div>
+
+            <label>
+                Location
+            </label>
+
+            <input
+                id="jobLocation"
+                value="Baripada"
+            >
+
+        </div>
+
+
+        <div>
+
+            <label>
+                Icon
+            </label>
+
+            <input
+                id="jobIcon"
+                value="💼"
+                placeholder="Emoji"
+            >
+
+        </div>
+
+
+        <div>
+
+            <label>
+                Skills Type
+            </label>
+
+            <select id="skillsType">
+
+                <option value="design">
+                    Social Media / Design
+                </option>
+
+                <option value="admin">
+                    Admin / Student Coordinator
+                </option>
+
+                <option value="reception">
+                    Reception
+                </option>
+
+                <option value="lab">
+                    Computer Lab
+                </option>
+
+                <option value="general">
+                    General
+                </option>
+
+            </select>
+
+        </div>
+
+
+    </div>
+
+
+    <div style="margin-top:12px;">
+
+        <label>
+            Job Description
+        </label>
+
+        <textarea
+            id="jobDescription"
+            placeholder="Describe responsibilities..."
+        ></textarea>
+
+    </div>
+
+
+    <div style="margin-top:12px;">
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="jobActive"
+                checked
+                style="width:auto;"
+            >
+
+            Active Job
+
+        </label>
+
+    </div>
+
+
+    <div style="
+        display:flex;
+        gap:8px;
+        margin-top:15px;
+    ">
+
+        <button
+            class="primary"
+            onclick="saveJob()">
+
+            Save Job
+
+        </button>
+
+
+        <button
+            class="secondary"
+            onclick="clearJobForm()">
+
+            Clear
+
+        </button>
+
+    </div>
 
 </div>
 
 
+<!-- =====================================================
+     JOBS
+===================================================== -->
 
-<!-- APPLICATIONS -->
+<div class="card">
 
-<div
-  id="applications"
-  class="applications"
-></div>
-
-
-</main>
-
-
-
-<!-- =====================================
-     VIEW APPLICATION MODAL
-===================================== -->
-
-<div
-  class="modal"
-  id="viewModal"
->
-
-  <div class="modal-box">
-
-    <div class="modal-head">
-
-      <h3>
-        Student Application
-      </h3>
-
-      <button
-        class="close"
-        onclick="closeModal('viewModal')"
-      >
-
-        <i class="ri-close-line"></i>
-
-      </button>
-
-    </div>
-
+    <h2>
+        Manage Jobs
+    </h2>
 
     <div
-      class="modal-body"
-      id="viewBody"
-    ></div>
+        class="jobs-grid"
+        id="jobsList">
 
-  </div>
+        Loading...
+
+    </div>
 
 </div>
 
 
+<!-- =====================================================
+     APPLICATIONS
+===================================================== -->
 
-<!-- =====================================
-     NEW / EDIT MODAL
-===================================== -->
+<div class="card">
 
-<div
-  class="modal"
-  id="formModal"
->
+    <h2>
+        Student Applications
+    </h2>
 
-  <div class="modal-box">
+    <div
+        id="applicationsList">
 
-    <div class="modal-head">
-
-      <h3 id="formTitle">
-        New Student
-      </h3>
-
-      <button
-        class="close"
-        onclick="closeModal('formModal')"
-      >
-
-        <i class="ri-close-line"></i>
-
-      </button>
+        Loading...
 
     </div>
-
-
-    <div class="modal-body">
-
-
-      <input
-        type="hidden"
-        id="editId"
-      >
-
-
-      <div class="form-grid">
-
-
-        <div class="field">
-
-          <label>
-            Full Name
-          </label>
-
-          <input
-            id="fName"
-            placeholder="Student name"
-          >
-
-        </div>
-
-
-        <div class="field">
-
-          <label>
-            Mobile
-          </label>
-
-          <input
-            id="fMobile"
-            placeholder="10 digit mobile"
-          >
-
-        </div>
-
-
-        <div class="field">
-
-          <label>
-            Email
-          </label>
-
-          <input
-            id="fEmail"
-            type="email"
-            placeholder="Email"
-          >
-
-        </div>
-
-
-        <div class="field">
-
-          <label>
-            Course
-          </label>
-
-          <input
-            id="fCourse"
-            placeholder="PGDCA"
-          >
-
-        </div>
-
-
-        <div class="field">
-
-          <label>
-            Student ID
-          </label>
-
-          <input
-            id="fStudentId"
-            placeholder="Student ID"
-          >
-
-        </div>
-
-
-        <div class="field">
-
-          <label>
-            Experience
-          </label>
-
-          <select id="fExperience">
-
-            <option value="">
-              Select
-            </option>
-
-            <option>
-              Beginner
-            </option>
-
-            <option>
-              Basic Experience
-            </option>
-
-            <option>
-              Good Experience
-            </option>
-
-            <option>
-              Experienced
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="field">
-
-          <label>
-            AI / Canva
-          </label>
-
-          <select id="fAI">
-
-            <option value="">
-              Select
-            </option>
-
-            <option>
-              Yes - Good
-            </option>
-
-            <option>
-              Yes - Basic
-            </option>
-
-            <option>
-              Learning
-            </option>
-
-            <option>
-              No
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="field">
-
-          <label>
-            Status
-          </label>
-
-          <select id="fStatus">
-
-            <option>
-              New
-            </option>
-
-            <option>
-              Under Review
-            </option>
-
-            <option>
-              Shortlisted
-            </option>
-
-            <option>
-              Selected
-            </option>
-
-            <option>
-              Rejected
-            </option>
-
-          </select>
-
-        </div>
-
-
-        <div class="field">
-
-          <label>
-            Interview Date
-          </label>
-
-          <input
-            type="date"
-            id="fInterview"
-          >
-
-        </div>
-
-
-        <div class="field">
-
-          <label>
-            Joining Date
-          </label>
-
-          <input
-            type="date"
-            id="fJoining"
-          >
-
-        </div>
-
-
-        <div class="field full">
-
-          <label>
-            Skills
-          </label>
-
-          <input
-            id="fSkills"
-            placeholder="Canva, AI, Photoshop..."
-          >
-
-        </div>
-
-
-        <div class="field full">
-
-          <label>
-            Address
-          </label>
-
-          <textarea
-            id="fAddress"
-            placeholder="Student address"
-          ></textarea>
-
-        </div>
-
-
-        <div class="field full">
-
-          <label>
-            Why Should We Select
-          </label>
-
-          <textarea
-            id="fReason"
-            placeholder="Student reason"
-          ></textarea>
-
-        </div>
-
-
-        <div class="field full">
-
-          <label>
-            Admin Notes
-          </label>
-
-          <textarea
-            id="fNotes"
-            placeholder="Private admin notes..."
-          ></textarea>
-
-        </div>
-
-      </div>
-
-
-      <div class="modal-actions">
-
-        <button
-          class="btn btn-dark"
-          onclick="closeModal('formModal')"
-        >
-          CANCEL
-        </button>
-
-
-        <button
-          class="btn btn-primary"
-          onclick="saveStudent()"
-        >
-
-          <i class="ri-save-line"></i>
-
-          SAVE STUDENT
-
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
 
 </div>
 
 
-
-<div
-  class="toast"
-  id="toast"
-></div>
-
+</div>
 
 
 <script type="module">
 
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
-/* =====================================
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    doc,
+    setDoc,
+    updateDoc,
+    deleteDoc
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+import {
+    firebaseConfig
+} from "./firebase-config.js";
+
+
+/* =========================================================
    FIREBASE
-===================================== */
-
-import {
-  firebaseConfig
-}
-from "./firebase-config.js";
-
-
-import {
-  initializeApp
-}
-from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
-
-
-import {
-  getFirestore,
-  collection,
-  doc,
-  setDoc,
-  getDocs,
-  updateDoc,
-  deleteDoc
-}
-from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
-
+========================================================= */
 
 const app =
-  initializeApp(
-    firebaseConfig
-  );
-
+    initializeApp(firebaseConfig);
 
 const db =
-  getFirestore(app);
+    getFirestore(app);
 
 
-/* =====================================
-   STATE
-===================================== */
-
-let applications = [];
-
-
-/* =====================================
-   TOAST
-===================================== */
-
-function toast(message){
-
-  const el =
-    document.getElementById(
-      "toast"
-    );
-
-  el.textContent =
-    message;
-
-  el.classList.add(
-    "show"
-  );
-
-  clearTimeout(
-    window.toastTimer
-  );
-
-  window.toastTimer =
-    setTimeout(
-      ()=>{
-        el.classList.remove(
-          "show"
-        );
-      },
-      3000
-    );
-
-}
-
-
-/* =====================================
-   ESCAPE
-===================================== */
-
-function esc(value){
-
-  return String(
-    value ?? ""
-  )
-  .replaceAll("&","&amp;")
-  .replaceAll("<","&lt;")
-  .replaceAll(">","&gt;")
-  .replaceAll('"',"&quot;")
-  .replaceAll("'","&#039;");
-
-}
-
-
-/* =====================================
-   STATUS CLASS
-===================================== */
-
-function statusClass(status){
-
-  if(status === "Under Review")
-    return "review";
-
-  if(status === "Shortlisted")
-    return "shortlisted";
-
-  if(status === "Selected")
-    return "selected";
-
-  if(status === "Rejected")
-    return "rejected";
-
-  return "new";
-
-}
-
-
-/* =====================================
+/* =========================================================
    LOAD
-===================================== */
+========================================================= */
+
+async function loadJobs(){
+
+    const container =
+        document.getElementById(
+            "jobsList"
+        );
+
+    try{
+
+        const snapshot =
+            await getDocs(
+                collection(db,"jobs")
+            );
+
+
+        container.innerHTML = "";
+
+
+        let activeCount = 0;
+
+
+        snapshot.forEach(
+            item => {
+
+                const job =
+                    item.data();
+
+
+                if(job.active !== false)
+                    activeCount++;
+
+
+                const div =
+                    document.createElement("div");
+
+
+                div.className =
+                    "job";
+
+
+                div.innerHTML = `
+
+                    <h3>
+                        ${escapeHTML(
+                            job.title
+                        )}
+                    </h3>
+
+                    <p>
+                        ${escapeHTML(
+                            job.description || ""
+                        )}
+                    </p>
+
+                    <p>
+                        <strong>
+                            ${escapeHTML(
+                                job.salary || ""
+                            )}
+                        </strong>
+                        •
+                        ${escapeHTML(
+                            job.type || ""
+                        )}
+                    </p>
+
+                    <span class="status">
+
+                        ${
+                            job.active === false
+                            ? "Inactive"
+                            : "Active"
+                        }
+
+                    </span>
+
+                    <div class="job-actions">
+
+                        <button
+                            class="secondary"
+                            data-edit="${item.id}">
+
+                            Edit
+
+                        </button>
+
+                        <button
+                            class="danger"
+                            data-delete="${item.id}">
+
+                            Delete
+
+                        </button>
+
+                    </div>
+
+                `;
+
+
+                container.appendChild(div);
+
+            }
+        );
+
+
+        document
+        .getElementById("totalJobs")
+        .textContent =
+            activeCount;
+
+
+        container
+        .querySelectorAll(
+            "[data-edit]"
+        )
+        .forEach(button => {
+
+            button.onclick =
+                () =>
+                editJob(
+                    button.dataset.edit
+                );
+
+        });
+
+
+        container
+        .querySelectorAll(
+            "[data-delete]"
+        )
+        .forEach(button => {
+
+            button.onclick =
+                () =>
+                removeJob(
+                    button.dataset.delete
+                );
+
+        });
+
+
+    }catch(error){
+
+        console.error(error);
+
+        container.textContent =
+            "Unable to load jobs.";
+
+    }
+
+}
+
+
+/* =========================================================
+   SAVE JOB
+========================================================= */
+
+window.saveJob = async function(){
+
+    const editId =
+        document
+        .getElementById("editJobId")
+        .value;
+
+
+    const title =
+        document
+        .getElementById("jobTitle")
+        .value
+        .trim();
+
+
+    if(!title){
+
+        alert(
+            "Please enter job title."
+        );
+
+        return;
+
+    }
+
+
+    const id =
+        editId ||
+        slugify(title);
+
+
+    const data = {
+
+        title,
+
+        salary:
+            document
+            .getElementById("jobSalary")
+            .value
+            .trim(),
+
+        type:
+            document
+            .getElementById("jobType")
+            .value,
+
+        location:
+            document
+            .getElementById("jobLocation")
+            .value
+            .trim(),
+
+        icon:
+            document
+            .getElementById("jobIcon")
+            .value
+            .trim(),
+
+        skillsType:
+            document
+            .getElementById("skillsType")
+            .value,
+
+        description:
+            document
+            .getElementById("jobDescription")
+            .value
+            .trim(),
+
+        active:
+            document
+            .getElementById("jobActive")
+            .checked,
+
+        updatedAt:
+            Date.now()
+
+    };
+
+
+    try{
+
+        await setDoc(
+            doc(
+                db,
+                "jobs",
+                id
+            ),
+            data,
+            {
+                merge:true
+            }
+        );
+
+
+        alert(
+            "Job saved successfully."
+        );
+
+
+        clearJobForm();
+
+        loadJobs();
+
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "Job save failed: " +
+            error.message
+        );
+
+    }
+
+};
+
+
+/* =========================================================
+   EDIT JOB
+========================================================= */
+
+async function editJob(id){
+
+    const snapshot =
+        await getDocs(
+            collection(db,"jobs")
+        );
+
+
+    let job = null;
+
+
+    snapshot.forEach(
+        item => {
+
+            if(item.id === id){
+
+                job = {
+                    id:item.id,
+                    ...item.data()
+                };
+
+            }
+
+        }
+    );
+
+
+    if(!job)
+        return;
+
+
+    document
+    .getElementById("editJobId")
+    .value =
+        job.id;
+
+
+    document
+    .getElementById("jobTitle")
+    .value =
+        job.title || "";
+
+
+    document
+    .getElementById("jobSalary")
+    .value =
+        job.salary || "";
+
+
+    document
+    .getElementById("jobType")
+    .value =
+        job.type || "Part Time";
+
+
+    document
+    .getElementById("jobLocation")
+    .value =
+        job.location || "Baripada";
+
+
+    document
+    .getElementById("jobIcon")
+    .value =
+        job.icon || "💼";
+
+
+    document
+    .getElementById("skillsType")
+    .value =
+        job.skillsType || "general";
+
+
+    document
+    .getElementById("jobDescription")
+    .value =
+        job.description || "";
+
+
+    document
+    .getElementById("jobActive")
+    .checked =
+        job.active !== false;
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================================================
+   DELETE
+========================================================= */
+
+window.removeJob = async function(id){
+
+    if(
+        !confirm(
+            "Delete this job?"
+        )
+    )
+        return;
+
+
+    try{
+
+        await deleteDoc(
+            doc(
+                db,
+                "jobs",
+                id
+            )
+        );
+
+
+        loadJobs();
+
+
+    }catch(error){
+
+        alert(
+            "Delete failed: " +
+            error.message
+        );
+
+    }
+
+};
+
+
+/* =========================================================
+   CLEAR
+========================================================= */
+
+window.clearJobForm = function(){
+
+    document
+    .getElementById("editJobId")
+    .value = "";
+
+
+    document
+    .getElementById("jobTitle")
+    .value = "";
+
+
+    document
+    .getElementById("jobSalary")
+    .value = "";
+
+
+    document
+    .getElementById("jobLocation")
+    .value = "Baripada";
+
+
+    document
+    .getElementById("jobIcon")
+    .value = "💼";
+
+
+    document
+    .getElementById("jobDescription")
+    .value = "";
+
+
+    document
+    .getElementById("jobActive")
+    .checked = true;
+
+};
+
+
+/* =========================================================
+   APPLICATIONS
+========================================================= */
 
 async function loadApplications(){
 
-  try{
-
-    const snap =
-      await getDocs(
-        collection(
-          db,
-          "jobApplications"
-        )
-      );
-
-
-    applications = [];
-
-
-    snap.forEach(item => {
-
-      applications.push({
-
-        id:item.id,
-
-        ...item.data()
-
-      });
-
-    });
-
-
-    applications.sort(
-      (a,b)=>
-        Number(
-          b.createdAt || 0
-        ) -
-        Number(
-          a.createdAt || 0
-        )
-    );
-
-
-    updateStats();
-
-    renderApplications();
-
-  }
-  catch(error){
-
-    console.error(error);
-
-    toast(
-      "Applications load failed"
-    );
-
-  }
-
-}
-
-
-/* =====================================
-   STATS
-===================================== */
-
-function updateStats(){
-
-  const count =
-    status =>
-      applications.filter(
-        x =>
-          (x.status || "New")
-          === status
-      ).length;
-
-
-  document.getElementById(
-    "totalCount"
-  ).textContent =
-    applications.length;
-
-
-  document.getElementById(
-    "newCount"
-  ).textContent =
-    count("New");
-
-
-  document.getElementById(
-    "reviewCount"
-  ).textContent =
-    count("Under Review");
-
-
-  document.getElementById(
-    "shortlistedCount"
-  ).textContent =
-    count("Shortlisted");
-
-
-  document.getElementById(
-    "selectedCount"
-  ).textContent =
-    count("Selected");
-
-}
-
-
-/* =====================================
-   RENDER
-===================================== */
-
-function renderApplications(){
-
-  const container =
-    document.getElementById(
-      "applications"
-    );
-
-
-  const search =
-    document.getElementById(
-      "searchInput"
-    )
-    .value
-    .trim()
-    .toLowerCase();
-
-
-  const filter =
-    document.getElementById(
-      "statusFilter"
-    ).value;
-
-
-  const list =
-    applications.filter(
-      a => {
-
-        const text = (
-
-          (a.name || "") +
-          " " +
-          (a.mobile || "") +
-          " " +
-          (a.course || "") +
-          " " +
-          (a.studentId || "")
-
-        ).toLowerCase();
-
-
-        const searchOK =
-          !search ||
-          text.includes(search);
-
-
-        const statusOK =
-          filter === "all" ||
-          (a.status || "New")
-            === filter;
-
-
-        return (
-          searchOK &&
-          statusOK
-        );
-
-      }
-    );
-
-
-  if(!list.length){
-
-    container.innerHTML = `
-
-      <div class="empty">
-
-        <i class="ri-inbox-line"></i>
-
-        No applications found.
-
-      </div>
-
-    `;
-
-    return;
-
-  }
-
-
-  container.innerHTML =
-    list.map(
-      a => {
-
-        const initial =
-          (a.name || "?")
-          .charAt(0)
-          .toUpperCase();
-
-
-        const avatar =
-          a.photoUrl
-
-          ? `
-
-            <img
-              class="avatar"
-              src="${esc(a.photoUrl)}"
-              onerror="
-                this.outerHTML=
-                '<div class=&quot;avatar&quot;>${initial}</div>'
-              "
-            >
-
-          `
-
-          : `
-
-            <div class="avatar">
-              ${initial}
-            </div>
-
-          `;
-
-
-        return `
-
-          <div class="application">
-
-            ${avatar}
-
-
-            <div class="app-info">
-
-              <h3>
-                ${esc(a.name || "Unnamed Student")}
-              </h3>
-
-              <p>
-                ${esc(a.mobile || "No mobile")}
-                •
-                ${esc(a.course || "Course not added")}
-              </p>
-
-
-              <div class="meta">
-
-                <span
-                  class="badge ${statusClass(
-                    a.status || "New"
-                  )}"
-                >
-                  ${esc(
-                    a.status || "New"
-                  )}
-                </span>
-
-
-                ${
-                  a.experience
-
-                  ? `
-
-                    <span class="badge new">
-                      ${esc(a.experience)}
-                    </span>
-
-                  `
-
-                  : ""
-
-                }
-
-
-                ${
-                  a.createdAt
-
-                  ? `
-
-                    <span class="badge">
-                      ${formatDateTime(
-                        a.createdAt
-                      )}
-                    </span>
-
-                  `
-
-                  : ""
-
-                }
-
-              </div>
-
-            </div>
-
-
-            <div class="actions">
-
-              <button
-                class="icon-btn"
-                title="View"
-                onclick="
-                  viewApplication(
-                    '${escAttr(a.id)}'
-                  )
-                "
-              >
-
-                <i class="ri-eye-line"></i>
-
-              </button>
-
-
-              <button
-                class="icon-btn"
-                title="Edit"
-                onclick="
-                  editApplication(
-                    '${escAttr(a.id)}'
-                  )
-                "
-              >
-
-                <i class="ri-edit-line"></i>
-
-              </button>
-
-
-              <button
-                class="icon-btn"
-                title="Delete"
-                onclick="
-                  deleteApplication(
-                    '${escAttr(a.id)}'
-                  )
-                "
-              >
-
-                <i class="ri-delete-bin-line"></i>
-
-              </button>
-
-            </div>
-
-          </div>
-
-        `;
-
-      }
-    )
-    .join("");
-
-}
-
-
-/* =====================================
-   VIEW
-===================================== */
-
-window.viewApplication =
-function(id){
-
-  const a =
-    applications.find(
-      x => x.id === id
-    );
-
-
-  if(!a) return;
-
-
-  const initial =
-    (a.name || "?")
-    .charAt(0)
-    .toUpperCase();
-
-
-  const photo =
-    a.photoUrl
-
-    ? `
-
-      <img
-        src="${esc(a.photoUrl)}"
-      >
-
-    `
-
-    : `
-
-      <div class="big-avatar">
-        ${initial}
-      </div>
-
-    `;
-
-
-  const documentButton =
-    (
-      url,
-      icon,
-      text
-    ) =>
-
-      url
-
-      ? `
-
-        <a
-          class="document"
-          href="${esc(url)}"
-          target="_blank"
-          rel="noopener"
-        >
-
-          <i class="${icon}"></i>
-
-          ${text}
-
-        </a>
-
-      `
-
-      : "";
-
-
-  document.getElementById(
-    "viewBody"
-  ).innerHTML = `
-
-
-    <div class="profile">
-
-      ${photo}
-
-      <div>
-
-        <h2>
-          ${esc(a.name || "-")}
-        </h2>
-
-        <p>
-          ${esc(a.course || "-")}
-          •
-          ${esc(a.mobile || "-")}
-        </p>
-
-        <div class="meta">
-
-          <span
-            class="badge ${statusClass(
-              a.status || "New"
-            )}"
-          >
-            ${esc(
-              a.status || "New"
-            )}
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-
-    <div class="detail-grid">
-
-
-      ${detail(
-        "Mobile",
-        a.mobile
-      )}
-
-
-      ${detail(
-        "Email",
-        a.email
-      )}
-
-
-      ${detail(
-        "Course",
-        a.course
-      )}
-
-
-      ${detail(
-        "Student ID",
-        a.studentId
-      )}
-
-
-      ${detail(
-        "Date of Birth",
-        a.dob
-      )}
-
-
-      ${detail(
-        "Gender",
-        a.gender
-      )}
-
-
-      ${detail(
-        "Design Experience",
-        a.experience
-      )}
-
-
-      ${detail(
-        "AI / Canva",
-        a.aiKnowledge
-      )}
-
-
-      ${detail(
-        "Social Media",
-        a.socialExperience
-      )}
-
-
-      ${detail(
-        "Interview Date",
-        a.interviewDate
-      )}
-
-
-      ${detail(
-        "Joining Date",
-        a.joiningDate
-      )}
-
-
-      ${detail(
-        "Skills",
-        a.skills,
-        true
-      )}
-
-
-      ${detail(
-        "Address",
-        a.address,
-        true
-      )}
-
-
-      ${detail(
-        "Why Should We Select",
-        a.reason,
-        true
-      )}
-
-
-      ${detail(
-        "Admin Notes",
-        a.adminNotes,
-        true
-      )}
-
-    </div>
-
-
-
-    <div class="documents">
-
-      ${documentButton(
-        a.cvUrl,
-        "ri-file-pdf-2-line",
-        "CV / Resume"
-      )}
-
-      ${documentButton(
-        a.portfolioUrl,
-        "ri-image-line",
-        "Portfolio"
-      )}
-
-      ${documentButton(
-        a.studentDocumentUrl,
-        "ri-id-card-line",
-        "Student Document"
-      )}
-
-    </div>
-
-
-    <div class="modal-actions">
-
-      <button
-        class="btn btn-primary"
-        onclick="
-          closeModal('viewModal');
-          editApplication('${escAttr(a.id)}')
-        "
-      >
-
-        <i class="ri-edit-line"></i>
-
-        EDIT APPLICATION
-
-      </button>
-
-    </div>
-
-  `;
-
-
-  document.getElementById(
-    "viewModal"
-  ).classList.add(
-    "show"
-  );
-
-};
-
-
-/* =====================================
-   DETAIL HELPER
-===================================== */
-
-function detail(
-  label,
-  value,
-  full=false
-){
-
-  return `
-
-    <div class="detail ${
-      full ? "full" : ""
-    }">
-
-      <label>
-        ${label}
-      </label>
-
-      <strong>
-        ${esc(
-          value || "Not provided"
-        )}
-      </strong>
-
-    </div>
-
-  `;
-
-}
-
-
-/* =====================================
-   NEW STUDENT
-===================================== */
-
-window.openNewStudent =
-function(){
-
-  clearForm();
-
-
-  document.getElementById(
-    "formTitle"
-  ).textContent =
-    "Add New Student";
-
-
-  document.getElementById(
-    "formModal"
-  ).classList.add(
-    "show"
-  );
-
-};
-
-
-/* =====================================
-   EDIT
-===================================== */
-
-window.editApplication =
-function(id){
-
-  const a =
-    applications.find(
-      x => x.id === id
-    );
-
-
-  if(!a) return;
-
-
-  document.getElementById(
-    "editId"
-  ).value =
-    id;
-
-
-  document.getElementById(
-    "formTitle"
-  ).textContent =
-    "Edit Student";
-
-
-  setValue(
-    "fName",
-    a.name
-  );
-
-  setValue(
-    "fMobile",
-    a.mobile
-  );
-
-  setValue(
-    "fEmail",
-    a.email
-  );
-
-  setValue(
-    "fCourse",
-    a.course
-  );
-
-  setValue(
-    "fStudentId",
-    a.studentId
-  );
-
-  setValue(
-    "fExperience",
-    a.experience
-  );
-
-  setValue(
-    "fAI",
-    a.aiKnowledge
-  );
-
-  setValue(
-    "fStatus",
-    a.status || "New"
-  );
-
-  setValue(
-    "fInterview",
-    a.interviewDate
-  );
-
-  setValue(
-    "fJoining",
-    a.joiningDate
-  );
-
-  setValue(
-    "fSkills",
-    a.skills
-  );
-
-  setValue(
-    "fAddress",
-    a.address
-  );
-
-  setValue(
-    "fReason",
-    a.reason
-  );
-
-  setValue(
-    "fNotes",
-    a.adminNotes
-  );
-
-
-  document.getElementById(
-    "formModal"
-  ).classList.add(
-    "show"
-  );
-
-};
-
-
-/* =====================================
-   SAVE
-===================================== */
-
-window.saveStudent =
-async function(){
-
-  const id =
-    document.getElementById(
-      "editId"
-    ).value;
-
-
-  const name =
-    getValue("fName");
-
-
-  const mobile =
-    getValue("fMobile");
-
-
-  if(!name || !mobile){
-
-    toast(
-      "Name and mobile are required"
-    );
-
-    return;
-
-  }
-
-
-  const data = {
-
-    name,
-
-    mobile,
-
-    email:
-      getValue("fEmail"),
-
-    course:
-      getValue("fCourse"),
-
-    studentId:
-      getValue("fStudentId"),
-
-    experience:
-      getValue("fExperience"),
-
-    aiKnowledge:
-      getValue("fAI"),
-
-    status:
-      getValue("fStatus") ||
-      "New",
-
-    interviewDate:
-      getValue("fInterview"),
-
-    joiningDate:
-      getValue("fJoining"),
-
-    skills:
-      getValue("fSkills"),
-
-    address:
-      getValue("fAddress"),
-
-    reason:
-      getValue("fReason"),
-
-    adminNotes:
-      getValue("fNotes"),
-
-    updatedAt:
-      Date.now()
-
-  };
-
-
-  try{
-
-    if(id){
-
-      await updateDoc(
-
-        doc(
-          db,
-          "jobApplications",
-          id
-        ),
-
-        data
-
-      );
-
-      toast(
-        "Student updated"
-      );
-
-    }
-    else{
-
-      const newRef =
-        doc(
-          collection(
-            db,
-            "jobApplications"
-          )
+    const container =
+        document
+        .getElementById(
+            "applicationsList"
         );
 
 
-      await setDoc(
-        newRef,
-        {
+    try{
 
-          ...data,
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "jobApplications"
+                )
+            );
 
-          createdAt:
-            Date.now(),
 
-          source:
-            "admin"
+        const applications = [];
+
+
+        snapshot.forEach(
+            item => {
+
+                applications.push({
+
+                    id:item.id,
+
+                    ...item.data()
+
+                });
+
+            }
+        );
+
+
+        applications.sort(
+            (a,b) =>
+                (b.createdAt || 0) -
+                (a.createdAt || 0)
+        );
+
+
+        document
+        .getElementById(
+            "totalApplications"
+        )
+        .textContent =
+            applications.length;
+
+
+        document
+        .getElementById(
+            "newApplications"
+        )
+        .textContent =
+            applications.filter(
+                app =>
+                app.status === "New"
+            ).length;
+
+
+        if(
+            applications.length === 0
+        ){
+
+            container.innerHTML =
+                "No applications yet.";
+
+            return;
 
         }
-      );
 
 
-      toast(
-        "New student added"
-      );
+        container.innerHTML = "";
+
+
+        applications.forEach(
+            app => {
+
+                const div =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                div.className =
+                    "application";
+
+
+                div.innerHTML = `
+
+                    <h3>
+                        ${escapeHTML(
+                            app.name || ""
+                        )}
+                    </h3>
+
+                    <p>
+                        <strong>
+                            Job:
+                        </strong>
+
+                        ${escapeHTML(
+                            app.jobTitle || ""
+                        )}
+                    </p>
+
+                    <p>
+                        Mobile:
+                        ${escapeHTML(
+                            app.mobile || ""
+                        )}
+                    </p>
+
+                    <p>
+                        Course:
+                        ${escapeHTML(
+                            app.course || ""
+                        )}
+                    </p>
+
+                    <p>
+
+                        <span class="status ${escapeHTML(
+                            app.status || "New"
+                        )}">
+
+                            ${escapeHTML(
+                                app.status || "New"
+                            )}
+
+                        </span>
+
+                    </p>
+
+
+                    <div class="job-actions">
+
+                        <button
+                            class="secondary"
+                            data-status="${app.id}"
+                            data-value="Under Review">
+
+                            Review
+
+                        </button>
+
+
+                        <button
+                            class="secondary"
+                            data-status="${app.id}"
+                            data-value="Shortlisted">
+
+                            Shortlist
+
+                        </button>
+
+
+                        <button
+                            class="secondary"
+                            data-status="${app.id}"
+                            data-value="Selected">
+
+                            Select
+
+                        </button>
+
+
+                        <button
+                            class="danger"
+                            data-status="${app.id}"
+                            data-value="Rejected">
+
+                            Reject
+
+                        </button>
+
+                    </div>
+
+
+                    <div style="
+                        margin-top:10px;
+                        display:grid;
+                        gap:7px;
+                    ">
+
+                        ${
+                            app.cvUrl
+                            ? `
+                                <a
+                                    href="${app.cvUrl}"
+                                    target="_blank">
+
+                                    📄 Open CV
+
+                                </a>
+                            `
+                            : ""
+                        }
+
+
+                        ${
+                            app.photoUrl
+                            ? `
+                                <a
+                                    href="${app.photoUrl}"
+                                    target="_blank">
+
+                                    📷 Open Photo
+
+                                </a>
+                            `
+                            : ""
+                        }
+
+
+                        ${
+                            app.portfolioUrl
+                            ? `
+                                <a
+                                    href="${app.portfolioUrl}"
+                                    target="_blank">
+
+                                    🎨 Open Portfolio
+
+                                </a>
+                            `
+                            : ""
+                        }
+
+                    </div>
+
+                `;
+
+
+                container.appendChild(
+                    div
+                );
+
+            }
+        );
+
+
+        container
+        .querySelectorAll(
+            "[data-status]"
+        )
+        .forEach(button => {
+
+            button.onclick =
+                () =>
+                changeStatus(
+                    button.dataset.status,
+                    button.dataset.value
+                );
+
+        });
+
+
+    }catch(error){
+
+        console.error(error);
+
+        container.textContent =
+            "Unable to load applications.";
 
     }
 
-
-    closeModal(
-      "formModal"
-    );
-
-
-    await loadApplications();
-
-  }
-  catch(error){
-
-    console.error(error);
-
-    toast(
-      "Save failed: " +
-      error.message
-    );
-
-  }
-
-};
-
-
-/* =====================================
-   DELETE
-===================================== */
-
-window.deleteApplication =
-async function(id){
-
-  const a =
-    applications.find(
-      x => x.id === id
-    );
-
-
-  if(!a) return;
-
-
-  const ok =
-    confirm(
-
-      `Delete application of ${
-        a.name || "this student"
-      }?`
-
-    );
-
-
-  if(!ok) return;
-
-
-  try{
-
-    await deleteDoc(
-
-      doc(
-        db,
-        "jobApplications",
-        id
-      )
-
-    );
-
-
-    toast(
-      "Application deleted"
-    );
-
-
-    await loadApplications();
-
-  }
-  catch(error){
-
-    console.error(error);
-
-    toast(
-      "Delete failed"
-    );
-
-  }
-
-};
-
-
-/* =====================================
-   CLEAR FORM
-===================================== */
-
-function clearForm(){
-
-  document.getElementById(
-    "editId"
-  ).value = "";
-
-
-  [
-
-    "fName",
-    "fMobile",
-    "fEmail",
-    "fCourse",
-    "fStudentId",
-    "fSkills",
-    "fAddress",
-    "fReason",
-    "fNotes",
-    "fInterview",
-    "fJoining"
-
-  ].forEach(
-    id =>
-      document.getElementById(
-        id
-      ).value = ""
-  );
-
-
-  document.getElementById(
-    "fExperience"
-  ).value = "";
-
-
-  document.getElementById(
-    "fAI"
-  ).value = "";
-
-
-  document.getElementById(
-    "fStatus"
-  ).value = "New";
-
 }
 
 
-/* =====================================
-   HELPERS
-===================================== */
+/* =========================================================
+   STATUS
+========================================================= */
 
-function getValue(id){
-
-  return document.getElementById(
-    id
-  ).value.trim();
-
-}
-
-
-function setValue(
-  id,
-  value
+async function changeStatus(
+    id,
+    status
 ){
 
-  document.getElementById(
-    id
-  ).value =
-    value || "";
+    try{
 
-}
+        await updateDoc(
+            doc(
+                db,
+                "jobApplications",
+                id
+            ),
+            {
 
+                status,
 
-function escAttr(value){
+                updatedAt:
+                    Date.now()
 
-  return String(
-    value || ""
-  )
-  .replaceAll("\\","\\\\")
-  .replaceAll("'","\\'");
-
-}
-
-
-function formatDateTime(value){
-
-  if(!value) return "";
-
-  const d =
-    new Date(
-      Number(value)
-    );
+            }
+        );
 
 
-  if(
-    Number.isNaN(
-      d.getTime()
-    )
-  ){
-
-    return "";
-
-  }
+        loadApplications();
 
 
-  return d.toLocaleDateString(
-    "en-IN",
-    {
-      day:"2-digit",
-      month:"short",
-      year:"numeric"
+    }catch(error){
+
+        alert(
+            "Status update failed: " +
+            error.message
+        );
+
     }
-  );
 
 }
 
 
-window.closeModal =
-function(id){
+/* =========================================================
+   SLUG
+========================================================= */
 
-  document.getElementById(
-    id
-  ).classList.remove(
-    "show"
-  );
+function slugify(text){
 
-};
+    return text
+        .toLowerCase()
+        .trim()
+        .replace(
+            /[^a-z0-9]+/g,
+            "-"
+        )
+        .replace(
+            /^-+|-+$/g,
+            ""
+        );
 
-
-/* =====================================
-   SEARCH
-===================================== */
-
-document.getElementById(
-  "searchInput"
-)
-.addEventListener(
-  "input",
-  renderApplications
-);
+}
 
 
-document.getElementById(
-  "statusFilter"
-)
-.addEventListener(
-  "change",
-  renderApplications
-);
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(value || "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
+}
 
 
-/* =====================================
+/* =========================================================
    START
-===================================== */
+========================================================= */
 
-await loadApplications();
+loadJobs();
+
+loadApplications();
 
 </script>
 
