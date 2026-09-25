@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 
-<title>BlackTerminal — Job Application</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover"
+>
+
+<title>BlackTerminal Careers</title>
 
 <meta name="theme-color" content="#635bff">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet"
+>
 
 <style>
+
 /* =========================================================
-   MOBILE FIRST
-   BlackTerminal Job Application
+   RESET
 ========================================================= */
 
 *{
@@ -27,23 +34,25 @@
 }
 
 :root{
+
     --primary:#635bff;
-    --primary-dark:#5046e5;
+    --purple:#8b5cf6;
     --blue:#2388ff;
     --cyan:#08bfe8;
-    --purple:#8b5cf6;
     --pink:#ec4899;
-    --green:#18b875;
+
+    --green:#16a34a;
     --orange:#f59e0b;
     --red:#ef4444;
 
     --bg:#f5f7fb;
     --card:#ffffff;
-    --text:#182033;
-    --muted:#70798c;
-    --border:#e7eaf1;
 
-    --radius:18px;
+    --text:#182033;
+    --muted:#737b8c;
+
+    --border:#e4e7ee;
+
 }
 
 html{
@@ -51,14 +60,19 @@ html{
 }
 
 body{
+
     font-family:'Inter',sans-serif;
-    background:#f5f7fb;
+
+    background:#eef1f7;
+
     color:var(--text);
+
     min-height:100dvh;
+
     -webkit-font-smoothing:antialiased;
+
 }
 
-/* Prevent iOS weird input zoom */
 input,
 select,
 textarea{
@@ -66,91 +80,107 @@ textarea{
 }
 
 /* =========================================================
-   APP SHELL
+   APP
 ========================================================= */
 
-.app{
-    width:100%;
-    min-height:100dvh;
-    background:var(--bg);
-}
-
 .app-inner{
+
     width:100%;
+
     max-width:480px;
+
     min-height:100dvh;
-    margin:0 auto;
+
+    margin:auto;
+
     background:#f7f8fc;
+
     position:relative;
-    overflow:hidden;
+
 }
 
 /* =========================================================
-   TOP BAR
+   HEADER
 ========================================================= */
 
 .topbar{
-    position:sticky;
-    top:0;
-    z-index:100;
-    height:62px;
-    padding:
-        max(8px, env(safe-area-inset-top))
-        16px
-        8px
-        16px;
 
-    background:rgba(255,255,255,.94);
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    min-height:62px;
+
+    padding:
+        max(8px,env(safe-area-inset-top))
+        15px
+        8px
+        15px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+    background:rgba(255,255,255,.96);
+
     backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
 
     border-bottom:1px solid rgba(0,0,0,.06);
 
-    display:flex;
-    align-items:center;
-    gap:12px;
 }
 
-.brand-icon{
-    width:38px;
-    height:38px;
+.logo{
+
+    width:39px;
+
+    height:39px;
+
     border-radius:12px;
 
-    background:linear-gradient(
-        135deg,
-        #635bff,
-        #8b5cf6,
-        #ec4899
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #635bff,
+            #8b5cf6,
+            #ec4899
+        );
 
-    color:#fff;
+    color:white;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     font-weight:800;
-    font-size:17px;
 
-    box-shadow:0 6px 18px rgba(99,91,255,.25);
+    font-size:15px;
+
 }
 
-.brand-text{
-    min-width:0;
-}
+.brand strong{
 
-.brand-text strong{
     display:block;
+
     font-family:'Plus Jakarta Sans',sans-serif;
+
     font-size:14px;
-    line-height:18px;
+
 }
 
-.brand-text span{
+.brand span{
+
     display:block;
-    font-size:11px;
+
+    font-size:10px;
+
     color:var(--muted);
-    margin-top:1px;
+
 }
 
 /* =========================================================
@@ -158,7 +188,15 @@ textarea{
 ========================================================= */
 
 .main{
-    padding:14px 14px 120px;
+
+    padding:
+
+        13px
+
+        13px
+
+        120px;
+
 }
 
 /* =========================================================
@@ -166,66 +204,290 @@ textarea{
 ========================================================= */
 
 .hero{
+
+    padding:19px 17px;
+
     border-radius:22px;
-    padding:20px 18px;
+
     color:white;
 
+    margin-bottom:14px;
+
     background:
-        radial-gradient(circle at top right,
-        rgba(255,255,255,.24),
-        transparent 35%),
+
+        radial-gradient(
+            circle at top right,
+            rgba(255,255,255,.24),
+            transparent 36%
+        ),
+
         linear-gradient(
             135deg,
             #5148e8,
-            #635bff 48%,
+            #635bff,
             #8b5cf6
         );
 
     box-shadow:
         0 12px 30px rgba(99,91,255,.22);
 
-    margin-bottom:14px;
 }
 
-.hero-small{
-    font-size:11px;
-    font-weight:700;
-    opacity:.85;
+.hero small{
+
     text-transform:uppercase;
-    letter-spacing:.7px;
-    margin-bottom:7px;
+
+    letter-spacing:.8px;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    opacity:.85;
+
 }
 
 .hero h1{
+
     font-family:'Plus Jakarta Sans',sans-serif;
+
     font-size:22px;
+
     line-height:29px;
-    font-weight:800;
+
+    margin-top:7px;
+
 }
 
 .hero p{
-    font-size:12px;
-    line-height:18px;
-    opacity:.92;
-    margin-top:7px;
-}
-
-.hero-tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:7px;
-    margin-top:14px;
-}
-
-.hero-tag{
-    padding:7px 10px;
-    border-radius:999px;
-
-    background:rgba(255,255,255,.15);
-    border:1px solid rgba(255,255,255,.2);
 
     font-size:11px;
+
+    line-height:18px;
+
+    margin-top:6px;
+
+    opacity:.92;
+
+}
+
+/* =========================================================
+   TITLES
+========================================================= */
+
+.section-title{
+
+    font-family:'Plus Jakarta Sans',sans-serif;
+
+    font-size:18px;
+
+    font-weight:800;
+
+}
+
+.section-subtitle{
+
+    font-size:11px;
+
+    color:var(--muted);
+
+    line-height:17px;
+
+    margin-top:4px;
+
+    margin-bottom:12px;
+
+}
+
+/* =========================================================
+   JOB CARDS
+========================================================= */
+
+.jobs{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.job-card{
+
+    position:relative;
+
+    padding:15px;
+
+    background:#fff;
+
+    border:1.5px solid var(--border);
+
+    border-radius:17px;
+
+    cursor:pointer;
+
+    transition:.18s;
+
+}
+
+.job-card.selected{
+
+    border-color:var(--primary);
+
+    background:#f8f7ff;
+
+    box-shadow:
+        0 6px 20px rgba(99,91,255,.12);
+
+}
+
+.job-card:active{
+
+    transform:scale(.985);
+
+}
+
+.job-check{
+
+    position:absolute;
+
+    right:13px;
+
+    top:13px;
+
+    width:25px;
+
+    height:25px;
+
+    border-radius:50%;
+
+    border:1px solid #d9dce5;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:transparent;
+
+}
+
+.job-card.selected .job-check{
+
+    background:var(--primary);
+
+    border-color:var(--primary);
+
+    color:white;
+
+}
+
+.job-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:20px;
+
+    margin-bottom:9px;
+
+}
+
+.job-title{
+
+    font-family:'Plus Jakarta Sans',sans-serif;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    line-height:20px;
+
+    padding-right:30px;
+
+}
+
+.job-description{
+
+    font-size:10.5px;
+
+    line-height:16px;
+
+    color:var(--muted);
+
+    margin-top:4px;
+
+}
+
+.job-meta{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:6px;
+
+    margin-top:10px;
+
+}
+
+.job-tag{
+
+    padding:5px 8px;
+
+    border-radius:999px;
+
+    background:#f0f2f6;
+
+    color:#596173;
+
+    font-size:9px;
+
     font-weight:700;
+
+}
+
+/* =========================================================
+   SELECTED JOB
+========================================================= */
+
+.selected-job{
+
+    display:none;
+
+    margin-top:10px;
+
+    padding:11px;
+
+    border-radius:13px;
+
+    background:#ecfdf5;
+
+    border:1px solid #c8efd9;
+
+    color:#087f52;
+
+    font-size:11px;
+
+}
+
+.selected-job strong{
+
+    display:block;
+
+    font-size:12px;
+
 }
 
 /* =========================================================
@@ -233,365 +495,458 @@ textarea{
 ========================================================= */
 
 .steps-card{
-    background:#fff;
+
+    display:none;
+
+    background:white;
+
     border:1px solid var(--border);
-    border-radius:18px;
-    padding:13px 10px;
-    margin-bottom:14px;
+
+    border-radius:17px;
+
+    padding:12px 7px;
+
+    margin-top:13px;
+
 }
 
 .steps{
+
     display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:3px;
+
 }
 
 .step{
+
     flex:1;
+
     text-align:center;
+
     position:relative;
+
 }
 
 .step:not(:last-child)::after{
-    content:"";
-    position:absolute;
-    top:15px;
-    left:62%;
-    width:76%;
-    height:2px;
-    background:#e9ebf2;
-    z-index:0;
-}
 
-.step.active:not(:last-child)::after{
-    background:#d7d4ff;
+    content:"";
+
+    position:absolute;
+
+    top:14px;
+
+    left:60%;
+
+    width:80%;
+
+    height:2px;
+
+    background:#e7e9ef;
+
 }
 
 .step-circle{
-    width:30px;
-    height:30px;
+
+    position:relative;
+
+    z-index:2;
+
+    width:29px;
+
+    height:29px;
+
     margin:auto;
 
     border-radius:50%;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
-    background:#eef0f5;
+    background:#eef0f4;
+
     color:#8b92a2;
 
-    font-size:12px;
+    font-size:10px;
+
     font-weight:800;
 
-    position:relative;
-    z-index:2;
 }
 
 .step.active .step-circle{
-    color:#fff;
+
     background:var(--primary);
-    box-shadow:0 4px 12px rgba(99,91,255,.25);
+
+    color:white;
+
 }
 
 .step.done .step-circle{
-    color:#fff;
+
     background:var(--green);
+
+    color:white;
+
 }
 
 .step-label{
-    font-size:9px;
-    font-weight:700;
-    color:#969cab;
+
+    font-size:8px;
+
     margin-top:5px;
-}
 
-.step.active .step-label{
-    color:var(--primary);
-}
+    color:#969cab;
 
-/* =========================================================
-   FORM CARD
-========================================================= */
+    font-weight:700;
 
-.form-card{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:20px;
-    padding:18px 15px;
-}
-
-.section{
-    display:none;
-}
-
-.section.active{
-    display:block;
-    animation:fadeUp .25s ease;
-}
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(5px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.section-head{
-    margin-bottom:18px;
-}
-
-.section-head h2{
-    font-family:'Plus Jakarta Sans',sans-serif;
-    font-size:19px;
-    line-height:26px;
-    font-weight:800;
-}
-
-.section-head p{
-    color:var(--muted);
-    font-size:12px;
-    line-height:18px;
-    margin-top:4px;
 }
 
 /* =========================================================
    FORM
 ========================================================= */
 
+.form-card{
+
+    display:none;
+
+    margin-top:13px;
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:19px;
+
+    padding:17px 14px;
+
+}
+
+.form-section{
+
+    display:none;
+
+}
+
+.form-section.active{
+
+    display:block;
+
+}
+
+.section-head{
+
+    margin-bottom:17px;
+
+}
+
+.section-head h2{
+
+    font-family:'Plus Jakarta Sans',sans-serif;
+
+    font-size:19px;
+
+}
+
+.section-head p{
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    line-height:17px;
+
+    margin-top:4px;
+
+}
+
+/* =========================================================
+   INPUT
+========================================================= */
+
 .form-group{
-    margin-bottom:15px;
+
+    margin-bottom:14px;
+
 }
 
 .form-group label{
+
     display:block;
-    font-size:12px;
-    font-weight:700;
-    margin-bottom:7px;
-    color:#30384a;
+
+    font-size:11px;
+
+    font-weight:800;
+
+    margin-bottom:6px;
+
 }
 
 .required{
+
     color:var(--red);
+
 }
 
 input,
 select,
 textarea{
+
     width:100%;
+
     border:1px solid #dfe3eb;
+
     background:#fafbfe;
 
-    border-radius:13px;
+    border-radius:12px;
 
-    padding:13px 13px;
+    padding:12px;
 
-    color:var(--text);
     outline:none;
 
-    transition:.2s;
+    color:var(--text);
+
 }
 
 input{
-    height:49px;
+
+    height:48px;
+
 }
 
 select{
-    height:49px;
+
+    height:48px;
+
 }
 
 textarea{
-    min-height:105px;
-    resize:vertical;
-    line-height:20px;
-}
 
-input::placeholder,
-textarea::placeholder{
-    color:#a1a7b4;
+    min-height:100px;
+
+    resize:vertical;
+
+    line-height:19px;
+
 }
 
 input:focus,
 select:focus,
 textarea:focus{
+
     background:#fff;
+
     border-color:var(--primary);
-    box-shadow:0 0 0 3px rgba(99,91,255,.09);
+
+    box-shadow:
+        0 0 0 3px rgba(99,91,255,.08);
+
 }
 
 /* =========================================================
-   TWO INPUTS
-   Only for small related fields
+   INFO
 ========================================================= */
 
-.row{
-    display:flex;
-    gap:9px;
-}
+.info{
 
-.row > *{
-    flex:1;
-    min-width:0;
-}
-
-/* =========================================================
-   INFO BOX
-========================================================= */
-
-.info-box{
-    padding:12px 13px;
-    border-radius:14px;
+    padding:11px 12px;
 
     background:#f4f3ff;
-    border:1px solid #e2dfff;
 
-    color:#5148b8;
+    border:1px solid #e0dcff;
 
-    font-size:11px;
+    border-radius:13px;
+
+    color:#574fb8;
+
+    font-size:10.5px;
+
     line-height:17px;
 
-    margin-bottom:16px;
+    margin-bottom:15px;
+
 }
 
-.info-box strong{
+.info strong{
+
     display:block;
-    font-size:12px;
-    margin-bottom:2px;
+
 }
 
 /* =========================================================
-   RADIO / OPTIONS
+   OPTIONS
 ========================================================= */
 
 .option-grid{
+
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:8px;
+
 }
 
 .option{
+
     position:relative;
+
 }
 
 .option input{
+
     position:absolute;
+
     opacity:0;
-    pointer-events:none;
+
 }
 
 .option label{
-    display:flex;
-    align-items:center;
-    justify-content:center;
 
-    min-height:47px;
+    min-height:46px;
 
     border:1px solid #dfe3eb;
-    border-radius:12px;
+
+    border-radius:11px;
 
     background:#fafbfe;
 
-    font-size:12px;
-    font-weight:600;
+    display:flex;
 
-    cursor:pointer;
+    align-items:center;
+
+    justify-content:center;
+
     text-align:center;
+
+    font-size:11px;
+
 }
 
 .option input:checked + label{
+
     border-color:var(--primary);
-    background:#f2f1ff;
+
     color:var(--primary);
+
+    background:#f1f0ff;
+
 }
 
 /* =========================================================
-   FILE UPLOAD
+   FILE
 ========================================================= */
 
 .file-box{
+
     position:relative;
-    border:1.5px dashed #ccd1df;
-    border-radius:16px;
-    padding:16px 12px;
-    background:#fafbfe;
+
+    border:1.5px dashed #cbd1df;
+
+    border-radius:15px;
+
+    padding:15px 10px;
+
     text-align:center;
-    cursor:pointer;
-    transition:.2s;
-}
 
-.file-box:active{
-    transform:scale(.99);
-}
+    background:#fafbfe;
 
-.file-box:hover{
-    border-color:var(--primary);
-    background:#f8f7ff;
 }
 
 .file-icon{
-    width:40px;
-    height:40px;
-    margin:0 auto 8px;
 
-    border-radius:12px;
+    width:38px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    height:38px;
+
+    border-radius:11px;
 
     background:#eeedff;
+
     color:var(--primary);
 
-    font-size:18px;
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:auto;
+
+    margin-bottom:7px;
+
 }
 
 .file-box strong{
+
     display:block;
-    font-size:12px;
-    margin-bottom:3px;
+
+    font-size:11px;
+
 }
 
 .file-box span{
+
     display:block;
-    font-size:10px;
+
     color:var(--muted);
+
+    font-size:9px;
+
+    margin-top:3px;
+
 }
 
 .file-box input{
+
     position:absolute;
+
     inset:0;
-    width:100%;
-    height:100%;
+
     opacity:0;
-    cursor:pointer;
+
+    width:100%;
+
+    height:100%;
+
 }
 
 .file-name{
+
     display:none;
-    margin-top:8px;
-    padding:8px 10px;
-    border-radius:9px;
+
+    margin-top:7px;
+
+    padding:7px;
+
+    border-radius:8px;
+
     background:#ecfdf5;
+
     color:#087f52;
-    font-size:10px;
-    font-weight:600;
+
+    font-size:9px;
+
     word-break:break-word;
+
 }
 
 .photo-preview{
+
     display:none;
-    width:78px;
-    height:78px;
-    border-radius:50%;
+
+    width:72px;
+
+    height:72px;
+
     object-fit:cover;
-    margin:0 auto 10px;
-    border:3px solid #fff;
-    box-shadow:0 4px 14px rgba(0,0,0,.12);
+
+    border-radius:50%;
+
+    margin:auto;
+
+    margin-bottom:8px;
+
 }
 
 /* =========================================================
@@ -599,93 +954,107 @@ textarea:focus{
 ========================================================= */
 
 .declaration{
-    display:flex;
-    align-items:flex-start;
-    gap:9px;
 
-    padding:12px;
-    border-radius:13px;
+    display:flex;
+
+    gap:8px;
+
+    padding:11px;
+
+    border-radius:12px;
 
     background:#fffaf0;
-    border:1px solid #f5dfb2;
 
-    margin-top:5px;
+    border:1px solid #f2dfb6;
+
 }
 
 .declaration input{
+
     width:18px;
+
     height:18px;
+
     flex:none;
-    margin-top:1px;
-    accent-color:var(--primary);
+
+    padding:0;
+
 }
 
 .declaration label{
-    font-size:11px;
-    line-height:17px;
-    color:#555b69;
+
+    font-size:10px;
+
+    line-height:16px;
+
 }
 
 /* =========================================================
-   BOTTOM NAVIGATION
+   BOTTOM
 ========================================================= */
 
 .bottom-nav{
+
+    display:none;
+
     position:fixed;
-    z-index:200;
 
     bottom:0;
+
     left:50%;
 
     transform:translateX(-50%);
 
     width:100%;
+
     max-width:480px;
 
-    padding:
-        10px
-        14px
-        max(10px, env(safe-area-inset-bottom))
-        14px;
+    z-index:200;
 
-    background:rgba(255,255,255,.96);
+    padding:
+        9px
+        13px
+        max(9px,env(safe-area-inset-bottom))
+        13px;
+
+    background:rgba(255,255,255,.97);
+
     backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
 
     border-top:1px solid rgba(0,0,0,.07);
 
-    display:flex;
-    gap:9px;
+    gap:8px;
+
 }
 
 .btn{
-    border:0;
-    min-height:50px;
-    border-radius:14px;
 
-    font-family:'Inter',sans-serif;
-    font-size:13px;
+    min-height:49px;
+
+    border:0;
+
+    border-radius:13px;
+
+    font-size:12px;
+
     font-weight:800;
 
-    cursor:pointer;
-
-    transition:.15s;
 }
 
-.btn:active{
-    transform:scale(.98);
+.back-btn{
+
+    width:88px;
+
+    background:#eef0f4;
+
 }
 
-.btn-back{
-    width:92px;
-    background:#eef0f5;
-    color:#535a69;
-}
+.next-btn,
+.submit-btn{
 
-.btn-next,
-.btn-submit{
     flex:1;
-    color:#fff;
+
+    color:white;
 
     background:
         linear-gradient(
@@ -694,17 +1063,12 @@ textarea:focus{
             var(--purple)
         );
 
-    box-shadow:
-        0 7px 18px rgba(99,91,255,.22);
 }
 
-.btn-submit{
+.submit-btn{
+
     display:none;
-}
 
-.btn:disabled{
-    opacity:.55;
-    cursor:not-allowed;
 }
 
 /* =========================================================
@@ -712,39 +1076,77 @@ textarea:focus{
 ========================================================= */
 
 .success{
+
     display:none;
+
     text-align:center;
-    padding:28px 12px 15px;
+
+    padding:30px 10px;
+
 }
 
 .success-icon{
+
     width:72px;
+
     height:72px;
 
     border-radius:50%;
 
-    margin:0 auto 15px;
+    margin:auto;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     background:#dcfce7;
+
     color:#16a34a;
 
-    font-size:32px;
+    font-size:30px;
+
 }
 
 .success h2{
+
     font-family:'Plus Jakarta Sans',sans-serif;
+
     font-size:21px;
-    margin-bottom:7px;
+
+    margin-top:15px;
+
 }
 
 .success p{
+
     color:var(--muted);
-    font-size:12px;
-    line-height:19px;
+
+    font-size:11px;
+
+    line-height:18px;
+
+    margin-top:7px;
+
+}
+
+.application-id{
+
+    margin-top:15px;
+
+    padding:11px;
+
+    background:#f4f3ff;
+
+    border-radius:12px;
+
+    color:#5148b8;
+
+    font-size:11px;
+
+    font-weight:800;
+
 }
 
 /* =========================================================
@@ -752,1130 +1154,899 @@ textarea:focus{
 ========================================================= */
 
 .loading{
+
     display:none;
+
     align-items:center;
+
     justify-content:center;
-    gap:8px;
-    font-size:12px;
-    font-weight:700;
+
+    gap:7px;
+
 }
 
 .spinner{
-    width:17px;
-    height:17px;
+
+    width:16px;
+
+    height:16px;
+
     border:2px solid rgba(255,255,255,.4);
-    border-top-color:#fff;
+
+    border-top-color:white;
+
     border-radius:50%;
+
     animation:spin .7s linear infinite;
+
 }
 
 @keyframes spin{
+
     to{
         transform:rotate(360deg);
     }
+
 }
 
-/* =========================================================
-   SMALL PHONES
-========================================================= */
-
-@media(max-width:360px){
-
-    .main{
-        padding-left:10px;
-        padding-right:10px;
-    }
-
-    .form-card{
-        padding:16px 12px;
-    }
-
-    .hero{
-        padding:17px 15px;
-    }
-
-    .hero h1{
-        font-size:20px;
-    }
-
-    .step-label{
-        font-size:8px;
-    }
-
-    .bottom-nav{
-        padding-left:10px;
-        padding-right:10px;
-    }
-
-    .btn-back{
-        width:82px;
-    }
-}
-
-/* =========================================================
-   DESKTOP
-   Still keeps mobile-app appearance
-========================================================= */
-
-@media(min-width:700px){
-
-    body{
-        background:#e9ecf4;
-    }
-
-    .app-inner{
-        box-shadow:
-            0 0 50px rgba(0,0,0,.08);
-    }
-}
 </style>
+
 </head>
 
 <body>
 
-<div class="app">
-
 <div class="app-inner">
 
-    <!-- =====================================================
-         TOP BAR
-    ====================================================== -->
 
-    <header class="topbar">
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-        <div class="brand-icon">
-            BT
-        </div>
+<header class="topbar">
 
-        <div class="brand-text">
-            <strong>BlackTerminal</strong>
-            <span>Job Application</span>
-        </div>
+    <div class="logo">
+        BT
+    </div>
 
-    </header>
+    <div class="brand">
 
+        <strong>
+            BlackTerminal
+        </strong>
 
-    <!-- =====================================================
-         MAIN
-    ====================================================== -->
+        <span>
+            Careers & Job Application
+        </span>
 
-    <main class="main">
+    </div>
 
-        <!-- HERO -->
+</header>
 
-        <section class="hero">
 
-            <div class="hero-small">
-                Career Opportunity
-            </div>
+<main class="main">
 
-            <h1>
-                Social Media & Design
-                Support Staff
-            </h1>
 
-            <p>
-                Join BlackTerminal Computer Institute,
-                Baripada and work with our creative team.
-            </p>
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-            <div class="hero-tags">
+<section class="hero">
 
-                <span class="hero-tag">
-                    ₹9,000 / Month
-                </span>
+    <small>
+        Career Opportunity
+    </small>
 
-                <span class="hero-tag">
-                    Students Eligible
-                </span>
+    <h1>
+        Join the BlackTerminal Team
+    </h1>
 
-                <span class="hero-tag">
-                    Baripada
-                </span>
+    <p>
+        Choose your preferred job role and complete
+        your application.
+    </p>
 
-            </div>
+</section>
 
-        </section>
 
+<!-- =====================================================
+     JOB LIST
+===================================================== -->
 
-        <!-- =================================================
-             STEPS
-        ================================================== -->
+<section id="jobSelection">
 
-        <div class="steps-card">
+    <div class="section-title">
+        Choose a Job
+    </div>
 
-            <div class="steps">
-
-                <div class="step active" id="stepIndicator1">
-
-                    <div class="step-circle">
-                        1
-                    </div>
-
-                    <div class="step-label">
-                        Personal
-                    </div>
-
-                </div>
-
-
-                <div class="step" id="stepIndicator2">
-
-                    <div class="step-circle">
-                        2
-                    </div>
-
-                    <div class="step-label">
-                        Education
-                    </div>
-
-                </div>
-
-
-                <div class="step" id="stepIndicator3">
-
-                    <div class="step-circle">
-                        3
-                    </div>
-
-                    <div class="step-label">
-                        Skills
-                    </div>
-
-                </div>
-
-
-                <div class="step" id="stepIndicator4">
-
-                    <div class="step-circle">
-                        4
-                    </div>
-
-                    <div class="step-label">
-                        Documents
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- =================================================
-             FORM CARD
-        ================================================== -->
-
-        <div class="form-card">
-
-            <form id="jobForm">
-
-
-                <!-- =========================================
-                     STEP 1
-                ========================================== -->
-
-                <section
-                    class="section active"
-                    id="section1">
-
-                    <div class="section-head">
-
-                        <h2>
-                            Personal Details
-                        </h2>
-
-                        <p>
-                            Tell us a little about yourself.
-                        </p>
-
-                    </div>
-
-
-                    <div class="info-box">
-
-                        <strong>
-                            Application Information
-                        </strong>
-
-                        Please enter your details correctly.
-                        They may be used for interview communication.
-
-                    </div>
-
-
-                    <!-- NAME -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Full Name
-                            <span class="required">*</span>
-                        </label>
-
-                        <input
-                            type="text"
-                            id="fullName"
-                            name="fullName"
-                            placeholder="Enter your full name"
-                            required>
-
-                    </div>
-
-
-                    <!-- MOBILE -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Mobile Number
-                            <span class="required">*</span>
-                        </label>
-
-                        <input
-                            type="tel"
-                            id="mobile"
-                            name="mobile"
-                            inputmode="numeric"
-                            maxlength="10"
-                            placeholder="10 digit mobile number"
-                            required>
-
-                    </div>
-
-
-                    <!-- EMAIL -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Email Address
-                        </label>
-
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="example@email.com">
-
-                    </div>
-
-
-                    <!-- DOB -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Date of Birth
-                        </label>
-
-                        <input
-                            type="date"
-                            id="dob"
-                            name="dob">
-
-                    </div>
-
-
-                    <!-- GENDER -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Gender
-                        </label>
-
-                        <div class="option-grid">
-
-                            <div class="option">
-
-                                <input
-                                    type="radio"
-                                    name="gender"
-                                    id="male"
-                                    value="Male">
-
-                                <label for="male">
-                                    Male
-                                </label>
-
-                            </div>
-
-
-                            <div class="option">
-
-                                <input
-                                    type="radio"
-                                    name="gender"
-                                    id="female"
-                                    value="Female">
-
-                                <label for="female">
-                                    Female
-                                </label>
-
-                            </div>
-
-
-                            <div class="option">
-
-                                <input
-                                    type="radio"
-                                    name="gender"
-                                    id="other"
-                                    value="Other">
-
-                                <label for="other">
-                                    Other
-                                </label>
-
-                            </div>
-
-
-                            <div class="option">
-
-                                <input
-                                    type="radio"
-                                    name="gender"
-                                    id="preferNot"
-                                    value="Prefer not to say">
-
-                                <label for="preferNot">
-                                    Prefer not to say
-                                </label>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- STUDENT ID -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Student ID
-                        </label>
-
-                        <input
-                            type="text"
-                            id="studentId"
-                            name="studentId"
-                            placeholder="If applicable">
-
-                    </div>
-
-
-                    <!-- ADDRESS -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Address
-                        </label>
-
-                        <textarea
-                            id="address"
-                            name="address"
-                            placeholder="Enter your address"></textarea>
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- =========================================
-                     STEP 2
-                ========================================== -->
-
-                <section
-                    class="section"
-                    id="section2">
-
-                    <div class="section-head">
-
-                        <h2>
-                            Education
-                        </h2>
-
-                        <p>
-                            Tell us about your course and education.
-                        </p>
-
-                    </div>
-
-
-                    <!-- COURSE -->
-
-                    <div class="form-group">
-
-                        <label>
-                            BlackTerminal Course
-                            <span class="required">*</span>
-                        </label>
-
-                        <select
-                            id="course"
-                            name="course"
-                            required>
-
-                            <option value="">
-                                Select your course
-                            </option>
-
-                            <option>
-                                PGDCA
-                            </option>
-
-                            <option>
-                                Advanced PGDCA
-                            </option>
-
-                            <option>
-                                C Language
-                            </option>
-
-                            <option>
-                                Java
-                            </option>
-
-                            <option>
-                                Python
-                            </option>
-
-                            <option>
-                                Tally
-                            </option>
-
-                            <option>
-                                Spoken English
-                            </option>
-
-                            <option>
-                                Other
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <!-- STATUS -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Course Status
-                        </label>
-
-                        <select
-                            id="courseStatus"
-                            name="courseStatus">
-
-                            <option value="">
-                                Select status
-                            </option>
-
-                            <option>
-                                Currently Studying
-                            </option>
-
-                            <option>
-                                Completed
-                            </option>
-
-                            <option>
-                                Former Student
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <!-- BATCH -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Batch / Year
-                        </label>
-
-                        <input
-                            type="text"
-                            id="batch"
-                            name="batch"
-                            placeholder="Example: 2025-26">
-
-                    </div>
-
-
-                    <!-- QUALIFICATION -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Highest Qualification
-                        </label>
-
-                        <select
-                            id="qualification"
-                            name="qualification">
-
-                            <option value="">
-                                Select qualification
-                            </option>
-
-                            <option>
-                                10th
-                            </option>
-
-                            <option>
-                                12th
-                            </option>
-
-                            <option>
-                                Graduation
-                            </option>
-
-                            <option>
-                                Post Graduation
-                            </option>
-
-                            <option>
-                                Other
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="info-box">
-
-                        <strong>
-                            Who can apply?
-                        </strong>
-
-                        Current and former BlackTerminal
-                        students can apply for this opportunity.
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- =========================================
-                     STEP 3
-                ========================================== -->
-
-                <section
-                    class="section"
-                    id="section3">
-
-                    <div class="section-head">
-
-                        <h2>
-                            Skills & Experience
-                        </h2>
-
-                        <p>
-                            Help us understand your creative skills.
-                        </p>
-
-                    </div>
-
-
-                    <!-- EXPERIENCE -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Design Experience
-                        </label>
-
-                        <select
-                            id="experience"
-                            name="experience">
-
-                            <option value="">
-                                Select experience
-                            </option>
-
-                            <option>
-                                Fresher
-                            </option>
-
-                            <option>
-                                Less than 1 year
-                            </option>
-
-                            <option>
-                                1–2 years
-                            </option>
-
-                            <option>
-                                2+ years
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <!-- AI -->
-
-                    <div class="form-group">
-
-                        <label>
-                            AI / Canva Knowledge
-                        </label>
-
-                        <select
-                            id="aiKnowledge"
-                            name="aiKnowledge">
-
-                            <option value="">
-                                Select your level
-                            </option>
-
-                            <option>
-                                Beginner
-                            </option>
-
-                            <option>
-                                Intermediate
-                            </option>
-
-                            <option>
-                                Advanced
-                            </option>
-
-                            <option>
-                                Expert
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <!-- SOCIAL -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Social Media Experience
-                        </label>
-
-                        <select
-                            id="socialExperience"
-                            name="socialExperience">
-
-                            <option value="">
-                                Select
-                            </option>
-
-                            <option>
-                                No experience
-                            </option>
-
-                            <option>
-                                Basic
-                            </option>
-
-                            <option>
-                                Good
-                            </option>
-
-                            <option>
-                                Professional
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <!-- VIDEO -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Video Editing
-                        </label>
-
-                        <select
-                            id="videoEditing"
-                            name="videoEditing">
-
-                            <option value="">
-                                Select
-                            </option>
-
-                            <option>
-                                No
-                            </option>
-
-                            <option>
-                                Basic
-                            </option>
-
-                            <option>
-                                Intermediate
-                            </option>
-
-                            <option>
-                                Advanced
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <!-- SKILLS -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Your Skills
-                        </label>
-
-                        <textarea
-                            id="skills"
-                            name="skills"
-                            placeholder="Example: Canva, Photoshop, Instagram, Facebook, Reels, AI tools..."></textarea>
-
-                    </div>
-
-
-                    <!-- REASON -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Why should we select you?
-                            <span class="required">*</span>
-                        </label>
-
-                        <textarea
-                            id="reason"
-                            name="reason"
-                            placeholder="Tell us briefly why you are suitable for this role..."
-                            required></textarea>
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- =========================================
-                     STEP 4
-                ========================================== -->
-
-                <section
-                    class="section"
-                    id="section4">
-
-                    <div class="section-head">
-
-                        <h2>
-                            Documents
-                        </h2>
-
-                        <p>
-                            Upload your documents carefully.
-                        </p>
-
-                    </div>
-
-
-                    <!-- PHOTO -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Profile Photo
-                            <span class="required">*</span>
-                        </label>
-
-                        <div class="file-box">
-
-                            <img
-                                id="photoPreview"
-                                class="photo-preview"
-                                alt="Preview">
-
-                            <div
-                                class="file-icon">
-                                📷
-                            </div>
-
-                            <strong>
-                                Upload Photo
-                            </strong>
-
-                            <span>
-                                JPG / PNG • Maximum 2 MB
-                            </span>
-
-                            <input
-                                type="file"
-                                id="photo"
-                                name="photo"
-                                accept="image/jpeg,image/png"
-                                required>
-
-                        </div>
-
-                        <div
-                            class="file-name"
-                            id="photoName">
-                        </div>
-
-                    </div>
-
-
-                    <!-- CV -->
-
-                    <div class="form-group">
-
-                        <label>
-                            CV / Resume
-                            <span class="required">*</span>
-                        </label>
-
-                        <div class="file-box">
-
-                            <div class="file-icon">
-                                📄
-                            </div>
-
-                            <strong>
-                                Upload CV
-                            </strong>
-
-                            <span>
-                                PDF / DOC / DOCX • Maximum 5 MB
-                            </span>
-
-                            <input
-                                type="file"
-                                id="cv"
-                                name="cv"
-                                accept=".pdf,.doc,.docx"
-                                required>
-
-                        </div>
-
-                        <div
-                            class="file-name"
-                            id="cvName">
-                        </div>
-
-                    </div>
-
-
-                    <!-- PORTFOLIO -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Portfolio
-                        </label>
-
-                        <div class="file-box">
-
-                            <div class="file-icon">
-                                🎨
-                            </div>
-
-                            <strong>
-                                Upload Portfolio
-                            </strong>
-
-                            <span>
-                                PDF / Image • Maximum 5 MB
-                            </span>
-
-                            <input
-                                type="file"
-                                id="portfolio"
-                                name="portfolio"
-                                accept=".pdf,image/jpeg,image/png">
-
-                        </div>
-
-                        <div
-                            class="file-name"
-                            id="portfolioName">
-                        </div>
-
-                    </div>
-
-
-                    <!-- STUDENT DOCUMENT -->
-
-                    <div class="form-group">
-
-                        <label>
-                            Student Document
-                        </label>
-
-                        <div class="file-box">
-
-                            <div class="file-icon">
-                                🎓
-                            </div>
-
-                            <strong>
-                                Student ID / Certificate
-                            </strong>
-
-                            <span>
-                                PDF / JPG / PNG • Maximum 5 MB
-                            </span>
-
-                            <input
-                                type="file"
-                                id="studentDocument"
-                                name="studentDocument"
-                                accept=".pdf,image/jpeg,image/png">
-
-                        </div>
-
-                        <div
-                            class="file-name"
-                            id="studentDocumentName">
-                        </div>
-
-                    </div>
-
-
-                    <!-- DECLARATION -->
-
-                    <div class="declaration">
-
-                        <input
-                            type="checkbox"
-                            id="declaration"
-                            required>
-
-                        <label for="declaration">
-
-                            I confirm that the information
-                            provided by me is correct and
-                            complete to the best of my knowledge.
-
-                        </label>
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- =========================================
-                     SUCCESS
-                ========================================== -->
-
-                <section
-                    class="success"
-                    id="success">
-
-                    <div class="success-icon">
-                        ✓
-                    </div>
-
-                    <h2>
-                        Application Submitted!
-                    </h2>
-
-                    <p>
-                        Thank you for applying to
-                        BlackTerminal Computer Institute.
-                        Our team will contact you if you
-                        are shortlisted.
-                    </p>
-
-                </section>
-
-            </form>
-
-        </div>
-
-    </main>
-
-
-    <!-- =====================================================
-         BOTTOM NAV
-    ====================================================== -->
+    <div class="section-subtitle">
+        Select the position you want to apply for.
+    </div>
 
     <div
-        class="bottom-nav"
-        id="bottomNav">
+        class="jobs"
+        id="jobsContainer">
 
-        <button
-            type="button"
-            class="btn btn-back"
-            id="backBtn"
-            onclick="previousStep()">
+        <div style="
+            text-align:center;
+            padding:20px;
+            color:#737b8c;
+            font-size:11px;
+        ">
+            Loading jobs...
+        </div>
 
-            ← Back
-
-        </button>
-
-
-        <button
-            type="button"
-            class="btn btn-next"
-            id="nextBtn"
-            onclick="nextStep()">
-
-            Next →
-
-        </button>
+    </div>
 
 
-        <button
-            type="button"
-            class="btn btn-submit"
-            id="submitBtn"
-            onclick="submitApplication()">
+    <div
+        class="selected-job"
+        id="selectedJob">
 
-            <span id="submitText">
-                Submit Application
-            </span>
+        <strong>
+            Selected Job
+        </strong>
 
-            <span
-                class="loading"
-                id="loading">
+        <span id="selectedJobText"></span>
 
-                <span class="spinner"></span>
-                Submitting...
+    </div>
 
-            </span>
+</section>
 
-        </button>
+
+<!-- =====================================================
+     STEPS
+===================================================== -->
+
+<div
+    class="steps-card"
+    id="stepsCard">
+
+    <div class="steps">
+
+        <div class="step active" id="step1">
+            <div class="step-circle">1</div>
+            <div class="step-label">Personal</div>
+        </div>
+
+        <div class="step" id="step2">
+            <div class="step-circle">2</div>
+            <div class="step-label">Education</div>
+        </div>
+
+        <div class="step" id="step3">
+            <div class="step-circle">3</div>
+            <div class="step-label">Skills</div>
+        </div>
+
+        <div class="step" id="step4">
+            <div class="step-circle">4</div>
+            <div class="step-label">Docs</div>
+        </div>
+
+        <div class="step" id="step5">
+            <div class="step-circle">5</div>
+            <div class="step-label">Submit</div>
+        </div>
 
     </div>
 
 </div>
 
+
+<!-- =====================================================
+     FORM
+===================================================== -->
+
+<div
+    class="form-card"
+    id="formCard">
+
+<form id="jobForm">
+
+
+<!-- =====================================================
+     PERSONAL
+===================================================== -->
+
+<section
+    class="form-section active"
+    id="section1">
+
+    <div class="section-head">
+
+        <h2>
+            Personal Details
+        </h2>
+
+        <p>
+            Enter your basic information.
+        </p>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Full Name <span class="required">*</span>
+        </label>
+
+        <input
+            id="fullName"
+            required
+            placeholder="Enter your full name">
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Mobile Number <span class="required">*</span>
+        </label>
+
+        <input
+            id="mobile"
+            type="tel"
+            inputmode="numeric"
+            maxlength="10"
+            required
+            placeholder="10 digit mobile number">
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Email
+        </label>
+
+        <input
+            id="email"
+            type="email"
+            placeholder="example@email.com">
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Date of Birth
+        </label>
+
+        <input
+            id="dob"
+            type="date">
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Gender
+        </label>
+
+        <div class="option-grid">
+
+            <div class="option">
+
+                <input
+                    type="radio"
+                    name="gender"
+                    id="genderMale"
+                    value="Male">
+
+                <label for="genderMale">
+                    Male
+                </label>
+
+            </div>
+
+            <div class="option">
+
+                <input
+                    type="radio"
+                    name="gender"
+                    id="genderFemale"
+                    value="Female">
+
+                <label for="genderFemale">
+                    Female
+                </label>
+
+            </div>
+
+            <div class="option">
+
+                <input
+                    type="radio"
+                    name="gender"
+                    id="genderOther"
+                    value="Other">
+
+                <label for="genderOther">
+                    Other
+                </label>
+
+            </div>
+
+            <div class="option">
+
+                <input
+                    type="radio"
+                    name="gender"
+                    id="genderNA"
+                    value="Prefer not to say">
+
+                <label for="genderNA">
+                    Prefer not to say
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Student ID
+        </label>
+
+        <input
+            id="studentId"
+            placeholder="If applicable">
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Address
+        </label>
+
+        <textarea
+            id="address"
+            placeholder="Enter your address"></textarea>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EDUCATION
+===================================================== -->
+
+<section
+    class="form-section"
+    id="section2">
+
+    <div class="section-head">
+
+        <h2>
+            Education
+        </h2>
+
+        <p>
+            Tell us about your education.
+        </p>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            BlackTerminal Course
+            <span class="required">*</span>
+        </label>
+
+        <select
+            id="course"
+            required>
+
+            <option value="">
+                Select course
+            </option>
+
+            <option>PGDCA</option>
+
+            <option>Advanced PGDCA</option>
+
+            <option>C Language</option>
+
+            <option>Java</option>
+
+            <option>Python</option>
+
+            <option>Tally</option>
+
+            <option>Spoken English</option>
+
+            <option>Other</option>
+
+        </select>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Course Status
+        </label>
+
+        <select id="courseStatus">
+
+            <option value="">
+                Select status
+            </option>
+
+            <option>Currently Studying</option>
+
+            <option>Completed</option>
+
+            <option>Former Student</option>
+
+        </select>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Batch / Year
+        </label>
+
+        <input
+            id="batch"
+            placeholder="Example: 2025-26">
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Highest Qualification
+        </label>
+
+        <select id="qualification">
+
+            <option value="">
+                Select qualification
+            </option>
+
+            <option>10th</option>
+
+            <option>12th</option>
+
+            <option>Graduation</option>
+
+            <option>Post Graduation</option>
+
+            <option>Other</option>
+
+        </select>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section
+    class="form-section"
+    id="section3">
+
+    <div class="section-head">
+
+        <h2>
+            Job Skills
+        </h2>
+
+        <p id="roleDescription">
+            Tell us about your skills.
+        </p>
+
+    </div>
+
+
+    <!-- Dynamic questions -->
+
+    <div id="dynamicFields"></div>
+
+
+    <div class="form-group">
+
+        <label>
+            Your Skills
+        </label>
+
+        <textarea
+            id="skills"
+            placeholder="Write your important skills..."></textarea>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Previous Work Experience
+        </label>
+
+        <textarea
+            id="previousExperience"
+            placeholder="Tell us about previous experience, if any..."></textarea>
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Why should we select you?
+        </label>
+
+        <textarea
+            id="reason"
+            placeholder="Tell us why you are suitable for this job..."></textarea>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DOCUMENTS
+===================================================== -->
+
+<section
+    class="form-section"
+    id="section4">
+
+    <div class="section-head">
+
+        <h2>
+            Documents
+        </h2>
+
+        <p>
+            Upload your documents.
+        </p>
+
+    </div>
+
+
+    <!-- PHOTO -->
+
+    <div class="form-group">
+
+        <label>
+            Profile Photo
+            <span class="required">*</span>
+        </label>
+
+        <div class="file-box">
+
+            <img
+                id="photoPreview"
+                class="photo-preview">
+
+            <div class="file-icon">
+                📷
+            </div>
+
+            <strong>
+                Upload Photo
+            </strong>
+
+            <span>
+                JPG / PNG • Maximum 2 MB
+            </span>
+
+            <input
+                type="file"
+                id="photo"
+                accept="image/jpeg,image/png"
+                required>
+
+        </div>
+
+        <div
+            class="file-name"
+            id="photoName">
+        </div>
+
+    </div>
+
+
+    <!-- CV -->
+
+    <div class="form-group">
+
+        <label>
+            CV / Resume
+            <span class="required">*</span>
+        </label>
+
+        <div class="file-box">
+
+            <div class="file-icon">
+                📄
+            </div>
+
+            <strong>
+                Upload CV
+            </strong>
+
+            <span>
+                PDF / DOC / DOCX • Maximum 5 MB
+            </span>
+
+            <input
+                type="file"
+                id="cv"
+                accept=".pdf,.doc,.docx"
+                required>
+
+        </div>
+
+        <div
+            class="file-name"
+            id="cvName">
+        </div>
+
+    </div>
+
+
+    <!-- PORTFOLIO -->
+
+    <div class="form-group">
+
+        <label>
+            Portfolio
+        </label>
+
+        <div class="file-box">
+
+            <div class="file-icon">
+                🎨
+            </div>
+
+            <strong>
+                Upload Portfolio
+            </strong>
+
+            <span>
+                PDF / JPG / PNG • Maximum 5 MB
+            </span>
+
+            <input
+                type="file"
+                id="portfolio"
+                accept=".pdf,image/jpeg,image/png">
+
+        </div>
+
+        <div
+            class="file-name"
+            id="portfolioName">
+        </div>
+
+    </div>
+
+
+    <!-- STUDENT DOC -->
+
+    <div class="form-group">
+
+        <label>
+            Student Document
+        </label>
+
+        <div class="file-box">
+
+            <div class="file-icon">
+                🎓
+            </div>
+
+            <strong>
+                Student ID / Certificate
+            </strong>
+
+            <span>
+                PDF / JPG / PNG • Maximum 5 MB
+            </span>
+
+            <input
+                type="file"
+                id="studentDocument"
+                accept=".pdf,image/jpeg,image/png">
+
+        </div>
+
+        <div
+            class="file-name"
+            id="studentDocumentName">
+        </div>
+
+    </div>
+
+
+    <div class="declaration">
+
+        <input
+            type="checkbox"
+            id="declaration">
+
+        <label for="declaration">
+
+            I confirm that the information provided by me
+            is correct and complete.
+
+        </label>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SUCCESS
+===================================================== -->
+
+<section
+    class="form-section success"
+    id="success">
+
+    <div class="success-icon">
+        ✓
+    </div>
+
+    <h2>
+        Application Submitted!
+    </h2>
+
+    <p>
+        Thank you for applying to BlackTerminal.
+        Our team will review your application.
+    </p>
+
+    <div class="application-id">
+
+        Application ID:
+        <span id="applicationId">
+        </span>
+
+    </div>
+
+</section>
+
+
+</form>
+
 </div>
 
 
-<script>
+</main>
+
+
+<!-- =====================================================
+     BOTTOM NAV
+===================================================== -->
+
+<div
+    class="bottom-nav"
+    id="bottomNav">
+
+    <button
+        class="btn back-btn"
+        id="backBtn"
+        onclick="previousStep()">
+
+        ← Back
+
+    </button>
+
+
+    <button
+        class="btn next-btn"
+        id="nextBtn"
+        onclick="nextStep()">
+
+        Next →
+
+    </button>
+
+
+    <button
+        class="btn submit-btn"
+        id="submitBtn"
+        onclick="submitApplication()">
+
+        <span id="submitText">
+            Submit Application
+        </span>
+
+        <span
+            class="loading"
+            id="loading">
+
+            <span class="spinner"></span>
+
+            Submitting...
+
+        </span>
+
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
+
+<script type="module">
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+import {
+    getFirestore,
+    collection,
+    getDocs,
+    doc,
+    setDoc
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+import {
+    getStorage,
+    ref,
+    uploadBytes,
+    getDownloadURL
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-storage.js";
+
+import {
+    firebaseConfig
+} from "./firebase-config.js";
+
 
 /* =========================================================
-   BLACKTERMINAL JOB APPLICATION
+   FIREBASE INITIALIZE
 ========================================================= */
+
+const app =
+    initializeApp(firebaseConfig);
+
+const db =
+    getFirestore(app);
+
+const storage =
+    getStorage(app);
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+let jobs = [];
+
+let selectedJob = null;
 
 let currentStep = 1;
 
@@ -1883,90 +2054,770 @@ const totalSteps = 4;
 
 
 /* =========================================================
-   ELEMENTS
+   DEFAULT JOBS
+   Used only if Firestore jobs collection is empty.
 ========================================================= */
 
-const sections = [
-    document.getElementById("section1"),
-    document.getElementById("section2"),
-    document.getElementById("section3"),
-    document.getElementById("section4")
-];
+const DEFAULT_JOBS = [
 
-const backBtn = document.getElementById("backBtn");
-const nextBtn = document.getElementById("nextBtn");
-const submitBtn = document.getElementById("submitBtn");
-const bottomNav = document.getElementById("bottomNav");
+    {
+        id:"social-media-design",
+
+        title:"Social Media & Design Support Staff",
+
+        icon:"🎨",
+
+        color:"#ede9fe",
+
+        salary:"Up to ₹9,000/month",
+
+        type:"Part Time",
+
+        location:"Baripada",
+
+        description:
+            "Create posters, social media content, WhatsApp promotions and digital marketing materials.",
+
+        skillsType:"design",
+
+        active:true
+
+    },
+
+
+    {
+        id:"admin-student-coordinator",
+
+        title:"Admin Assistant / Student Coordinator",
+
+        icon:"🧑‍💼",
+
+        color:"#dbeafe",
+
+        salary:"Performance Based",
+
+        type:"Part Time",
+
+        location:"Baripada",
+
+        description:
+            "Handle student coordination, attendance, records, fee follow-up and basic office work.",
+
+        skillsType:"admin",
+
+        active:true
+
+    },
+
+
+    {
+        id:"receptionist",
+
+        title:"Reception & Front Desk Assistant",
+
+        icon:"📞",
+
+        color:"#dcfce7",
+
+        salary:"Performance Based",
+
+        type:"Part Time",
+
+        location:"Baripada",
+
+        description:
+            "Handle enquiries, calls, visitors, admissions and student communication.",
+
+        skillsType:"reception",
+
+        active:true
+
+    },
+
+
+    {
+        id:"computer-lab-assistant",
+
+        title:"Computer Lab Assistant",
+
+        icon:"💻",
+
+        color:"#fef3c7",
+
+        salary:"Performance Based",
+
+        type:"Part Time",
+
+        location:"Baripada",
+
+        description:
+            "Assist students in computer lab, basic troubleshooting and practical classes.",
+
+        skillsType:"lab",
+
+        active:true
+
+    }
+
+];
 
 
 /* =========================================================
-   SHOW STEP
+   LOAD JOBS
+========================================================= */
+
+async function loadJobs(){
+
+    const container =
+        document.getElementById(
+            "jobsContainer"
+        );
+
+    try{
+
+        const snapshot =
+            await getDocs(
+                collection(db,"jobs")
+            );
+
+
+        jobs = [];
+
+
+        snapshot.forEach(
+            documentSnapshot => {
+
+                const data =
+                    documentSnapshot.data();
+
+                if(data.active !== false){
+
+                    jobs.push({
+
+                        id:documentSnapshot.id,
+
+                        ...data
+
+                    });
+
+                }
+
+            }
+        );
+
+
+        /*
+           If no Firestore jobs exist,
+           use default jobs.
+        */
+
+        if(jobs.length === 0){
+
+            jobs =
+                DEFAULT_JOBS.filter(
+                    job => job.active !== false
+                );
+
+        }
+
+
+        renderJobs();
+
+
+    }catch(error){
+
+        console.error(
+            "Jobs loading failed:",
+            error
+        );
+
+
+        /*
+           Firebase rules/setup problem:
+           Still show default jobs.
+        */
+
+        jobs =
+            DEFAULT_JOBS.filter(
+                job => job.active !== false
+            );
+
+        renderJobs();
+
+    }
+
+}
+
+
+/* =========================================================
+   RENDER JOBS
+========================================================= */
+
+function renderJobs(){
+
+    const container =
+        document.getElementById(
+            "jobsContainer"
+        );
+
+    container.innerHTML = "";
+
+
+    jobs.forEach(job => {
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "job-card";
+
+
+        card.dataset.id =
+            job.id;
+
+
+        card.innerHTML = `
+
+            <div
+                class="job-check">
+                ✓
+            </div>
+
+            <div
+                class="job-icon"
+                style="background:${job.color || '#eeedff'}">
+
+                ${job.icon || "💼"}
+
+            </div>
+
+            <div class="job-title">
+
+                ${escapeHTML(
+                    job.title || "Job Position"
+                )}
+
+            </div>
+
+            <div class="job-description">
+
+                ${escapeHTML(
+                    job.description || ""
+                )}
+
+            </div>
+
+            <div class="job-meta">
+
+                <span class="job-tag">
+
+                    ${escapeHTML(
+                        job.salary || "Salary discussed"
+                    )}
+
+                </span>
+
+                <span class="job-tag">
+
+                    ${escapeHTML(
+                        job.type || "Job"
+                    )}
+
+                </span>
+
+                <span class="job-tag">
+
+                    ${escapeHTML(
+                        job.location || "Baripada"
+                    )}
+
+                </span>
+
+            </div>
+
+        `;
+
+
+        card.addEventListener(
+            "click",
+            () => selectJob(job)
+        );
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+/* =========================================================
+   SELECT JOB
+========================================================= */
+
+function selectJob(job){
+
+    selectedJob = job;
+
+
+    document
+    .querySelectorAll(".job-card")
+    .forEach(card => {
+
+        card.classList.toggle(
+            "selected",
+            card.dataset.id === job.id
+        );
+
+    });
+
+
+    document
+    .getElementById("selectedJob")
+    .style.display = "block";
+
+
+    document
+    .getElementById("selectedJobText")
+    .textContent =
+        `${job.title} • ${job.salary || ""}`;
+
+
+    /*
+       Setup job-specific questions
+    */
+
+    setupDynamicFields(job);
+
+
+    /*
+       Show form
+    */
+
+    document
+    .getElementById("stepsCard")
+    .style.display = "block";
+
+
+    document
+    .getElementById("formCard")
+    .style.display = "block";
+
+
+    document
+    .getElementById("bottomNav")
+    .style.display = "flex";
+
+
+    /*
+       Scroll to form
+    */
+
+    setTimeout(() => {
+
+        document
+        .getElementById("stepsCard")
+        .scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    },100);
+
+}
+
+
+/* =========================================================
+   DYNAMIC JOB QUESTIONS
+========================================================= */
+
+function setupDynamicFields(job){
+
+    const container =
+        document.getElementById(
+            "dynamicFields"
+        );
+
+
+    container.innerHTML = "";
+
+
+    document
+    .getElementById("roleDescription")
+    .textContent =
+        `Tell us about your skills for ${job.title}.`;
+
+
+    const type =
+        job.skillsType || "general";
+
+
+    if(type === "design"){
+
+        container.innerHTML = `
+
+            ${selectField(
+                "designExperience",
+                "Design Experience",
+                [
+                    "Fresher",
+                    "Less than 1 year",
+                    "1–2 years",
+                    "2+ years"
+                ]
+            )}
+
+            ${selectField(
+                "aiKnowledge",
+                "Canva / AI Knowledge",
+                [
+                    "Beginner",
+                    "Intermediate",
+                    "Advanced",
+                    "Expert"
+                ]
+            )}
+
+            ${selectField(
+                "socialExperience",
+                "Social Media Experience",
+                [
+                    "No experience",
+                    "Basic",
+                    "Good",
+                    "Professional"
+                ]
+            )}
+
+            ${selectField(
+                "videoEditing",
+                "Video Editing",
+                [
+                    "No",
+                    "Basic",
+                    "Intermediate",
+                    "Advanced"
+                ]
+            )}
+
+        `;
+
+    }
+
+
+    else if(type === "admin"){
+
+        container.innerHTML = `
+
+            ${selectField(
+                "computerKnowledge",
+                "Computer Knowledge",
+                [
+                    "Basic",
+                    "Good",
+                    "Advanced",
+                    "Expert"
+                ]
+            )}
+
+            ${selectField(
+                "communication",
+                "Communication Skill",
+                [
+                    "Basic",
+                    "Good",
+                    "Very Good",
+                    "Excellent"
+                ]
+            )}
+
+            ${selectField(
+                "studentHandling",
+                "Student Handling",
+                [
+                    "No experience",
+                    "Basic",
+                    "Experienced"
+                ]
+            )}
+
+            ${selectField(
+                "recordManagement",
+                "Attendance / Record Management",
+                [
+                    "No experience",
+                    "Basic",
+                    "Good",
+                    "Advanced"
+                ]
+            )}
+
+            ${selectField(
+                "feeHandling",
+                "Fee / Payment Handling",
+                [
+                    "No experience",
+                    "Basic",
+                    "Experienced"
+                ]
+            )}
+
+        `;
+
+    }
+
+
+    else if(type === "reception"){
+
+        container.innerHTML = `
+
+            ${selectField(
+                "communication",
+                "Communication Skill",
+                [
+                    "Basic",
+                    "Good",
+                    "Very Good",
+                    "Excellent"
+                ]
+            )}
+
+            ${selectField(
+                "phoneHandling",
+                "Phone Call Handling",
+                [
+                    "No experience",
+                    "Basic",
+                    "Good",
+                    "Experienced"
+                ]
+            )}
+
+            ${selectField(
+                "studentEnquiry",
+                "Student Enquiry Handling",
+                [
+                    "No experience",
+                    "Basic",
+                    "Good",
+                    "Experienced"
+                ]
+            )}
+
+        `;
+
+    }
+
+
+    else if(type === "lab"){
+
+        container.innerHTML = `
+
+            ${selectField(
+                "computerKnowledge",
+                "Computer Knowledge",
+                [
+                    "Basic",
+                    "Good",
+                    "Advanced",
+                    "Expert"
+                ]
+            )}
+
+            ${selectField(
+                "troubleshooting",
+                "Basic Troubleshooting",
+                [
+                    "No",
+                    "Basic",
+                    "Good",
+                    "Advanced"
+                ]
+            )}
+
+            ${selectField(
+                "studentSupport",
+                "Student Practical Support",
+                [
+                    "No experience",
+                    "Basic",
+                    "Good",
+                    "Experienced"
+                ]
+            )}
+
+        `;
+
+    }
+
+
+    else{
+
+        container.innerHTML = `
+
+            ${selectField(
+                "computerKnowledge",
+                "Computer Knowledge",
+                [
+                    "Basic",
+                    "Good",
+                    "Advanced",
+                    "Expert"
+                ]
+            )}
+
+            ${selectField(
+                "communication",
+                "Communication Skill",
+                [
+                    "Basic",
+                    "Good",
+                    "Very Good",
+                    "Excellent"
+                ]
+            )}
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   SELECT FIELD HELPER
+========================================================= */
+
+function selectField(
+    id,
+    label,
+    options
+){
+
+    return `
+
+        <div class="form-group">
+
+            <label>
+                ${label}
+            </label>
+
+            <select id="${id}">
+
+                <option value="">
+                    Select
+                </option>
+
+                ${options.map(
+                    option =>
+                    `<option>${escapeHTML(option)}</option>`
+                ).join("")}
+
+            </select>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(value){
+
+    return String(value || "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================================================
+   STEP
 ========================================================= */
 
 function showStep(step){
 
     currentStep = step;
 
-    sections.forEach((section,index)=>{
 
-        section.classList.toggle(
-            "active",
-            index === step - 1
-        );
+    document
+    .querySelectorAll(".form-section")
+    .forEach(
+        section =>
+        section.classList.remove("active")
+    );
 
-    });
+
+    document
+    .getElementById(
+        `section${step}`
+    )
+    .classList.add("active");
 
 
-    for(let i = 1; i <= totalSteps; i++){
+    for(
+        let i = 1;
+        i <= totalSteps;
+        i++
+    ){
 
         const indicator =
             document.getElementById(
-                "stepIndicator" + i
+                `step${i}`
             );
+
 
         indicator.classList.remove(
             "active",
             "done"
         );
 
-        if(i < step){
+
+        if(i < step)
             indicator.classList.add("done");
-        }
 
-        if(i === step){
+
+        if(i === step)
             indicator.classList.add("active");
-        }
 
     }
 
 
-    /* Buttons */
+    const back =
+        document.getElementById("backBtn");
 
-    if(step === 1){
+    const next =
+        document.getElementById("nextBtn");
 
-        backBtn.style.display = "none";
-
-    }else{
-
-        backBtn.style.display = "block";
-
-    }
+    const submit =
+        document.getElementById("submitBtn");
 
 
-    if(step === totalSteps){
-
-        nextBtn.style.display = "none";
-        submitBtn.style.display = "block";
-
-    }else{
-
-        nextBtn.style.display = "block";
-        submitBtn.style.display = "none";
-
-    }
+    back.style.display =
+        step === 1
+        ? "none"
+        : "block";
 
 
-    /* Scroll to top */
+    next.style.display =
+        step === totalSteps
+        ? "none"
+        : "block";
+
+
+    submit.style.display =
+        step === totalSteps
+        ? "block"
+        : "none";
+
 
     window.scrollTo({
         top:0,
@@ -1977,47 +2828,57 @@ function showStep(step){
 
 
 /* =========================================================
-   VALIDATE STEP
+   VALIDATE
 ========================================================= */
 
 function validateStep(step){
 
-    const section = sections[step - 1];
+    if(!selectedJob){
 
-    const inputs =
-        section.querySelectorAll(
-            "input, select, textarea"
+        alert(
+            "Please select a job first."
+        );
+
+        return false;
+
+    }
+
+
+    const section =
+        document.getElementById(
+            `section${step}`
         );
 
 
-    for(const input of inputs){
+    const required =
+        section.querySelectorAll(
+            "[required]"
+        );
 
-        if(
-            input.type === "radio" ||
-            input.type === "checkbox"
-        ){
-            continue;
-        }
 
-        if(!input.checkValidity()){
+    for(const field of required){
 
-            input.reportValidity();
+        if(!field.checkValidity()){
 
-            input.focus();
+            field.reportValidity();
+
+            field.focus();
 
             return false;
+
         }
 
     }
 
 
-    /* Mobile validation */
-
     if(step === 1){
 
         const mobile =
-            document.getElementById("mobile").value
+            document
+            .getElementById("mobile")
+            .value
             .replace(/\D/g,"");
+
 
         if(mobile.length !== 10){
 
@@ -2025,49 +2886,57 @@ function validateStep(step){
                 "Please enter a valid 10 digit mobile number."
             );
 
-            document.getElementById("mobile").focus();
-
             return false;
+
         }
 
     }
 
 
-    /* Required photo / CV */
-
     if(step === 4){
 
-        const photo =
-            document.getElementById("photo");
+        if(
+            !document
+            .getElementById("photo")
+            .files.length
+        ){
 
-        const cv =
-            document.getElementById("cv");
-
-        if(!photo.files.length){
-
-            alert("Please upload your profile photo.");
-
-            return false;
-        }
-
-        if(!cv.files.length){
-
-            alert("Please upload your CV / Resume.");
+            alert(
+                "Please upload your profile photo."
+            );
 
             return false;
+
         }
 
 
-        const declaration =
-            document.getElementById("declaration");
+        if(
+            !document
+            .getElementById("cv")
+            .files.length
+        ){
 
-        if(!declaration.checked){
+            alert(
+                "Please upload your CV."
+            );
+
+            return false;
+
+        }
+
+
+        if(
+            !document
+            .getElementById("declaration")
+            .checked
+        ){
 
             alert(
                 "Please accept the declaration."
             );
 
             return false;
+
         }
 
     }
@@ -2082,54 +2951,61 @@ function validateStep(step){
    NEXT
 ========================================================= */
 
-function nextStep(){
+window.nextStep = function(){
 
-    if(!validateStep(currentStep)){
+    if(!validateStep(currentStep))
         return;
-    }
+
 
     if(currentStep < totalSteps){
 
-        showStep(currentStep + 1);
+        showStep(
+            currentStep + 1
+        );
 
     }
 
-}
+};
 
 
 /* =========================================================
-   PREVIOUS
+   BACK
 ========================================================= */
 
-function previousStep(){
+window.previousStep = function(){
 
     if(currentStep > 1){
 
-        showStep(currentStep - 1);
+        showStep(
+            currentStep - 1
+        );
 
     }
 
-}
+};
 
 
 /* =========================================================
-   MOBILE NUMBER
+   MOBILE
 ========================================================= */
 
 document
 .getElementById("mobile")
-.addEventListener("input", function(){
+.addEventListener(
+    "input",
+    function(){
 
-    this.value =
-        this.value
-        .replace(/\D/g,"")
-        .slice(0,10);
+        this.value =
+            this.value
+            .replace(/\D/g,"")
+            .slice(0,10);
 
-});
+    }
+);
 
 
 /* =========================================================
-   FILE VALIDATION
+   FILE SETUP
 ========================================================= */
 
 function setupFile(
@@ -2150,28 +3026,27 @@ function setupFile(
         "change",
         function(){
 
-            if(!this.files.length){
+            if(!this.files.length)
                 return;
-            }
+
 
             const file =
                 this.files[0];
 
-            const maxBytes =
-                maxMB * 1024 * 1024;
 
-
-            if(file.size > maxBytes){
+            if(
+                file.size >
+                maxMB * 1024 * 1024
+            ){
 
                 alert(
-                    `${file.name} is larger than ${maxMB} MB.`
+                    `Maximum file size is ${maxMB} MB.`
                 );
 
                 this.value = "";
 
-                name.style.display = "none";
-
                 return;
+
             }
 
 
@@ -2181,8 +3056,6 @@ function setupFile(
             name.style.display =
                 "block";
 
-
-            /* PHOTO PREVIEW */
 
             if(
                 previewId &&
@@ -2194,18 +3067,22 @@ function setupFile(
                         previewId
                     );
 
+
                 const reader =
                     new FileReader();
 
-                reader.onload = function(e){
 
-                    preview.src =
-                        e.target.result;
+                reader.onload =
+                    e => {
 
-                    preview.style.display =
-                        "block";
+                        preview.src =
+                            e.target.result;
 
-                };
+                        preview.style.display =
+                            "block";
+
+                    };
+
 
                 reader.readAsDataURL(file);
 
@@ -2244,60 +3121,415 @@ setupFile(
 
 
 /* =========================================================
-   SUBMIT
+   UPLOAD FILE
 ========================================================= */
 
-async function submitApplication(){
+async function uploadFile(
+    file,
+    applicationId,
+    type
+){
 
-    if(!validateStep(4)){
+    if(!file)
+        return "";
+
+
+    const safeName =
+        file.name
+        .replace(
+            /[^a-zA-Z0-9._-]/g,
+            "_"
+        );
+
+
+    const path =
+        `jobApplications/${applicationId}/${type}_${Date.now()}_${safeName}`;
+
+
+    const storageRef =
+        ref(
+            storage,
+            path
+        );
+
+
+    const snapshot =
+        await uploadBytes(
+            storageRef,
+            file,
+            {
+                contentType:
+                    file.type
+            }
+        );
+
+
+    return await getDownloadURL(
+        snapshot.ref
+    );
+
+}
+
+
+/* =========================================================
+   COLLECT DYNAMIC FIELDS
+========================================================= */
+
+function getDynamicAnswers(){
+
+    const answers = {};
+
+    const container =
+        document.getElementById(
+            "dynamicFields"
+        );
+
+
+    container
+    .querySelectorAll(
+        "select,input,textarea"
+    )
+    .forEach(field => {
+
+        if(field.id){
+
+            answers[field.id] =
+                field.value;
+
+        }
+
+    });
+
+
+    return answers;
+
+}
+
+
+/* =========================================================
+   SUBMIT APPLICATION
+========================================================= */
+
+window.submitApplication = async function(){
+
+    if(!validateStep(4))
         return;
-    }
 
+
+    const submit =
+        document.getElementById(
+            "submitBtn"
+        );
 
     const submitText =
-        document.getElementById("submitText");
+        document.getElementById(
+            "submitText"
+        );
 
     const loading =
-        document.getElementById("loading");
+        document.getElementById(
+            "loading"
+        );
 
 
-    submitBtn.disabled = true;
+    submit.disabled = true;
 
-    submitText.style.display = "none";
+    submitText.style.display =
+        "none";
 
-    loading.style.display = "flex";
+    loading.style.display =
+        "flex";
 
-
-    /*
-       CURRENTLY DEMO SUBMISSION
-
-       Firebase connection can be added here.
-    */
 
     try{
 
-        await new Promise(
-            resolve =>
-            setTimeout(resolve,1200)
+        /*
+           Create Application ID
+        */
+
+        const applicationRef =
+            doc(
+                collection(
+                    db,
+                    "jobApplications"
+                )
+            );
+
+
+        const applicationId =
+            applicationRef.id;
+
+
+        /*
+           Files
+        */
+
+        const photoFile =
+            document
+            .getElementById("photo")
+            .files[0];
+
+
+        const cvFile =
+            document
+            .getElementById("cv")
+            .files[0];
+
+
+        const portfolioFile =
+            document
+            .getElementById("portfolio")
+            .files[0];
+
+
+        const studentDocumentFile =
+            document
+            .getElementById("studentDocument")
+            .files[0];
+
+
+        /*
+           Upload
+        */
+
+        const photoUrl =
+            await uploadFile(
+                photoFile,
+                applicationId,
+                "photo"
+            );
+
+
+        const cvUrl =
+            await uploadFile(
+                cvFile,
+                applicationId,
+                "cv"
+            );
+
+
+        const portfolioUrl =
+            await uploadFile(
+                portfolioFile,
+                applicationId,
+                "portfolio"
+            );
+
+
+        const studentDocumentUrl =
+            await uploadFile(
+                studentDocumentFile,
+                applicationId,
+                "studentDocument"
+            );
+
+
+        /*
+           Gender
+        */
+
+        const genderElement =
+            document.querySelector(
+                'input[name="gender"]:checked'
+            );
+
+
+        const gender =
+            genderElement
+            ? genderElement.value
+            : "";
+
+
+        /*
+           Application Data
+        */
+
+        const applicationData = {
+
+            applicationId,
+
+            jobId:
+                selectedJob.id,
+
+            jobTitle:
+                selectedJob.title || "",
+
+            jobSalary:
+                selectedJob.salary || "",
+
+            jobType:
+                selectedJob.type || "",
+
+            jobLocation:
+                selectedJob.location || "",
+
+
+            name:
+                document
+                .getElementById("fullName")
+                .value
+                .trim(),
+
+
+            mobile:
+                document
+                .getElementById("mobile")
+                .value
+                .trim(),
+
+
+            email:
+                document
+                .getElementById("email")
+                .value
+                .trim(),
+
+
+            dob:
+                document
+                .getElementById("dob")
+                .value,
+
+
+            gender,
+
+
+            studentId:
+                document
+                .getElementById("studentId")
+                .value
+                .trim(),
+
+
+            address:
+                document
+                .getElementById("address")
+                .value
+                .trim(),
+
+
+            course:
+                document
+                .getElementById("course")
+                .value,
+
+
+            courseStatus:
+                document
+                .getElementById("courseStatus")
+                .value,
+
+
+            batch:
+                document
+                .getElementById("batch")
+                .value
+                .trim(),
+
+
+            qualification:
+                document
+                .getElementById("qualification")
+                .value,
+
+
+            dynamicAnswers:
+                getDynamicAnswers(),
+
+
+            skills:
+                document
+                .getElementById("skills")
+                .value
+                .trim(),
+
+
+            previousExperience:
+                document
+                .getElementById("previousExperience")
+                .value
+                .trim(),
+
+
+            reason:
+                document
+                .getElementById("reason")
+                .value
+                .trim(),
+
+
+            photoUrl,
+
+            cvUrl,
+
+            portfolioUrl,
+
+            studentDocumentUrl,
+
+
+            status:"New",
+
+
+            source:"student",
+
+
+            createdAt:
+                Date.now(),
+
+
+            updatedAt:
+                Date.now()
+
+        };
+
+
+        /*
+           Save Firestore
+        */
+
+        await setDoc(
+            applicationRef,
+            applicationData
+        );
+
+
+        /*
+           Success
+        */
+
+        document
+        .getElementById("applicationId")
+        .textContent =
+            applicationId;
+
+
+        document
+        .querySelectorAll(
+            ".form-section"
+        )
+        .forEach(
+            section =>
+            section.classList.remove("active")
         );
 
 
         document
-        .querySelector(".form-card")
-        .querySelector("#jobForm")
+        .getElementById("success")
+        .classList.add("active");
+
+
+        document
+        .getElementById("bottomNav")
         .style.display = "none";
 
 
         document
-        .getElementById("success")
-        .style.display = "block";
-
-
-        bottomNav.style.display = "none";
+        .getElementById("stepsCard")
+        .style.display = "none";
 
 
         document
-        .querySelector(".steps-card")
+        .getElementById("jobSelection")
         .style.display = "none";
 
 
@@ -2309,28 +3541,36 @@ async function submitApplication(){
 
     }catch(error){
 
-        console.error(error);
-
-        alert(
-            "Something went wrong. Please try again."
+        console.error(
+            "Application submission failed:",
+            error
         );
 
-        submitBtn.disabled = false;
 
-        submitText.style.display = "inline";
+        alert(
+            "Application submit नहीं हुआ.\n\n" +
+            error.message
+        );
 
-        loading.style.display = "none";
+
+        submit.disabled = false;
+
+        submitText.style.display =
+            "inline";
+
+        loading.style.display =
+            "none";
 
     }
 
-}
+};
 
 
 /* =========================================================
-   INITIAL
+   START
 ========================================================= */
 
-showStep(1);
+loadJobs();
 
 </script>
 
